@@ -36,6 +36,7 @@ export const Input = styled('input', {
   outline: 'none',
   width: '100%',
   border: 0,
+  '-webkit-appearance': 'none',
   transition: 'all 150ms ease-in-out',
   $$borderColor: '$colors$contentSecondary',
   $$borderColorHover: '$colors$primary',

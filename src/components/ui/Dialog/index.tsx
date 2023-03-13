@@ -33,7 +33,7 @@ const Content = styled(RadixContent, {
   right: 0,
   maxHeight: '$xs',
   width: '$full',
-  minHeight: '310px',
+  minHeight: '$xs',
   background: '$surface',
   zIndex: '200',
   p: '$6',
