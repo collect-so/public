@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "src/config"
+  ],
+  "globals": {
+    "React": true,
+    "JSX": true,
+    "globalThis": true
+  },
+  "ignorePatterns": [
+    "global.d.ts",
+    "**/*.test.*"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "react-hooks/exhaustive-deps": "warn",
+    "@typescript-eslint/adjacent-overload-signatures": "error",
+    "react/jsx-props-no-spreading": "off"
+  }
+}

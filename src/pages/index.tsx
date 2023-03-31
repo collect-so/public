@@ -1,13 +1,13 @@
-import Head from 'next/head'
-import { Hero } from '~/components/Hero'
-import { Layout } from '~/components/Layout'
+import Head from "next/head";
+import { HeroSection } from "~/Sections/Hero";
+import { Layout } from "~/components/Layout";
 
 const getAbsoluteURL = (path: string) => {
-  if (typeof window === 'undefined') {
-    return path
+  if (typeof window === "undefined") {
+    return path;
   }
-  return `${window.location.origin}${path}`
-}
+  return `${window.location.origin}${path}`;
+};
 
 export default function Home() {
   return (
@@ -34,12 +34,12 @@ export default function Home() {
         <meta
           property="og:image"
           key="image"
-          content={getAbsoluteURL('/images/og.png')}
+          content={getAbsoluteURL("/images/og.png")}
         />
       </Head>
       <Layout>
-        <Hero />
+        <HeroSection />
       </Layout>
     </>
-  )
+  );
 }
