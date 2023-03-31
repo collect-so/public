@@ -3,6 +3,7 @@ import { HeroSection } from "~/Sections/Hero";
 import { Layout } from "~/components/Layout";
 import { DevsSection } from "~/Sections/Devs";
 import { SwipesSection } from "~/Sections/Swipes";
+import { BenefitsSection } from "~/Sections/Benefits";
 
 const getAbsoluteURL = (path: string) => {
   if (typeof window === "undefined") {
@@ -42,6 +43,7 @@ export default function Home() {
       <Layout>
         <HeroSection />
         <SwipesSection />
+        <BenefitsSection />
         <DevsSection />
       </Layout>
     </>
