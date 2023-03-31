@@ -9,15 +9,15 @@ function BenefitCard({ benefit }: { benefit: TBenefit }) {
       <Image
         width={200}
         height={200}
-        src={benefit.imageSrc}
+        src={benefit.image}
         alt=""
         className="w-[200px] h-[200px] mb-10"
       />
       <figcaption>
-        <h4 className="text-2xl text-content-primary-light font-bold mb-2 leading-snug">
+        <h4 className="text-2xl sm:text-base text-content-primary-light font-bold mb-2 leading-snug">
           {benefit.title}
         </h4>
-        <p className="text-base text-content-secondary-light font-medium">
+        <p className="text-base sm:text-sm text-content-secondary-light font-medium">
           {benefit.subtitle}
         </p>
       </figcaption>
@@ -28,7 +28,7 @@ function BenefitCard({ benefit }: { benefit: TBenefit }) {
 export function BenefitsSection() {
   return (
     <Section className="pb-[20vh] container">
-      <h2 className="text-3xl font-bold text-content-primary-light md:text-2xl text-center mb-[20vh]">
+      <h2 className="text-3xl sm:text-xl font-bold text-content-primary-light md:text-2xl text-center py-[20vh] mb-[20vh]">
         Build backend <strong className="text-accent-brand">in days</strong> not
         in months
       </h2>
