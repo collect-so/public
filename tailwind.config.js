@@ -31,6 +31,7 @@ module.exports = {
       xl: "24px",
       "2xl": "36px",
       "3xl": "48px",
+      "4xl": "64px",
     },
     colors: {
       transparent: "transparent",
@@ -42,6 +43,9 @@ module.exports = {
 
       "background-light": "#FFFEF9",
       "background-dark": "#263238",
+
+      "stroke-light": "#00000014",
+      "stroke-dark": "#DFDFDF0F",
 
       "accent-brand": "#3f81ff",
       "accent-yellow": "#F4B000",

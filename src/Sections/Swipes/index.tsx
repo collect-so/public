@@ -9,7 +9,7 @@ import { cards } from "./data";
 
 const variants = {
   primary:
-    "bg-base-white border border-b-2 border-[#00000014] text-primary-contrast",
+    "bg-base-white border-stroke-light border border-b-2 text-primary-contrast",
 };
 
 function StackableCard({
@@ -17,14 +17,14 @@ function StackableCard({
   variant = "primary",
   title,
   subtitle,
-  image,
+  imageSrc,
   ...props
 }: {
   idx: number;
   variant: keyof typeof variants;
   title: ReactNode;
   subtitle: ReactNode;
-  image: StaticImageData;
+  imageSrc: StaticImageData;
 }) {
   const { scrollY } = useScroll();
   const [elementTop, setElementTop] = useState(0);
@@ -78,7 +78,7 @@ function StackableCard({
           <Image
             className="flex-shrink-0 sm:flex-shrink h-[250px] sm:h-[200px] w-[250px] sm:w-[200px]"
             alt=""
-            src={image}
+            src={imageSrc}
             width={250}
             height={250}
             quality={100}

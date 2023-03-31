@@ -4,6 +4,7 @@ import { Layout } from "~/components/Layout";
 import { DevsSection } from "~/Sections/Devs";
 import { SwipesSection } from "~/Sections/Swipes";
 import { BenefitsSection } from "~/Sections/Benefits";
+import { PricingSection } from "~/Sections/Pricing";
 
 const getAbsoluteURL = (path: string) => {
   if (typeof window === "undefined") {
@@ -45,6 +46,7 @@ export default function Home() {
         <SwipesSection />
         <BenefitsSection />
         <DevsSection />
+        <PricingSection />
       </Layout>
     </>
   );
