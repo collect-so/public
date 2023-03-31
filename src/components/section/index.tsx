@@ -13,7 +13,14 @@ export const Section: FC<PropsWithChildren<SectionProps>> = ({
   ...props
 }) => {
   return (
-    <section className={cx("section", className)} {...props}>
+    <section
+      className={cx(
+        "section",
+        { "bg-background-dark": props["data-theme"] === "dark" },
+        className,
+      )}
+      {...props}
+    >
       {children}
     </section>
   );

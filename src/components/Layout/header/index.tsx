@@ -72,7 +72,6 @@ export const Header = () => {
 
   const intersectDarkContainers = useIntersectionByQuery("[data-theme=dark]");
   const [scrollStarted, setScrollStarted] = useState(false);
-
   const resetNav = () => {
     close();
     closeMenuItem();

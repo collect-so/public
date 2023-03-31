@@ -19,7 +19,7 @@ export const Navbar: FunctionComponent<PropsWithChildren> = ({ children }) => {
           "backdrop-blur": scrollStarted,
           // "bg-base-light-black/90": !isOpen && darkMode,
           // "bg-base-white/60": !isOpen && lightMode,
-          // "shadow-[0px_0px_15px_rgba(0,0,0,0.1)]": !isOpen && lightMode,
+          "shadow-[0px_0px_15px_rgba(0,0,0,0.1)]": !isOpen && lightMode,
           "text-content-primary-light": lightMode && !isOpen,
           "text-content-primary-dark": isOpen || darkMode,
           "bg-background-dark": isOpen,
@@ -27,7 +27,7 @@ export const Navbar: FunctionComponent<PropsWithChildren> = ({ children }) => {
         "flex flex-row justify-between items-center fixed z-30 w-full top-0 ",
       )}
     >
-      <Container className="flex flex-row justify-between items-center h-[70px] md:h-[60px]">
+      <Container className="flex flex-row justify-between items-center h-[100px] md:h-[60px]">
         {children}
       </Container>
     </nav>

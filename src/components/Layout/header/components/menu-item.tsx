@@ -53,13 +53,10 @@ export const MenuItem = ({ item }: { item: IMenuItem }) => {
       <a href={item.url}>
         <div
           onMouseEnter={handleMouseEnter}
-          className={cx(
-            "flex items-center md:justify-between hover:text-base-gray active:text-base-dark-gray md:w-full",
-            {
-              "text-base-gray": isCurrentMenuItemOpen,
-              "fill-base-gray": isCurrentMenuItemOpen,
-            },
-          )}
+          className={cx("text-center w-full ", {
+            "text-base-gray": isCurrentMenuItemOpen,
+            "fill-base-gray": isCurrentMenuItemOpen,
+          })}
         >
           <NavText className="md:py-[25px]">{item.name}</NavText>
           {item.children?.length ? (

@@ -11,9 +11,11 @@ export const NavText: FunctionComponent<
     <p
       className={cx(
         className,
-        "typography-menu-primary w-max transition hover:text-base-gray active:text-base-dark-gray",
+        "font-bold",
+        "w-max transition",
+        "md:text-base",
         {
-          "typography-menu-secondary": child,
+          "text-content-primary-light": child,
         },
       )}
     >
