@@ -3,6 +3,7 @@ import rocket from "~/images/rocket.png";
 import lightning from "~/images/lightning.png";
 import Image from "next/image";
 import classNames from "classnames";
+
 export function HeroSection() {
   return (
     <Section
@@ -13,16 +14,18 @@ export function HeroSection() {
         src={lightning}
         alt={"lightning"}
         className={classNames(
-          "sm:hidden absolute left-0 top-[200px] z-0",
-          "md:right-[-60px]",
+          "absolute left-0 top-[200px] z-0",
+          "md:top-[100px] left-0",
+          "sm:top-[80vh] sm:left-[20vw]",
         )}
       />
       <Image
         src={rocket}
         alt={"rocket"}
         className={classNames(
-          "sm:hidden absolute right-0 bottom-0 z-0",
-          "md:right-[-60px]",
+          "absolute right-0 bottom-0 z-0",
+          "md:right-[0px] md:bottom-[-100px]",
+          "sm:right-[30vw] sm:top-[20px]",
         )}
       />
       <div className="container">

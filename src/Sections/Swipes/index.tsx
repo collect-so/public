@@ -4,7 +4,7 @@ import { useState, useCallback, useRef, ReactNode } from "react";
 import { motion, useTransform, useScroll } from "framer-motion";
 import clsx from "classnames";
 import { useIsomorphicLayoutEffect, useWindowSize } from "react-use";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { cards } from "./data";
 
 const variants = {
@@ -17,14 +17,14 @@ function StackableCard({
   variant = "primary",
   title,
   subtitle,
-  imageSrc,
+  image,
   ...props
 }: {
   idx: number;
   variant: keyof typeof variants;
   title: ReactNode;
   subtitle: ReactNode;
-  imageSrc: string;
+  image: StaticImageData;
 }) {
   const { scrollY } = useScroll();
   const [elementTop, setElementTop] = useState(0);
@@ -78,7 +78,7 @@ function StackableCard({
           <Image
             className="flex-shrink-0 sm:flex-shrink h-[250px] sm:h-[200px] w-[250px] sm:w-[200px]"
             alt=""
-            src={imageSrc}
+            src={image}
             width={250}
             height={250}
             quality={100}
