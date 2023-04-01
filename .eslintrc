@@ -17,6 +17,7 @@
   "rules": {
     "react-hooks/exhaustive-deps": "warn",
     "@typescript-eslint/adjacent-overload-signatures": "error",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "react/no-unescaped-entities": "off"
   }
 }
