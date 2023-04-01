@@ -7,7 +7,7 @@ import classNames from "classnames";
 export function HeroSection() {
   return (
     <Section
-      className="min-h-screen mt-[70px] md:mt-[60px] grid place-content-center"
+      className="min-h-screen mt-[100px] md:mt-[60px] grid place-content-center"
       data-theme="light"
     >
       <Image

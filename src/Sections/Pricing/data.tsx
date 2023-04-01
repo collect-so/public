@@ -206,7 +206,7 @@ export const plans: TTSubscritionPlan[] = [
       { title: "SSO" },
       {
         type: "coming",
-        title: "Granular Access Control",
+        title: "Granular access control",
       },
       {
         type: "coming",
@@ -214,7 +214,11 @@ export const plans: TTSubscritionPlan[] = [
       },
       {
         type: "coming",
-        title: "Media optimizations",
+        title: "Cloud functions",
+      },
+      {
+        type: "coming",
+        title: "Media files optimizations",
       },
     ],
   },

@@ -99,7 +99,10 @@ function PricingCard({ plan }: { plan: TTSubscritionPlan }) {
         "text-content-secondary-light bg-base-white border-stroke-light border border-b-2":
           variant === "light",
         "text-content-primary-dark bg-background-dark": variant === "dark",
+        "mt-8": variant === "light",
+        "pt-8": variant === "dark",
       })}
+      data-theme={variant}
     >
       <PriceBlock plan={plan} />
       <div

@@ -11,6 +11,7 @@ import { Button } from "@common/button";
 import cx from "classnames";
 import { useMediaMatcher } from "@common/hooks/useMediaMatcher";
 import { Logo } from "@common/Layout/header/components/logo";
+import Link from "next/link";
 
 export const NavigationContext = createContext({
   intersectDarkContainers: true,
@@ -103,7 +104,9 @@ export const Header = () => {
       }}
     >
       <Navbar>
-        <Logo />
+        <Link href="/">
+          <Logo />
+        </Link>
         <motion.div
           initial="collapsed"
           animate={isOpen ? "open" : "collapsed"}

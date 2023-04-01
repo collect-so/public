@@ -11,7 +11,7 @@ function BenefitCard({ benefit }: { benefit: TBenefit }) {
         height={200}
         src={benefit.image}
         alt=""
-        className="w-[200px] h-[200px] mb-10"
+        className="w-[200px] h-[200px] mb-10 m-auto"
       />
       <figcaption>
         <h4 className="text-2xl sm:text-base text-content-primary-light font-bold mb-2 leading-snug">

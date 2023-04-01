@@ -1,14 +1,29 @@
 import { Section } from "@common/section";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { materialOceanic } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import Image from "next/image";
 import { data, TData } from "~/Sections/Devs/data";
 import code from "~/images/code.png";
 import { CollectChatgptIntegrations } from "~/Sections/Devs/collect-chatgpt-integrations";
 import { ChatgptInput } from "~/Sections/Devs/chatgpt-input";
-const DevsFeatureBlock = ({ text, title, code, image }: TData) => {
+import { CodeBlock } from "@common/codeblock";
+import classNames from "classnames";
+import { ArrowLeft, ArrowRight, CornerDownLeft } from "react-feather";
+import Link from "next/link";
+
+const DevsFeatureBlock = ({
+  text,
+  title,
+  code,
+  image,
+  index,
+  link,
+}: TData & { index: number }) => {
   return (
-    <div className="grid grid-cols-3 gap-16content-center items-center max-w-4xl">
+    <div
+      className={classNames(
+        "grid grid-cols-3 gap-16content-center items-center max-w-4xl",
+        { "grid-flow-row-dense": index % 2 },
+      )}
+    >
       <div className="hidden md:block w-[200px]">
         <Image src={image} alt={title} />
       </div>
@@ -20,9 +35,15 @@ const DevsFeatureBlock = ({ text, title, code, image }: TData) => {
           {text}
         </h4>
 
-        <SyntaxHighlighter language="javascript" style={materialOceanic}>
-          {code}
-        </SyntaxHighlighter>
+        <CodeBlock code={code} />
+        {link ? (
+          <Link href={link}>
+            <p className="text-base sm:text-sm text-accent-blue font-medium flex items-center gap-2 pt-8">
+              Learn more
+              <ArrowRight />
+            </p>
+          </Link>
+        ) : null}
       </div>
       <div className="justify-self-end md:hidden">
         <Image src={image} alt={title} />
@@ -30,80 +51,6 @@ const DevsFeatureBlock = ({ text, title, code, image }: TData) => {
     </div>
   );
 };
-
-const UserRepositoryCode = `
-// AI Generated
-const UserRepository = CollectSDK.register('User', [
-  {
-    name: "Name",
-    type: "string",
-    required: true
-  },
-  {
-    name: "Age",
-    type: "number"
-  },
-  {
-    name: "Gender",
-    type: "string",
-    required: true
-  },
-  {
-    name: "Bio",
-    type: "string"
-  },
-  {
-    name: "Location",
-    type: "geo",
-    required: true
-  },
-  {
-    name: "Picture",
-    type: "file"
-    max: "5mb",
-    extensions: ["jpg", "png", "jpeg", "webp"]
-  }
-])
-`;
-
-const SwipeRepositoryCode = `
-// AI Generated
-const SwipeRepository = CollectSDK.register('Swipe', [
-  {
-    name: "UserID",
-    type: "string"
-  },
-  {
-    name: "DateSwiped",
-    type: "date-time"
-  },
-  {
-    name: "SwipeDirection",
-    type: "string" // "right" or "left"
-  }
-])
-`;
-
-const ResultUsageCode = `
-// Just push it to the storage ✨
-const user = await UserRepository.save({
-  Name: "Liza Klasvitzh",
-  Gender: "female",
-  Location: "50.0508,14.3534"
-})
-
-const swipe = await SwipeRepository.save({
-  UserID: "2138918", 
-  SwipeDirection: "right",
-  DateSwiped: "2023-03-31T08:51:40Z"
-})
-
-await CollectSDK.link(
-  user,
-  swipe, 
-  { metadata: "some additional info" }
-)
-`;
 
 export function DevsSection() {
   return (
@@ -125,10 +72,12 @@ export function DevsSection() {
           </h4>
         </div>
         <div className="grid place-content-center gap-[160px]">
-          {data.map(DevsFeatureBlock)}
+          {data.map((data, index) => (
+            <DevsFeatureBlock {...data} index={index} key={index} />
+          ))}
         </div>
 
-        <h2 className="text-3xl sm:text-xl font-bold text-content-primary-dark md:text-2xl text-center py-[20vh]">
+        <h2 className="text-3xl sm:text-xl font-bold text-content-primary-dark md:text-2xl text-center py-[5vh]">
           ...And last but not least
         </h2>
 
@@ -140,27 +89,21 @@ export function DevsSection() {
           <p className="text-base sm:text-sm font-medium text-content-secondary-dark mb-8">
             Bypass the boring part. Just type your application idea:
           </p>
-          <ChatgptInput />
-          <p className="text-base sm:text-sm font-medium text-content-secondary-dark mb-8 mt-8">
-            And Collect API with ChatGPT utilize all the work
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-1">
-            <SyntaxHighlighter language="javascript" style={materialOceanic}>
-              {UserRepositoryCode}
-            </SyntaxHighlighter>
-            <SyntaxHighlighter language="javascript" style={materialOceanic}>
-              {SwipeRepositoryCode}
-            </SyntaxHighlighter>
+          <div className="rounded-md bg-[#35454e] flex items-center w-[50%] md:w-full justify-between p-4">
+            <p className="text-base sm:text-sm font-medium text-content-secondary-dark ">
+              Make a dating app
+            </p>
+            <CornerDownLeft color="#3f81ff" />
           </div>
-          <p className="text-base sm:text-sm font-medium text-content-secondary-dark">
-            Then you just use the result to create your app
+          <p className="text-base sm:text-sm font-medium text-content-secondary-dark mb-8 mt-8">
+            And Collect API with ChatGPT utilize all the work.
           </p>
-          <SyntaxHighlighter language="javascript" style={materialOceanic}>
-            {ResultUsageCode}
-          </SyntaxHighlighter>
-          <p className="text-base sm:text-sm font-medium text-content-secondary-dark">
-            Simple as that :)
-          </p>
+          <Link href="/features/collect-and-chatgpt">
+            <p className="text-base sm:text-sm text-accent-blue font-medium flex items-center gap-2 pt-8">
+              Explore an example
+              <ArrowRight />
+            </p>
+          </Link>
         </div>
       </div>
     </Section>

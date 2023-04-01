@@ -10,6 +10,7 @@ export type TData = {
   text: string;
   image: StaticImageData;
   code: string;
+  link?: string;
 };
 
 const MagicFieldsCode = `
@@ -86,35 +87,65 @@ const item = await CollectSDK.save({
 })
 `;
 
+const AutoEndpoints = `
+// Job you do
+const record = await CollectSDK.save('user', { 
+    name: "John Galt", 
+    email: "john.galt@example.com",
+    password: "p@ssword"
+})
+
+// What you get
+// 1. Endpoint to work with: 
+const userEndpoint = "/api/v1/records/user"
+
+// 2. Recognition of record type "user":
+const user = await CollectSDK.get('user', { 
+    email: "john.galt@example.com"
+})
+`;
+
 export const data: TData[] = [
   {
     title: "Magic Fields",
     text: "Magic Fields automatically interconnect data entities with common properties like color or size. This facilitates efficient searching and filtering of data across your store, even if the entities are diverse in nature.",
     image: magicfileds,
     code: MagicFieldsCode,
+    link: "/features/magic-fields",
   },
   {
-    title: "No migrations, ever",
+    title: "No Migrations, Ever",
     text: "Modify your data models in real-time. Effortlessly add, modify, or delete fields without lengthy deployments, and free up senior developers for more critical tasks.",
     image: nomigrations,
     code: NoMigrationsCode,
+    link: "/features/no-migrations",
   },
   {
-    title: "No predefined schema needed",
+    title: "No Predefined Schema Needed",
     text: "Collect adapts to your needs, from simple structures to more complex requirements. Seamlessly add complexity to your data models with ease, achieving your goals quickly and efficiently.",
     image: noschema,
     code: NoSchemaCode,
+    link: "/features/no-predefined-schema",
   },
   {
-    title: "Query-free database experience",
+    title: "Query-Free Database Experience",
     text: "Focus on the data you need, not on how to get it. Collect platform offers handy querying experience and helps retrieve data with ease not worrying about queries complexity any more.",
     image: queryfree,
     code: QueryFreeCode,
+    link: "/features/query-free",
   },
   {
-    title: "Data nesting",
+    title: "Data Nesting",
     text: "By using the Collect storage engine, you can work with your data effortlessly and intuitively, without having to worry about relational entropy. This will give you peace of mind and allow your apps to operate seamlessly.",
     image: datanesting,
     code: DataNestingCode,
+    link: "/features/data-nesting",
+  },
+  {
+    title: "Instant Endpoints",
+    text: "With Collect, you can create dynamic APIs without writing a single line of code. This enables you to quickly build applications and services that are tailored to your unique needs, without spending hours on manual coding.",
+    image: datanesting,
+    code: AutoEndpoints,
+    link: "/features/dynamically-generated-endpoints",
   },
 ];
