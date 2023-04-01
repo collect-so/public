@@ -1,16 +1,16 @@
 import { createContext, useEffect, useState } from "react";
 
-import { Navbar } from "@common/Layout/header/components/navbar";
-import { useIntersectionByQuery } from "@common/hooks/useIntersectionByQuery";
-import { useResizeEffect } from "@common/hooks/useResizeEffect";
-import { menuData } from "@common/Layout/header/data";
+import { Navbar } from "~/components/Layout/header/components/navbar";
+import { useIntersectionByQuery } from "~/components/hooks/useIntersectionByQuery";
+import { useResizeEffect } from "~/components/hooks/useResizeEffect";
+import { menuData } from "~/components/Layout/header/data";
 import { motion } from "framer-motion";
-import { MenuToggle } from "@common/Layout/header/components/menu-toggle";
-import { MenuItem } from "@common/Layout/header/components/menu-item";
-import { Button } from "@common/button";
+import { MenuToggle } from "~/components/Layout/header/components/menu-toggle";
+import { MenuItem } from "~/components/Layout/header/components/menu-item";
+import { Button } from "~/components/button";
 import cx from "classnames";
-import { useMediaMatcher } from "@common/hooks/useMediaMatcher";
-import { Logo } from "@common/Layout/header/components/logo";
+import { useMediaMatcher } from "~/components/hooks/useMediaMatcher";
+import { Logo } from "~/components/Layout/header/components/logo";
 import Link from "next/link";
 
 export const NavigationContext = createContext({

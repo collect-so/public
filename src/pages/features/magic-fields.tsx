@@ -1,11 +1,12 @@
 import Head from "next/head";
 import { Layout } from "~/components/Layout";
-import { CodeBlock } from "@common/codeblock";
-import { Section } from "@common/section";
+import { CodeBlock } from "~/components/codeblock";
+import { Section } from "~/components/section";
 import Link from "next/link";
 import { ArrowLeft } from "react-feather";
-import { getAbsoluteURL } from "@common/utils";
-import { CodeText } from "@common/codetext";
+import { getAbsoluteURL } from "~/components/utils";
+import { CodeText } from "~/components/codetext";
+import { OutlineButton } from "~/components/button";
 
 const PersonCode = `const person = await CollectSDK.save({
   Name: "John Galt",               // Magic Field "Name"     [String]
@@ -60,33 +61,33 @@ export default function Home() {
         >
           <div className="container">
             <div className="flex flex-col gap-4 sm:gap-2 py-16">
-              <h4 className="text-2xl sm:text-base text-content-primary-light font-bold">
+              <h4 className="text-2xl sm:text-base text-content-primary-light font-bold tracking-tight">
                 Magic Fields
               </h4>
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 Magic Fields is a powerful feature of the Collect SDK that
                 allows you to effortlessly interconnect data entities with
                 shared properties. This means you can easily search and filter
                 data across your store, even if the entities are vastly
                 different in nature.
               </p>
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 With Magic Fields, you can define a set of properties that apply
                 to multiple records in your database. Here is an example of how
                 you can use Magic Fields in Collect SDK:
               </p>
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 To save a person record with Magic Fields:
               </p>
 
               <CodeBlock code={PersonCode} />
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 To save a vehicle record with Magic Fields:
               </p>
 
               <CodeBlock code={VehicleCode} />
 
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 Those entities now linked "virtually" by its properties
                 <CodeText>Name</CodeText> and <CodeText>Location</CodeText>,
                 which enables you to find them by those fields and build
@@ -95,16 +96,16 @@ export default function Home() {
                 your applications when locations are close enough.
               </p>
 
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 By using Magic Fields, you can easily connect records with
                 shared properties and efficiently search and filter your data
                 across your entire store.
               </p>
               <Link href="/">
-                <p className="text-base sm:text-sm text-accent-brand font-medium flex items-center gap-4 pt-8">
+                <OutlineButton>
                   <ArrowLeft />
                   Back to homepage
-                </p>
+                </OutlineButton>
               </Link>
             </div>
           </div>

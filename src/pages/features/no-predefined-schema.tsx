@@ -1,10 +1,11 @@
 import Head from "next/head";
 import { Layout } from "~/components/Layout";
-import { CodeBlock } from "@common/codeblock";
-import { Section } from "@common/section";
+import { CodeBlock } from "~/components/codeblock";
+import { Section } from "~/components/section";
 import { ArrowLeft } from "react-feather";
 import Link from "next/link";
-import { getAbsoluteURL } from "@common/utils";
+import { getAbsoluteURL } from "~/components/utils";
+import { OutlineButton } from "~/components/button";
 
 const SwipeRepositoryCode = `
 // AI Generated
@@ -59,10 +60,10 @@ export default function Home() {
         >
           <div className="container">
             <div className="flex flex-col gap-4 sm:gap-2 py-16">
-              <h4 className="text-2xl sm:text-base text-content-primary-light font-bold">
+              <h4 className="text-2xl sm:text-base text-content-primary-light font-bold tracking-tights">
                 No Predefined Schema Needed
               </h4>
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 One of the key benefits of using Collect is that you don't need
                 to have a predefined schema in order to start working with your
                 data. This means that Collect can adapt to your needs, no matter
@@ -70,7 +71,7 @@ export default function Home() {
                 Collect, you can seamlessly add complexity to your data models
                 with ease, achieving your goals quickly and efficiently.
               </p>
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 For example, in the code snippet provided, you can see that the
                 item object being saved to Collect has a variety of different
                 properties, including a Name, Color, Size, Weight, and Material.
@@ -78,7 +79,7 @@ export default function Home() {
                 such as Size and Material, while others are stored as objects
                 with multiple properties, such as Weight.
               </p>
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 Additionally, you can see that the Color property has a value
                 and a valueSeparator property. The value property is a string
                 that lists multiple color values separated by commas, while the
@@ -86,7 +87,7 @@ export default function Home() {
                 separate the values. In this case, the Color property is stored
                 as an array of strings.
               </p>
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 Overall, the flexibility of Collect allows you to work with a
                 wide range of data structures, and the platform seamlessly
                 handles the complexity of your data models, allowing you to
@@ -94,10 +95,10 @@ export default function Home() {
               </p>
               <CodeBlock code={SwipeRepositoryCode} />
               <Link href="/">
-                <p className="text-base sm:text-sm text-accent-brand font-medium flex items-center gap-4 pt-8">
+                <OutlineButton>
                   <ArrowLeft />
                   Back to homepage
-                </p>
+                </OutlineButton>
               </Link>
             </div>
           </div>

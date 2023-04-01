@@ -1,10 +1,11 @@
 import Head from "next/head";
 import { Layout } from "~/components/Layout";
-import { CodeBlock } from "@common/codeblock";
-import { Section } from "@common/section";
+import { CodeBlock } from "~/components/codeblock";
+import { Section } from "~/components/section";
 import { ArrowLeft } from "react-feather";
 import Link from "next/link";
-import { getAbsoluteURL } from "@common/utils";
+import { getAbsoluteURL } from "~/components/utils";
+import { OutlineButton } from "~/components/button";
 
 const Code = `const person = await CollectSDK.find({
     Body: "Coupe",                          // EXACT MATCH
@@ -54,16 +55,16 @@ export default function Home() {
         >
           <div className="container">
             <div className="flex flex-col gap-4 sm:gap-2 py-16">
-              <h4 className="text-2xl sm:text-base text-content-primary-light font-bold">
+              <h4 className="text-2xl sm:text-base text-content-primary-light font-bold tracking-tight">
                 Query Free
               </h4>
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 With the Collect platform, you can focus on the data you need
                 without worrying about how to get it. The platform offers a
                 handy querying experience that helps you retrieve data with
                 ease, without worrying about the complexity of queries.
               </p>
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 For example, you can use the CollectSDK.find() function to
                 search for data based on specific criteria. The function takes
                 two arguments: a search object and an options object. The search
@@ -71,13 +72,13 @@ export default function Home() {
                 options object allows you to specify additional options, such as
                 how the results should be sorted.
               </p>
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 With the search object, you can search for data using a variety
                 of operators, such as exact match, range, not, or, and partial
                 match. This allows you to retrieve data that meets your specific
                 needs without having to write complex queries.
               </p>{" "}
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 For instance, you can use the Body property to search for cars
                 with the exact body type "Coupe". You can also use the Color
                 property to search for cars that are either "yellow" or "orange"
@@ -91,7 +92,7 @@ export default function Home() {
                 "Chev" in the make field, even if it's a partial match.
               </p>
               <CodeBlock code={Code} />
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 By leveraging the powerful querying capabilities of the Collect
                 platform, you can retrieve the exact data you need without the
                 need for complex queries. This helps simplify your development
@@ -99,10 +100,10 @@ export default function Home() {
                 applications.
               </p>
               <Link href="/">
-                <p className="text-base sm:text-sm text-accent-brand font-medium flex items-center gap-4 pt-8">
+                <OutlineButton>
                   <ArrowLeft />
                   Back to homepage
-                </p>
+                </OutlineButton>
               </Link>
             </div>
           </div>

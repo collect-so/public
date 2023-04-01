@@ -14,10 +14,10 @@ function BenefitCard({ benefit }: { benefit: TBenefit }) {
         className="w-[200px] h-[200px] mb-10 m-auto"
       />
       <figcaption>
-        <h4 className="text-2xl sm:text-base text-content-primary-light font-bold mb-2 leading-snug">
+        <h4 className="text-2xl sm:text-base text-content-primary-light font-bold mb-2 leading-snug tracking-tight">
           {benefit.title}
         </h4>
-        <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+        <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
           {benefit.subtitle}
         </p>
       </figcaption>
@@ -28,7 +28,7 @@ function BenefitCard({ benefit }: { benefit: TBenefit }) {
 export function BenefitsSection() {
   return (
     <Section className="container py-32">
-      <h2 className="text-3xl sm:text-xl font-bold text-content-primary-light md:text-2xl text-center mb-24">
+      <h2 className="text-3xl sm:text-xl font-bold text-content-primary-light md:text-2xl text-center mb-24 tracking-tight">
         Build backend <strong className="text-accent-brand">in days</strong> not
         in months
       </h2>

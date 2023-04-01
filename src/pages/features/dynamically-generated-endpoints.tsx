@@ -1,11 +1,12 @@
 import Head from "next/head";
 import { Layout } from "~/components/Layout";
-import { CodeBlock } from "@common/codeblock";
-import { Section } from "@common/section";
+import { CodeBlock } from "~/components/codeblock";
+import { Section } from "~/components/section";
 import { ArrowLeft } from "react-feather";
 import Link from "next/link";
-import { getAbsoluteURL } from "@common/utils";
-import { CodeText } from "@common/codetext";
+import { getAbsoluteURL } from "~/components/utils";
+import { CodeText } from "~/components/codetext";
+import { OutlineButton } from "~/components/button";
 
 const CodeYouWrite = `const record = await CollectSDK.save('user', {
   name: "John Galt",
@@ -53,10 +54,10 @@ export default function Home() {
         >
           <div className="container">
             <div className="flex flex-col gap-4 sm:gap-2 py-16">
-              <h4 className="text-2xl sm:text-base text-content-primary-light font-bold">
+              <h4 className="text-2xl sm:text-base text-content-primary-light font-bold tracking-tight">
                 Instantly generated endpoints
               </h4>
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 With this feature, you can now dynamically and automatically
                 generate API endpoints by simply labeling your records on
                 saving. When you save a record using CollectSDK, the system will
@@ -65,23 +66,23 @@ export default function Home() {
                 a user record with the following code:
               </p>
               <CodeBlock code={CodeYouWrite} />
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 After saving this record, you will automatically get an API
                 endpoint for working with user records:
               </p>
               <CodeBlock code={`const userEndpoint = "/api/v1/records/user"`} />
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 This endpoint will allow you to retrieve, update, or delete user
                 records.
               </p>
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 In addition to generating the API endpoint, the system also
                 recognizes the type of record you're saving. This means that you
                 can easily retrieve records of the same type using the
                 <CodeText>get</CodeText> method:
               </p>
               <CodeBlock code={CodeYouAbleToUse} />
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 In this example, the system recognizes that you're looking for a
                 user record and retrieves the record with the matching email
                 address. Overall, this new feature makes it easy to manage and
@@ -90,10 +91,10 @@ export default function Home() {
                 types.
               </p>
               <Link href="/">
-                <p className="text-base sm:text-sm text-accent-brand font-medium flex items-center gap-4 pt-8">
+                <OutlineButton>
                   <ArrowLeft />
                   Back to homepage
-                </p>
+                </OutlineButton>
               </Link>
             </div>
           </div>

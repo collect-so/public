@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 export const useIntersectionByQuery = (querySelector: string) => {
   const observer = useRef<IntersectionObserver | null>(null);
   const [value, setValue] = useState(false);
-
+  console.log(value);
   useEffect(() => {
     const handleObserver = (entries: IntersectionObserverEntry[]) => {
       setValue(entries.map((entry) => entry.isIntersecting).includes(true));

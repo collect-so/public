@@ -1,7 +1,7 @@
 import * as React from "react";
 import { FunctionComponent, useContext } from "react";
 import { motion } from "framer-motion";
-import { NavigationContext } from "@common/Layout/header";
+import { NavigationContext } from "~/components/Layout/header";
 
 const Path = (props: any) => (
   <motion.path

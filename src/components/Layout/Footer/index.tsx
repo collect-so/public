@@ -1,43 +1,41 @@
-import { Box, Link, Text } from "~/components/ui";
-import { styled } from "~/config/stitches.config";
-
 import { Linkedin } from "lucide-react";
-import { Section } from "@common/section";
-
-const Wrapper = styled(Box, {
-  gridColumn: "full",
-  left: 0,
-  paddingTop: "$9",
-  paddingBottom: "calc($pagePaddingBottom + $9)",
-  bg: "$surface2",
-  zIndex: "$footer",
-  display: "grid",
-  gridTemplateColumns: "1fr",
-  alignItems: "start",
-  pl: "$pagePaddingLeft",
-  pr: "$pagePaddingRight",
-});
+import { Section } from "~/components/section";
+import Link from "next/link";
+import { Logo } from "@common/logo";
 
 export function Footer() {
   return (
-    <Section
-      className="min-h-[30vh] mt-[70px] md:mt-[60px] grid place-content-center"
-      data-theme="dark"
-    >
-      <div className="container grid">
-        <div className="basis-1/1 text-center items-center flex flex-col">
-          <Text as="li" align={"center"} color="contentSecondary">
-            2023 © Collect Software Inc.
-          </Text>
-          <Link
-            as="a"
-            href="https://www.linkedin.com/company/collect-so/"
-            target="__blank"
-            rel="noopener noreferrer"
-          >
-            <Linkedin />
-          </Link>
+    <Section className="min-h-[30vh] grid " data-theme="dark">
+      <div className="container py-16">
+        {/*<div className="basis-1/1 text-center items-center flex flex-col place-content-center text-center items-center ">*/}
+        <div className="grid grid-cols-2 sm:grid-cols-1 gap-4 items-center sm:text-center">
+          <div className="justify-self-start sm:justify-self-center  ">
+            <Logo className="sm:m-auto" />
+            <h2 className="text-2xl sm:text-base font-bold text-content-primary-dark tracking-tight">
+              collect
+            </h2>
+
+            <p className="text-base sm:text-sm font-medium text-content-secondary-dark tracking-tight">
+              ©2023, Collect Software Inc.
+            </p>
+          </div>
+          <div className="justify-self-end text-center items-center grid justify-items-end sm:justify-items-center sm:justify-self-center">
+            <a
+              href="mailto:hello@collect.so"
+              className="text-xl sm:text-base font-bold  text-content-primary-dark mb-8 sm:mb-4"
+            >
+              hello@collect.so
+            </a>
+            <Link
+              href="https://www.linkedin.com/company/collect-so/"
+              target="__blank"
+              rel="noopener noreferrer"
+            >
+              <Linkedin className="text-content-primary-dark" />
+            </Link>
+          </div>
         </div>
+        {/*</div>*/}
       </div>
     </Section>
   );

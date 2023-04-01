@@ -1,10 +1,11 @@
-export const Logo = () => (
+export const Logo = ({ className }: { className?: string }) => (
   <svg
     width="60"
     height="60"
     viewBox="0 0 60 60"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className={className}
   >
     <g clipPath="url(#clip0_111_2234)">
       <path

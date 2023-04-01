@@ -1,10 +1,11 @@
 import Head from "next/head";
 import { Layout } from "~/components/Layout";
-import { CodeBlock } from "@common/codeblock";
-import { Section } from "@common/section";
+import { CodeBlock } from "~/components/codeblock";
+import { Section } from "~/components/section";
 import { ArrowLeft } from "react-feather";
 import Link from "next/link";
-import { getAbsoluteURL } from "@common/utils";
+import { getAbsoluteURL } from "~/components/utils";
+import { OutlineButton } from "~/components/button";
 
 const UserRepositoryCode = `
 // AI Generated
@@ -115,36 +116,36 @@ export default function Home() {
         >
           <div className="container">
             <div className="flex flex-col gap-4 sm:gap-2 py-16">
-              <h4 className="text-2xl sm:text-base text-content-primary-light font-bold">
+              <h4 className="text-2xl sm:text-base text-content-primary-light font-bold tracking-tight">
                 ChatGPT integration
               </h4>
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 With the integration of Collect API and ChatGPT API, you can
                 bypass the tedious part of developing your application. Simply
                 input your application idea, such as "Make a dating app", and
                 the Collect API with ChatGPT will do the rest of the work.
               </p>
 
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 As an example, let's say you want to create a dating app.
                 Collect API with ChatGPT will automatically generate the
                 necessary code to create user profiles and implement the swipe
                 feature.
               </p>
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 The first code block shows the automatically generated code for
                 registering a User repository with specific fields, including
                 name, age, gender, bio, location, and picture.
               </p>
               <CodeBlock code={UserRepositoryCode} />
 
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 The second code block shows the automatically generated code for
                 registering a Swipe repository with fields for user ID, swipe
                 direction, and date swiped.
               </p>
               <CodeBlock code={SwipeRepositoryCode} />
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 Using these generated code blocks, you can easily create user
                 profiles and implement the swipe feature in your dating app. The
                 resulting code to build the app includes simple API calls to
@@ -152,16 +153,16 @@ export default function Home() {
                 with optional metadata:
               </p>
               <CodeBlock code={ResultUsageCode} />
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 With this feature, you can save valuable time and effort in
                 developing your application, allowing you to focus on other
                 aspects of creating a great user experience.
               </p>
               <Link href="/">
-                <p className="text-base sm:text-sm text-accent-brand font-medium flex items-center gap-4 pt-8">
+                <OutlineButton>
                   <ArrowLeft />
                   Back to homepage
-                </p>
+                </OutlineButton>
               </Link>
             </div>
           </div>

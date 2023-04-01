@@ -1,13 +1,14 @@
 import Head from "next/head";
 import { Layout } from "~/components/Layout";
-import { CodeBlock } from "@common/codeblock";
+import { CodeBlock } from "~/components/codeblock";
 import Image from "next/image";
-import { Section } from "@common/section";
+import { Section } from "~/components/section";
 import nested from "~/images/nested-structures.png";
 import { ArrowLeft } from "react-feather";
 import Link from "next/link";
-import { getAbsoluteURL } from "@common/utils";
-import { CodeText } from "@common/codetext";
+import { getAbsoluteURL } from "~/components/utils";
+import { CodeText } from "~/components/codetext";
+import { OutlineButton } from "~/components/button";
 
 const Code = `const order = await CollectSDK.save({
   id: "2139823",
@@ -57,16 +58,16 @@ export default function Home() {
         >
           <div className="container">
             <div className="flex flex-col gap-4 sm:gap-2 py-16">
-              <h4 className="text-2xl sm:text-base text-content-primary-light font-bold">
+              <h4 className="text-2xl sm:text-base text-content-primary-light font-bold tracking-tight">
                 Data Nesting
               </h4>
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 With the Data Nesting feature of Collect storage engine, you can
                 work with your data effortlessly and intuitively, without having
                 to worry about relational entropy. This will give you peace of
                 mind and allow your apps to operate seamlessly.
               </p>
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 For example, consider the following code snippet that creates
                 three records using the Data Nesting feature: Here, the order
                 record has three fields: <CodeText>id</CodeText>,{" "}
@@ -78,7 +79,7 @@ export default function Home() {
               </p>
               <CodeBlock code={Code} />
 
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 By leveraging the Data Nesting feature of Collect, you can
                 easily and intuitively organize your data, without the need for
                 complex relational databases or manual data manipulation.
@@ -86,7 +87,7 @@ export default function Home() {
               <div className="py-8 flex justify-center">
                 <Image src={nested} alt={"Nested data structures"} />
               </div>
-              <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+              <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 So, whether you're building a complex enterprise application or
                 a simple personal project, the Data Nesting feature of Collect
                 storage engine can help you streamline your data management and
@@ -94,10 +95,10 @@ export default function Home() {
                 experience.
               </p>
               <Link href="/">
-                <p className="text-base sm:text-sm text-accent-brand font-medium flex items-center gap-4 pt-8">
+                <OutlineButton>
                   <ArrowLeft />
                   Back to homepage
-                </p>
+                </OutlineButton>
               </Link>
             </div>
           </div>

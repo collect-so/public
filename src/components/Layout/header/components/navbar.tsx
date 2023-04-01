@@ -1,8 +1,8 @@
 import { FunctionComponent, PropsWithChildren, useContext } from "react";
 
 import cx from "classnames";
-import { Container } from "@common/container";
-import { NavigationContext } from "@common/Layout/header";
+import { Container } from "~/components/container";
+import { NavigationContext } from "~/components/Layout/header";
 
 export const Navbar: FunctionComponent<PropsWithChildren> = ({ children }) => {
   const { scrollStarted, intersectDarkContainers, isOpen } =

@@ -8,15 +8,7 @@ import {
 import { Section } from "~/components/section";
 import cx from "classnames";
 import { Check, Disc } from "lucide-react";
-import { ReactNode } from "react";
-
-function Badge({ children }: { children: ReactNode }) {
-  return (
-    <div className="inline-flex px-2 py-0.5 text-[14px] font-extrabold leading-normal rounded-[4px] bg-accent-brand text-base-white">
-      {children}
-    </div>
-  );
-}
+import { Badge } from "~/components/badge";
 
 function PlanFeature({
   feature: { type, title },
@@ -75,7 +67,7 @@ function PriceBlock({ plan }: { plan: TTSubscritionPlan }) {
           {plan.name}
         </span>
         <h4
-          className={cx("text-4xl leading-none uppercase", {
+          className={cx("text-4xl leading-none uppercase tracking-tight", {
             "text-content-primary-light": plan.variant === "light",
             "text-content-primary-dark": plan.variant === "dark",
           })}
@@ -99,8 +91,8 @@ function PricingCard({ plan }: { plan: TTSubscritionPlan }) {
         "text-content-secondary-light bg-base-white border-stroke-light border border-b-2":
           variant === "light",
         "text-content-primary-dark bg-background-dark": variant === "dark",
-        "mt-8": variant === "light",
-        "pt-8": variant === "dark",
+        "mt-8 md:mt-0": variant === "light",
+        "pt-8 md:pt-0": variant === "dark",
       })}
       data-theme={variant}
     >
@@ -120,10 +112,16 @@ function PricingCard({ plan }: { plan: TTSubscritionPlan }) {
 
 export function PricingSection() {
   return (
-    <Section className="py-32">
-      <h2 className="container text-3xl font-bold text-content-primary-light md:text-2xl text-center mb-24">
-        Pricing
-      </h2>
+    <Section className="py-32" id="pricing">
+      <div className=" container">
+        <h2 className="container text-3xl font-bold text-content-primary-light md:text-2xl text-center tracking-tight">
+          Pricing
+        </h2>
+        <p className="text-base sm:text-sm font-medium text-content-secondary-light text-center mb-24 tracking-tight">
+          Whole backend development department. Available 24/7 for all your
+          needs.
+        </p>
+      </div>
       <div className="px-5 max-w-7xl mx-auto grid grid-cols-3 sm:grid-cols-1 items-start justify-center gap-5">
         {plans.map((plan) => (
           <PricingCard plan={plan} key={plan.name} />

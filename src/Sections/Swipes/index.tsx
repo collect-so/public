@@ -12,6 +12,10 @@ const variants = {
     "bg-base-white border-stroke-light border border-b-2 text-primary-contrast",
 };
 
+const dotsBg = {
+  backgroundImage: "radial-gradient(rgb(74 74 74 / 38%) 1px, transparent 0px)",
+  backgroundSize: "40px 40px",
+};
 function StackableCard({
   idx,
   variant = "primary",
@@ -72,11 +76,11 @@ function StackableCard({
           "max-h-[560px] max-w-[1024px] h-[72vh] sm:h-[72vh] w-full mx-auto rounded-3xl sm:rounded-xl px-16 py-24 sm:px-8 sm:py-8 flex items-center",
           variants[variant],
         )}
-        style={{ scale, y: offsetY }}
+        style={{ scale, y: offsetY, ...dotsBg }}
       >
         <div className="flex gap-10 items-center sm:flex-col sm:items-start">
           <Image
-            className="flex-shrink-0 sm:flex-shrink h-[250px] sm:h-[200px] w-[250px] sm:w-[200px]"
+            className="flex-shrink-0 sm:flex-shrink h-[250px] sm:h-[200px] w-[250px] sm:w-[200px] md:m-auto"
             alt=""
             src={imageSrc}
             width={250}
@@ -85,10 +89,10 @@ function StackableCard({
           />
 
           <div className="flex flex-col gap-4 sm:gap-2">
-            <h4 className="text-2xl sm:text-base text-content-primary-light font-bold">
+            <h4 className="text-2xl sm:text-base text-content-primary-light font-bold tracking-tight">
               {title}
             </h4>
-            <p className="text-base sm:text-sm text-content-secondary-light font-medium">
+            <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
               {subtitle}
             </p>
           </div>

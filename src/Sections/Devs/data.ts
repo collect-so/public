@@ -3,6 +3,7 @@ import nomigrations from "~/images/nomigrations.png";
 import noschema from "~/images/noschema.png";
 import queryfree from "~/images/queryfree.png";
 import datanesting from "~/images/datanesting.png";
+import instantendpoints from "~/images/instantendpoints.png";
 import { StaticImageData } from "next/image";
 
 export type TData = {
@@ -144,7 +145,7 @@ export const data: TData[] = [
   {
     title: "Instant Endpoints",
     text: "With Collect, you can create dynamic APIs without writing a single line of code. This enables you to quickly build applications and services that are tailored to your unique needs, without spending hours on manual coding.",
-    image: datanesting,
+    image: instantendpoints,
     code: AutoEndpoints,
     link: "/features/dynamically-generated-endpoints",
   },
