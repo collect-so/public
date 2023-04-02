@@ -38,24 +38,27 @@ export default function Home() {
       </Head>
       <Layout>
         <Section
-          className="min-h-[50vh] mt-[100px] md:mt-[60px] grid place-content-center"
+          className="min-h-[50vh] mt-[100px] md:mt-[60px] "
           data-theme="light"
         >
-          <div className="container">
+          <div className="container ">
             <div className="flex flex-col gap-4 sm:gap-2 py-16">
               <h4 className="text-2xl sm:text-base text-content-primary-light font-bold tracking-tight">
-                The team
+                Meet the team
               </h4>
+
+              <div className="grid grid-cols-3 gap-8 items-center place-content-center md:grid-cols-1 my-16">
+                {team.map((member, index) => (
+                  <TeamMember {...member} key={index} />
+                ))}
+              </div>
+              <Link href="/">
+                <OutlineButton>
+                  <ArrowLeft />
+                  Back to homepage
+                </OutlineButton>
+              </Link>
             </div>
-            <div className="basis-1/1 text-center flex flex-col gap-8 items-center">
-              {team.map(TeamMember)}
-            </div>
-            <Link href="/">
-              <OutlineButton>
-                <ArrowLeft />
-                Back to homepage
-              </OutlineButton>
-            </Link>
           </div>
         </Section>
       </Layout>

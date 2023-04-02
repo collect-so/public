@@ -71,8 +71,8 @@ export default function Home() {
                 For example, consider the following code snippet that creates
                 three records using the Data Nesting feature: Here, the order
                 record has three fields: <CodeText>id</CodeText>,{" "}
-                <CodeText>date</CodeText>, and<CodeText>products</CodeText>. The{" "}
-                <CodeText>products</CodeText>
+                <CodeText>date</CodeText>, and <CodeText>products</CodeText>.
+                The <CodeText>products</CodeText>
                 field is a nested array that contains two additional records,
                 each with its own <CodeText>Name</CodeText> and{" "}
                 <CodeText>Price</CodeText> fields.

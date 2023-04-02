@@ -4,6 +4,8 @@ import lightning from "~/images/lightning.png";
 import Image from "next/image";
 import classNames from "classnames";
 import { JoinWaitlistButton } from "~/components/joinwaitlist-button";
+import { Badge } from "~/components/badge";
+import { ScrollIcon } from "lucide-react";
 
 export function HeroSection() {
   return (
