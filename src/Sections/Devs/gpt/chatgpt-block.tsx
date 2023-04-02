@@ -10,7 +10,7 @@ import { ComponentPropsWithoutRef, useState } from "react";
 import classNames from "classnames";
 import { examples } from "./data";
 
-const cardWidth = "clamp(410px, 600px, 70vw)";
+const cardWidth = "clamp(375px, 600px, 70vw)";
 
 function Chip({ className, ...props }: ComponentPropsWithoutRef<"button">) {
   return (
