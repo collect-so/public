@@ -11,6 +11,7 @@ import {
 import { ModalContext } from "~/components/Layout";
 import { Button, OutlineButton } from "~/components/button";
 import { Logo } from "~/components/logo";
+import {sendForm} from "../../lib/api";
 
 export function Modal() {
   const { close, isOpen, open } = useContext(ModalContext);
@@ -21,11 +22,7 @@ export function Modal() {
 
   const callAPI = async () => {
     try {
-      const res = await fetch("/api/email", {
-        method: "POST",
-        body: JSON.stringify(form),
-      });
-      const data = await res.json();
+      const data = await sendForm(form)
       console.log(data);
     } catch (err) {
       console.log(err);
