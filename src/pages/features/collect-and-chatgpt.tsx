@@ -7,7 +7,7 @@ import Link from "next/link";
 import { getAbsoluteURL } from "~/components/utils";
 import { OutlineButton } from "~/components/button";
 
-const UserRepositoryCode = `
+export const UserRepositoryCode = `
 // AI Generated
 const UserRepository = CollectSDK.register('User', [
   {
@@ -42,7 +42,7 @@ const UserRepository = CollectSDK.register('User', [
 ])
 `;
 
-const SwipeRepositoryCode = `
+export const SwipeRepositoryCode = `
 // AI Generated
 const SwipeRepository = CollectSDK.register('Swipe', [
   {
@@ -60,7 +60,7 @@ const SwipeRepository = CollectSDK.register('Swipe', [
 ])
 `;
 
-const ResultUsageCode = `
+export const ResultUsageCode = `
 // Just push it to the storage ✨
 const user = await UserRepository.save({
   Name: "Liza Klasvitzh",

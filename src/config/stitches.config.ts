@@ -6,16 +6,16 @@ import { Manrope, DM_Serif_Display } from 'next/font/google'
 import { colors } from '~/config/colors'
 
 const manrope = Manrope({ subsets: ['latin'] })
-const dmSerifDisplay = DM_Serif_Display({
-  subsets: ['latin'],
-  weight: '400',
-})
+//const dmSerifDisplay = DM_Serif_Display({
+//  subsets: ['latin'],
+//  weight: '400',
+//})
 
 export const { styled, getCssText, globalCss } = createStitches({
   theme: {
     fonts: {
       content: manrope.style.fontFamily,
-      display: dmSerifDisplay.style.fontFamily,
+//      display: dmSerifDisplay.style.fontFamily,
     },
     colors,
     fontSizes: {

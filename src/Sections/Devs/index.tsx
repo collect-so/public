@@ -2,12 +2,12 @@ import { Section } from "~/components/section";
 import Image from "next/image";
 import { data, TData } from "~/Sections/Devs/data";
 import code from "~/images/code.png";
-import { CollectChatgptIntegrations } from "~/Sections/Devs/collect-chatgpt-integrations";
 import { CodeBlock } from "~/components/codeblock";
 import classNames from "classnames";
-import { ArrowRight, CornerDownLeft } from "react-feather";
+import { ArrowRight } from "react-feather";
 import Link from "next/link";
 import { OutlineButton } from "~/components/button";
+import { ChatGPTBlock } from "~/Sections/Devs/gpt/chatgpt-block";
 
 const DevsFeatureBlock = ({
   text,
@@ -59,10 +59,10 @@ export function DevsSection() {
   return (
     <Section
       id="features"
-      className="min-h-screen grid place-content-center"
+      className="min-h-screen flex flex-col place-content-center py-[160px]"
       data-theme="dark"
     >
-      <div className="container grid gap-[160px] py-[160px]">
+      <div className="container grid gap-[160px]">
         <div className="basis-1/1 text-center items-center flex flex-col">
           <Image src={code} alt={"Developers Benefits"} />
 
@@ -84,32 +84,8 @@ export function DevsSection() {
         <h2 className="text-3xl sm:text-xl font-bold text-content-primary-dark md:text-2xl text-center py-[5vh] tracking-tight">
           ...And last but not least
         </h2>
-
-        <div className="text-center flex flex-col items-center">
-          <CollectChatgptIntegrations />
-          <h2 className="text-2xl sm:text-base font-bold mb-8 mt-8 text-content-primary-dark tracking-tight">
-            ChatGPT integration
-          </h2>
-          <p className="text-base sm:text-sm font-medium text-content-secondary-dark mb-8 tracking-tight">
-            Bypass the boring part. Just type your application purpose:
-          </p>
-          <div className="rounded-md bg-[#35454e] flex items-center w-[50%] md:w-full justify-between p-4">
-            <p className="text-base sm:text-sm font-medium text-content-secondary-dark tracking-tight">
-              Make a dating app
-            </p>
-            <CornerDownLeft color="#3f81ff" />
-          </div>
-          <p className="text-base sm:text-sm font-medium text-content-secondary-dark mb-8 mt-8 tracking-tight">
-            And Collect API with ChatGPT utilize all the work.
-          </p>
-          <Link href="/features/collect-and-chatgpt">
-            <OutlineButton>
-              Explore an Example
-              <ArrowRight />
-            </OutlineButton>
-          </Link>
-        </div>
       </div>
+      <ChatGPTBlock />
     </Section>
   );
 }
