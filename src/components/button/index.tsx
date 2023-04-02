@@ -1,13 +1,15 @@
-import { FC, ReactNode } from "react";
+import React, { FC, ReactNode } from "react";
 import cx from "classnames";
-import { ArrowRight } from "react-feather";
 
-interface Props {
+type Props = {
   children: ReactNode;
   className?: string;
   size?: "medium" | "small";
   icon?: boolean;
-}
+} & React.DetailedHTMLProps<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+>;
 
 export const Button: FC<Props> = ({ children, className, icon, ...props }) => {
   return (

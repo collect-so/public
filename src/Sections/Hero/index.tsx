@@ -3,10 +3,7 @@ import rocket from "~/images/rocket.png";
 import lightning from "~/images/lightning.png";
 import Image from "next/image";
 import classNames from "classnames";
-import { OutlineButton } from "~/components/button";
-import { ChevronsDown } from "react-feather";
-import Link from "next/link";
-import { Badge } from "@common/badge";
+import { JoinWaitlistButton } from "~/components/joinwaitlist-button";
 
 export function HeroSection() {
   return (
@@ -20,7 +17,6 @@ export function HeroSection() {
         className={classNames(
           "sm:hidden absolute left-0 top-[200px] z-0",
           "md:top-[100px] left-[-80px] ",
-          // "sm:top-[80vh] sm:left-[20vw]",
         )}
       />
       <Image
@@ -29,7 +25,6 @@ export function HeroSection() {
         className={classNames(
           "sm:hidden absolute right-0 bottom-0 z-0",
           "md:right-[0px] md:bottom-[-100px] md:w-[300px]",
-          // "sm:left-[0vw] sm:top-[100px] sm:w-[200px]",
         )}
       />
       <div className="container">
@@ -45,12 +40,8 @@ export function HeroSection() {
             <br className="sm:hidden" />
             filtering capabilities to <b>get things done</b> without any hassle
           </h4>
-          <Link href="/#features">
-            <OutlineButton>
-              Features
-              <ChevronsDown />
-            </OutlineButton>
-          </Link>
+
+          <JoinWaitlistButton />
         </div>
       </div>
     </Section>

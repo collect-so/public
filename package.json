@@ -9,6 +9,7 @@
     "lint": "node_modules/.bin/next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.13",
     "@next/font": "13.1.1",
     "@radix-ui/react-dialog": "^1.0.3",
     "@stitches/react": "^1.2.8",

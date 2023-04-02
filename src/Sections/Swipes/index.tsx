@@ -92,7 +92,7 @@ function StackableCard({
             <h4 className="text-2xl sm:text-base text-content-primary-light font-bold tracking-tight">
               {title}
             </h4>
-            <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
+            <p className="text-xl sm:text-base text-content-secondary-light font-medium tracking-tight">
               {subtitle}
             </p>
           </div>

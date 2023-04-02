@@ -1,7 +1,7 @@
-import { Linkedin } from "lucide-react";
+import { Github, Linkedin, Twitter } from "lucide-react";
 import { Section } from "~/components/section";
 import Link from "next/link";
-import { Logo } from "@common/logo";
+import { Logo } from "~/components/logo";
 
 export function Footer() {
   return (
@@ -16,7 +16,7 @@ export function Footer() {
             </h2>
 
             <p className="text-base sm:text-sm font-medium text-content-secondary-dark tracking-tight">
-              ©2023, Collect Software Inc.
+              © 2023, Collect Software Inc.
             </p>
           </div>
           <div className="justify-self-end text-center items-center grid justify-items-end sm:justify-items-center sm:justify-self-center">
@@ -26,13 +26,29 @@ export function Footer() {
             >
               hello@collect.so
             </a>
-            <Link
-              href="https://www.linkedin.com/company/collect-so/"
-              target="__blank"
-              rel="noopener noreferrer"
-            >
-              <Linkedin className="text-content-primary-dark" />
-            </Link>
+            <div className="grid gap-4 grid-cols-3">
+              <Link
+                href="https://twitter.com/CollectAPI"
+                target="__blank"
+                rel="noopener noreferrer"
+              >
+                <Twitter className="text-content-primary-dark" />
+              </Link>
+              <Link
+                href="https://github.com/collect-so"
+                target="__blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="text-content-primary-dark" />
+              </Link>
+              <Link
+                href="https://www.linkedin.com/company/collect-so/"
+                target="__blank"
+                rel="noopener noreferrer"
+              >
+                <Linkedin className="text-content-primary-dark" />
+              </Link>
+            </div>
           </div>
         </div>
         {/*</div>*/}

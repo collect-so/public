@@ -12,6 +12,7 @@ import cx from "classnames";
 import { useMediaMatcher } from "~/components/hooks/useMediaMatcher";
 import { Logo } from "~/components/Layout/header/components/logo";
 import Link from "next/link";
+import { JoinWaitlistButton } from "~/components/joinwaitlist-button";
 
 export const NavigationContext = createContext({
   intersectDarkContainers: true,
@@ -125,7 +126,7 @@ export const Header = () => {
           </div>
         </motion.div>
         <div className="flex items-center gap-8">
-          <Button>Join Waitlist</Button>
+          <JoinWaitlistButton />
           <div className="hidden md:block">
             <motion.div initial={false} animate={isOpen ? "open" : "closed"}>
               <MenuToggle />

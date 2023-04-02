@@ -9,6 +9,7 @@ import { Section } from "~/components/section";
 import cx from "classnames";
 import { Check, Disc } from "lucide-react";
 import { Badge } from "~/components/badge";
+import { JoinWaitlistButton } from "~/components/joinwaitlist-button";
 
 function PlanFeature({
   feature: { type, title },
@@ -76,7 +77,7 @@ function PriceBlock({ plan }: { plan: TTSubscritionPlan }) {
         </h4>
         <span className="text-sm capitalize">{plan.period}</span>
       </div>
-      <Button>Join Waitlist</Button>
+      <JoinWaitlistButton />
       <span className="text-sm leading-snug font-bold">{plan.description}</span>
     </div>
   );
