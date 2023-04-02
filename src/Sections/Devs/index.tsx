@@ -21,7 +21,7 @@ const DevsFeatureBlock = ({
     <div
       className={"grid grid-cols-3 gap-16content-center items-center max-w-5xl"}
     >
-      <div className="hidden md:block w-[200px] m-auto col-span-3">
+      <div className="hidden md:block w-[200px] m-auto col-span-3 mb-8">
         <Image src={image} alt={title} />
       </div>
       <div className="col-span-2 md:col-span-3">

@@ -16,7 +16,7 @@ export const Button: FC<Props> = ({ children, className, icon, ...props }) => {
     <button
       className={cx(
         className,
-        "bg-accent-brand rounded-[8px] text-base-white  font-bold duration-300",
+        "gap-2 flex items-center justify-center bg-accent-brand rounded-[8px] text-base-white  font-semibold duration-300",
         "py-[12px] px-[16px] text-base",
         "md:py-[8px] md:px-[12px] md:text-sm",
       )}

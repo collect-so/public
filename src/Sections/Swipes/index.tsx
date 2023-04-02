@@ -89,10 +89,10 @@ function StackableCard({
           />
 
           <div className="flex flex-col gap-4 sm:gap-2">
-            <h4 className="text-2xl sm:text-base text-content-primary-light font-bold tracking-tight">
+            <h4 className="text-2xl sm:text-xl text-content-primary-light font-bold tracking-tight">
               {title}
             </h4>
-            <p className="text-xl sm:text-base text-content-secondary-light font-medium tracking-tight">
+            <p className="text-xl md:text-base text-content-secondary-light font-medium tracking-tight">
               {subtitle}
             </p>
           </div>

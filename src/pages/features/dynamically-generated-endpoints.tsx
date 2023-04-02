@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Manage your data your way • Collect</title>
+        <title>Dynamically generated endpoints • Collect</title>
         <meta
           name="description"
           content="Instantly generate API endpoints by labeling your records"
@@ -33,7 +33,7 @@ export default function Home() {
         <meta
           property="og:title"
           key="title"
-          content="Collect | Dynamically generated endpoints"
+          content="Dynamically generated endpoints • Collect"
         />
         <meta
           name="og:description"
@@ -49,7 +49,7 @@ export default function Home() {
       </Head>
       <Layout>
         <Section
-          className="min-h-screen mt-[100px] md:mt-[60px] grid place-content-center"
+          className="min-h-[50vh] mt-[100px] md:mt-[60px] grid place-content-center"
           data-theme="light"
         >
           <div className="container">

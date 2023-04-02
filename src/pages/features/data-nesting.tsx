@@ -27,21 +27,21 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Manage your data your way • Collect</title>
+        <title>Data nesting feature • Collect</title>
         <meta
           name="description"
-          content="Dynamically and automatically generate API endpoints by labeling your records"
+          content="With the Data Nesting feature of Collect storage engine, you can work with your data effortlessly and intuitively, without having to worry about relational entropy"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
         <meta
           property="og:title"
           key="title"
-          content="Collect | Dynamically generated endpoints"
+          content="Data nesting feature • Collect"
         />
         <meta
           name="og:description"
-          content="Dynamically and automatically generate API endpoints by labeling your records"
+          content="With the Data Nesting feature of Collect storage engine, you can work with your data effortlessly and intuitively, without having to worry about relational entropy"
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={getAbsoluteURL()} />
@@ -53,7 +53,7 @@ export default function Home() {
       </Head>
       <Layout>
         <Section
-          className="min-h-screen mt-[100px] md:mt-[60px] grid place-content-center"
+          className="min-h-[50vh] mt-[100px] md:mt-[60px] grid place-content-center"
           data-theme="light"
         >
           <div className="container">

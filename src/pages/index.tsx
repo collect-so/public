@@ -5,36 +5,30 @@ import { DevsSection } from "~/Sections/Devs";
 import { SwipesSection } from "~/Sections/Swipes";
 import { BenefitsSection } from "~/Sections/Benefits";
 import { PricingSection } from "~/Sections/Pricing";
-
-const getAbsoluteURL = (path: string) => {
-  if (typeof window === "undefined") {
-    return path;
-  }
-  return `${window.location.origin}${path}`;
-};
+import { getAbsoluteURL } from "~/components/utils";
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Manage your data your way • Collect</title>
+        <title>Low-code platform to skip complex backend work • Collect</title>
         <meta
           name="description"
-          content="Collect platform helps businesses build applications quickly and easily, regardless of the size or maturity of the team"
+          content="Collect Platform helps businesses build applications quickly and easily, regardless of the size or maturity of the team"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
         <meta
           property="og:title"
           key="title"
-          content="Manage your data your way"
+          content="Low-code platform to skip complex backend work • Collect"
         />
         <meta
           name="og:description"
-          content="Collect platform helps businesses build applications quickly and easily, regardless of the size or maturity of the team"
+          content="Collect Platform helps businesses build applications quickly and easily, regardless of the size or maturity of the team"
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://collect.so/" />
+        <meta property="og:url" content={getAbsoluteURL()} />
         <meta
           property="og:image"
           key="image"

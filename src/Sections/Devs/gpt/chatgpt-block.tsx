@@ -9,6 +9,7 @@ import { Carousel, CarouselCard } from "~/components/carousel";
 import { ComponentPropsWithoutRef, useState } from "react";
 import classNames from "classnames";
 import { examples } from "./data";
+import { CornerDownLeft } from "lucide-react";
 
 const cardWidth = "clamp(375px, 600px, 70vw)";
 
@@ -37,11 +38,7 @@ export function ChatGPTBlock() {
           ChatGPT integration
         </h2>
         <div className="text-base sm:text-sm font-medium text-content-secondary-dark mb-8 tracking-tight">
-          <p>Bypass the boring part.</p>
-          <p>
-            Just type your application purpose and Collect API with ChatGPT
-            utilize all the work.
-          </p>
+          <p>Bypass the boring part. Just type your application purpose:</p>
         </div>
 
         <div
@@ -52,13 +49,9 @@ export function ChatGPTBlock() {
             <p className="text-base sm:text-sm font-medium text-content-secondary-dark tracking-tight">
               Make a {selected}
             </p>
-            <Link href="/features/collect-and-chatgpt">
-              <OutlineButton>
-                Explore an Example
-                <ArrowRight />
-              </OutlineButton>
-            </Link>
+            <CornerDownLeft className="text-content-secondary-dark" />
           </div>
+
           <div className="flex flex-wrap gap-2">
             {Object.keys(examples).map((key) => (
               <Chip
@@ -70,6 +63,10 @@ export function ChatGPTBlock() {
               </Chip>
             ))}
           </div>
+
+          <p className="text-base sm:text-sm font-medium text-content-secondary-dark mb-8 tracking-tight mt-8">
+            And Collect API with ChatGPT utilize all the work:
+          </p>
         </div>
       </div>
 
@@ -84,6 +81,16 @@ export function ChatGPTBlock() {
           </CarouselCard>
         ))}
       </Carousel>
+      <div className="flex flex-col mt-16">
+        <div className=" text-center  flex flex-col items-center container">
+          <Link href="/features/collect-and-chatgpt">
+            <OutlineButton>
+              Learn more
+              <ArrowRight />
+            </OutlineButton>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

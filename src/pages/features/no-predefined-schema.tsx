@@ -29,21 +29,21 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Manage your data your way • Collect</title>
+        <title>No predefined schema needed • Collect</title>
         <meta
           name="description"
-          content="Dynamically and automatically generate API endpoints by labeling your records"
+          content="You don't need to have a predefined schema in order to start working with your data. Collect can adapt to your needs, no matter how simple or complex your data structures might be."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
         <meta
           property="og:title"
           key="title"
-          content="Collect | Dynamically generated endpoints"
+          content="No predefined schema needed • Collect"
         />
         <meta
           name="og:description"
-          content="Dynamically and automatically generate API endpoints by labeling your records"
+          content="You don't need to have a predefined schema in order to start working with your data. Collect can adapt to your needs, no matter how simple or complex your data structures might be."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={getAbsoluteURL()} />
@@ -55,7 +55,7 @@ export default function Home() {
       </Head>
       <Layout>
         <Section
-          className="min-h-screen mt-[100px] md:mt-[60px] grid place-content-center"
+          className="min-h-[50vh] mt-[100px] md:mt-[60px] grid place-content-center"
           data-theme="light"
         >
           <div className="container">

@@ -85,21 +85,21 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Manage your data your way • Collect</title>
+        <title>Collect and ChatGPT integration • Collect</title>
         <meta
           name="description"
-          content="Dynamically and automatically generate API endpoints by labeling your records"
+          content="Build backend instantly with Collect API and ChatGPT"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
         <meta
           property="og:title"
           key="title"
-          content="Collect | Dynamically generated endpoints"
+          content="Collect and ChatGPT integration • Collect"
         />
         <meta
           name="og:description"
-          content="Dynamically and automatically generate API endpoints by labeling your records"
+          content="Build backend instantly with Collect API and ChatGPT"
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={getAbsoluteURL()} />
@@ -111,7 +111,7 @@ export default function Home() {
       </Head>
       <Layout>
         <Section
-          className="min-h-screen mt-[100px] md:mt-[60px] grid place-content-center"
+          className="min-h-[50vh] mt-[100px] md:mt-[60px] grid place-content-center"
           data-theme="light"
         >
           <div className="container">

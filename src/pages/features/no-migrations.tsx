@@ -21,21 +21,21 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Manage your data your way • Collect</title>
+        <title>No migrations feature • Collect</title>
         <meta
           name="description"
-          content="Dynamically and automatically generate API endpoints by labeling your records"
+          content="You can add, modify, or delete fields in your data models with just a few clicks, freeing up your senior developers to focus on more pressing tasks"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
         <meta
           property="og:title"
           key="title"
-          content="Collect | Dynamically generated endpoints"
+          content="No migrations feature • Collect"
         />
         <meta
           name="og:description"
-          content="Dynamically and automatically generate API endpoints by labeling your records"
+          content="You can add, modify, or delete fields in your data models with just a few clicks, freeing up your senior developers to focus on more pressing tasks"
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={getAbsoluteURL()} />
@@ -47,7 +47,7 @@ export default function Home() {
       </Head>
       <Layout>
         <Section
-          className="min-h-screen mt-[100px] md:mt-[60px] grid place-content-center"
+          className="min-h-[50vh] mt-[100px] md:mt-[60px] grid place-content-center"
           data-theme="light"
         >
           <div className="container">
