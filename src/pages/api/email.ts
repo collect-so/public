@@ -12,29 +12,29 @@ export default async function handler(
   res: NextApiResponse<Data>,
 ) {
   if (req.method === "POST") {
-    const requestData: FeedbackFormDto = req.body
+    const { name, email }: FeedbackFormDto = req.body
 
-    if (!requestData.name || !requestData.email || (requestData.email && !baseEmail.test(requestData.email))) {
+    if (!email || (email && !baseEmail.test(email))) {
       return res.status(400).json({ success: false })
     }
 
     try {
       await transport.sendMail({
         ...transportOptions,
-        replyTo: requestData.email,
-        subject: `Request to join the waiting list from ${requestData.name ?? requestData.email}`,
+        replyTo: email,
+        subject: `Request to join the waiting list from ${name ?? email}`,
         html: ReactDOMServer.renderToString(WaitListSelf({
-          email: requestData.email,
-          name: requestData.name
+          email,
+          name
         }))
       })
 
       await transport.sendMail({
         ...transportOptions,
-        to: requestData.email,
+        to: email,
         subject: "Thank You for Joining the Collect Waitlist!",
         html: ReactDOMServer.renderToString(WaitListClient({
-          name: requestData.name
+          name
         }))
       })
 
