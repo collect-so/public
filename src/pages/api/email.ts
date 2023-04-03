@@ -1,7 +1,9 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import {Data, FeedbackFormDto, transport, transportOptions} from "../../config/nodemailer";
-import EmailTemplate from "../../../emails/waitlist-confirm-email.html";
+import {WaitListSelf} from "../../components/email/wait-list-self";
+import ReactDOMServer from 'react-dom/server';
+import {WaitListClient} from "../../components/email/wait-list-client";
 
 const baseEmail = /^\S.*@\S+$/
 
@@ -16,30 +18,24 @@ export default async function handler(
       return res.status(400).json({ success: false })
     }
 
-    const subjectTitle = requestData.name
-        ? `Hello! We've accepted a request to join the waitlist from ${requestData.name}`
-        : "Hello! We've accepted a request to join the waitlist"
-
     try {
       await transport.sendMail({
         ...transportOptions,
         replyTo: requestData.email,
         subject: `Request to join the waiting list from ${requestData.name ?? requestData.email}`,
-        html: `
-          <h1>
-             ${subjectTitle}
-          </h1>
-          <p>
-            Contact email is: ${requestData.email}        
-          </p>
-        `
+        html: ReactDOMServer.renderToString(WaitListSelf({
+          email: requestData.email,
+          name: requestData.name
+        }))
       })
 
       await transport.sendMail({
         ...transportOptions,
         to: requestData.email,
-        subject: "You've subscribed to the Collect waiting list",
-        html: EmailTemplate
+        subject: "Thank You for Joining the Collect Waitlist!",
+        html: ReactDOMServer.renderToString(WaitListClient({
+          name: requestData.name
+        }))
       })
 
       res.status(200).json({ success: true });

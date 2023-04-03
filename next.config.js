@@ -7,10 +7,6 @@ const nextConfig = {
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
       use: ["@svgr/webpack"]
-    },
-    {
-      test: /\.html$/,
-      loader: 'html-loader',
     })
 
     return config
