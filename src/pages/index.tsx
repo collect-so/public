@@ -42,7 +42,7 @@ export default function Home() {
       <Layout>
         <HeroSection />
         <Section
-          className="container grid place-content-center text-center grid-rows-1 gap-8"
+          className="min-h-[35vh] container grid place-content-center text-center grid-rows-1 gap-8 items-center"
           data-theme="light"
         >
           <div>
