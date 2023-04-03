@@ -34,11 +34,14 @@ export function ChatGPTBlock() {
     <div className="flex flex-col">
       <div className=" text-center  flex flex-col items-center container">
         <CollectChatgptIntegrations />
-        <h2 className="text-2xl sm:text-base font-bold mb-8 mt-8 text-content-primary-dark tracking-tight">
+        <h2 className="text-2xl sm:text-base font-bold mt-8 text-content-primary-dark tracking-tight">
           ChatGPT integration
         </h2>
         <div className="text-base sm:text-sm font-medium text-content-secondary-dark mb-8 tracking-tight">
-          <p>Bypass the boring part. Just type your application purpose:</p>
+          <p>Bypass the boring part</p>
+        </div>
+        <div className="text-base sm:text-sm font-medium text-content-secondary-dark mb-8 tracking-tight">
+          <p>Just type your application purpose:</p>
         </div>
 
         <div

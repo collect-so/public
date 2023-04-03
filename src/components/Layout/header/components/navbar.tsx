@@ -20,7 +20,8 @@ export const Navbar: FunctionComponent<PropsWithChildren> = ({ children }) => {
           // "bg-base-light-black/90": !isOpen && darkMode,
           // "bg-base-white/60": !isOpen && lightMode,
           "shadow-[0px_0px_15px_rgba(0,0,0,0.1)]": !isOpen && lightMode,
-          "text-content-primary-light": lightMode && !isOpen,
+          "text-content-primary-light":
+            (lightMode && !isOpen) || !scrollStarted,
           "text-content-primary-dark": isOpen || darkMode,
           "bg-background-dark": isOpen,
         },

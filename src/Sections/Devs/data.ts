@@ -115,21 +115,21 @@ export const data: TData[] = [
     link: "/features/magic-fields",
   },
   {
-    title: "No Migrations, Ever",
+    title: "No migrations, ever",
     text: "Modify your data models in real-time. Effortlessly add, modify, or delete fields without lengthy deployments, and free up senior developers for more critical tasks.",
     image: nomigrations,
     code: NoMigrationsCode,
     link: "/features/no-migrations",
   },
   {
-    title: "No Predefined Schema Needed",
+    title: "No predefined schema needed",
     text: "Collect adapts to your needs, from simple structures to more complex requirements. Seamlessly add complexity to your data models with ease, achieving your goals quickly and efficiently.",
     image: noschema,
     code: NoSchemaCode,
     link: "/features/no-predefined-schema",
   },
   {
-    title: "Query-Free Database Experience",
+    title: "Query-free database experience",
     text: "Focus on the data you need, not on how to get it. Collect platform offers handy querying experience and helps retrieve data with ease not worrying about queries complexity any more.",
     image: queryfree,
     code: QueryFreeCode,
@@ -143,7 +143,7 @@ export const data: TData[] = [
     link: "/features/data-nesting",
   },
   {
-    title: "Instant Endpoints",
+    title: "Instant endpoints",
     text: "With Collect, you can create dynamic APIs without writing a single line of code. This enables you to quickly build applications and services that are tailored to your unique needs, without spending hours on manual coding.",
     image: instantendpoints,
     code: AutoEndpoints,

@@ -73,7 +73,7 @@ function StackableCard({
     >
       <motion.div
         className={clsx(
-          "max-h-[670px] max-w-[1024px] h-[72vh] sm:h-[72vh] w-full mx-auto rounded-3xl sm:rounded-xl px-16 py-24 sm:px-8 sm:py-8 flex items-center",
+          "max-h-[560px] max-w-[1024px] h-[72vh] sm:h-[72vh] w-full mx-auto rounded-3xl sm:rounded-xl px-16 py-24 sm:px-8 sm:py-8 flex items-center",
           variants[variant],
         )}
         style={{ scale, y: offsetY, ...dotsBg }}
@@ -89,10 +89,10 @@ function StackableCard({
           />
 
           <div className="flex flex-col gap-4 sm:gap-2">
-            <h4 className="text-2xl sm:text-xl text-content-primary-light font-bold tracking-tight">
+            <h4 className="text-2xl sm:text-base text-content-primary-light font-bold tracking-tight">
               {title}
             </h4>
-            <p className="text-xl md:text-base text-content-secondary-light font-medium tracking-tight">
+            <p className="text-xl sm:text-sm text-content-secondary-light font-medium tracking-tight">
               {subtitle}
             </p>
           </div>

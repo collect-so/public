@@ -9,15 +9,9 @@ export const NavText: FunctionComponent<
 > = ({ children, child, className }) => {
   return (
     <p
-      className={cx(
-        className,
-        "font-bold",
-        "w-max transition",
-        "md:text-base",
-        {
-          "text-content-primary-light": child,
-        },
-      )}
+      className={cx(className, "font-bold", "w-max transition", "text-base", {
+        "text-content-primary-light": child,
+      })}
     >
       {children}
     </p>

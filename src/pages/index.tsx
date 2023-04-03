@@ -52,8 +52,9 @@ export default function Home() {
             </h2>
 
             <h2 className="text-xl font-bold text-content-secondary-light sm:text-base tracking-tight mt-4">
-              Production-ready low-code toolkit built for people, powered by
-              graphs and enhanced by AI
+              Production-ready low-code toolkit built for people,{" "}
+              <br className="md:hidden" />
+              powered by graphs, and enhanced by AI
             </h2>
           </div>
         </Section>
