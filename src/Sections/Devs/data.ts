@@ -24,7 +24,7 @@ const person = await CollectSDK.save({
 })
 
 const vehicle = await CollectSDK.save({
-  Name: "Packard",                  // Existing Magic Field "Name"
+  Name: "Packard",                 // Existing Magic Field "Name"
   Model: "400 2-Door Hardtop",
   Location: "30.1348,-95.1055",    // Existing Magic Field "Location"
   "Year Make": 1955,

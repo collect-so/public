@@ -7,7 +7,6 @@ export function Footer() {
   return (
     <Section className="min-h-[30vh] grid " data-theme="dark">
       <div className="container py-16">
-        {/*<div className="basis-1/1 text-center items-center flex flex-col place-content-center text-center items-center ">*/}
         <div className="grid grid-cols-2 sm:grid-cols-1 gap-4 items-center sm:text-center">
           <div className="justify-self-start sm:justify-self-center  ">
             <Logo className="sm:m-auto" />
@@ -51,7 +50,6 @@ export function Footer() {
             </div>
           </div>
         </div>
-        {/*</div>*/}
       </div>
     </Section>
   );

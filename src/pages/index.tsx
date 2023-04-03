@@ -6,6 +6,10 @@ import { SwipesSection } from "~/Sections/Swipes";
 import { BenefitsSection } from "~/Sections/Benefits";
 import { PricingSection } from "~/Sections/Pricing";
 import { getAbsoluteURL } from "~/components/utils";
+import cx from "classnames";
+import { Section } from "~/components/section";
+import { Badge } from "~/components/badge";
+import { Logo } from "~/components/logo";
 
 export default function Home() {
   return (
@@ -37,6 +41,22 @@ export default function Home() {
       </Head>
       <Layout>
         <HeroSection />
+        <Section
+          className="container grid place-content-center text-center grid-rows-1 gap-8"
+          data-theme="light"
+        >
+          <div>
+            <Logo className="m-auto" />
+            <h2 className="text-2xl font-bold text-content-primary-light sm:text-xl tracking-tight">
+              collect
+            </h2>
+
+            <h2 className="text-xl font-bold text-content-secondary-light sm:text-base tracking-tight mt-4">
+              Production-ready low-code toolkit built for people, powered by
+              graphs and enhanced by AI
+            </h2>
+          </div>
+        </Section>
         <SwipesSection />
         <BenefitsSection />
         <DevsSection />

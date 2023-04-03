@@ -44,7 +44,10 @@ const DevsFeatureBlock = ({
       </div>
       <div
         className={classNames(
-          { "justify-self-end": !(index % 2), "justify-self-start": index % 2 },
+          {
+            "justify-self-end": !(index % 2),
+            "justify-self-start ": index % 2,
+          },
           " md:hidden",
         )}
         style={index % 2 ? { gridRow: 1 } : {}}
