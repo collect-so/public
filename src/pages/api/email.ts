@@ -1,7 +1,9 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import {Data, FeedbackFormDto, transport, transportOptions} from "../../config/nodemailer";
-import EmailTemplate from "../../../emails/waitlist-confirm-email.html";
+import {WaitListSelf} from "../../components/email/wait-list-self";
+import ReactDOMServer from 'react-dom/server';
+import {WaitListClient} from "../../components/email/wait-list-client";
 
 const baseEmail = /^\S.*@\S+$/
 
@@ -10,36 +12,30 @@ export default async function handler(
   res: NextApiResponse<Data>,
 ) {
   if (req.method === "POST") {
-    const requestData: FeedbackFormDto = req.body
+    const { name, email }: FeedbackFormDto = req.body
 
-    if (!requestData.name || !requestData.email || (requestData.email && !baseEmail.test(requestData.email))) {
+    if (!email || (email && !baseEmail.test(email))) {
       return res.status(400).json({ success: false })
     }
-
-    const subjectTitle = requestData.name
-        ? `Hello! We've accepted a request to join the waitlist from ${requestData.name}`
-        : "Hello! We've accepted a request to join the waitlist"
 
     try {
       await transport.sendMail({
         ...transportOptions,
-        replyTo: requestData.email,
-        subject: `Request to join the waiting list from ${requestData.name ?? requestData.email}`,
-        html: `
-          <h1>
-             ${subjectTitle}
-          </h1>
-          <p>
-            Contact email is: ${requestData.email}        
-          </p>
-        `
+        replyTo: email,
+        subject: `Request to join the waiting list from ${name ?? email}`,
+        html: ReactDOMServer.renderToString(WaitListSelf({
+          email,
+          name
+        }))
       })
 
       await transport.sendMail({
         ...transportOptions,
-        to: requestData.email,
-        subject: "You've subscribed to the Collect waiting list",
-        html: EmailTemplate
+        to: email,
+        subject: "Thank You for Joining the Collect Waitlist!",
+        html: ReactDOMServer.renderToString(WaitListClient({
+          name
+        }))
       })
 
       res.status(200).json({ success: true });
