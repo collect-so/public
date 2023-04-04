@@ -41,9 +41,9 @@ export default function Home() {
         >
           <div className="container">
             <div className="flex flex-col gap-4 sm:gap-2 py-16">
-              <h4 className="text-2xl sm:text-base text-content-primary-light font-bold tracking-tight">
+              <h1 className="text-2xl sm:text-base text-content-primary-light font-bold tracking-tight">
                 Our mission
-              </h4>
+              </h1>
               <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 We are the Collect team, and we understand the challenges that
                 startups face when it comes to developing their products. We

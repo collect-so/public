@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { NavItem } from "~/components/Layout/header/components/nav-item";
-import { NavigationContext } from "~/components/Layout/header";
-import { NavChevron } from "~/components/Layout/header/components/nav-chevron";
+import { NavItem } from "./nav-item";
+import { NavigationContext } from "~/components/Layout/Header";
+import { NavChevron } from "./nav-chevron";
 import cx from "classnames";
-import { IMenuItem } from "~/components/Layout/header/data";
-import { NavText } from "~/components/Layout/header/components/nav-text";
+import { IMenuItem } from "../data";
+import { NavText } from "./nav-text";
 
 export const MenuItem = ({ item }: { item: IMenuItem }) => {
   const {

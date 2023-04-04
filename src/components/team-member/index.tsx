@@ -22,15 +22,15 @@ export const TeamMember = ({
         </div>
       </div>
     </div>
-    <h4 className="text-base sm:text-sm font-bold  text-content-primary-light tracking-tight">
+    <h2 className="text-base sm:text-sm font-bold  text-content-primary-light tracking-tight">
       {name}
-    </h4>
+    </h2>
 
     <div className="flex gap-4 items-center text-center justify-center">
-      <Link href={linkedinUrl} target="__blank">
+      <Link aria-label="LinkedIn" href={linkedinUrl} target="__blank">
         <Linkedin className="text-content-primary-light" />
       </Link>
-      <Link href={githubUrl} target="__blank">
+      <Link aria-label="Github" href={githubUrl} target="__blank">
         <Github className="text-content-primary-light" />
       </Link>
     </div>

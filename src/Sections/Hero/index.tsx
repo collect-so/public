@@ -4,8 +4,7 @@ import lightning from "~/images/lightning.png";
 import Image from "next/image";
 import classNames from "classnames";
 import { JoinWaitlistButton } from "~/components/joinwaitlist-button";
-import { Badge } from "~/components/badge";
-import { ScrollIcon } from "lucide-react";
+
 import cx from "classnames";
 
 export function HeroSection1() {
@@ -36,13 +35,13 @@ export function HeroSection1() {
             Skip complex backend work
             <br className="sm:hidden" /> and focus on growing your business
           </h2>
-          <h4 className="text-xl font-medium text-content-secondary-light sm:text-base tracking-tight">
+          <p className="text-xl font-medium text-content-secondary-light sm:text-base tracking-tight">
             Easy-to-use, query language-free <b>storage engine</b>,
             <br className="sm:hidden" />
             featuring data nesting, file storage, lightning-fast search and{" "}
             <br className="sm:hidden" />
             filtering capabilities to <b>get things done</b> without any hassle
-          </h4>
+          </p>
 
           <JoinWaitlistButton />
         </div>
@@ -70,13 +69,13 @@ export function HeroSection() {
               <br className="sm:inline-block md:hidden" /> and focus on growing
               <br className="sm:hidden md:hidden" /> your business
             </h2>
-            <h4 className="text-xl font-medium text-content-secondary-light sm:text-base tracking-tight">
+            <p className="text-xl font-medium text-content-secondary-light sm:text-base tracking-tight">
               Easy-to-use, query language-free <b>storage engine</b>,
               <br className="sm:hidden" />
               featuring data nesting, file storage, lightning-fast search and
               filtering capabilities to <b>get things done</b> without any
               hassle
-            </h4>
+            </p>
             <JoinWaitlistButton />
           </div>
           <Image
@@ -89,6 +88,7 @@ export function HeroSection() {
             width={250}
             height={250}
             quality={100}
+            sizes="(max-width: 640px) 150px, 250px"
           />
         </div>
       </div>

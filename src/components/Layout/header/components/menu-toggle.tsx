@@ -1,7 +1,7 @@
 import * as React from "react";
 import { FunctionComponent, useContext } from "react";
 import { motion } from "framer-motion";
-import { NavigationContext } from "~/components/Layout/header";
+import { NavigationContext } from "~/components/Layout/Header";
 
 const Path = (props: any) => (
   <motion.path
@@ -19,6 +19,7 @@ export const MenuToggle: FunctionComponent = () => {
     <button
       onClick={isOpen ? close : open}
       className={"w-[60px] h-[60px] md:w-[24px]"}
+      aria-label="Menu"
     >
       <svg
         width="24"

@@ -30,6 +30,7 @@ export function Footer() {
                 href="https://twitter.com/CollectAPI"
                 target="__blank"
                 rel="noopener noreferrer"
+                aria-label="Twitter"
               >
                 <Twitter className="text-content-primary-dark" />
               </Link>
@@ -37,6 +38,7 @@ export function Footer() {
                 href="https://github.com/collect-so"
                 target="__blank"
                 rel="noopener noreferrer"
+                aria-label="Github"
               >
                 <Github className="text-content-primary-dark" />
               </Link>
@@ -44,6 +46,7 @@ export function Footer() {
                 href="https://www.linkedin.com/company/collect-so/"
                 target="__blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn"
               >
                 <Linkedin className="text-content-primary-dark" />
               </Link>

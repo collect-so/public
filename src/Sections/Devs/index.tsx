@@ -8,6 +8,7 @@ import { ArrowRight } from "react-feather";
 import Link from "next/link";
 import { OutlineButton } from "~/components/button";
 import { ChatGPTBlock } from "~/Sections/Devs/gpt/chatgpt-block";
+import { VisuallyHidden } from "~/components/visually-hidden";
 
 const DevsFeatureBlock = ({
   text,
@@ -25,9 +26,9 @@ const DevsFeatureBlock = ({
         <Image src={image} alt={title} />
       </div>
       <div className="col-span-2 md:col-span-3">
-        <h2 className="text-2xl sm:text-base font-bold mb-8 text-content-primary-dark tracking-tight">
+        <h3 className="text-2xl sm:text-base font-bold mb-8 text-content-primary-dark tracking-tight">
           {title}
-        </h2>
+        </h3>
         <h4 className="text-base sm:text-sm font-medium text-content-secondary-dark tracking-tight">
           {text}
         </h4>
@@ -36,7 +37,7 @@ const DevsFeatureBlock = ({
         {link ? (
           <Link href={link}>
             <OutlineButton className="mt-8">
-              Learn more
+              Learn more <VisuallyHidden>about {title}</VisuallyHidden>
               <ArrowRight />
             </OutlineButton>
           </Link>
@@ -72,11 +73,11 @@ export function DevsSection() {
           <h2 className="text-3xl sm:text-xl font-bold mb-8 text-content-primary-dark md:text-2xl tracking-tight">
             Batteries included
           </h2>
-          <h4 className="text-xl sm:text-base font-medium text-content-secondary-dark tracking-tight">
+          <h3 className="text-xl sm:text-base font-medium text-content-secondary-dark tracking-tight">
             Seamless developer experience and streamlined workflow{" "}
             <br className="sm:hidden" /> enables your team focus on features,
             not on tech debt and bugs
-          </h4>
+          </h3>
         </div>
         <div className="grid place-content-center gap-[160px]">
           {data.map((data, index) => (

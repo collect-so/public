@@ -10,6 +10,7 @@ import { ComponentPropsWithoutRef, useState } from "react";
 import classNames from "classnames";
 import { examples } from "./data";
 import { CornerDownLeft } from "lucide-react";
+import { VisuallyHidden } from "~/components/visually-hidden";
 
 const cardWidth = "clamp(375px, 600px, 70vw)";
 
@@ -17,7 +18,7 @@ function Chip({ className, ...props }: ComponentPropsWithoutRef<"button">) {
   return (
     <button
       className={classNames(
-        "h-[36px] px-4 rounded-md aria-selected:bg-accent-brand aria-selected:text-base-white bg-[#35454e] text-content-primary-dark",
+        "h-[36px] px-4 rounded-md aria-checked:bg-accent-brand aria-checked:text-base-white bg-[#35454e] text-content-primary-dark",
         className,
       )}
       {...props}
@@ -26,9 +27,9 @@ function Chip({ className, ...props }: ComponentPropsWithoutRef<"button">) {
 }
 
 export function ChatGPTBlock() {
-  const [selected, setSelected] = useState<keyof typeof examples>("Dating app");
+  const [checked, setChecked] = useState<keyof typeof examples>("Dating app");
 
-  const data = examples[selected];
+  const data = examples[checked];
 
   return (
     <div className="flex flex-col">
@@ -50,17 +51,18 @@ export function ChatGPTBlock() {
         >
           <div className="rounded-md bg-[#35454e] flex items-center w-full md:w-full justify-between p-4 ">
             <p className="text-base sm:text-sm font-medium text-content-secondary-dark tracking-tight">
-              Make a {selected}
+              Make a {checked}
             </p>
             <CornerDownLeft className="text-content-secondary-dark" />
           </div>
 
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2" role="radiogroup">
             {Object.keys(examples).map((key) => (
               <Chip
-                aria-selected={key === selected}
-                onClick={() => setSelected(key as keyof typeof examples)}
+                aria-checked={key === checked}
+                onClick={() => setChecked(key as keyof typeof examples)}
                 key={key}
+                role="radio"
               >
                 {key}
               </Chip>
@@ -88,7 +90,7 @@ export function ChatGPTBlock() {
         <div className=" text-center  flex flex-col items-center container">
           <Link href="/features/collect-and-chatgpt">
             <OutlineButton>
-              Learn more
+              Learn more <VisuallyHidden>about integration</VisuallyHidden>
               <ArrowRight />
             </OutlineButton>
           </Link>

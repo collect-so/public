@@ -1,6 +1,6 @@
 import { createContext, PropsWithChildren, useState } from "react";
 import { Footer } from "./Footer";
-import { Header } from "./header";
+import { Header } from "./Header";
 import { Modal } from "~/components/modal";
 
 export const ModalContext = createContext({

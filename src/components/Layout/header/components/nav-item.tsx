@@ -2,12 +2,12 @@ import { ComponentPropsWithoutRef, FunctionComponent } from "react";
 
 import cx from "classnames";
 
-interface NavItem extends ComponentPropsWithoutRef<"div"> {
+interface INavItem extends ComponentPropsWithoutRef<"div"> {
   active?: boolean;
   child?: boolean;
 }
 
-export const NavItem: FunctionComponent<NavItem> = ({
+export const NavItem: FunctionComponent<INavItem> = ({
   children,
   active,
   child,

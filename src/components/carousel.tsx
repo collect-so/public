@@ -105,6 +105,8 @@ export function Carousel({
         disabled={currentIdx <= 0}
         className="left-10 top-1/2 -translate-y-1/2 z-20"
         onClick={prev}
+        aria-label="Previous"
+        title="Previous"
       >
         <ArrowLeft />
       </CarouselButton>
@@ -112,6 +114,8 @@ export function Carousel({
         disabled={currentIdx >= cardCount - 1}
         onClick={next}
         className="right-10 top-1/2 -translate-y-1/2 z-20"
+        aria-label="Next"
+        title="Next"
       >
         <ArrowRight />
       </CarouselButton>

@@ -1,4 +1,3 @@
-import { Button } from "~/components/button";
 import {
   TComingFeature,
   TPresentFeature,
@@ -36,7 +35,7 @@ function PlanFeatureList({
 }) {
   return (
     <div className={cx("text-sm font-bold")}>
-      <h6 className="mb-4">{title}</h6>
+      <h4 className="mb-4">{title}</h4>
       <ul className="flex flex-col gap-[10px]">
         {features.map((feat) => (
           <PlanFeature feature={feat} key={feat.title} />
@@ -67,14 +66,14 @@ function PriceBlock({ plan }: { plan: TTSubscritionPlan }) {
         >
           {plan.name}
         </span>
-        <h4
+        <h3
           className={cx("text-4xl leading-none uppercase tracking-tight", {
             "text-content-primary-light": plan.variant === "light",
             "text-content-primary-dark": plan.variant === "dark",
           })}
         >
           {plan.price}
-        </h4>
+        </h3>
         <span className="text-sm capitalize">{plan.period}</span>
       </div>
       <JoinWaitlistButton />

@@ -6,9 +6,7 @@ import { SwipesSection } from "~/Sections/Swipes";
 import { BenefitsSection } from "~/Sections/Benefits";
 import { PricingSection } from "~/Sections/Pricing";
 import { getAbsoluteURL } from "~/components/utils";
-import cx from "classnames";
 import { Section } from "~/components/section";
-import { Badge } from "~/components/badge";
 import { Logo } from "~/components/logo";
 
 export default function Home() {

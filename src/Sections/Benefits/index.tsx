@@ -14,9 +14,9 @@ function BenefitCard({ benefit }: { benefit: TBenefit }) {
         className="w-[200px] h-[200px] mb-10 m-auto"
       />
       <figcaption>
-        <h4 className="text-2xl sm:text-base text-content-primary-light font-bold mb-2 leading-snug tracking-tight">
+        <h2 className="text-2xl sm:text-base text-content-primary-light font-bold mb-2 leading-snug tracking-tight">
           {benefit.title}
-        </h4>
+        </h2>
         <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
           {benefit.subtitle}
         </p>

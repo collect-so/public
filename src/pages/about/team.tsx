@@ -40,9 +40,9 @@ export default function Home() {
         >
           <div className="container ">
             <div className="flex flex-col gap-4 sm:gap-2 py-16">
-              <h4 className="text-2xl sm:text-base text-content-primary-light font-bold tracking-tight">
+              <h1 className="text-2xl sm:text-base text-content-primary-light font-bold tracking-tight">
                 Meet the team
-              </h4>
+              </h1>
 
               <div className="grid grid-cols-3 gap-8 items-center place-content-center md:grid-cols-1 my-16">
                 {team.map((member, index) => (
