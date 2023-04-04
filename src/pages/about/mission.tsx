@@ -36,7 +36,7 @@ export default function Home() {
       </Head>
       <Layout>
         <Section
-          className="min-h-[50vh] mt-[100px] md:mt-[60px] grid place-content-center"
+          className="min-h-[70vh] mt-[100px] md:mt-[60px] grid place-content-center"
           data-theme="light"
         >
           <div className="container">
