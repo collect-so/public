@@ -37,7 +37,7 @@ const DevsFeatureBlock = ({
         {link ? (
           <Link href={link}>
             <OutlineButton className="mt-8">
-              Learn more <VisuallyHidden>about {title}</VisuallyHidden>
+              Learn more<VisuallyHidden>about {title}</VisuallyHidden>
               <ArrowRight />
             </OutlineButton>
           </Link>

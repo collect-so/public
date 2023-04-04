@@ -90,7 +90,7 @@ export function ChatGPTBlock() {
         <div className=" text-center  flex flex-col items-center container">
           <Link href="/features/collect-and-chatgpt">
             <OutlineButton>
-              Learn more <VisuallyHidden>about integration</VisuallyHidden>
+              Learn more<VisuallyHidden>about integration</VisuallyHidden>
               <ArrowRight />
             </OutlineButton>
           </Link>
