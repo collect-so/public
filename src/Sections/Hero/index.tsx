@@ -46,8 +46,9 @@ const record = await CollectSDK
 const bookingEndpoint = "/api/v1/records/booking"
 const propertyEndpoint = "/api/v1/records/property"
 
-// 2. Recognition of record type "booking":
-const booking = await CollectSDK.get("booking", {...})`;
+// 2. Recognition of record types "booking" and "property":
+const booking = await CollectSDK.get("booking", {...})
+const property = await CollectSDK.update("property", {...})`;
 
 export function HeroSection() {
   return (
