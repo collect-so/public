@@ -121,7 +121,7 @@ export const plans: TTSubscritionPlan[] = [
   },
   {
     name: "TEAM",
-    price: "249$",
+    price: "$249",
     period: "Monthly",
     description: "Your cloud backend teammate",
     variant: "dark",
@@ -164,7 +164,7 @@ export const plans: TTSubscritionPlan[] = [
   },
   {
     name: "BUSINESS",
-    price: "499$",
+    price: "$499",
     period: "Monthly",
     description: "For bigger products",
     nameColor: "green",

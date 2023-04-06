@@ -1,25 +1,57 @@
-import { FC, PropsWithoutRef } from "react";
+import { CSSProperties, FC, PropsWithoutRef } from "react";
 import { materialOceanic } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import classNames from "classnames";
+import cx from "classnames";
+
+const PreStyles: CSSProperties = {
+  textAlign: "left",
+  whiteSpace: "pre",
+  wordSpacing: "normal",
+  wordBreak: "normal",
+  overflowWrap: "normal",
+  color: "rgb(195, 206, 227)",
+  background: "rgb(38, 50, 56)",
+  fontFamily: '"Roboto Mono", monospace',
+  fontSize: "1em",
+  lineHeight: "1.5em",
+  tabSize: 4,
+  hyphens: "none",
+  overflow: "auto",
+  position: "relative",
+  margin: "0",
+  padding: "1em",
+};
 
 export const CodeBlock: FC<
   PropsWithoutRef<{
     code: string;
     darkModeTrigger?: boolean;
     className?: string;
+    preClassName?: string;
   }>
-> = ({ code, darkModeTrigger = true, className }) => {
+> = ({ code, darkModeTrigger = true, className, preClassName }) => {
   const darkModeTriggerProps = darkModeTrigger
     ? { "data-theme": "dark" }
     : undefined;
 
   return (
     <div
-      className={classNames("max-w-[90vw]", className)}
+      className={classNames("max-w-[92vw]", className)}
       {...darkModeTriggerProps}
     >
-      <SyntaxHighlighter language="javascript" style={materialOceanic}>
+      <SyntaxHighlighter
+        language="javascript"
+        style={materialOceanic}
+        PreTag={({ children }) => (
+          <pre
+            className={cx(preClassName, "bg-background-dark p-2 rounded-lg")}
+            style={PreStyles}
+          >
+            {children}
+          </pre>
+        )}
+      >
         {code}
       </SyntaxHighlighter>
     </div>

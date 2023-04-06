@@ -1,3 +1,3 @@
-export const contactEmail = 'hey@collect.so'
+export const contactEmail = "hello@collect.so";
 
-export const contactEmailUrl = `mailto:${contactEmail}`
+export const contactEmailUrl = `mailto:${contactEmail}`;

@@ -11,7 +11,8 @@ export function Badge({
   return (
     <div
       className={cx(
-        "inline-flex px-2 py-0.5 text-[14px] font-extrabold leading-normal rounded-[4px] bg-accent-brand text-base-white",
+        "inline-flex px-2 py-0.5 text-sm font-extrabold leading-normal rounded-[4px] text-base-white",
+        { "bg-accent-brand": !className },
         className,
       )}
     >

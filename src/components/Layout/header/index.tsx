@@ -1,15 +1,15 @@
 import { createContext, useEffect, useState } from "react";
 
-import { Navbar } from "~/components/Layout/Header/components/navbar";
+import { Navbar } from "~/components/Layout/header/components/navbar";
 import { useIntersectionByQuery } from "~/components/hooks/useIntersectionByQuery";
 import { useResizeEffect } from "~/components/hooks/useResizeEffect";
-import { menuData } from "~/components/Layout/Header/data";
+import { menuData } from "~/components/Layout/header/data";
 import { motion } from "framer-motion";
-import { MenuToggle } from "~/components/Layout/Header/components/menu-toggle";
-import { MenuItem } from "~/components/Layout/Header/components/menu-item";
+import { MenuToggle } from "~/components/Layout/header/components/menu-toggle";
+import { MenuItem } from "~/components/Layout/header/components/menu-item";
 import cx from "classnames";
 import { useMediaMatcher } from "~/components/hooks/useMediaMatcher";
-import { Logo } from "~/components/Layout/Header/components/logo";
+import { Logo } from "~/components/Layout/header/components/logo";
 import Link from "next/link";
 import { JoinWaitlistButton } from "~/components/joinwaitlist-button";
 
