@@ -100,11 +100,7 @@ export function HeroSection() {
               </p>
               <CornerDownLeft className="text-content-secondary-dark" />
             </div>
-            <CodeBlock
-              code={Code}
-              className=" md:relative left-0 "
-              preClassName="border border-solid border-accent-brand"
-            />
+            <CodeBlock code={Code} className=" md:relative left-0 " />
             <div className="flex flex-col items-center w-full m-auto">
               <Path2 />
               <p className="text-xl sm:text-base font-medium text-content-secondary-light tracking-tight ml-16 mt-2">
