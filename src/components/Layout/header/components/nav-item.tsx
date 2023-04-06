@@ -9,7 +9,6 @@ interface INavItem extends ComponentPropsWithoutRef<"div"> {
 
 export const NavItem: FunctionComponent<INavItem> = ({
   children,
-  active,
   child,
   className,
   ...props

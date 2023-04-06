@@ -1,5 +1,5 @@
 {
-  "extends": ["eslint-config-next", "plugin:@typescript-eslint/recommended"],
+  "extends": ["eslint-config-next"],
   "globals": {
     "React": true,
     "JSX": true,
@@ -11,11 +11,6 @@
   },
   "rules": {
     "react-hooks/exhaustive-deps": "warn",
-    "@typescript-eslint/adjacent-overload-signatures": "error",
-    "react/jsx-props-no-spreading": "off",
-    "react/no-unescaped-entities": "off",
-    "@typescript-eslint/no-empty-function": "warn",
-    "@typescript-eslint/ban-ts-comment": "warn",
-    "@typescript-eslint/ban-types": "warn"
+    "react/no-unescaped-entities": "off"
   }
 }

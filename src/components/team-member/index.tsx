@@ -1,5 +1,4 @@
 import { Member } from "~/Sections/Team/data";
-import Image from "next/image";
 import Link from "next/link";
 import { Github, Linkedin } from "lucide-react";
 import { Badge } from "~/components/badge";

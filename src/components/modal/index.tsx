@@ -7,7 +7,7 @@ import { sendForm } from "../../lib/api";
 import { Loader2 } from "lucide-react";
 
 export function Modal() {
-  const { close, isOpen, open } = useContext(ModalContext);
+  const { close, isOpen } = useContext(ModalContext);
   const [form, updateForm] = useState({
     name: "",
     email: "",
@@ -67,7 +67,7 @@ export function Modal() {
         </Transition.Child>
 
         <div className="fixed inset-4 z-10 overflow-y-auto">
-          <div className="flex min-h-full items-end justify-center p-4 text-center items-center">
+          <div className="flex min-h-full justify-center p-4 text-center items-center">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"

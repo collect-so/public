@@ -1,13 +1,9 @@
 import Head from "next/head";
 import { Layout } from "~/components/Layout";
-import { CodeBlock } from "~/components/codeblock";
-import Image from "next/image";
 import { Section } from "~/components/section";
-import nested from "~/images/nested-structures.png";
 import { ArrowLeft } from "react-feather";
 import Link from "next/link";
 import { getAbsoluteURL } from "~/components/utils";
-import { CodeText } from "~/components/codetext";
 import { OutlineButton } from "~/components/button";
 
 export default function Home() {

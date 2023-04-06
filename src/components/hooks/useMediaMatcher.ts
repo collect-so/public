@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export const useMediaMatcher = (query: string) => {
   const getMatches = (query: string): boolean => {
@@ -10,9 +10,9 @@ export const useMediaMatcher = (query: string) => {
 
   const [matches, setMatches] = useState<boolean>(getMatches(query));
 
-  const handleChange = () => {
+  const handleChange = useCallback(() => {
     setMatches(getMatches(query));
-  };
+  }, [setMatches, query]);
 
   useEffect(() => {
     const matchMedia = window.matchMedia(query);
