@@ -21,9 +21,15 @@ export function Footer() {
           <div className="justify-self-end text-center items-center grid justify-items-end sm:justify-items-center sm:justify-self-center">
             <a
               href="mailto:hello@collect.so"
-              className="text-xl sm:text-base font-bold  text-content-primary-dark mb-8 sm:mb-4"
+              className="text-base font-medium text-content-primary-dark mb-4"
             >
               hello@collect.so
+            </a>
+            <a
+              href="tel:+1(302)4809110"
+              className="text-base font-medium text-content-primary-dark mb-4"
+            >
+              +1 (302) 480 9110
             </a>
             <div className="grid gap-4 grid-cols-3">
               <Link
