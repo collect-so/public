@@ -14,6 +14,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useIsomorphicLayoutEffect, useWindowSize } from "react-use";
 import { useCallback, useRef, useState } from "react";
+import { Badge } from "~/components/badge";
 
 const AppDemoSection = () => {
   const { scrollY } = useScroll();
@@ -29,7 +30,7 @@ const AppDemoSection = () => {
     setElementTop(top + scrollTop);
   }, [ref]);
 
-  const { height } = useWindowSize(0, 0);
+  const { height, width } = useWindowSize(0, 0);
   useIsomorphicLayoutEffect(() => {
     handleResize();
   }, [handleResize, height]);
@@ -37,7 +38,7 @@ const AppDemoSection = () => {
   const scale = useTransform(
     scrollY,
     [elementTop, elementTop + height],
-    [0.8, 1],
+    width < 768 ? [1, 1] : [0.8, 1],
     {
       clamp: true,
     },
@@ -45,6 +46,10 @@ const AppDemoSection = () => {
 
   return (
     <Section ref={ref} className=" container items-center mb-24">
+      <div className="flex gap-4 hidden sm:flex justify-center w-full mb-16">
+        <Badge className="bg-background-dark">Powered by graphs</Badge>
+        <Badge className="bg-background-dark">Enhanced by AI</Badge>
+      </div>
       <motion.div style={{ scale }} data-theme="dark">
         <Image
           src={heroApp}
@@ -53,6 +58,7 @@ const AppDemoSection = () => {
           quality={100}
           data-theme="dark"
         />
+        <p className="w-full text-center hidden md:block">Project Dashboard</p>
       </motion.div>
     </Section>
   );
