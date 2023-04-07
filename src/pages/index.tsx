@@ -53,6 +53,7 @@ const AppDemoSection = () => {
           quality={100}
           data-theme="dark"
         />
+        <p className="w-full text-center">Project Dashboard</p>
       </motion.div>
     </Section>
   );
