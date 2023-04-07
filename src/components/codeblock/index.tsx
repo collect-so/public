@@ -26,20 +26,12 @@ const PreStyles: CSSProperties = {
 export const CodeBlock: FC<
   PropsWithoutRef<{
     code: string;
-    darkModeTrigger?: boolean;
     className?: string;
     preClassName?: string;
   }>
-> = ({ code, darkModeTrigger = true, className, preClassName }) => {
-  const darkModeTriggerProps = darkModeTrigger
-    ? { "data-theme": "dark" }
-    : undefined;
-
+> = ({ code, className, preClassName }) => {
   return (
-    <div
-      className={classNames("max-w-[92vw]", className)}
-      {...darkModeTriggerProps}
-    >
+    <div className={classNames("max-w-[92vw]", className)}>
       <SyntaxHighlighter
         language="javascript"
         style={materialOceanic}

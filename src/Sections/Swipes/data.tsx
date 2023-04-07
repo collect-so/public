@@ -6,7 +6,7 @@ export const cards = [
   {
     title: (
       <>
-        Reduce development <strong>costs</strong>
+        Reduce development <span className="text-accent-brand">costs</span>
       </>
     ),
     imageSrc: wallet,
@@ -17,7 +17,7 @@ export const cards = [
   {
     title: (
       <>
-        Deliver features <strong>not bugs</strong>
+        Deliver features <span className="text-accent-red">not bugs</span>
       </>
     ),
     imageSrc: target,
@@ -28,7 +28,7 @@ export const cards = [
   {
     title: (
       <>
-        Iterate blazingly <strong>fast</strong>
+        Iterate blazingly <span className="text-accent-green">fast</span>
       </>
     ),
     imageSrc: dashboard,

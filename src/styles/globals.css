@@ -72,11 +72,11 @@ a {
 
 ::-webkit-scrollbar {
   height: 5px;
-  width: 5px;
+  width: 16px;
   background: #383838;
 }
 
 ::-webkit-scrollbar-thumb {
   background: black;
-  -webkit-border-radius: 1ex;
+  -webkit-border-radius: 2px;
 }

@@ -252,26 +252,41 @@ const rockSongs = await SongRepository.find({
 });`,
     },
     {
-      code: `// Save a new song
-const song = await SongRepository.save({
-  Title: 'Bohemian Rhapsody',
-  Artist: 'Queen',
-  Album: 'A Night at the Opera',
-  Genre: 'Rock',
-  Duration: 355,
-  ReleaseDate: '1975-10-31',
-  CoverImage: 'http://example.com/bohemian-rhapsody.png'
+      code: `// Register the Playlist model
+const Playlist = CollectSDK.register('Playlist', [
+  {
+    name: 'Name',
+    type: 'string',
+    required: true
+  },
+  {
+    name: 'Description',
+    type: 'string'
+  },
+  {
+    name: 'Tracks',
+    type: 'array',
+    items: {
+      type: 'string' // IDs of tracks in the playlist
+    }
+  }
+]);
+
+// Create a new playlist
+const playlist = await Playlist.save({
+  Name: 'My Playlist',
+  Description: 'A cool playlist',
+  Tracks: [] // Empty array for now
 });
 
-// Find all songs by Queen
-const songsByQueen = await SongRepository.find({
-  Artist: 'Queen'
+// Add a track to the playlist
+const trackId = '3n3Ppam7vgaVa1iaRUc9Lp'; // ID of a track
+const updatedPlaylist = await Playlist.update(playlist.id, {
+  Tracks: [trackId] // Add the track to the array
 });
 
-// Find all songs in the rock genre
-const rockSongs = await SongRepository.find({
-  Genre: 'Rock'
-});`,
+// Get all playlists
+const playlists = await Playlist.find({});`,
     },
   ],
 };

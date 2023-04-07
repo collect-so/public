@@ -29,8 +29,8 @@ export function BenefitsSection() {
   return (
     <Section className="container py-32">
       <h2 className="text-3xl sm:text-xl font-bold text-content-primary-light md:text-2xl text-center mb-32 tracking-tight">
-        Build backend <strong className="text-accent-brand">in days</strong> not
-        in months
+        Build backend <span className="text-accent-brand">in days</span> not in
+        months
       </h2>
       <div className="grid place-items-center grid-cols-2 sm:grid-cols-1 gap-x-10 gap-y-20 sm:gap-10">
         {benefits.map((benefit, idx) => (

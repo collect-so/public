@@ -79,7 +79,6 @@ export function ChatGPTBlock() {
         {data.map((card, idx) => (
           <CarouselCard className="py-5" key={idx}>
             <CodeBlock
-              darkModeTrigger={false}
               className="border border-stroke-dark rounded-md"
               code={card.code}
             />

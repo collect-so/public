@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 
-export const useMediaMatcher = (query: string) => {
+export const useMediaMatcher = (query: string, initial?: boolean) => {
   const getMatches = (query: string): boolean => {
     if (typeof window !== "undefined") {
       return window.matchMedia(query).matches;

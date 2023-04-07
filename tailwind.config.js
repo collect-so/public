@@ -20,7 +20,7 @@ module.exports = {
       padding: {
         DEFAULT: "1rem",
         sm: "2rem",
-        lg: "4rem",
+        lg: "3rem",
         xl: "5rem",
         "2xl": "6rem",
       },
@@ -40,6 +40,7 @@ module.exports = {
       "content-secondary-light": "#606060",
       "content-primary-dark": "#FFF",
       "content-secondary-dark": "#D8D8D8",
+      "content-tertiary-dark": "#5E8396",
 
       "background-light": "#fffffd",
       "background-dark": "#263238",

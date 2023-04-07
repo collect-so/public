@@ -115,8 +115,8 @@ export const Header = () => {
           className={cx(
             "md:block md:absolute md:top-[60px] md:left-0 md:w-full md:min-h-[calc(100vh_-_60px)]",
             { "bg-background-dark": isOpen },
-            { hidden: !isOpen && isTablet },
           )}
+          style={{ display: !isOpen && isTablet ? "none" : "" }}
         >
           <div className="flex items-center container md:flex-col">
             {menuData.map((item) => (
@@ -126,11 +126,13 @@ export const Header = () => {
         </motion.div>
         <div className="flex items-center gap-8">
           <JoinWaitlistButton />
-          <div className="hidden md:block">
-            <motion.div initial={false} animate={isOpen ? "open" : "closed"}>
-              <MenuToggle />
-            </motion.div>
-          </div>
+          <motion.div
+            initial={false}
+            animate={isOpen ? "open" : "closed"}
+            className="hidden md:block"
+          >
+            <MenuToggle />
+          </motion.div>
         </div>
       </Navbar>
     </NavigationContext.Provider>

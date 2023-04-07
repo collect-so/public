@@ -14,8 +14,11 @@ export function Footer() {
               collect
             </h2>
 
-            <p className="text-base sm:text-sm font-medium text-content-secondary-dark tracking-tight">
+            <p className="text-base sm:text-sm font-medium text-content-secondary-dark tracking-tight mb-1">
               © 2023, Collect Software Inc.
+            </p>
+            <p className="text-sm font-medium text-content-tertiary-dark tracking-tight">
+              8 The Green. Ste A. Dover, DE 19901
             </p>
           </div>
           <div className="justify-self-end text-center items-center grid justify-items-end sm:justify-items-center sm:justify-self-center">

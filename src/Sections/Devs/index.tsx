@@ -33,7 +33,7 @@ const DevsFeatureBlock = ({
           {text}
         </h4>
 
-        <CodeBlock code={code} darkModeTrigger={false} />
+        <CodeBlock code={code} />
         {link ? (
           <Link href={link}>
             <OutlineButton className="mt-8">
