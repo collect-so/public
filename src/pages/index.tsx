@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Turn ideas into fast and reliable APIs • Collect</title>
+        <title>Turn ideas into reliable APIs • Collect</title>
         <meta
           name="description"
           content="Collect Platform helps businesses build applications quickly and easily, regardless of the size or maturity of the team"
@@ -22,7 +22,7 @@ export default function Home() {
         <meta
           property="og:title"
           key="title"
-          content="Turn ideas into fast and reliable APIs • Collect"
+          content="Turn ideas into reliable APIs • Collect"
         />
         <meta
           name="og:description"
