@@ -28,7 +28,7 @@ function BenefitCard({ benefit }: { benefit: TBenefit }) {
 export function BenefitsSection() {
   return (
     <Section className="container py-32">
-      <h2 className="text-3xl sm:text-xl font-bold text-content-primary-light md:text-2xl text-center mb-24 tracking-tight">
+      <h2 className="text-3xl sm:text-xl font-bold text-content-primary-light md:text-2xl text-center mb-32 tracking-tight">
         Build backend <strong className="text-accent-brand">in days</strong> not
         in months
       </h2>

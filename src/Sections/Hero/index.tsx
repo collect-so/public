@@ -54,7 +54,7 @@ export function HeroSection() {
   return (
     <>
       <Section
-        className="min-h-screen mt-[100px] md:mt-[60px] grid place-content-center"
+        className="min-h-[70vh] mt-[100px] md:mt-[60px] grid place-content-center"
         data-theme="light"
       >
         <div
@@ -66,8 +66,8 @@ export function HeroSection() {
         >
           <div
             className={cx(
-              "grid gap-12 justify-items-start center relative",
-              "md:justify-items-center md:gap-8 md:order-2 md:row-span-2",
+              "grid gap-4 justify-items-start center relative",
+              "md:justify-items-center md:order-2 md:row-span-2",
             )}
           >
             <h2 className="text-3xl font-bold  text-content-primary-light sm:text-2xl tracking-tight leading-[3.5rem] sm:leading-[2.5rem]">
@@ -80,33 +80,33 @@ export function HeroSection() {
               <br className="md:hidden" /> to <b>get things done</b> without any
               hassle
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-4 sm:hidden">
               <Badge className="bg-background-dark">Built for people</Badge>
               <Badge className="bg-background-dark">Powered by graphs</Badge>
               <Badge className="bg-background-dark">Enhanced by AI</Badge>
             </div>
-            {/*<JoinWaitlistButton />*/}
+            <JoinWaitlistButton className="mt-8 sm:hidden" />
           </div>
           <div className="md:row-span-1 md:order-2 grid gap-4">
-            <div className="flex flex-col items-center w-full m-auto">
-              <p className="text-xl sm:text-base font-medium text-content-secondary-light tracking-tight mr-16 mb-2">
-                Type your idea
-              </p>
-              <Path1 />
-            </div>
-            <div className="rounded-md bg-[#35454e] flex items-center w-full md:w-full justify-between p-4">
-              <p className="text-base font-medium text-content-secondary-dark tracking-tight">
-                Make a Booking App
-              </p>
-              <CornerDownLeft className="text-content-secondary-dark" />
-            </div>
+            {/*<div className="flex flex-col items-center w-full m-auto">*/}
+            {/*  <p className="text-xl sm:text-base font-medium text-content-secondary-light tracking-tight mr-16 mb-2">*/}
+            {/*    Type your idea*/}
+            {/*  </p>*/}
+            {/*  <Path1 />*/}
+            {/*</div>*/}
+            {/*<div className="rounded-md bg-[#35454e] flex items-center w-full md:w-full justify-between p-4">*/}
+            {/*  <p className="text-base font-medium text-content-secondary-dark tracking-tight">*/}
+            {/*    Make a Booking App*/}
+            {/*  </p>*/}
+            {/*  <CornerDownLeft className="text-content-secondary-dark" />*/}
+            {/*</div>*/}
             <CodeBlock code={Code} className=" md:relative left-0 " />
-            <div className="flex flex-col items-center w-full m-auto">
-              <Path2 />
-              <p className="text-xl sm:text-base font-medium text-content-secondary-light tracking-tight ml-16 mt-2">
-                Start using your API
-              </p>
-            </div>
+            {/*<div className="flex flex-col items-center w-full m-auto">*/}
+            {/*  <Path2 />*/}
+            {/*  <p className="text-xl sm:text-base font-medium text-content-secondary-light tracking-tight ml-16 mt-2">*/}
+            {/*    Start using your API*/}
+            {/*  </p>*/}
+            {/*</div>*/}
           </div>
         </div>
       </Section>

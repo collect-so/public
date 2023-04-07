@@ -37,18 +37,15 @@ const AppDemoSection = () => {
   const scale = useTransform(
     scrollY,
     [elementTop, elementTop + height],
-    [0.7, 1],
+    [0.8, 1],
     {
       clamp: true,
     },
   );
 
   return (
-    <Section
-      ref={ref}
-      className="min-h-[35vh] container grid place-content-center text-center grid-rows-1 gap-8 items-center"
-    >
-      <motion.div style={{ scale }}>
+    <Section ref={ref} className=" container items-center mb-24">
+      <motion.div style={{ scale }} data-theme="dark">
         <Image
           src={heroApp}
           alt={"app"}
@@ -90,8 +87,10 @@ export default function Home() {
       </Head>
       <Layout>
         <HeroSection />
+        <AppDemoSection />
+
         <Section
-          className="min-h-[35vh] container grid place-content-center text-center grid-rows-1 gap-8 items-center"
+          className="min-h-[50vh] container grid place-content-center text-center grid-rows-1 gap-8 items-center"
           data-theme="light"
         >
           <div>
@@ -107,7 +106,6 @@ export default function Home() {
             </h2>
           </div>
         </Section>
-        <AppDemoSection />
         <SwipesSection />
         <BenefitsSection />
         <DevsSection />
