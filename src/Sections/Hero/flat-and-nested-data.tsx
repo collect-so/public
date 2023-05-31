@@ -1,47 +1,34 @@
 import { ColoredChip, ColoredChipColor } from "~/components/colored-chip";
-import cx from "classnames";
-import { useEffect, useRef, useState } from "react";
-import {
-  useCycle,
-  motion,
-  Variants,
-  AnimatePresence,
-  Reorder,
-} from "framer-motion";
-
-const randomIntFromRange = (min: number, max: number) =>
-  Math.floor(Math.random() * (max - min + 1) + min);
+import { useEffect, useRef } from "react";
+import { useCycle, motion, useInView } from "framer-motion";
+import { randomIntFromRange } from "~/common";
 
 const data = [
   { name: "The Wall", area: "firstAlbum" },
-
   { name: "Beautiful", area: "thirdSong" },
-
   { name: "Pink Floyd", area: "first" },
-
   { name: "Relapse", area: "thirdAlbum" },
-
   { name: "Iron Man", area: "secondSong" },
-
   { name: "Hey You", area: "firstSong" },
-
   { name: "Black Sabbath", area: "second" },
-
   { name: "Paranoid", area: "secondAlbum" },
-
   { name: "Eminem", area: "third" },
 ];
 
 export const FlatAndNestedData = () => {
   const [mode, cycleMode] = useCycle("flat", "nested");
   const items = useRef(data);
+  const ref = useRef(null);
+  const isInView = useInView(ref);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      cycleMode();
-    }, 2600);
-    return () => clearInterval(interval);
-  }, [cycleMode]);
+    if (isInView) {
+      const interval = setInterval(() => {
+        cycleMode();
+      }, 1300);
+      return () => clearInterval(interval);
+    }
+  }, [cycleMode, isInView]);
 
   const getOrderInGroup = (name: string) => {
     return name.includes("Song") ? 2 : name.includes("Album") ? 1 : 0;
@@ -79,6 +66,7 @@ export const FlatAndNestedData = () => {
 
   return (
     <motion.div
+      ref={ref}
       layout
       animate
       className="relative z-10 content-center w-full gap-8"
@@ -108,14 +96,16 @@ export const FlatAndNestedData = () => {
             color={color}
             layoutId={item.area}
             layout
-            animate
             style={{
               gridArea: item.area,
               justifySelf: mode === "nested" ? "self-start" : "center",
               marginLeft: getMarginByOrder(orderInGroup),
-              rotate: mode === "nested" ? 0 : randomIntFromRange(-5, 5),
             }}
             key={item.area}
+            animate={{
+              rotate: mode === "nested" ? 0 : randomIntFromRange(-5, 5),
+            }}
+            transition={{ type: "spring", stiffness: 100, mass: 0.5 }}
           >
             {item.name}
           </ColoredChip>

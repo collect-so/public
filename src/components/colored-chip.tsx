@@ -38,25 +38,19 @@ export const ColoredChip: FC<PropsWithChildren<ColoredChipProps>> = ({
       style={style}
       whileHover={whileHover}
       layoutId={layoutId}
-      animate={animate}
+      animate={animate ?? true}
       className={cx(
         className,
-        "leading-[1.2]",
+        "leading-[1.2] cursor-default",
         {
-          "text-content-primary-light bg-accent-acid-yellow hover:shadow-md hover:shadow-accent-acid-yellow/60":
+          "text-content-primary-light bg-accent-acid-yellow":
             color === "yellow",
-          "text-content-primary-light bg-accent-blue hover:shadow-md hover:shadow-accent-blue/60":
-            color === "blue",
-          "text-content-primary-light bg-accent-pink hover:shadow-md hover:shadow-accent-pink/60":
-            color === "pink",
-          "text-content-primary-dark bg-accent-green hover:shadow-md hover:shadow-accent-green/60":
-            color === "green",
-          "text-content-primary-dark bg-accent-red hover:shadow-md hover:shadow-accent-red/60":
-            color === "red",
-          "text-content-primary-dark bg-accent-purple hover:shadow-md hover:shadow-accent-purple/60":
-            color === "purple",
-          "text-content-primary-dark bg-accent-orange hover:shadow-md hover:shadow-accent-orange/60":
-            color === "orange",
+          "text-content-primary-light bg-accent-blue": color === "blue",
+          "text-content-primary-light bg-accent-pink ": color === "pink",
+          "text-content-primary-dark bg-accent-green": color === "green",
+          "text-content-primary-dark bg-accent-red ": color === "red",
+          "text-content-primary-dark bg-accent-purple ": color === "purple",
+          "text-content-primary-dark bg-accent-orange ": color === "orange",
           "text-[#6d6d6d] bg-[#1b1b1b]": color === "dark",
         },
         "h-[64px] px-8 rounded-full",

@@ -1,6 +1,7 @@
-import { useCycle } from "framer-motion";
+import { useCycle, useInView } from "framer-motion";
 import { ColoredChip, ColoredChipColor } from "~/components/colored-chip";
 import { useEffect, useRef, useState } from "react";
+import { randomIntFromRange } from "~/common";
 
 const data: { color: ColoredChipColor; title: string }[] = [
   { color: "red", title: "Product" },
@@ -23,10 +24,6 @@ const data: { color: ColoredChipColor; title: string }[] = [
   { color: "orange", title: "Model" },
   { color: "yellow", title: "Article" },
 ];
-
-const randomIntFromRange = (min: number, max: number) =>
-  Math.floor(Math.random() * (max - min + 1) + min);
-
 export const BlinkingRecords = () => {
   const groups = useRef(
     data.reduce<Array<ColoredChipColor>>((acc, item) => {
@@ -37,15 +34,17 @@ export const BlinkingRecords = () => {
   const [group, cycleGroup] = useCycle(...groups.current);
   const interval = useRef<ReturnType<typeof setInterval>>();
   const [paused, setPaused] = useState(false);
+  const ref = useRef(null);
+  const isInView = useInView(ref);
 
   useEffect(() => {
-    if (!paused) {
+    if (!paused && isInView) {
       interval.current = setInterval(() => {
         cycleGroup();
       }, 1300);
       return () => clearInterval(interval.current);
     }
-  }, [cycleGroup, paused]);
+  }, [cycleGroup, paused, isInView]);
 
   useEffect(() => {
     const pausedTimer = setTimeout(() => {
@@ -60,13 +59,17 @@ export const BlinkingRecords = () => {
   };
 
   return (
-    <div className=" flex relative flex-wrap justify-center items-center z-10 min-h-[50vh] content-center w-full gap-8 md:gap-4">
+    <div
+      ref={ref}
+      className="flex relative flex-wrap justify-center items-center z-10 min-h-[50vh] content-center w-full gap-8 md:gap-4"
+    >
       {data.map((item) => (
         <ColoredChip
           color={group === item.color ? item.color : "dark"}
           key={item.title}
-          style={{ rotate: randomIntFromRange(-3, 3) }}
           onClick={selectGroup(item.color)}
+          animate={{ rotate: randomIntFromRange(-3, 3) }}
+          transition={{ type: "spring", stiffness: 100 }}
         >
           {item.title}
         </ColoredChip>
