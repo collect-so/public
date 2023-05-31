@@ -1,8 +1,22 @@
 import { Section } from "~/components/section";
 import { JoinWaitlistButton } from "~/components/joinwaitlist-button";
 import cx from "classnames";
-import { CodeBlock } from "~/components/codeblock";
-import { Badge } from "~/components/badge";
+import { OutlineButton, TransparentButton } from "~/components/button";
+
+import { useObservedSize } from "~/components/hooks/useResizeObserver";
+
+import { CustomCursor } from "~/components/custom-cursor";
+import Dawn from "../../images/svg/Dawn.svg";
+import Direction from "../../images/svg/Direction.svg";
+import Explosion from "../../images/svg/Explosion.svg";
+import Lightning from "../../images/svg/Lightning 2.svg";
+import SoftStar from "../../images/svg/Soft Star.svg";
+import Star from "../../images/svg/Star.svg";
+import { Background } from "~/components/background";
+import { AutoRotationWrapper } from "~/components/autoroatation-wrapper";
+import { ColoredChip } from "~/components/colored-chip";
+import { BlinkingRecords } from "~/Sections/Hero/blinking-records";
+import { FlatAndNestedData } from "~/Sections/Hero/flat-and-nested-data";
 
 const TextGradient = {
   background: "linear-gradient(281deg, #FF0099, #EC7E19)",
@@ -30,45 +44,244 @@ const booking = await CollectSDK.get("booking", {...})
 const property = await CollectSDK.update("property", {...})`;
 
 export function HeroSection() {
+  const { ref, size } = useObservedSize<HTMLElement>();
+
   return (
     <>
-      <Section
-        className="min-h-[80vh] mt-[100px] md:mt-[60px] grid place-content-center"
-        data-theme="light"
-      >
+      <Section ref={ref} className={cx("overflow-hidden")} data-theme="dark">
+        {size ? <Background target={ref} targetHeight={size.height} /> : null}
+        {/*<Rigid size={size} />*/}
         <div
           className={cx(
-            "md:container lg:max-w-7xl lg:w-full md:py-20 lg:px-8",
-            "text-left grid grid-cols-[3fr_2fr] gap-8 items-center",
-            "md:text-center md:grid-rows-2 md:grid md:grid-cols-1",
+            "container pt-[100px] min-h-[100vh] z-10",
+            "grid items-center grid-rows-[5fr_1fr]",
+            "text-center ",
           )}
         >
-          <div
-            className={cx(
-              "grid gap-4 justify-items-start center relative",
-              "md:justify-items-center md:order-2 md:row-span-2",
-            )}
-          >
-            <h2 className="text-3xl font-bold  text-content-primary-light sm:text-2xl tracking-tight leading-[3.5rem] sm:leading-[2.5rem]">
-              Turn <span className="text-accent-red">ideas</span> into
-              <br className="md:hidden" /> fast and reliable{" "}
-              <span className="text-accent-brand">API</span>s
+          <div className={cx("z-10")}>
+            <h2 className="relative text-4xl font-bold text-content-primary-dark sm:text-2xl tracking-tight  sm:leading-[2.5rem]">
+              Build <span className="text-accent-brand">API</span>s like never
+              before
+              <ColoredChip
+                color="purple"
+                style={{ rotate: 20 }}
+                whileHover={{ rotate: 14 }}
+                className={cx(
+                  "absolute",
+                  "top-[-70px] right-[85px]",
+                  "md:top-[170px] md:right-[calc(50%_-_85px)]",
+                )}
+              >
+                instantly
+              </ColoredChip>
             </h2>
-            <p className="text-xl sm:text-base font-medium text-content-secondary-light sm:text-base tracking-tight">
-              Collect Platform is your low-code swiss-knife{" "}
-              <br className="md:hidden" /> to <b>get things done</b> without any
-              hassle
+
+            <p className="text-xl sm:text-base font-medium text-content-secondary-dark sm:text-base tracking-tight">
+              Get rid of backend routine and focus on your features
             </p>
-            <div className="flex gap-4 sm:hidden flex-wrap">
-              <Badge className="bg-background-dark">Built for people</Badge>
-              <Badge className="bg-background-dark">Powered by graphs</Badge>
-              <Badge className="bg-background-dark">Enhanced by AI</Badge>
-            </div>
-            <JoinWaitlistButton className="mt-8 sm:hidden" />
           </div>
-          <div className="md:row-span-1 md:order-2 grid gap-4">
-            <CodeBlock code={Code} className=" md:relative left-0 " />
+          <div className="flex justify-center gap-16 z-10">
+            <TransparentButton>Read the Docs</TransparentButton>
+            <JoinWaitlistButton />
           </div>
+        </div>
+        <div
+          className={cx(
+            "container  min-h-[100vh] z-10",
+            "grid items-center ",
+            "text-center ",
+          )}
+        >
+          <div className={cx("z-10")}>
+            <p className="text-xl sm:text-base font-medium text-content-secondary-dark sm:text-base tracking-tight">
+              All-in-one API toolkit, offering{" "}
+              <span className="font-bold text-accent-acid-yellow">
+                no-code database experience
+              </span>
+              <br className="md:hidden" />
+              with limitless{" "}
+              <span className="font-bold text-accent-orange">data nesting</span>
+              , enhanced with flexible{" "}
+              <span className="font-bold text-accent-purple">file storage</span>
+            </p>
+          </div>
+        </div>
+        <div
+          className={cx(
+            "container min-h-[100vh] z-10 mb-40",
+            "grid items-center content-center  gap-8",
+            "text-center ",
+          )}
+        >
+          <div className={cx("z-10")}>
+            <h2 className="relative text-4xl font-bold text-content-primary-dark sm:text-2xl tracking-tight  sm:leading-[2.5rem]">
+              Rapidly build custom APIs <br className="md:hidden" />
+              with flexible{" "}
+              <span className="font-bold text-accent-red">data types</span>
+            </h2>
+          </div>
+          <div className=" flex relative flex-wrap justify-center items-center z-10 min-h-[50vh] content-center w-full gap-8">
+            <AutoRotationWrapper baseVelocity={-10}>
+              <Dawn className="w-[133px] h-[133px] md:w-[60px] md:h-[60px]" />
+            </AutoRotationWrapper>
+            <ColoredChip
+              color="yellow"
+              className={cx("")}
+              whileHover={{ rotate: -10 }}
+              style={{ rotate: -5 }}
+            >
+              boolean
+            </ColoredChip>
+            <AutoRotationWrapper baseVelocity={-25}>
+              <SoftStar className="w-[95px] h-[95px] md:w-[60px] md:h-[60px]" />
+            </AutoRotationWrapper>
+            <ColoredChip
+              color="blue"
+              className={cx(" ")}
+              whileHover={{ rotate: 12 }}
+              style={{ rotate: 6 }}
+            >
+              number
+            </ColoredChip>
+            <AutoRotationWrapper baseVelocity={15}>
+              <Direction className="w-[134px] h-[67px] md:w-[60px] md:h-[60px]" />
+            </AutoRotationWrapper>
+            <ColoredChip
+              color="red"
+              className={cx(" ")}
+              whileHover={{ rotate: -8 }}
+              style={{ rotate: -4 }}
+            >
+              datetime
+            </ColoredChip>
+            <AutoRotationWrapper baseVelocity={25}>
+              <Star className="w-[85px] h-[85px] md:w-[60px] md:h-[60px]" />
+            </AutoRotationWrapper>{" "}
+            <ColoredChip
+              color="green"
+              className={cx("")}
+              whileHover={{ rotate: 10 }}
+              style={{ rotate: 5 }}
+            >
+              point
+            </ColoredChip>
+            <AutoRotationWrapper baseVelocity={-15}>
+              <Lightning className="w-[62px] h-[109px] md:w-[60px] md:h-[60px]" />
+            </AutoRotationWrapper>
+            <ColoredChip
+              color="pink"
+              className={cx("")}
+              whileHover={{ rotate: -14 }}
+              style={{ rotate: -7 }}
+            >
+              string
+            </ColoredChip>
+            <AutoRotationWrapper baseVelocity={-10}>
+              <Explosion className="w-[95px] h-[95px] md:w-[60px] md:h-[60px]" />
+            </AutoRotationWrapper>
+            <ColoredChip
+              color="purple"
+              className={cx(" ")}
+              whileHover={{ rotate: 8 }}
+              style={{ rotate: 4 }}
+            >
+              file
+            </ColoredChip>
+          </div>
+          <div className={cx("z-10")}>
+            <p className="text-xl sm:text-base font-medium text-content-secondary-dark sm:text-base tracking-tight">
+              Suitable even for ambitious and demanding projects
+            </p>
+          </div>
+          <div className="flex relative justify-center  z-10 ">
+            <OutlineButton>See how it works</OutlineButton>
+          </div>
+        </div>
+
+        {/**/}
+
+        <div
+          className={cx(
+            "container min-h-[100vh] z-10 mb-40",
+            "grid items-center content-center  gap-8",
+            "text-center ",
+          )}
+        >
+          <div className={cx("z-10")}>
+            <h2 className="relative text-4xl font-bold text-content-primary-dark sm:text-xl tracking-tight  sm:leading-[2.5rem]">
+              {/* */}
+              {/*Utilize nested and horizontal structures with no limits and*/}
+              {/*migrations*/}
+              Give more sense to your data
+              <br className="md:hidden" /> with natively nested storage
+            </h2>
+            <p className="text-xl sm:text-base font-medium text-content-secondary-dark sm:text-base sm:text-sm tracking-tight">
+              Simply store any data the way you think about it
+            </p>
+          </div>
+          {/*<div className=" flex relative flex-wrap justify-center items-center z-10 min-h-[50vh] content-center w-full gap-8">*/}
+          {/*<AutoRotationWrapper baseVelocity={-10}>*/}
+          {/*  <Dawn className="w-[133px] h-[133px] md:w-[60px] md:h-[60px]" />*/}
+          {/*</AutoRotationWrapper>*/}
+          {/*<ColoredChip*/}
+          {/*  color="yellow"*/}
+          {/*  className={cx("")}*/}
+          {/*  whileHover={{ rotate: -10 }}*/}
+          {/*  style={{ rotate: -5 }}*/}
+          {/*>*/}
+          {/*  nesting*/}
+          {/*</ColoredChip>*/}
+          {/*<AutoRotationWrapper baseVelocity={-25}>*/}
+          {/*  <SoftStar className="w-[95px] h-[95px] md:w-[60px] md:h-[60px]" />*/}
+          {/*</AutoRotationWrapper>*/}
+          {/*<ColoredChip*/}
+          {/*  color="blue"*/}
+          {/*  className={cx(" ")}*/}
+          {/*  whileHover={{ rotate: 12 }}*/}
+          {/*  style={{ rotate: 6 }}*/}
+          {/*>*/}
+          {/*  linking*/}
+          {/*</ColoredChip>*/}
+          {/*<AutoRotationWrapper baseVelocity={15}>*/}
+          {/*  <Direction className="w-[134px] h-[67px] md:w-[60px] md:h-[60px]" />*/}
+          {/*</AutoRotationWrapper>*/}
+          {/*<ColoredChip*/}
+          {/*  color="red"*/}
+          {/*  className={cx(" ")}*/}
+          {/*  whileHover={{ rotate: -8 }}*/}
+          {/*  style={{ rotate: -4 }}*/}
+          {/*>*/}
+          {/*  instant endpoints*/}
+          {/*</ColoredChip>*/}
+          {/*<AutoRotationWrapper baseVelocity={25}>*/}
+          {/*  <Star className="w-[85px] h-[85px] md:w-[60px] md:h-[60px]" />*/}
+          {/*</AutoRotationWrapper>*/}
+          {/*</div>*/}
+          <FlatAndNestedData />
+        </div>
+
+        {/**/}
+
+        <div
+          className={cx(
+            "container min-h-[100vh] z-10 mb-40",
+            "grid items-center content-center  gap-8",
+            "text-center ",
+          )}
+        >
+          <div className={cx("z-10")}>
+            <h2 className="relative text-4xl font-bold text-content-primary-dark sm:text-xl tracking-tight  sm:leading-[2.5rem]">
+              Retrieve data matching your requirements
+            </h2>
+            <p className="text-xl sm:text-base font-medium text-content-secondary-dark sm:text-base sm:text-sm tracking-tight">
+              Build complex scenarios in a matter of double-digit minutes. Just
+              link data between each other and collect it back.{" "}
+              <span className="font-bold text-accent-acid-yellow">
+                No query language needed.
+              </span>
+            </p>
+          </div>
+          <BlinkingRecords />
         </div>
       </Section>
     </>

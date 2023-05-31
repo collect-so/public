@@ -104,7 +104,7 @@ function StackableCard({
 
 export function SwipesSection() {
   return (
-    <Section className="flex flex-col" data-theme="light">
+    <Section className="flex flex-col z-10" data-theme="light">
       {cards?.map((card, idx) => (
         <StackableCard {...card} idx={idx} key={idx} />
       ))}

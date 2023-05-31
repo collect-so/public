@@ -111,7 +111,7 @@ function PricingCard({ plan }: { plan: TTSubscritionPlan }) {
 
 export function PricingSection() {
   return (
-    <Section className="py-32" id="pricing">
+    <Section className="py-32" id="pricing" data-theme={"dark"}>
       <div className=" container">
         <h2 className="container text-3xl font-bold text-content-primary-light md:text-2xl text-center tracking-tight">
           Pricing

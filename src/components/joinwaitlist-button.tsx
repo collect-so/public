@@ -33,7 +33,10 @@ export const JoinWaitlistButton = ({ className }: { className?: string }) => {
 
   return (
     <Button onClick={open} className={className}>
-      Join Waitlist <Icon />
+      Open Playground{" "}
+      <div className="md:hidden">
+        <Icon />
+      </div>
     </Button>
   );
 };

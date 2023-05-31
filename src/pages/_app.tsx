@@ -2,10 +2,12 @@ import "~/styles/globals.css";
 import type { AppProps } from "next/app";
 import Script from "next/script";
 
-import { Manrope } from "next/font/google";
-const manrope = Manrope({ subsets: ["latin"] });
+import { kyivTypeSans, manrope } from "~/styles/fonts";
+import { CustomCursor } from "~/components/custom-cursor";
+import { useRef } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const ref = useRef<HTMLElement>(null);
   return (
     <>
       <style jsx global>{`
@@ -19,7 +21,7 @@ export default function App({ Component, pageProps }: AppProps) {
         strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=G-CLCR2SYDC6`}
       />
-
+      <Script src="https://cdn.jsdelivr.net/npm/pathseg@1.2.1/pathseg.min.js"></Script>
       <Script id="gtm" strategy="lazyOnload">
         {`
         window.dataLayer = window.dataLayer || [];
@@ -29,8 +31,13 @@ export default function App({ Component, pageProps }: AppProps) {
         gtag('config', 'G-CLCR2SYDC6');
       `}
       </Script>
-
-      <Component {...pageProps} />
+      <main
+        className={`${kyivTypeSans.variable} ${manrope.variable} font-sans`}
+        ref={ref}
+      >
+        <Component {...pageProps} />
+        <CustomCursor ref={ref} />
+      </main>
     </>
   );
 }

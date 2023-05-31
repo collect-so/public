@@ -6,7 +6,7 @@ import { SwipesSection } from "~/Sections/Swipes";
 import { BenefitsSection } from "~/Sections/Benefits";
 import { PricingSection } from "~/Sections/Pricing";
 import { getAbsoluteURL } from "~/components/utils";
-import { TeaserSection } from "~/Sections/Teaser";
+import { CustomCursor } from "~/components/custom-cursor";
 
 export default function Home() {
   return (
@@ -38,9 +38,8 @@ export default function Home() {
       </Head>
       <Layout>
         <HeroSection />
-        <TeaserSection />
-        <SwipesSection />
-        <BenefitsSection />
+        {/*<SwipesSection />*/}
+        {/*<BenefitsSection />*/}
         <DevsSection />
         <PricingSection />
       </Layout>
