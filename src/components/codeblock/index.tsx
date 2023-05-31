@@ -11,7 +11,7 @@ const PreStyles: CSSProperties = {
   wordBreak: "normal",
   overflowWrap: "normal",
   color: "rgb(195, 206, 227)",
-  background: "rgb(38, 50, 56)",
+  background: "black",
   fontFamily: '"Roboto Mono", monospace',
   fontSize: "1em",
   lineHeight: "1.5em",
@@ -20,7 +20,15 @@ const PreStyles: CSSProperties = {
   overflow: "auto",
   position: "relative",
   margin: "0",
-  padding: "1em",
+  padding: ".325em",
+};
+
+const override = {
+  ...materialOceanic,
+  'code[class*="language-"]': {
+    ...materialOceanic['code[class*="language-"]'],
+    background: "inherit",
+  },
 };
 
 export const CodeBlock: FC<
@@ -34,12 +42,9 @@ export const CodeBlock: FC<
     <div className={classNames("max-w-[92vw]", className)}>
       <SyntaxHighlighter
         language="javascript"
-        style={materialOceanic}
+        style={override}
         PreTag={({ children }) => (
-          <pre
-            className={cx(preClassName, "bg-background-dark p-2 rounded-lg")}
-            style={PreStyles}
-          >
+          <pre className={cx(preClassName, "p-2 rounded-lg")} style={PreStyles}>
             {children}
           </pre>
         )}

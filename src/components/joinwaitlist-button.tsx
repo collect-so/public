@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ModalContext } from "~/components/Layout";
-import { Button } from "~/components/button";
+import { Button, OutlineButton } from "~/components/button";
 import { Bell } from "lucide-react";
 
 const Icon = () => (
@@ -28,15 +28,23 @@ const Icon = () => (
   </svg>
 );
 
-export const JoinWaitlistButton = ({ className }: { className?: string }) => {
+export const JoinWaitlistButton = ({
+  className,
+  outline,
+}: {
+  className?: string;
+  outline?: boolean;
+}) => {
   const { open } = useContext(ModalContext);
 
+  const Component = outline ? OutlineButton : Button;
+
   return (
-    <Button onClick={open} className={className}>
+    <Component onClick={open} className={className}>
       Open Playground{" "}
       <div className="md:hidden">
         <Icon />
       </div>
-    </Button>
+    </Component>
   );
 };

@@ -15,8 +15,8 @@ export type TTSubscritionPlan = {
   description: string;
   general: TPresentFeature[];
   features: Array<TPresentFeature | TComingFeature>;
-  variant: "light" | "dark";
   nameColor: "yellow" | "blue" | "green";
+  borderColor: "lightblue" | "brand" | "red";
 };
 
 const sdks: TPresentFeature = {
@@ -84,7 +84,7 @@ export const plans: TTSubscritionPlan[] = [
     price: "FREE",
     period: "Forever",
     description: "Most suitable for tiny projects",
-    variant: "light",
+    borderColor: "lightblue",
     nameColor: "yellow",
     general: [
       {
@@ -124,7 +124,7 @@ export const plans: TTSubscritionPlan[] = [
     price: "$249",
     period: "Monthly",
     description: "Your cloud backend teammate",
-    variant: "dark",
+    borderColor: "brand",
     nameColor: "blue",
     general: [
       {
@@ -168,7 +168,7 @@ export const plans: TTSubscritionPlan[] = [
     period: "Monthly",
     description: "For bigger products",
     nameColor: "green",
-    variant: "light",
+    borderColor: "red",
     general: [
       {
         title: "10 Projects",

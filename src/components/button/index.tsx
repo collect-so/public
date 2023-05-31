@@ -12,13 +12,14 @@ type Props = {
 const whileHover = {
   scale: 1.1,
 };
-export const Button: FC<Props> = ({ children, className, icon, ...props }) => {
+
+const ButtonBase: FC<Props> = ({ children, className, icon, ...props }) => {
   return (
     <motion.button
       className={cx(
         className,
-        "gap-2 flex items-center justify-center bg-accent-brand rounded-[8px] text-content-primary-light  font-bold duration-300",
-        "py-[12px] px-[16px] text-base",
+        "gap-2 flex items-center justify-center bg-accent-brand rounded-[8px] text-base font-bold duration-300",
+        "py-[12px] px-[16px]",
         "md:py-[8px] md:px-[12px] md:text-sm",
       )}
       whileHover={whileHover}
@@ -29,6 +30,17 @@ export const Button: FC<Props> = ({ children, className, icon, ...props }) => {
   );
 };
 
+export const Button: FC<Props> = ({ children, className, icon, ...props }) => {
+  return (
+    <ButtonBase
+      className={cx(className, "bg-accent-brand text-content-primary-light")}
+      {...props}
+    >
+      {children}
+    </ButtonBase>
+  );
+};
+
 export const OutlineButton: FC<Props> = ({
   children,
   className,
@@ -36,18 +48,15 @@ export const OutlineButton: FC<Props> = ({
   ...props
 }) => {
   return (
-    <motion.button
+    <ButtonBase
       className={cx(
         className,
-        "gap-2 flex font-bold items-center border-2 bg-transparent border-accent-brand  text-accent-brand rounded-[8px] duration-300",
-        "py-[8px] px-[12px] text-base",
-        "md:py-[8px] md:px-[12px] md:text-sm",
+        "border-2 bg-transparent border-accent-brand text-accent-brand",
       )}
-      whileHover={whileHover}
       {...props}
     >
       {children}
-    </motion.button>
+    </ButtonBase>
   );
 };
 

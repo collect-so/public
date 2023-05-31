@@ -49,11 +49,7 @@ function PriceBlock({ plan }: { plan: TTSubscritionPlan }) {
   return (
     <div
       className={cx(
-        "flex flex-col justify-center px-4 text-center py-8 gap-[14px] border-b",
-        {
-          "border-stroke-light": plan.variant === "light",
-          "border-stroke-dark": plan.variant === "dark",
-        },
+        "flex flex-col justify-center px-4 text-center py-8 gap-[14px]",
       )}
     >
       <div className="flex flex-col gap-1 font-bold leading-snug">
@@ -67,39 +63,39 @@ function PriceBlock({ plan }: { plan: TTSubscritionPlan }) {
           {plan.name}
         </span>
         <h3
-          className={cx("text-4xl leading-none uppercase tracking-tight", {
-            "text-content-primary-light": plan.variant === "light",
-            "text-content-primary-dark": plan.variant === "dark",
-          })}
+          className={cx(
+            "text-4xl leading-none uppercase tracking-tight font-special",
+            {
+              "text-content-primary-dark": true,
+            },
+          )}
         >
           {plan.price}
         </h3>
         <span className="text-sm capitalize">{plan.period}</span>
       </div>
-      <JoinWaitlistButton />
+      <JoinWaitlistButton outline={plan.name !== "TEAM"} />
       <span className="text-sm leading-snug font-bold">{plan.description}</span>
     </div>
   );
 }
 
-function PricingCard({ plan }: { plan: TTSubscritionPlan }) {
-  const { variant } = plan;
-
+function PricingCard({ plan, idx }: { plan: TTSubscritionPlan; idx: number }) {
   return (
     <div
-      className={cx("flex flex-col rounded-lg ", {
-        "text-content-secondary-light bg-base-white border-stroke-light border border-b-2":
-          variant === "light",
-        "text-content-primary-dark bg-background-dark": variant === "dark",
-        "mt-8 md:mt-0": variant === "light",
-        "pt-8 md:pt-0": variant === "dark",
+      className={cx("flex flex-col rounded-lg border-[3px]", {
+        "text-content-primary-dark bg-background-dark": true,
+        "mt-8 md:mt-0": idx !== 1,
+        "pt-8 md:pt-0": idx === 1,
+        "border-accent-red": plan.borderColor === "red",
+        "border-accent-brand": plan.borderColor === "brand",
+        "border-accent-blue": plan.borderColor === "lightblue",
       })}
     >
       <PriceBlock plan={plan} />
       <div
         className={cx("flex flex-col gap-6 p-6", {
-          "text-content-primary-light": variant === "light",
-          "text-content-primary-dark": variant === "dark",
+          "text-content-primary-dark": true,
         })}
       >
         <PlanFeatureList title="General" features={plan.general} />
@@ -111,19 +107,15 @@ function PricingCard({ plan }: { plan: TTSubscritionPlan }) {
 
 export function PricingSection() {
   return (
-    <Section className="py-32" id="pricing" data-theme={"dark"}>
+    <Section className="" id="pricing" data-theme={"dark"}>
       <div className=" container">
-        <h2 className="container text-3xl font-bold text-content-primary-light md:text-2xl text-center tracking-tight">
+        <h2 className="text-3xl font-extrabold mb-32 text-content-primary-dark md:text-2xl text-center tracking-tight">
           Pricing
         </h2>
-        <p className="text-base sm:text-sm font-medium text-content-secondary-light text-center mb-24 tracking-tight">
-          Whole backend development department. Available 24/7 for all your
-          needs.
-        </p>
       </div>
       <div className="px-5 max-w-7xl mx-auto grid grid-cols-3 sm:grid-cols-1 items-start justify-center gap-5">
-        {plans.map((plan) => (
-          <PricingCard plan={plan} key={plan.name} />
+        {plans.map((plan, idx) => (
+          <PricingCard plan={plan} key={plan.name} idx={idx} />
         ))}
       </div>
     </Section>

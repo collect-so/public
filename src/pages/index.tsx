@@ -7,6 +7,8 @@ import { BenefitsSection } from "~/Sections/Benefits";
 import { PricingSection } from "~/Sections/Pricing";
 import { getAbsoluteURL } from "~/components/utils";
 import { CustomCursor } from "~/components/custom-cursor";
+import { HowItWorksSection } from "~/Sections/HowItWorks";
+import { ExploreMoreSection } from "~/Sections/ExploreMore";
 
 export default function Home() {
   return (
@@ -38,9 +40,11 @@ export default function Home() {
       </Head>
       <Layout>
         <HeroSection />
-        {/*<SwipesSection />*/}
+        <HowItWorksSection />
+        <ExploreMoreSection />
+        <SwipesSection />
         {/*<BenefitsSection />*/}
-        <DevsSection />
+        {/* <DevsSection /> */}
         <PricingSection />
       </Layout>
     </>
