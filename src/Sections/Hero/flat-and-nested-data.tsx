@@ -2,17 +2,19 @@ import { ColoredChip, ColoredChipColor } from "~/components/colored-chip";
 import { useEffect, useRef } from "react";
 import { useCycle, motion, useInView } from "framer-motion";
 import { randomIntFromRange } from "~/common";
+import classNames from "classnames";
+import { useMedia } from "react-use";
 
 const data = [
   { name: "The Wall", area: "firstAlbum" },
-  { name: "Beautiful", area: "thirdSong" },
+  { name: "Beautiful", area: "thirdSong", hideOnMobile: true },
   { name: "Pink Floyd", area: "first" },
-  { name: "Relapse", area: "thirdAlbum" },
+  { name: "Relapse", area: "thirdAlbum", hideOnMobile: true },
   { name: "Iron Man", area: "secondSong" },
   { name: "Hey You", area: "firstSong" },
   { name: "Black Sabbath", area: "second" },
   { name: "Paranoid", area: "secondAlbum" },
-  { name: "Eminem", area: "third" },
+  { name: "Eminem", area: "third", hideOnMobile: true },
 ];
 
 export const FlatAndNestedData = () => {
@@ -20,6 +22,8 @@ export const FlatAndNestedData = () => {
   const items = useRef(data);
   const ref = useRef(null);
   const isInView = useInView(ref);
+
+  const isMobile = useMedia("(max-width: 768px)");
 
   useEffect(() => {
     if (isInView) {
@@ -64,33 +68,61 @@ export const FlatAndNestedData = () => {
     }
   };
 
+  const getAreas = () => {
+    switch (mode) {
+      case "nested":
+        if (isMobile)
+          return `
+          "first second"
+          "firstAlbum secondAlbum"
+          "firstSong  secondSong"
+        `;
+
+        return `
+          "first second third"
+          "firstAlbum secondAlbum thirdAlbum"
+          "firstSong  secondSong thirdSong"
+        `;
+
+      default:
+        if (isMobile) {
+          return `
+          "firstAlbum thirdSong "
+          "thirdAlbum secondSong"
+          "second  secondAlbum"
+        `;
+        }
+        return `
+          "firstAlbum thirdSong first "
+          "thirdAlbum secondSong firstSong"
+          "second  secondAlbum third"
+        `;
+    }
+  };
+
   return (
     <motion.div
       ref={ref}
       layout
       animate
-      className="relative z-10 content-center w-full gap-8"
+      className={classNames(
+        "relative z-10 content-center w-full gap-8 h-[600px]",
+        {
+          "justify-items-end md:justify-items-center": mode === "nested",
+          "justify-center": mode === "flat",
+        },
+      )}
       style={{
         display: mode === "nested" ? "grid" : "flex",
         flexWrap: mode === "nested" ? "nowrap" : "wrap",
-        justifyContent: mode === "nested" ? "space-between" : "center",
-        gridTemplateAreas:
-          mode === "nested"
-            ? `
-          "first second third"
-          "firstAlbum secondAlbum thirdAlbum"
-          "firstSong  secondSong thirdSong"
-        `
-            : `
-          "firstAlbum thirdSong first "
-          "thirdAlbum secondSong firstSong"
-          "second  secondAlbum third"
-        `,
+        // justifyContent: mode === "nested" ? "space-between" : "center",
+        gridTemplateAreas: getAreas(),
       }}
     >
       {items.current.map((item) => {
         const orderInGroup = getOrderInGroup(item.area);
         const color = getColorByOrder(orderInGroup) as ColoredChipColor;
+
         return (
           <ColoredChip
             color={color}
@@ -98,14 +130,17 @@ export const FlatAndNestedData = () => {
             layout
             style={{
               gridArea: item.area,
-              justifySelf: mode === "nested" ? "self-start" : "center",
-              marginLeft: getMarginByOrder(orderInGroup),
+              // justifySelf: mode === "nested" ? "self-start" : "center",
+              // marginLeft: getMarginByOrder(orderInGroup),
             }}
             key={item.area}
             animate={{
               rotate: mode === "nested" ? 0 : randomIntFromRange(-5, 5),
             }}
             transition={{ type: "spring", stiffness: 100, mass: 0.5 }}
+            className={classNames({
+              "sm:hidden": item.hideOnMobile,
+            })}
           >
             {item.name}
           </ColoredChip>

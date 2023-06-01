@@ -108,17 +108,14 @@ export const TransparentButton: FC<Props> = ({
   ...props
 }) => {
   return (
-    <motion.button
+    <ButtonBase
       className={cx(
         className,
-        "gap-2 flex font-bold items-center border-2 bg-transparent border-transparent  text-accent-brand rounded-[8px] duration-300",
-        "py-[8px] px-[12px] text-base",
-        "md:py-[8px] md:px-[12px] md:text-sm",
+        "border-2 bg-transparent border-transparent text-accent-brand rounded-[8px]",
       )}
-      whileHover={whileHover}
       {...props}
     >
       {children}
-    </motion.button>
+    </ButtonBase>
   );
 };

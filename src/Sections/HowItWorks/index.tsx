@@ -6,7 +6,7 @@ import { Section } from "~/components/section";
 
 function useWaypoint() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { margin: "400px 0px 0px 0px" });
   return { ref, isInView } as const;
 }
 

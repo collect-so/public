@@ -37,7 +37,7 @@ export function HeroSection() {
                 className={cx(
                   "absolute",
                   "top-[-70px] right-[85px]",
-                  "md:top-[170px] md:right-[calc(50%_-_85px)]",
+                  "md:top-[-30px] md:right-[20px]",
                 )}
               >
                 instantly
@@ -48,8 +48,10 @@ export function HeroSection() {
               Get rid of backend routine and focus on your features.
             </p>
           </div>
-          <div className="flex justify-center gap-16 z-10">
-            <TransparentButton>Read the Docs</TransparentButton>
+          <div className="flex justify-center gap-16 z-10 sm:flex-col sm:gap-2">
+            <TransparentButton className="sm:order-2">
+              Read the Docs
+            </TransparentButton>
             <JoinWaitlistButton />
           </div>
         </div>
@@ -94,7 +96,7 @@ export function HeroSection() {
                 data types
               </span>
             </h2>
-            <p className="text-xl sm:text-base font-medium text-content-secondary-dark sm:text-base tracking-tight">
+            <p className="text-xl sm:text-base font-medium text-content-secondary-dark  tracking-tight">
               Suitable even for ambitious and demanding projects.
               <br className="md:hidden" />
               <span className="font-bold text-accent-acid-yellow">
@@ -109,7 +111,7 @@ export function HeroSection() {
 
         <div
           className={cx(
-            "container min-h-[100vh] z-10 mb-40",
+            "container min-h-[100vh] z-10 mb-40 overflow-hidden",
             "grid items-center content-center  gap-16",
             "text-center ",
           )}

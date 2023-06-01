@@ -41,7 +41,7 @@ export const ColoredChip: FC<PropsWithChildren<ColoredChipProps>> = ({
       animate={animate ?? true}
       className={cx(
         className,
-        "leading-[1.2] cursor-default",
+        "leading-[1.2] cursor-default items-center flex",
         {
           "text-content-primary-light bg-accent-acid-yellow":
             color === "yellow",
@@ -53,9 +53,9 @@ export const ColoredChip: FC<PropsWithChildren<ColoredChipProps>> = ({
           "text-content-primary-dark bg-accent-orange ": color === "orange",
           "text-[#6d6d6d] bg-[#1b1b1b]": color === "dark",
         },
-        "h-[64px] px-8 rounded-full",
-        "md:h-[40px] md:px-4",
-        "sm:h-[28px] sm:px-2",
+        "min-h-[64px] px-8 rounded-full",
+        "md:min-h-[40px] md:px-4",
+        "sm:min-h-[28px] sm:px-2",
       )}
       {...props}
     >
