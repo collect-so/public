@@ -23,7 +23,7 @@ export const FlatAndNestedData = () => {
   const ref = useRef(null);
   const isInView = useInView(ref);
 
-  const isMobile = useMedia("(max-width: 768px)");
+  const isMobile = useMedia("(max-width: 768px)", false);
 
   useEffect(() => {
     if (isInView) {
