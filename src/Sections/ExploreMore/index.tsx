@@ -19,7 +19,7 @@ export function ExploreMoreSection() {
         </h2>
         <OutlineLink
           href="https://docs.collect.so/"
-          className="absolute bottom-0"
+          className="absolute bottom-0 sm:static sm:mt-10"
         >
           Read the Docs
         </OutlineLink>

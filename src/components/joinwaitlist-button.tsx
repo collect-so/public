@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { ReactNode, useContext } from "react";
 import { ModalContext } from "~/components/Layout";
 import { Button, OutlineButton } from "~/components/button";
 import { Bell } from "lucide-react";
@@ -29,11 +29,13 @@ const Icon = () => (
 );
 
 export const JoinWaitlistButton = ({
+  children,
   className,
   outline,
 }: {
   className?: string;
   outline?: boolean;
+  children?: ReactNode;
 }) => {
   const { open } = useContext(ModalContext);
 
@@ -41,7 +43,7 @@ export const JoinWaitlistButton = ({
 
   return (
     <Component onClick={open} className={className}>
-      Open Playground{" "}
+      {children ?? "Open Playground "}
       <div className="md:hidden">
         <Icon />
       </div>

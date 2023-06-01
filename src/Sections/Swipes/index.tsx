@@ -73,29 +73,34 @@ function StackableCard({
 
   return (
     <div
-      className={"sticky h-[100vh] w-full grid place-items-center top-0 px-5"}
+      className={"sticky h-[100vh] w-full grid place-items-center top-0 px-5 "}
       {...props}
       ref={ref}
     >
       <motion.div
         className={clsx(
-          "max-h-[448px] max-w-[1024px] h-[70vh] overflow-clip sm:h-[72vh] w-full mx-auto rounded-[75px] sm:rounded-xl flex items-center",
+          "max-h-[448px]  md:max-h-[350px] max-w-[1024px] h-[70vh] overflow-hidden sm:h-[72vh] w-full mx-auto rounded-[75px]  flex items-center sm:max-h-[1000px] sm:rounded-[55px]",
           variants[variant],
         )}
         style={{ scale, y: offsetY, rotate }}
       >
         <div
-          className={clsx("flex items-center sm:flex-col sm:items-start ", {
-            "flex-row-reverse": idx % 2 === 0,
-          })}
+          className={clsx(
+            "flex items-center sm:flex-col sm:items-start h-full",
+            {
+              "flex-row-reverse": idx % 2 === 0,
+            },
+          )}
         >
-          <div className="flex-shrink-0 sm:flex-shrink h-full">{imageSrc}</div>
+          <div className="flex-shrink-0 sm:flex-shrink h-full sm:align-self-center sm:h-auto sm:w-full [&>*]:w-full [&>*]:h-full ">
+            {imageSrc}
+          </div>
 
-          <div className="flex flex-col gap-4 sm:gap-2 p-[60px]">
-            <h2 className="text-3xl sm:text-base text-content-primary-dark font-bold tracking-tight leading-tight">
+          <div className="flex flex-col gap-4 md:gap-2 p-[60px] md:p-8">
+            <h2 className="text-3xl md:text-xl text-content-primary-dark font-bold tracking-tight leading-tight">
               {title}
             </h2>
-            <p className="text-xl sm:text-sm text-content-secondary-dark font-medium tracking-tight leading-snug">
+            <p className="text-xl md:text-sm text-content-secondary-dark font-medium tracking-tight leading-snug">
               {subtitle}
             </p>
           </div>
@@ -107,8 +112,11 @@ function StackableCard({
 
 export function SwipesSection() {
   return (
-    <Section className="flex flex-col z-10 py-24" data-theme="dark">
-      <h1 className="text-center font-extrabold text-3xl text-content-primary-dark translate-y-32">
+    <Section
+      className="flex flex-col z-10 py-24 overflow-clip"
+      data-theme="dark"
+    >
+      <h1 className="text-center font-extrabold text-3xl text-content-primary-dark translate-y-32 sm:translate-y-12 sm:text-2xl tracking-tight  sm:leading-[2.5rem] ">
         Turn <span className="text-accent-brand">ideas</span> into fast and
         reliable <span className="text-accent-purple">APIs</span>
       </h1>

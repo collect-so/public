@@ -127,9 +127,9 @@ export const Header = () => {
             </div>
           </motion.div>
         </div>
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-8 sm:gap-4">
           <TransparentButton>Sign in</TransparentButton>
-          <JoinWaitlistButton />
+          <JoinWaitlistButton>Playground</JoinWaitlistButton>
           <motion.div
             initial={false}
             animate={isOpen ? "open" : "closed"}

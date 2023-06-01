@@ -8,17 +8,17 @@ export function Footer() {
     <Section className="min-h-[30vh] grid" data-theme="dark">
       <div className="container py-16">
         <div className="grid grid-cols-2 sm:grid-cols-1 gap-4 items-start sm:text-center">
-          <div className="justify-self-start sm:justify-self-center">
+          <div className="justify-self-start sm:justify-self-center sm:order-2 sm:mt-5">
             <div className="flex gap-10">
               <Logo
-                className="sm:m-auto text-content-primary-dark"
+                className="sm:m-auto text-content-primary-dark sm:w-[60px] sm:h-[60px]"
                 width={110}
                 height={110}
                 bgFill="black"
                 strokeColor="currentColor"
               />
               <div className="flex flex-col ">
-                <h2 className="text-[80px] leading-[0.7] font-special sm:text-base font-bold text-content-primary-dark tracking-tight">
+                <h2 className="text-[80px] leading-[0.7] font-special sm:text-xl text-left font-bold text-content-primary-dark tracking-tight">
                   collect
                 </h2>
                 <p className="text-sm mt-auto sm:text-sm font-medium text-content-secondary-dark leading-snug tracking-tight">
@@ -27,7 +27,7 @@ export function Footer() {
               </div>
             </div>
           </div>
-          <div className="justify-self-end text-center items-end grid sm:justify-items-center sm:justify-self-center gap-8">
+          <div className="justify-self-end text-center items-end grid sm:justify-self-center gap-8">
             <a
               href="mailto:hello@collect.so"
               className="text-xl leading-none font-medium text-content-primary-dark"
