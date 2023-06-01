@@ -1,4 +1,4 @@
-import { CSSProperties, FC, PropsWithoutRef } from "react";
+import { CSSProperties, FC, PropsWithoutRef, forwardRef } from "react";
 import { materialOceanic } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import classNames from "classnames";
@@ -31,15 +31,16 @@ const override = {
   },
 };
 
-export const CodeBlock: FC<
+export const CodeBlock = forwardRef<
+  HTMLDivElement,
   PropsWithoutRef<{
     code: string;
     className?: string;
     preClassName?: string;
   }>
-> = ({ code, className, preClassName }) => {
+>(({ code, className, preClassName }, ref) => {
   return (
-    <div className={classNames("max-w-[92vw]", className)}>
+    <div className={classNames("max-w-[92vw]", className)} ref={ref}>
       <SyntaxHighlighter
         language="javascript"
         style={override}
@@ -53,4 +54,6 @@ export const CodeBlock: FC<
       </SyntaxHighlighter>
     </div>
   );
-};
+});
+
+CodeBlock.displayName = "CodeBlock";

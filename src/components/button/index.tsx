@@ -30,6 +30,28 @@ const ButtonBase: FC<Props> = ({ children, className, icon, ...props }) => {
   );
 };
 
+const LinkBase: FC<Props & { href: string }> = ({
+  children,
+  className,
+  icon,
+  ...props
+}) => {
+  return (
+    <motion.a
+      className={cx(
+        className,
+        "gap-2 flex items-center justify-center bg-accent-brand rounded-[8px] text-base font-bold duration-300",
+        "py-[12px] px-[16px]",
+        "md:py-[8px] md:px-[12px] md:text-sm",
+      )}
+      whileHover={whileHover}
+      {...props}
+    >
+      {children}
+    </motion.a>
+  );
+};
+
 export const Button: FC<Props> = ({ children, className, icon, ...props }) => {
   return (
     <ButtonBase
@@ -57,6 +79,25 @@ export const OutlineButton: FC<Props> = ({
     >
       {children}
     </ButtonBase>
+  );
+};
+
+export const OutlineLink: FC<Props & { href: string }> = ({
+  children,
+  className,
+  icon,
+  ...props
+}) => {
+  return (
+    <LinkBase
+      className={cx(
+        className,
+        "border-2 bg-transparent border-accent-brand text-accent-brand",
+      )}
+      {...props}
+    >
+      {children}
+    </LinkBase>
   );
 };
 
