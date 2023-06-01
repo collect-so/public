@@ -49,9 +49,9 @@ export function HowItWorksSection() {
       <h2 className="pb-24 text-3xl font-extrabold text-content-primary-dark sm:text-2xl tracking-tight  sm:leading-[2.5rem] mx-auto text-center">
         How It Works
       </h2>
-      <div className="sticky top-0 flex items-start gap-4">
+      <div className="sticky top-0 flex items-start gap-4 md:flex-col">
         {/* 50% - nav height */}
-        <div className="sticky top-[calc(50%-100px)] flex-1 h-full flex items-center ">
+        <div className="sticky top-[calc(50%-100px)] flex-1 h-full flex items-center md:top-0 md:pt-[68px] md:pb-2 md:z-10 md:bg-background-dark">
           <h3 className="text-xl leading-snug font-medium text-content-primary-dark">
             <motion.span
               variants={sentence}
