@@ -77,7 +77,6 @@ export function HeroSection() {
             >
               Features
             </h2>
-
             <div className={cx("feature-tag")}>Feature</div>
             <h2 className={cx("typography-3xl")}>Zero-code database</h2>
             <p className="typography-base">
@@ -103,26 +102,27 @@ export function HeroSection() {
 
         {/**/}
 
+        <div className={cx("feature-container")}>
+          <div className={cx("z-10")}>
+            <div className={cx("feature-tag")}>Feature</div>
+            <h2 className={cx("typography-3xl")}>File storage</h2>
+            <p className="typography-base">
+              Create a structured file storage tailored to your requirements .
+              Benefit from easily accessible, dependable, and secure storage for
+              binary data.
+            </p>
+          </div>
+        </div>
+
+        {/**/}
+
         <div className={cx("feature-container")} id="features">
           <div className={cx("z-10")}>
             <div className={cx("feature-tag")}>Feature</div>
             <h2 className={cx("typography-3xl")}>Data types auto-detection</h2>
-            {/*<h2 className={cx("typography-3xl")}>*/}
-            {/*  Iterate on your ideas faster <br className="md:hidden" />*/}
-            {/*  with flexible{" "}*/}
-            {/*  <span className="font-bold text-accent-acid-yellow">*/}
-            {/*    data types*/}
-            {/*  </span>*/}
-            {/*</h2>*/}
             <p className="typography-base">
-              {/*Iterate on your ideas faster with flexible data types. Suitable*/}
-              {/*even for ambitious and demanding projects.*/}
               Ensure that anything you push to Collect is appropriately arranged
               and securely stored.
-              {/*<br className="md:hidden" />*/}
-              {/*<span className="font-bold text-content-primary-dark">*/}
-              {/*  No migrations needed.*/}
-              {/*</span>*/}
             </p>
           </div>
           <FlexibleDataTypes />
@@ -134,18 +134,10 @@ export function HeroSection() {
           <div className={cx("z-10")}>
             <div className={cx("feature-tag")}>Feature</div>
 
-            <h2 className={cx("typography-3xl")}>
-              Data nesting
-              {/*<br className="md:hidden" /> with natively{" "}*/}
-              {/*<span className="text-accent-orange">nested storage</span>*/}
-            </h2>
+            <h2 className={cx("typography-3xl")}>Data nesting</h2>
             <p className="typography-base">
               Simply store any data the way you think about it. Give more sense
               to your data with natively nested storage.
-              {/*<br className="md:hidden" />{" "}*/}
-              {/*<span className="font-bold text-content-primary-dark">*/}
-              {/*  No configurations needed.*/}
-              {/*</span>*/}
             </p>
           </div>
           <FlatAndNestedData />
@@ -156,17 +148,10 @@ export function HeroSection() {
         <div className={cx("feature-container")}>
           <div className={cx("z-10")}>
             <div className={cx("feature-tag")}>Feature</div>
-            <h2 className={cx("typography-3xl")}>
-              Data linking and retrieval
-              {/*Retrieve data the way you need it*/}
-            </h2>
+            <h2 className={cx("typography-3xl")}>Data linking and retrieval</h2>
             <p className="typography-base">
               Build complex scenarios in a matter of double-digit minutes.
               Retrieve data the way you need it.
-              {/*<br className="md:hidden" />*/}
-              {/*<span className="font-bold text-content-primary-dark">*/}
-              {/*  No query language needed.*/}
-              {/*</span>*/}
             </p>
           </div>
           <BlinkingRecords />
