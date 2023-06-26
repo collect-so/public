@@ -1,7 +1,5 @@
 import { Section } from "~/components/section";
-import { JoinWaitlistButton } from "~/components/joinwaitlist-button";
 import cx from "classnames";
-import { TransparentButton } from "~/components/button";
 
 import { useObservedSize } from "~/components/hooks/useResizeObserver";
 
@@ -18,90 +16,113 @@ export function HeroSection() {
     <>
       <Section ref={ref} className={cx("overflow-hidden")} data-theme="dark">
         {size ? <Background target={ref} targetHeight={size.height} /> : null}
-        {/*<Rigid size={size} />*/}
-        <div
-          className={cx(
-            "container pt-[100px] min-h-[100vh] z-10",
-            "grid items-center grid-rows-[5fr_1fr]",
-            "text-center ",
-          )}
-        >
-          <div className={cx("z-10")}>
-            <h2 className="relative text-4xl font-bold text-content-primary-dark sm:text-2xl tracking-tight  sm:leading-[2.5rem]">
-              Build <span className="text-accent-brand">API</span>s like never
-              before
-              <ColoredChip
-                color="purple"
-                style={{ rotate: 20 }}
-                whileHover={{ rotate: 14 }}
-                className={cx(
-                  "absolute",
-                  "top-[-70px] right-[85px]",
-                  "md:top-[-30px] md:right-[20px]",
-                )}
-              >
-                instantly
-              </ColoredChip>
+        <div className={cx("feature-container")}>
+          <div className={cx("z-10 relative")}>
+            <ColoredChip
+              color="purple"
+              style={{ rotate: 20 }}
+              whileHover={{ rotate: 14 }}
+              className={cx(
+                "absolute",
+                "top-[-70px] right-[85px]",
+                "md:top-[-30px] md:right-[20px]",
+                " md:hidden",
+              )}
+            >
+              instantly
+            </ColoredChip>
+            <ColoredChip
+              style={{ rotate: 5 }}
+              color="purple"
+              className={cx("mb-8 md:inline-flex hidden")}
+            >
+              instantly
+            </ColoredChip>
+
+            <h2 className={cx("typography-4xl")}>
+              Build powerful <span className="text-accent-brand">API</span>s
+              <br />
+              like never before
             </h2>
 
-            <p className="text-xl sm:text-base font-medium text-content-secondary-dark sm:text-base tracking-tight">
-              Get rid of backend routine and focus on your features.
-            </p>
-          </div>
-          <div className="flex justify-center gap-16 z-10 sm:flex-col sm:gap-2">
-            <TransparentButton className="sm:order-2">
-              Read the Docs
-            </TransparentButton>
-            <JoinWaitlistButton />
-          </div>
-        </div>
-        <div
-          className={cx(
-            "container  min-h-[100vh] z-10",
-            "grid items-center ",
-            "text-center ",
-          )}
-        >
-          <div className={cx("z-10")}>
-            <p className="text-2xl sm:text-base font-medium text-content-secondary-dark sm:text-base tracking-tight">
-              All-in-one API toolkit, offering{" "}
-              <span className="font-bold text-accent-acid-yellow">
-                no-code database experience
+            <p className={cx("typography-base")}>
+              <span className="font-bold text-content-primary-dark">
+                Zero-code database
+              </span>{" "}
+              to build apps ridiculously fast. It comes with integrated{" "}
+              <span className="font-bold text-content-primary-dark">
+                file storage
               </span>
-              <br className="md:hidden" />
-              with limitless{" "}
-              <span className="font-bold text-accent-orange">data nesting</span>
-              , enhanced with flexible{" "}
-              <span className="font-bold text-accent-purple">file storage</span>{" "}
-              and{" "}
-              <span className="font-bold text-accent-pink">
+              , limitless{" "}
+              <span className="font-bold text-content-primary-dark">
+                data nesting
+              </span>{" "}
+              and enhanced with{" "}
+              <span className="font-bold text-content-primary-dark">
                 dynamic endpoints
               </span>
               .
             </p>
           </div>
         </div>
-        <div
-          className={cx(
-            "container min-h-[100vh] z-10 mb-40",
-            "grid items-center content-center gap-16",
-            "text-center ",
-          )}
-        >
+
+        {/**/}
+
+        <div className={cx("feature-container")}>
           <div className={cx("z-10")}>
-            <h2 className="relative text-4xl font-bold text-content-primary-dark sm:text-2xl tracking-tight  sm:leading-[2.5rem] mb-8">
-              Iterate on your ideas faster <br className="md:hidden" />
-              with flexible{" "}
-              <span className="font-bold text-accent-acid-yellow">
-                data types
-              </span>
+            <h2
+              className={cx(
+                "typography-4xl pb-60 underline decoration-accent-brand decoration-wavy decoration-[8px] underline-offset-[24px]",
+              )}
+            >
+              Features
             </h2>
-            <p className="text-xl sm:text-base font-medium text-content-secondary-dark  tracking-tight">
-              Suitable even for ambitious and demanding projects.
-              <br className="md:hidden" />
-              <span className="font-bold text-accent-acid-yellow">
-                No migrations needed.
-              </span>
+
+            <div className={cx("feature-tag")}>Feature</div>
+            <h2 className={cx("typography-3xl")}>Zero-code database</h2>
+            <p className="typography-base">
+              Skip migrations, skip model configuration, skip JOINs. Focus on
+              what is really important, not on the tools that help you get
+              there.
+            </p>
+          </div>
+        </div>
+
+        {/**/}
+
+        <div className={cx("feature-container")}>
+          <div className={cx("z-10")}>
+            <div className={cx("feature-tag")}>Feature</div>
+            <h2 className={cx("typography-3xl")}>Dynamic APIs</h2>
+            <p className="typography-base">
+              Simply label what you push to Collect and retrieve it all using
+              the automatically assigned "labeled" endpoint.
+            </p>
+          </div>
+        </div>
+
+        {/**/}
+
+        <div className={cx("feature-container")} id="features">
+          <div className={cx("z-10")}>
+            <div className={cx("feature-tag")}>Feature</div>
+            <h2 className={cx("typography-3xl")}>Data types auto-detection</h2>
+            {/*<h2 className={cx("typography-3xl")}>*/}
+            {/*  Iterate on your ideas faster <br className="md:hidden" />*/}
+            {/*  with flexible{" "}*/}
+            {/*  <span className="font-bold text-accent-acid-yellow">*/}
+            {/*    data types*/}
+            {/*  </span>*/}
+            {/*</h2>*/}
+            <p className="typography-base">
+              {/*Iterate on your ideas faster with flexible data types. Suitable*/}
+              {/*even for ambitious and demanding projects.*/}
+              Ensure that anything you push to Collect is appropriately arranged
+              and securely stored.
+              {/*<br className="md:hidden" />*/}
+              {/*<span className="font-bold text-content-primary-dark">*/}
+              {/*  No migrations needed.*/}
+              {/*</span>*/}
             </p>
           </div>
           <FlexibleDataTypes />
@@ -109,25 +130,22 @@ export function HeroSection() {
 
         {/**/}
 
-        <div
-          className={cx(
-            "container min-h-[100vh] z-10 mb-40 overflow-hidden",
-            "grid items-center content-center  gap-16",
-            "text-center ",
-          )}
-        >
+        <div className={cx("feature-container")}>
           <div className={cx("z-10")}>
-            <h2 className="relative text-4xl font-bold text-content-primary-dark sm:text-xl tracking-tight  sm:leading-[2.5rem] mb-8">
-              Give more sense to your data
-              <br className="md:hidden" /> with natively{" "}
-              <span className="text-accent-orange">nested storage</span>
+            <div className={cx("feature-tag")}>Feature</div>
+
+            <h2 className={cx("typography-3xl")}>
+              Data nesting
+              {/*<br className="md:hidden" /> with natively{" "}*/}
+              {/*<span className="text-accent-orange">nested storage</span>*/}
             </h2>
-            <p className="text-xl sm:text-base font-medium text-content-secondary-dark sm:text-base sm:text-sm tracking-tight">
-              Simply store any data the way you think about it.{" "}
-              <br className="md:hidden" />{" "}
-              <span className="font-bold text-accent-orange">
-                No configurations needed.
-              </span>
+            <p className="typography-base">
+              Simply store any data the way you think about it. Give more sense
+              to your data with natively nested storage.
+              {/*<br className="md:hidden" />{" "}*/}
+              {/*<span className="font-bold text-content-primary-dark">*/}
+              {/*  No configurations needed.*/}
+              {/*</span>*/}
             </p>
           </div>
           <FlatAndNestedData />
@@ -135,23 +153,20 @@ export function HeroSection() {
 
         {/**/}
 
-        <div
-          className={cx(
-            "container min-h-[100vh] z-10 mb-40",
-            "grid items-center content-center  gap-16",
-            "text-center ",
-          )}
-        >
+        <div className={cx("feature-container")}>
           <div className={cx("z-10")}>
-            <h2 className="relative text-4xl font-bold text-content-primary-dark sm:text-xl tracking-tight  sm:leading-[2.5rem]  mb-8">
-              Retrieve data the way you need it
+            <div className={cx("feature-tag")}>Feature</div>
+            <h2 className={cx("typography-3xl")}>
+              Data linking and retrieval
+              {/*Retrieve data the way you need it*/}
             </h2>
-            <p className="text-xl sm:text-base font-medium text-content-secondary-dark sm:text-base sm:text-sm tracking-tight">
-              Build complex scenarios in a matter of double-digit minutes.{" "}
-              <br className="md:hidden" />
-              <span className="font-bold text-accent-purple">
-                No query language needed.
-              </span>
+            <p className="typography-base">
+              Build complex scenarios in a matter of double-digit minutes.
+              Retrieve data the way you need it.
+              {/*<br className="md:hidden" />*/}
+              {/*<span className="font-bold text-content-primary-dark">*/}
+              {/*  No query language needed.*/}
+              {/*</span>*/}
             </p>
           </div>
           <BlinkingRecords />

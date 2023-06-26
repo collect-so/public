@@ -96,3 +96,22 @@ a {
   background: black;
   -webkit-border-radius: 2px;
 }
+
+.typography-4xl {
+  @apply mb-8 font-bold text-content-primary-dark  tracking-tight  max-w-3xl m-auto leading-[4.5rem] text-4xl md:leading-[3.5rem] md:text-3xl sm:text-2xl sm:leading-[3rem];
+}
+
+.typography-3xl {
+  @apply relative text-3xl font-bold text-content-primary-dark tracking-tight md:leading-[3rem] md:text-2xl sm:leading-[2.5rem] sm:text-xl;
+}
+
+.typography-base {
+  @apply font-medium text-content-secondary-dark tracking-tight max-w-2xl m-auto text-base;
+}
+
+.feature-container {
+  @apply container min-h-[100vh] z-10 mb-40 grid items-center content-center gap-16 text-center;
+}
+.feature-tag {
+  @apply font-semibold font-special text-accent-purple text-base rounded-full border border-2 inline-flex border-accent-purple px-4;
+}

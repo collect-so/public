@@ -6,9 +6,7 @@
     "globalThis": true
   },
   "ignorePatterns": ["global.d.ts", "**/*.test.*"],
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  },
+
   "rules": {
     "react-hooks/exhaustive-deps": "warn",
     "react/no-unescaped-entities": "off"

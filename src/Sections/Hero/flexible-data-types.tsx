@@ -10,7 +10,13 @@ import Explosion from "~/images/svg/Explosion.svg";
 
 export const FlexibleDataTypes = () => {
   return (
-    <div className=" flex relative flex-wrap justify-center items-center z-10 min-h-[50vh] content-center w-full gap-8">
+    <div
+      className={cx(
+        " flex relative flex-wrap justify-center items-center z-10 content-center w-full gap-8",
+        "md:gap-4",
+        "sm:gap-2",
+      )}
+    >
       <AutoRotationWrapper baseVelocity={-10}>
         <Dawn className="w-[133px] h-[133px] md:w-[60px] md:h-[60px]" />
       </AutoRotationWrapper>

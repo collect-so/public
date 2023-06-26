@@ -39,7 +39,7 @@ module.exports = {
       "content-primary-light": "#000",
       "content-secondary-light": "#000",
       "content-primary-dark": "#FFF",
-      "content-secondary-dark": "#FFF",
+      "content-secondary-dark": "#b1b1b1",
       "content-tertiary-dark": "#FFF",
 
       "background-light": "#fff",
@@ -68,5 +68,8 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // Or with a custom prefix:
+    require("@headlessui/tailwindcss")({ prefix: "ui" }),
+  ],
 };

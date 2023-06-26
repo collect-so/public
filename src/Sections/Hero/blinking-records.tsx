@@ -42,8 +42,8 @@ export const BlinkingRecords = () => {
       interval.current = setInterval(() => {
         cycleGroup();
       }, 1300);
-      return () => clearInterval(interval.current);
     }
+    return () => clearInterval(interval.current);
   }, [cycleGroup, paused, isInView]);
 
   useEffect(() => {
@@ -61,7 +61,7 @@ export const BlinkingRecords = () => {
   return (
     <div
       ref={ref}
-      className="flex relative flex-wrap justify-center items-center z-10 min-h-[50vh] content-center w-full gap-8 md:gap-4"
+      className="flex relative flex-wrap justify-center items-center z-10 content-center w-full gap-8 md:gap-4 sm:gap-2"
     >
       {data.map((item) => (
         <ColoredChip

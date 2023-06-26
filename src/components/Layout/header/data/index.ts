@@ -6,6 +6,6 @@ export interface IMenuItem {
 
 export const menuData: IMenuItem[] = [
   { name: "Docs", url: "https://docs.collect.so/" },
-  { name: "Roadmap", url: "/company/roadmap" },
+  { name: "Features", url: "#features" },
   { name: "Pricing", url: "/pricing" },
 ];
