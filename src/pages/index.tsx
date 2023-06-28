@@ -42,9 +42,8 @@ export default function Home() {
         <HeroSection />
         <HowItWorksSection />
         <ExploreMoreSection />
-        <SwipesSection />
-        {/*<BenefitsSection />*/}
-        {/* <DevsSection /> */}
+        {/*<SwipesSection />*/}
+        {/*<DevsSection />*/}
         <PricingSection />
       </Layout>
     </>

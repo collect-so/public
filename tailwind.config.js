@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.tsx"],
+  important: true,
   theme: {
     screens: {
       xl: { max: "1920px" },

@@ -18,7 +18,16 @@ function generateBinary(length: number) {
 
 export const FileStorage = () => {
   return (
-    <div className="flex relative flex-wrap justify-center items-center z-10 content-center w-full gap-8 md:gap-4 sm:gap-2">
+    <div className="flex relative flex-wrap justify-center items-center z-10 content-center w-full gap-8 md:gap-4 sm:gap-2 max-w-4xl m-auto">
+      <ColoredChip
+        color={"dark"}
+        animate={{
+          rotate: randomIntFromRange(-5, 5),
+        }}
+        transition={{ type: "spring", stiffness: 100 }}
+      >
+        {generateBinary(3)}
+      </ColoredChip>
       <motion.div
         animate={{
           rotate: randomIntFromRange(-5, 5),
@@ -59,7 +68,7 @@ export const FileStorage = () => {
         }}
         transition={{ type: "spring", stiffness: 100 }}
       >
-        {generateBinary(8)}
+        {generateBinary(7)}
       </ColoredChip>
       <motion.div
         animate={{
@@ -80,7 +89,7 @@ export const FileStorage = () => {
         }}
         transition={{ type: "spring", stiffness: 100 }}
       >
-        {generateBinary(9)}
+        {generateBinary(5)}
       </ColoredChip>
       <motion.div
         animate={{

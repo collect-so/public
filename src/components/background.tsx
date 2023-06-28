@@ -2,6 +2,7 @@ import { FC, MutableRefObject, useRef } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import cx from "classnames";
 import { GridShaft } from "~/components/grid-shaft";
+import { number } from "prop-types";
 
 export const Background: FC<{
   target: MutableRefObject<HTMLElement>;
@@ -28,6 +29,7 @@ export const Background: FC<{
   const top = useSpring(y, {
     stiffness: 400,
     damping: 100,
+    velocity: 20,
   });
 
   return (

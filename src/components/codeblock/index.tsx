@@ -33,10 +33,15 @@ export const CodeBlock = forwardRef<
     code: string;
     className?: string;
     preClassName?: string;
+    style?: CSSProperties;
   }>
->(({ code, className, preClassName }, ref) => {
+>(({ code, className, preClassName, style }, ref) => {
   return (
-    <div className={classNames("max-w-[92vw]", className)} ref={ref}>
+    <div
+      className={classNames("max-w-[92vw]", className)}
+      ref={ref}
+      style={style}
+    >
       <SyntaxHighlighter
         language="javascript"
         style={override}
