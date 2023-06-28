@@ -2,7 +2,6 @@ import { ColoredChip, ColoredChipColor } from "~/components/colored-chip";
 import { useEffect, useRef, useState } from "react";
 import { useCycle, motion, useInView } from "framer-motion";
 import { randomIntFromRange } from "~/common";
-import classNames from "classnames";
 import { useMedia } from "react-use";
 import { Switch } from "~/components/switch";
 import cx from "classnames";
@@ -149,19 +148,15 @@ export const FlatAndNestedData = () => {
         ref={ref}
         layout
         animate
-        className={classNames(
+        className={cx(
           "relative z-10 content-start w-full gap-8 min-h-[600px] ",
           "md:gap-4",
           "sm:gap-2 sm:place-content-center sm:content-start sm:min-h-[370px]",
-          {
-            "justify-items-end md:justify-items-center": mode === "nested",
-            "justify-center": mode === "flat",
-          },
         )}
         style={{
           display: mode === "nested" ? "grid" : "flex",
           flexWrap: mode === "nested" ? "nowrap" : "wrap",
-          // justifyContent: mode === "nested" ? "space-between" : "center",
+          justifyContent: "center",
           gridTemplateAreas: getAreas(),
         }}
       >
@@ -176,7 +171,7 @@ export const FlatAndNestedData = () => {
               layout
               style={{
                 gridArea: item.area,
-                justifySelf: mode === "nested" ? "self-start" : "center",
+                justifySelf: "center",
                 marginLeft: getMarginByOrder(orderInGroup),
               }}
               key={item.area}

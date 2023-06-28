@@ -49,8 +49,7 @@ module.exports = {
       "stroke-dark": "#DFDFDF0F",
 
       "accent-brand": "#CBEE4C",
-      "accent-yellow": "#F4B000",
-      "accent-acid-yellow": "#CBEE4C",
+      "accent-yellow": "#CBEE4C",
       "accent-orange": "#F2994A",
       "accent-green": "#219653",
       "accent-red": "#FF6B6B",

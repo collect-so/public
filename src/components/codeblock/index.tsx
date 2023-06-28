@@ -1,5 +1,5 @@
 import { CSSProperties, FC, PropsWithoutRef, forwardRef } from "react";
-import { materialOceanic } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import classNames from "classnames";
 import cx from "classnames";
@@ -11,22 +11,18 @@ const PreStyles: CSSProperties = {
   wordBreak: "normal",
   overflowWrap: "normal",
   color: "rgb(195, 206, 227)",
-  background: "black",
+  background: "#1d1d1d",
   fontFamily: '"Roboto Mono", monospace',
   fontSize: "1em",
-  lineHeight: "1.5em",
-  tabSize: 4,
   hyphens: "none",
   overflow: "auto",
   position: "relative",
-  margin: "0",
-  padding: ".325em",
 };
 
 const override = {
-  ...materialOceanic,
+  ...materialDark,
   'code[class*="language-"]': {
-    ...materialOceanic['code[class*="language-"]'],
+    ...materialDark['code[class*="language-"]'],
     background: "inherit",
   },
 };
@@ -45,7 +41,7 @@ export const CodeBlock = forwardRef<
         language="javascript"
         style={override}
         PreTag={({ children }) => (
-          <pre className={cx(preClassName, "p-2 rounded-lg")} style={PreStyles}>
+          <pre className={cx(preClassName, "p-4 rounded-lg")} style={PreStyles}>
             {children}
           </pre>
         )}

@@ -43,8 +43,7 @@ export const ColoredChip: FC<PropsWithChildren<ColoredChipProps>> = ({
         className,
         "cursor-pointer items-center flex",
         {
-          "text-content-primary-light bg-accent-acid-yellow":
-            color === "yellow",
+          "text-content-primary-light bg-accent-yellow": color === "yellow",
           "text-content-primary-light bg-accent-blue": color === "blue",
           "text-content-primary-light bg-accent-pink ": color === "pink",
           "text-content-primary-dark bg-accent-green": color === "green",
@@ -61,7 +60,7 @@ export const ColoredChip: FC<PropsWithChildren<ColoredChipProps>> = ({
     >
       <p
         className={cx(
-          "text-2xl leading-1 pb-2 font-medium font-special",
+          "text-xl leading-1 pb-1 font-medium font-special",
           "md:text-xl md:pb-1",
           "sm:text-base md:pb-1",
         )}

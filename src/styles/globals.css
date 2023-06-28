@@ -105,6 +105,10 @@ a {
   @apply relative text-3xl font-bold text-content-primary-dark tracking-tight md:leading-[3rem] md:text-2xl sm:leading-[2.5rem] sm:text-xl;
 }
 
+.typography-2xl {
+  @apply relative text-2xl font-bold text-content-primary-dark tracking-tight md:leading-[3rem] md:text-xl sm:leading-[2.5rem] sm:text-base;
+}
+
 .typography-base {
   @apply font-medium text-content-secondary-dark tracking-tight max-w-2xl m-auto text-base;
 }

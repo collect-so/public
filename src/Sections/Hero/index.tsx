@@ -8,6 +8,44 @@ import { ColoredChip } from "~/components/colored-chip";
 import { BlinkingRecords } from "~/Sections/Hero/blinking-records";
 import { FlatAndNestedData } from "~/Sections/Hero/flat-and-nested-data";
 import { FlexibleDataTypes } from "~/Sections/Hero/flexible-data-types";
+import { CodeBlock } from "~/components/codeblock";
+import { FileStorage } from "~/Sections/Hero/file-storage";
+
+const MagicFields = `const person = await CollectSDK.save("person", {
+  // Magic Field "name"
+  name: "Bruce Wayne",
+  // Magic Field "location"
+  location: "40.7485, -73.9857"
+})
+
+const vehicle = await CollectSDK.save("vehicle", {
+  // Existing Magic Field "name"
+  name: "Batmobile",
+  // Existing Magic Field "location"
+  location: "40.8602, -73.9014",
+  // Magic Field "color"
+  color: ["black", "darkgray"],
+  ...
+})
+`;
+
+const NoMigrations = `const person = await CollectSDK.find("person", {
+  // Own properties criteria
+  name: "Bruce Wayne"
+},
+{ 
+  // Related data criteria
+  live_in: "Gotham" 
+})
+
+// Add new properties instantly
+await person.update({
+  ...person.data,
+  status: "missing",
+  born: "1915-04-07T06:00:00Z",
+  verified: true
+})
+`;
 
 export function HeroSection() {
   const { ref, size } = useObservedSize<HTMLElement>();
@@ -39,10 +77,15 @@ export function HeroSection() {
               instantly
             </ColoredChip>
 
+            {/*<h2 className={cx("typography-4xl")}>*/}
+            {/*  Build powerful <span className="text-accent-brand">API</span>s*/}
+            {/*  <br />*/}
+            {/*  like never before*/}
+            {/*</h2>*/}
             <h2 className={cx("typography-4xl")}>
-              Build powerful <span className="text-accent-brand">API</span>s
+              Turn <span className="text-accent-red">any data</span>
               <br />
-              like never before
+              into powerful <span className="text-accent-brand">API</span>s
             </h2>
 
             <p className={cx("typography-base")}>
@@ -85,6 +128,33 @@ export function HeroSection() {
               there.
             </p>
           </div>
+          <div className={cx("grid grid-cols-2 z-10 gap-16", "md:grid-cols-1")}>
+            <div>
+              <h2 className={cx("typography-2xl")}>Magic Fields</h2>
+              <p className="typography-base">
+                Magic Fields automatically interconnect data with common
+                properties like color or size. Search and filter data across the
+                project, even if the Records are diverse in nature.
+              </p>
+              <CodeBlock
+                className="rounded-md p-8 md:max-w-xl m-auto"
+                code={MagicFields}
+              />
+            </div>
+
+            <div>
+              <h2 className={cx("typography-2xl")}>No migrations, No *QL</h2>
+              <p className="typography-base">
+                Modify your data models in real-time. Effortlessly add, update,
+                or delete fields without lengthy deployments, and free up
+                developers for more critical tasks.
+              </p>
+              <CodeBlock
+                className="rounded-md p-8 md:max-w-xl m-auto"
+                code={NoMigrations}
+              />
+            </div>
+          </div>
         </div>
 
         {/**/}
@@ -108,10 +178,11 @@ export function HeroSection() {
             <h2 className={cx("typography-3xl")}>File storage</h2>
             <p className="typography-base">
               Create a structured file storage tailored to your requirements .
-              Benefit from easily accessible, dependable, and secure storage for
-              binary data.
+              Benefit from easily accessible, dependable, and customizable
+              storage for binary data.
             </p>
           </div>
+          <FileStorage />
         </div>
 
         {/**/}
@@ -155,6 +226,39 @@ export function HeroSection() {
             </p>
           </div>
           <BlinkingRecords />
+        </div>
+
+        {/**/}
+
+        <div className={cx("feature-container")}>
+          <div className={cx("z-10")}>
+            <div className={cx("feature-tag")}>Feature</div>
+            <h2 className={cx("typography-3xl")}>Data processing</h2>
+          </div>
+          <div className={cx("grid grid-cols-3 z-10 gap-16")}>
+            <div>
+              <h2 className={cx("typography-2xl")}>Importing</h2>
+              <p className="typography-base">
+                Import your data with lightning speed. Up to 3000 records in
+                less than 1 second.
+              </p>
+            </div>
+
+            <div>
+              <h2 className={cx("typography-2xl")}>Bulk operations</h2>
+              <p className="typography-base">
+                Process and normalize your data without writing a single line of
+                code with dashboard.
+              </p>
+            </div>
+
+            <div>
+              <h2 className={cx("typography-2xl")}>Exporting</h2>
+              <p className="typography-base">
+                Need your data elsewhere? Export it all.
+              </p>
+            </div>
+          </div>
         </div>
       </Section>
     </>
