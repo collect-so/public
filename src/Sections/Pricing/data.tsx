@@ -1,22 +1,29 @@
+import { bool } from "prop-types";
+
 export type TPresentFeature = {
   type?: "present";
   title: string;
+  caption?: string;
 };
 
 export type TComingFeature = {
   type: "coming";
   title: string;
+  caption?: string;
 };
 
-export type TTSubscritionPlan = {
-  price: string;
+export type TSubscriptionPlan = {
+  annualPrice: number;
+  monthPrice: number;
   name: string;
   period: string;
-  description: string;
+  buttonText: string;
+  buttonLink: string;
   general: TPresentFeature[];
-  features: Array<TPresentFeature | TComingFeature>;
-  nameColor: "yellow" | "blue" | "green";
-  borderColor: "lightblue" | "brand" | "red";
+  features?: Array<TPresentFeature | TComingFeature>;
+  featured?: boolean;
+  isFree?: boolean;
+  isCustom?: boolean;
 };
 
 const sdks: TPresentFeature = {
@@ -78,148 +85,178 @@ const gpt: TComingFeature = {
   title: "ChatGPT integration",
 };
 
-export const plans: TTSubscritionPlan[] = [
+export const plans: TSubscriptionPlan[] = [
   {
-    name: "free",
-    price: "FREE",
+    name: "playground",
+    annualPrice: 0,
+    monthPrice: 0,
     period: "Forever",
-    description: "Most suitable for tiny projects",
-    borderColor: "lightblue",
-    nameColor: "yellow",
+    buttonText: "Open Playground",
+    buttonLink: "https://app.collect.so/signup",
+    featured: false,
+    isFree: true,
     general: [
-      {
-        title: "1 Project",
-      },
       {
         title: "1.000 Records",
       },
       {
-        title: "50 Magic Fields",
+        title: "30 Magic Fields",
       },
       {
-        title: "5 GB File Storage",
+        title: "2 GB File Storage",
+      },
+      {
+        title: "Single-tenant architecture",
+      },
+      {
+        title: "Manual backups",
+      },
+      {
+        title: "Community support",
       },
     ],
-    features: [
-      sdks,
-      rest,
-      nesting,
-      files,
-      valueTypes,
-      onboarding,
-      {
-        title: "1 API token",
-      },
-      {
-        title: "3 developer seats",
-      },
-      automations,
-      dataImport,
-      realtime,
-      graphql,
-    ],
+    // features: [
+    //   sdks,
+    //   rest,
+    //   nesting,
+    //   files,
+    //   valueTypes,
+    //   onboarding,
+    //   {
+    //     title: "1 API token",
+    //   },
+    //   {
+    //     title: "3 developer seats",
+    //   },
+    //   // automations,
+    //   // dataImport,
+    //   // realtime,
+    //   // graphql,
+    // ],
   },
   {
-    name: "TEAM",
-    price: "$249",
+    name: "PRO",
+    annualPrice: 99,
+    monthPrice: 119,
     period: "Monthly",
-    description: "Your cloud backend teammate",
-    borderColor: "brand",
-    nameColor: "blue",
+    buttonText: "Get Started",
+    buttonLink: "https://app.collect.so/signup",
+    featured: true,
     general: [
       {
-        title: "3 Projects",
-      },
-      {
-        title: "100.000 Records",
+        title: "1.000.000 Records",
+        caption: "Next 1.000 Records for $0.49",
       },
       {
         title: "100 Magic Fields",
+        caption: "Next 10 Magic Fields for $0.69",
       },
       {
         title: "500 GB File Storage",
-      },
-    ],
-    features: [
-      sdks,
-      rest,
-      nesting,
-      files,
-      valueTypes,
-      onboarding,
-      {
-        title: "Unlimited API tokens",
+        caption: "Next 10 GB for $0.99",
       },
       {
-        title: "Unlimited developers seats",
+        title: "Multi-tenant architecture",
       },
-      automations,
-      dataImport,
-      realtime,
-      graphql,
-      webhooks,
-      regions,
-      gpt,
+      {
+        title: "Biweekly backups",
+      },
+      {
+        title: "Dedicated support",
+      },
     ],
+
+    // features: [
+    //   sdks,
+    //   rest,
+    //   nesting,
+    //   files,
+    //   valueTypes,
+    //   onboarding,
+    //   {
+    //     title: "Unlimited API tokens",
+    //   },
+    //   {
+    //     title: "Unlimited developers seats",
+    //   },
+    //   automations,
+    //   dataImport,
+    //   realtime,
+    //   graphql,
+    //   webhooks,
+    //   regions,
+    //   gpt,
+    // ],
   },
   {
-    name: "BUSINESS",
-    price: "$499",
-    period: "Monthly",
-    description: "For bigger products",
-    nameColor: "green",
-    borderColor: "red",
+    name: "CUSTOM",
+    annualPrice: 0,
+    monthPrice: 0,
+    period: "custom",
+    buttonText: "Schedule a call",
+    buttonLink: "https://app.collect.so/signup",
+    featured: false,
+    isCustom: true,
     general: [
       {
-        title: "10 Projects",
+        title: "Unlimited Records",
       },
       {
-        title: "1.000.000 Records",
+        title: "Unlimited Magic Fields",
       },
       {
-        title: "500 Magic Fields",
+        title: "Unlimited Storage",
       },
       {
-        title: "2.000 GB File Storage",
+        title: "On-premises deployment",
+      },
+      {
+        title: "Daily backups",
+      },
+      {
+        title: "Dedicated support",
+      },
+      {
+        title: "White labeling",
       },
     ],
-    features: [
-      sdks,
-      rest,
-      nesting,
-      files,
-      valueTypes,
-      onboarding,
-      {
-        title: "Unlimited API tokens",
-      },
-      {
-        title: "Unlimited developers seats",
-      },
-      automations,
-      dataImport,
-      realtime,
-      graphql,
-      webhooks,
-      regions,
-      gpt,
-      { title: "SSO" },
-      {
-        type: "coming",
-        title: "Granular access control",
-      },
-      {
-        type: "coming",
-        title: "Custom endpoints",
-      },
-      {
-        type: "coming",
-        title: "Cloud functions",
-      },
-      {
-        type: "coming",
-        title: "Media files optimizations",
-      },
-    ],
+    // features: [
+    //   sdks,
+    //   rest,
+    //   nesting,
+    //   files,
+    //   valueTypes,
+    //   onboarding,
+    //   {
+    //     title: "Unlimited API tokens",
+    //   },
+    //   {
+    //     title: "Unlimited developers seats",
+    //   },
+    //   automations,
+    //   dataImport,
+    //   realtime,
+    //   graphql,
+    //   webhooks,
+    //   regions,
+    //   gpt,
+    //   { title: "SSO" },
+    //   {
+    //     type: "coming",
+    //     title: "Granular access control",
+    //   },
+    //   {
+    //     type: "coming",
+    //     title: "Custom endpoints",
+    //   },
+    //   {
+    //     type: "coming",
+    //     title: "Cloud functions",
+    //   },
+    //   {
+    //     type: "coming",
+    //     title: "Media files optimizations",
+    //   },
+    // ],
   },
 ];

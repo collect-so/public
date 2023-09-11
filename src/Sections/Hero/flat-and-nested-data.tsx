@@ -5,17 +5,26 @@ import { randomIntFromRange } from "~/common";
 import { useMedia } from "react-use";
 import { Switch } from "~/components/switch";
 import cx from "classnames";
+import { FeatureContainer } from "~/components/feature-container";
 
 const data = [
-  { name: "The Wall", area: "firstAlbum" },
-  { name: "Beautiful", area: "thirdSong" },
-  { name: "Pink Floyd", area: "first" },
-  { name: "Relapse", area: "thirdAlbum" },
-  { name: "Iron Man", area: "secondSong" },
-  { name: "Hey You", area: "firstSong" },
-  { name: "Black Sabbath", area: "second" },
-  { name: "Paranoid", area: "secondAlbum" },
-  { name: "Eminem", area: "third" },
+  { name: "The Wall", area: "firstAlbum", rotation: randomIntFromRange(-5, 5) },
+  { name: "Beautiful", area: "thirdSong", rotation: randomIntFromRange(-5, 5) },
+  { name: "Pink Floyd", area: "first", rotation: randomIntFromRange(-5, 5) },
+  { name: "Relapse", area: "thirdAlbum", rotation: randomIntFromRange(-5, 5) },
+  { name: "Iron Man", area: "secondSong", rotation: randomIntFromRange(-5, 5) },
+  { name: "Hey You", area: "firstSong", rotation: randomIntFromRange(-5, 5) },
+  {
+    name: "Black Sabbath",
+    area: "second",
+    rotation: randomIntFromRange(-5, 5),
+  },
+  {
+    name: "Paranoid",
+    area: "secondAlbum",
+    rotation: randomIntFromRange(-5, 5),
+  },
+  { name: "Eminem", area: "third", rotation: randomIntFromRange(-5, 5) },
 ];
 
 export const FlatAndNestedData = () => {
@@ -26,7 +35,7 @@ export const FlatAndNestedData = () => {
   const [paused, setPaused] = useState(false);
   const interval = useRef<ReturnType<typeof setInterval>>();
 
-  const isMobile = useMedia("(max-width: 768px)", false);
+  const isMobile = useMedia("(max-width: 984px)", false);
 
   useEffect(() => {
     if (!paused && isInView) {
@@ -114,77 +123,93 @@ export const FlatAndNestedData = () => {
         `;
         }
         return `
-          "firstAlbum thirdSong first "
-          "thirdAlbum secondSong firstSong"
-          "second  secondAlbum third"
+          "first firstAlbum firstSong"
+          "second secondAlbum secondSong"
+          "third thirdAlbum thirdSong"
         `;
     }
   };
 
   return (
-    <div>
-      <div className="grid grid-cols-3 place-items-center  mb-16 z-10 relative z-10 justify-center max-w-sm m-auto">
-        <p
-          className={cx(
-            "justify-self-end",
-            "font-medium text-content-secondary-dark tracking-tight ",
-            "text-base",
-          )}
-        >
-          Flat
-        </p>
-        <Switch onChange={() => changeMode()} checked={mode === "nested"} />
-        <p
-          className={cx(
-            "justify-self-start",
-            "font-medium text-content-secondary-dark tracking-tight ",
-            "text-base",
-          )}
-        >
-          Nested
+    <FeatureContainer>
+      <div className={cx("z-10")}>
+        <div className={cx("feature-tag")}>Feature</div>
+
+        <h2 className={cx("typography-3xl mb-4")}>Data nesting</h2>
+        <p className="typography-base max-w-2xl ">
+          Simply store any data the way you think about it. Each Record could be
+          a parent for the others whilst every level is still distinctively
+          accessible.
+          {/*Give more sense to your data with natively nested storage.*/}
         </p>
       </div>
-      <motion.div
-        ref={ref}
-        layout
-        animate
-        className={cx(
-          "relative z-10 content-start w-full gap-8 min-h-[600px] ",
-          "md:gap-4",
-          "sm:gap-2 sm:place-content-center sm:content-start sm:min-h-[370px]",
-        )}
-        style={{
-          display: mode === "nested" ? "grid" : "flex",
-          flexWrap: mode === "nested" ? "nowrap" : "wrap",
-          justifyContent: "center",
-          gridTemplateAreas: getAreas(),
-        }}
-      >
-        {items.current.map((item) => {
-          const orderInGroup = getOrderInGroup(item.area);
-          const color = getColorByOrder(orderInGroup) as ColoredChipColor;
-
-          return (
-            <ColoredChip
-              color={color}
-              layoutId={item.area}
-              layout
-              style={{
-                gridArea: item.area,
-                justifySelf: "center",
-                marginLeft: getMarginByOrder(orderInGroup),
-              }}
-              key={item.area}
-              animate={{
-                rotate: mode === "nested" ? 0 : randomIntFromRange(-5, 5),
-              }}
-              transition={{ type: "spring", stiffness: 100, mass: 0.5 }}
-            >
-              {item.name}
-            </ColoredChip>
-          );
-        })}
-      </motion.div>
-    </div>
+      <div>
+        <div className="grid grid-cols-3 place-items-center  mb-16 z-10 relative z-10 justify-center max-w-sm m-auto">
+          <p
+            className={cx(
+              "justify-self-end",
+              "font-medium text-content-secondary-dark tracking-tight ",
+              "text-base",
+            )}
+          >
+            Classic
+          </p>
+          <Switch onChange={() => changeMode()} checked={mode === "nested"} />
+          <p
+            className={cx(
+              "justify-self-start",
+              "font-medium text-content-secondary-dark tracking-tight ",
+              "text-base",
+            )}
+          >
+            Nested
+          </p>
+        </div>
+        <motion.div
+          ref={ref}
+          layout
+          animate
+          className={cx(
+            "relative z-10 content-start w-full gap-8 ",
+            "md:gap-4",
+            "sm:gap-2 sm:place-content-center sm:content-start ",
+            {
+              "min-h-[570px] sm:min-h-[370px]": isMobile,
+              "min-h-[220px]": !isMobile,
+            },
+          )}
+          style={{
+            display: mode === "nested" ? "grid" : "grid",
+            flexWrap: mode === "nested" ? "nowrap" : "wrap",
+            justifyContent: "center",
+            gridTemplateAreas: getAreas(),
+          }}
+        >
+          {items.current.map((item) => {
+            const orderInGroup = getOrderInGroup(item.area);
+            const color = getColorByOrder(orderInGroup) as ColoredChipColor;
+            return (
+              <ColoredChip
+                color={color}
+                layoutId={item.area}
+                layout
+                style={{
+                  gridArea: item.area,
+                  justifySelf: "center",
+                  marginLeft: getMarginByOrder(orderInGroup),
+                }}
+                key={item.area}
+                animate={{
+                  rotate: mode === "nested" ? 0 : item.rotation,
+                }}
+                transition={{ type: "spring", stiffness: 100, mass: 0.5 }}
+              >
+                {item.name}
+              </ColoredChip>
+            );
+          })}
+        </motion.div>
+      </div>
+    </FeatureContainer>
   );
 };

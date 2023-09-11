@@ -109,12 +109,17 @@ a {
   @apply relative text-2xl font-bold text-content-primary-dark tracking-tight md:leading-[3rem] md:text-xl sm:leading-[2.5rem] sm:text-base;
 }
 
+.typography-xl {
+  @apply relative text-xl font-bold text-content-primary-dark tracking-tight md:leading-[3rem] md:text-base sm:leading-[2.5rem];
+}
+
+
 .typography-base {
-  @apply font-medium text-content-secondary-dark tracking-tight max-w-2xl m-auto text-base;
+  @apply font-medium text-content-secondary-dark tracking-tight m-auto text-base;
 }
 
 .feature-container {
-  @apply container min-h-[100vh] z-10 mb-40 grid items-center content-center gap-16 text-center;
+  @apply container z-10 mb-40 grid items-center content-center gap-16 text-center;
 }
 .feature-tag {
   @apply font-semibold font-special text-accent-purple text-base rounded-full border border-2 inline-flex border-accent-purple px-4 m-4;

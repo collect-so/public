@@ -12,7 +12,7 @@ import { useMediaMatcher } from "~/components/hooks/useMediaMatcher";
 import { Logo } from "~/components/Layout/header/components/logo";
 import Link from "next/link";
 import { JoinWaitlistButton } from "~/components/joinwaitlist-button";
-import { OutlineButton, TransparentButton } from "~/components/button";
+import { OutlineButton } from "~/components/button";
 
 export const NavigationContext = createContext({
   intersectDarkContainers: true,
@@ -115,10 +115,13 @@ export const Header = () => {
             exit="collapsed"
             variants={mobileNavigationAnimationVariants(isTablet)}
             className={cx(
-              "md:block md:absolute md:top-[60px] md:left-0 md:w-full md:min-h-[calc(100vh_-_60px)]",
-              { "bg-background-dark": isOpen },
+              "md:top-[60px] md:left-0 md:w-full md:min-h-[calc(100vh_-_60px)]",
+              {
+                "bg-background-dark absolute": isOpen,
+                hidden: !isOpen && isTablet,
+                block: !isTablet,
+              },
             )}
-            style={{ display: !isOpen && isTablet ? "none" : "" }}
           >
             <div className="flex md:flex-col gap-8">
               {menuData.map((item) => (
@@ -128,7 +131,7 @@ export const Header = () => {
           </motion.div>
         </div>
         <div className="flex items-center gap-8 sm:gap-4">
-          <TransparentButton>Sign in</TransparentButton>
+          <OutlineButton>Sign in</OutlineButton>
           <JoinWaitlistButton>Playground</JoinWaitlistButton>
           <motion.div
             initial={false}

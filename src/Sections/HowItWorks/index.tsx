@@ -45,7 +45,7 @@ export function HowItWorksSection() {
   const { ref: waypoint3Ref, isInView: waypoint3InView } = useWaypoint();
 
   return (
-    <Section data-theme="dark" className="py-24 container">
+    <Section data-theme="dark" className="py-32 container">
       <h2 className="pb-24 text-3xl font-extrabold text-content-primary-dark sm:text-2xl tracking-tight  sm:leading-[2.5rem] mx-auto text-center">
         How It Works
       </h2>

@@ -1,28 +1,29 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC, ReactHTML, ReactNode } from "react";
 import cx from "classnames";
 import { motion, HTMLMotionProps } from "framer-motion";
 
-type Props = {
+type Props<Tag extends keyof ReactHTML> = {
   children: ReactNode;
   className?: string;
   size?: "medium" | "small";
   icon?: boolean;
-} & HTMLMotionProps<"button">;
+} & HTMLMotionProps<Tag>;
 
-const whileHover = {
-  scale: 1.1,
-};
-
-const ButtonBase: FC<Props> = ({ children, className, icon, ...props }) => {
+const ButtonBase: FC<Props<"button">> = ({
+  children,
+  className,
+  icon,
+  ...props
+}) => {
   return (
     <motion.button
       className={cx(
         className,
+        "border-2 border-accent-brand",
         "gap-2 flex items-center justify-center bg-accent-brand rounded-[8px] text-base font-bold duration-300",
-        "py-[12px] px-[16px]",
+        "py-[10px] px-[14px]",
         "md:py-[8px] md:px-[12px] md:text-sm",
       )}
-      whileHover={whileHover}
       {...props}
     >
       {children}
@@ -30,7 +31,7 @@ const ButtonBase: FC<Props> = ({ children, className, icon, ...props }) => {
   );
 };
 
-const LinkBase: FC<Props & { href: string }> = ({
+const LinkBase: FC<Props<"a"> & { href: string }> = ({
   children,
   className,
   icon,
@@ -44,7 +45,6 @@ const LinkBase: FC<Props & { href: string }> = ({
         "py-[12px] px-[16px]",
         "md:py-[8px] md:px-[12px] md:text-sm",
       )}
-      whileHover={whileHover}
       {...props}
     >
       {children}
@@ -52,7 +52,12 @@ const LinkBase: FC<Props & { href: string }> = ({
   );
 };
 
-export const Button: FC<Props> = ({ children, className, icon, ...props }) => {
+export const Button: FC<Props<"button">> = ({
+  children,
+  className,
+  icon,
+  ...props
+}) => {
   return (
     <ButtonBase
       className={cx(className, "bg-accent-brand text-content-primary-light")}
@@ -63,7 +68,7 @@ export const Button: FC<Props> = ({ children, className, icon, ...props }) => {
   );
 };
 
-export const OutlineButton: FC<Props> = ({
+export const OutlineButton: FC<Props<"button">> = ({
   children,
   className,
   icon,
@@ -82,7 +87,7 @@ export const OutlineButton: FC<Props> = ({
   );
 };
 
-export const OutlineLink: FC<Props & { href: string }> = ({
+export const OutlineLink: FC<Props<"a"> & { href: string }> = ({
   children,
   className,
   icon,
@@ -101,7 +106,7 @@ export const OutlineLink: FC<Props & { href: string }> = ({
   );
 };
 
-export const TransparentButton: FC<Props> = ({
+export const TransparentButton: FC<Props<"button">> = ({
   children,
   className,
   icon,

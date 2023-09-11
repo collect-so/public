@@ -49,7 +49,7 @@ module.exports = {
       "stroke-light": "#00000014",
       "stroke-dark": "#DFDFDF0F",
 
-      "accent-brand": "#CBEE4C",
+      "accent-brand": "#fff",
       "accent-yellow": "#CBEE4C",
       "accent-orange": "#F2994A",
       "accent-green": "#219653",
@@ -65,6 +65,15 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-manrope)"],
         special: ["var(--font-kyiv-sans)"],
+      },
+      keyframes: {
+        zoomOut: {
+          "0%": { transform: "scale(1.3)" },
+          "100%": { transform: "scale(1)" },
+        },
+        animation: {
+          zoomOut: "zoomOut 1s ease-out",
+        },
       },
     },
   },

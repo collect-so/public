@@ -49,7 +49,7 @@ export const ColoredChip: FC<PropsWithChildren<ColoredChipProps>> = ({
           "text-content-primary-dark bg-accent-green": color === "green",
           "text-content-primary-dark bg-accent-red ": color === "red",
           "text-content-primary-dark bg-accent-purple ": color === "purple",
-          "text-content-primary-dark bg-accent-orange ": color === "orange",
+          "text-content-primary-light bg-accent-orange ": color === "orange",
           "text-[#6d6d6d] bg-[#1b1b1b]": color === "dark",
         },
         "min-h-[48px] px-6 rounded-full",

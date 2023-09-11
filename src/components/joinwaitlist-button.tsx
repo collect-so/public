@@ -1,7 +1,7 @@
 import { ReactNode, useContext } from "react";
 import { ModalContext } from "~/components/Layout";
 import { Button, OutlineButton } from "~/components/button";
-import { Bell } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const Icon = () => (
   <svg
@@ -45,7 +45,7 @@ export const JoinWaitlistButton = ({
     <Component onClick={open} className={className}>
       {children ?? "Open Playground "}
       <div className="md:hidden">
-        <Icon />
+        <ArrowRight />
       </div>
     </Component>
   );

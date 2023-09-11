@@ -25,7 +25,7 @@ export const Navbar: FunctionComponent<
         "flex flex-row justify-between items-center fixed z-30 w-full top-0 ",
       )}
     >
-      <div className="container flex flex-row justify-between items-center h-[100px] md:h-[60px]">
+      <div className="container flex flex-row justify-between items-center h-[80px] md:h-[60px]">
         {children}
       </div>
     </nav>

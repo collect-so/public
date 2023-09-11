@@ -10,13 +10,13 @@ const colorSchema = {
   blue: { main: "#56CCF2", complementary: "#9B51E0", content: "#000" },
   purple: { main: "#9B51E0", complementary: "#CBEE4C", content: "#fff" },
 };
-
+export type FileIconColors = keyof typeof colorSchema;
 export const FileIcon = ({
   extension = ".png",
   variant = "yellow",
 }: {
   extension: string;
-  variant: keyof typeof colorSchema;
+  variant: FileIconColors;
 }) => {
   return (
     <svg

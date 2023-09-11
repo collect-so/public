@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { randomIntFromRange } from "~/common";
 import cx from "classnames";
 import { CodeBlock } from "~/components/codeblock";
+import { FeatureContainer } from "~/components/feature-container";
 
 const UserCode = `await CollectSDK.save(
   "user", // label
@@ -99,28 +100,40 @@ export const DynamicApis = () => {
   };
 
   return (
-    <div className={cx("grid grid-cols-2 z-10 gap-16", "md:grid-cols-1")}>
-      <div
-        ref={ref}
-        className="flex relative flex-wrap justify-center items-center z-10 content-center w-full gap-8 md:gap-4 sm:gap-2"
-      >
-        {data.map((item) => (
-          <ColoredChip
-            color={group === item.color ? item.color : "dark"}
-            key={item.title}
-            onClick={selectGroup(item.color)}
-            animate={{ rotate: randomIntFromRange(-3, 3) }}
-            transition={{ type: "spring", stiffness: 100 }}
+    <FeatureContainer>
+      <div className={cx("z-10")}>
+        <div className={"mb-8"}>
+          <div className={cx("feature-tag")}>Feature</div>
+          <h2 className={cx("typography-3xl mb-4")}>Dynamic APIs</h2>
+          <p className="typography-base max-w-2xl ">
+            Simply label what you push to Collect and retrieve it all using the
+            automatically assigned "labeled" endpoint.
+          </p>
+        </div>
+        <div className={cx("grid grid-cols-2 z-10 gap-16", "md:grid-cols-1")}>
+          <div
+            ref={ref}
+            className="flex relative flex-wrap justify-center items-center z-10 content-center w-full gap-8 md:gap-4 sm:gap-2"
           >
-            {item.title}
-          </ColoredChip>
-        ))}
-      </div>
+            {data.map((item) => (
+              <ColoredChip
+                color={group === item.color ? item.color : "dark"}
+                key={item.title}
+                onClick={selectGroup(item.color)}
+                animate={{ rotate: randomIntFromRange(-3, 3) }}
+                transition={{ type: "spring", stiffness: 100 }}
+              >
+                {item.title}
+              </ColoredChip>
+            ))}
+          </div>
 
-      <CodeBlock
-        className="rounded-md md:m-auto sm:w-full"
-        code={data[groups.current.indexOf(group)].code}
-      />
-    </div>
+          <CodeBlock
+            className="rounded-md md:m-auto sm:w-full"
+            code={data[groups.current.indexOf(group)].code}
+          />
+        </div>
+      </div>
+    </FeatureContainer>
   );
 };

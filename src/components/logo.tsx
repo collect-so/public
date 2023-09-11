@@ -1,7 +1,7 @@
 export const Logo = ({
   className,
   bgFill = "white",
-  strokeColor = "#282828",
+  strokeColor = "#000",
   width = 60,
   height = 60,
 }: {
