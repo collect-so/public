@@ -42,7 +42,7 @@ export default function Home() {
         {/*<SwipesSection />*/}
         {/*<DevsSection />*/}
         <PricingSection />
-        <FAQSection />
+        {/*<FAQSection />*/}
       </Layout>
     </>
   );

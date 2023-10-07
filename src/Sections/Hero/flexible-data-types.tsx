@@ -14,8 +14,10 @@ export const FlexibleDataTypes = () => {
     <FeatureContainer>
       <div className={cx("z-10")}>
         <div className={cx("feature-tag")}>Feature</div>
-        <h2 className={cx("typography-3xl mb-4")}>Data types auto-detection</h2>
-        <p className="typography-base max-w-2xl ">
+        <h2 className={cx("typography-3xl mb-4 font-special")}>
+          Data types auto-detection
+        </h2>
+        <p className="typography-lg max-w-2xl ">
           Ensure that anything you push to Collect is appropriately arranged and
           securely stored.
         </p>

@@ -43,7 +43,7 @@ export const JoinWaitlistButton = ({
 
   return (
     <Component onClick={open} className={className}>
-      {children ?? "Open Playground "}
+      {children ?? "Join Waitlist"}
       <div className="md:hidden">
         <ArrowRight />
       </div>

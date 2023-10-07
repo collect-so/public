@@ -46,8 +46,8 @@ export function HowItWorksSection() {
 
   return (
     <Section data-theme="dark" className="py-32 container">
-      <h2 className="pb-24 text-3xl font-extrabold text-content-primary-dark sm:text-2xl tracking-tight  sm:leading-[2.5rem] mx-auto text-center">
-        How It Works
+      <h2 className="pb-24 text-3xl font-extrabold text-content-primary-dark sm:text-2xl tracking-tight  sm:leading-[2.5rem] mx-auto text-center font-special">
+        How it works
       </h2>
       <div className="sticky top-0 flex items-start gap-4 md:flex-col">
         {/* 50% - nav height */}
@@ -95,7 +95,7 @@ export function HowItWorksSection() {
           <CodeBlock
             ref={waypoint0Ref}
             code={`// Just push whatever you need to be saved:
-const booking = await CollectSDK.create(
+const booking = await CollectSDK.save(
   // New Record Label:
   "booking", 
   // New Record Data:

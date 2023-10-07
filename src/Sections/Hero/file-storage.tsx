@@ -12,8 +12,8 @@ export const FileStorage = () => {
     <FeatureContainer>
       <div className={cx("z-10")}>
         <div className={cx("feature-tag")}>Feature</div>
-        <h2 className={cx("typography-3xl mb-4")}>File storage</h2>
-        <p className="typography-base max-w-2xl ">
+        <h2 className={cx("typography-3xl mb-4 font-special")}>File storage</h2>
+        <p className="typography-lg max-w-2xl ">
           Create a structured file storage tailored to your requirements .
           Benefit from easily accessible, dependable, and customizable storage
           for binary data.

@@ -87,30 +87,35 @@ const gpt: TComingFeature = {
 
 export const plans: TSubscriptionPlan[] = [
   {
-    name: "playground",
+    name: "starter",
     annualPrice: 0,
     monthPrice: 0,
     period: "Forever",
-    buttonText: "Open Playground",
+    buttonText: "Get Started",
     buttonLink: "https://app.collect.so/signup",
     featured: false,
     isFree: true,
     general: [
       {
-        title: "1.000 Records",
+        title: "3 Projects",
       },
       {
-        title: "30 Magic Fields",
+        title: "3.000 Records",
+        caption: "Per Project",
       },
+      // {
+      //   title: "30 Magic Fields",
+      // },
       {
         title: "2 GB File Storage",
+        caption: "Up to 5mb per file",
       },
-      {
-        title: "Single-tenant architecture",
-      },
-      {
-        title: "Manual backups",
-      },
+      // {
+      //   title: "Single-tenant architecture",
+      // },
+      // {
+      //   title: "Manual backups",
+      // },
       {
         title: "Community support",
       },
@@ -136,31 +141,34 @@ export const plans: TSubscriptionPlan[] = [
   },
   {
     name: "PRO",
-    annualPrice: 99,
-    monthPrice: 119,
+    annualPrice: 11.99,
+    monthPrice: 19.99,
     period: "Monthly",
     buttonText: "Get Started",
     buttonLink: "https://app.collect.so/signup",
     featured: true,
     general: [
       {
-        title: "1.000.000 Records",
-        caption: "Next 1.000 Records for $0.49",
+        title: "Unlimited projects",
       },
       {
-        title: "100 Magic Fields",
-        caption: "Next 10 Magic Fields for $0.69",
+        title: "100.000 Records",
+        caption: "Next 1.000 Records for $0.19",
       },
+      // {
+      //   title: "100 Magic Fields",
+      //   caption: "Next 10 Magic Fields for $0.69",
+      // },
       {
-        title: "500 GB File Storage",
-        caption: "Next 10 GB for $0.99",
+        title: "Connect own S3",
+        // caption: "Next 10 GB for $0.99",
       },
-      {
-        title: "Multi-tenant architecture",
-      },
-      {
-        title: "Biweekly backups",
-      },
+      // {
+      //   title: "Multi-tenant architecture",
+      // },
+      // {
+      //   title: "Biweekly backups",
+      // },
       {
         title: "Dedicated support",
       },
@@ -199,26 +207,29 @@ export const plans: TSubscriptionPlan[] = [
     isCustom: true,
     general: [
       {
+        title: "Unlimited projects",
+      },
+      {
         title: "Unlimited Records",
       },
-      {
-        title: "Unlimited Magic Fields",
-      },
-      {
-        title: "Unlimited Storage",
-      },
+      // {
+      //   title: "Unlimited Magic Fields",
+      // },
+      // {
+      //   title: "Multi-tenant architecture",
+      // },
       {
         title: "On-premises deployment",
       },
+      // {
+      //   title: "Daily backups",
+      // },
       {
-        title: "Daily backups",
+        title: "Priority support",
       },
-      {
-        title: "Dedicated support",
-      },
-      {
-        title: "White labeling",
-      },
+      // {
+      //   title: "White labeling",
+      // },
     ],
     // features: [
     //   sdks,

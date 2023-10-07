@@ -96,10 +96,10 @@ export const BlinkingRecords = () => {
     <FeatureContainer>
       <div className={cx("z-10")}>
         <div className={cx("feature-tag")}>Feature</div>
-        <h2 className={cx("typography-3xl mb-4")}>
+        <h2 className={cx("typography-3xl mb-4 font-special")}>
           Data linking and retrieval
         </h2>
-        <p className="typography-base max-w-2xl ">
+        <p className="typography-lg max-w-2xl ">
           Build complex scenarios in a matter of double-digit minutes. Retrieve
           data the way you need it.
         </p>

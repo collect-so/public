@@ -104,8 +104,10 @@ export const DynamicApis = () => {
       <div className={cx("z-10")}>
         <div className={"mb-8"}>
           <div className={cx("feature-tag")}>Feature</div>
-          <h2 className={cx("typography-3xl mb-4")}>Dynamic APIs</h2>
-          <p className="typography-base max-w-2xl ">
+          <h2 className={cx("typography-3xl mb-4 font-special")}>
+            Dynamic APIs
+          </h2>
+          <p className="typography-lg max-w-2xl ">
             Simply label what you push to Collect and retrieve it all using the
             automatically assigned "labeled" endpoint.
           </p>

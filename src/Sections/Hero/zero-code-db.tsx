@@ -37,12 +37,16 @@ await person.update({
   verified: true
 })
 `;
+
+// @TOOD: Rewrite (zero-code backend)
 export const ZeroCodeDb = () => {
   return (
     <FeatureContainer>
       <div className={cx("z-10 mb-8")}>
         <div className={cx("feature-tag")}>Feature</div>
-        <h2 className={cx("typography-3xl mb-4")}>Zero-code database</h2>
+        <h2 className={cx("typography-3xl mb-4 font-special")}>
+          Zero-code database
+        </h2>
         <p className="typography-base max-w-2xl ">
           Skip migrations, skip model configuration, skip JOINs. Focus on what
           is really important, not on the tools that help you get there.
@@ -51,7 +55,9 @@ export const ZeroCodeDb = () => {
       <div className={cx("grid grid-cols-2 z-10 gap-16", "md:grid-cols-1")}>
         <div className={cx("grid grid-rows-[1fr_auto]")}>
           <div className={"mb-8"}>
-            <h2 className={cx("typography-2xl mb-4")}>Magic Fields</h2>
+            <h2 className={cx("typography-2xl mb-4 font-special")}>
+              Properties
+            </h2>
             <p className="typography-base max-w-2xl ">
               Magic Fields automatically interconnect data with common
               properties like color or size. Search and filter data across the

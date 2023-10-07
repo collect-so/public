@@ -68,7 +68,7 @@ function PriceBlock({
         "flex flex-col justify-center px-4 text-center py-8 gap-[14px]",
       )}
     >
-      <div className="flex flex-col gap-1 font-bold leading-snug">
+      <div className="flex flex-col gap-1 font-bold leading-snug  mb-4">
         <span
           className={cx(`text-sm uppercase`, {
             "text-accent-blue": plan.featured,
@@ -147,7 +147,7 @@ export function PricingSection() {
     <Section className="" id="pricing" data-theme={"dark"}>
       <div className="py-[25vh]">
         <div className="container text-center mb-16">
-          <h2 className="typography-3xl">Pricing</h2>
+          <h2 className="typography-3xl font-special">Pricing</h2>
         </div>
         <div className="grid grid-cols-3 place-items-center mb-16 z-10 relative z-10 justify-center max-w-sm m-auto">
           <p

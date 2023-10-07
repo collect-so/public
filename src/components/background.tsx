@@ -50,7 +50,7 @@ export const Background: FC<{
       }}
       className={cx("absolute z-0 ")}
     >
-      <GridShaft color={"#262626"} ref={ref} />
+      <GridShaft color={"#0e0e0e"} ref={ref} />
     </motion.div>
   );
 };
