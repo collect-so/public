@@ -105,8 +105,7 @@ export const Hero = () => {
 
         <h2 className={cx("typography-4xl mb-0 font-special")}>
           <span className="text-accent-yellow">Instant</span> backend
-          <br />
-          for your next <span className="text-accent-red">SaaS</span>
+          <br /> for your next <span className="text-accent-red">SaaS</span>
           {/*<span className="text-accent-blue">Bot</span> /{" "}*/}
           {/*<span className="text-accent-green">App</span>*/}
         </h2>
@@ -137,7 +136,7 @@ export const Hero = () => {
           <span className="font-medium text-content-primary-dark">
             automated normalization
           </span>{" "}
-          <br />
+          <br className="sm:hidden" />
           and{" "}
           <span className="font-medium text-content-primary-dark">
             instantly generated APIs

@@ -119,7 +119,7 @@ a {
 }
 
 .typography-lg {
-  @apply font-normal text-content-secondary-dark tracking-tight m-auto text-lg;
+  @apply font-normal text-content-secondary-dark tracking-tight m-auto text-lg sm:text-base;
 }
 
 .feature-container {

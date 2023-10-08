@@ -29,7 +29,7 @@ export function HeroSection() {
           <h2
             className={cx(
               "typography-4xl pb-32",
-              "underline decoration-accent-red decoration-wavy decoration-[8px] underline-offset-[24px]",
+              // "underline decoration-accent-red decoration-wavy decoration-[8px] underline-offset-[24px]",
             )}
           >
             Features

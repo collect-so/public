@@ -38,7 +38,7 @@ export const CodeBlock = forwardRef<
 >(({ code, className, preClassName, style }, ref) => {
   return (
     <div
-      className={classNames("max-w-[92vw]", className)}
+      className={classNames("max-w-[92vw] sm:text-[14px]", className)}
       ref={ref}
       style={style}
     >
