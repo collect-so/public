@@ -1,12 +1,11 @@
 import Head from "next/head";
 import { HeroSection } from "~/Sections/Hero";
 import { Layout } from "~/components/Layout";
-import { DevsSection } from "~/Sections/Devs";
-import { SwipesSection } from "~/Sections/Swipes";
-import { BenefitsSection } from "~/Sections/Benefits";
 import { PricingSection } from "~/Sections/Pricing";
 import { getAbsoluteURL } from "~/components/utils";
-import { TeaserSection } from "~/Sections/Teaser";
+import { AIEnhancements } from "~/Sections/AIEnhancements";
+import { HowItWorksSection } from "~/Sections/HowItWorks";
+import { FAQSection } from "~/Sections/FAQ";
 
 export default function Home() {
   return (
@@ -38,11 +37,12 @@ export default function Home() {
       </Head>
       <Layout>
         <HeroSection />
-        <TeaserSection />
-        <SwipesSection />
-        <BenefitsSection />
-        <DevsSection />
-        {/*<PricingSection />*/}
+        <HowItWorksSection />
+        {/*<AIEnhancements />*/}
+        {/*<SwipesSection />*/}
+        {/*<DevsSection />*/}
+        <PricingSection />
+        {/*<FAQSection />*/}
       </Layout>
     </>
   );

@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.tsx"],
+  important: true,
   theme: {
     screens: {
       xl: { max: "1920px" },
@@ -28,36 +29,57 @@ module.exports = {
     fontSize: {
       sm: "16px",
       base: "20px",
-      xl: "24px",
-      "2xl": "36px",
+      lg: "24px",
+      xl: "30px",
+      "2xl": "40px",
       "3xl": "48px",
       "4xl": "64px",
     },
     colors: {
       transparent: "transparent",
 
-      "content-primary-light": "#4C4C4C",
-      "content-secondary-light": "#606060",
+      "content-primary-light": "#000",
+      "content-secondary-light": "#000",
       "content-primary-dark": "#FFF",
-      "content-secondary-dark": "#D8D8D8",
-      "content-tertiary-dark": "#5E8396",
+      "content-secondary-dark": "#b1b1b1",
+      "content-tertiary-dark": "#FFF",
 
-      "background-light": "#fffffd",
-      "background-dark": "#263238",
+      "background-light": "#fff",
+      "background-dark": "#000",
 
       "stroke-light": "#00000014",
       "stroke-dark": "#DFDFDF0F",
 
-      "accent-brand": "#3f81ff",
-      "accent-yellow": "#F4B000",
-      "accent-green": "#00A07A",
-      "accent-red": "#FF586D",
-      "accent-blue": "#3F81FF",
+      "accent-brand": "#fff",
+      "accent-yellow": "#CBEE4C",
+      "accent-orange": "#F2994A",
+      "accent-green": "#219653",
+      "accent-red": "#FF6B6B",
+      "accent-pink": "#F0C3D2",
+      "accent-blue": "#56CCF2",
+      "accent-purple": "#9B51E0",
 
       "base-white": "#FFF",
       "base-black": "#000",
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["var(--font-manrope)"],
+        special: ["var(--font-kyiv-sans)"],
+      },
+      keyframes: {
+        zoomOut: {
+          "0%": { transform: "scale(1.3)" },
+          "100%": { transform: "scale(1)" },
+        },
+        animation: {
+          zoomOut: "zoomOut 1s ease-out",
+        },
+      },
+    },
   },
-  plugins: [],
+  plugins: [
+    // Or with a custom prefix:
+    require("@headlessui/tailwindcss")({ prefix: "ui" }),
+  ],
 };

@@ -4,21 +4,17 @@ import { useState, useCallback, useRef, ReactNode } from "react";
 import { motion, useTransform, useScroll } from "framer-motion";
 import clsx from "classnames";
 import { useIsomorphicLayoutEffect, useWindowSize } from "react-use";
-import Image, { StaticImageData } from "next/image";
 import { cards } from "./data";
 
 const variants = {
-  primary:
-    "bg-base-white border-stroke-light border border-b-2 text-primary-contrast",
+  red: "bg-accent-red",
+  purple: "bg-accent-purple",
+  orange: "bg-accent-orange",
 };
 
-const dotsBg = {
-  backgroundImage: "radial-gradient(rgb(74 74 74 / 38%) 1px, transparent 0px)",
-  backgroundSize: "40px 40px",
-};
 function StackableCard({
   idx,
-  variant = "primary",
+  variant = "red",
   title,
   subtitle,
   imageSrc,
@@ -28,7 +24,7 @@ function StackableCard({
   variant: keyof typeof variants;
   title: ReactNode;
   subtitle: ReactNode;
-  imageSrc: StaticImageData;
+  imageSrc: any;
 }) {
   const { scrollY } = useScroll();
   const [elementTop, setElementTop] = useState(0);
@@ -56,6 +52,16 @@ function StackableCard({
       clamp: true,
     },
   );
+
+  const rotate = useTransform(
+    scrollY,
+    [elementTop + height * 0.5, elementTop + height],
+    [0, (idx % 2 === 0 ? -1 : 1) * 8],
+    {
+      clamp: true,
+    },
+  );
+
   const offsetY = useTransform(
     scrollY,
     [elementTop + height * 0.5, elementTop + height],
@@ -67,32 +73,34 @@ function StackableCard({
 
   return (
     <div
-      className={"sticky h-[100vh] w-full grid place-items-center top-0 px-5"}
+      className={"sticky h-[100vh] w-full grid place-items-center top-0 px-5 "}
       {...props}
       ref={ref}
     >
       <motion.div
         className={clsx(
-          "max-h-[560px] max-w-[1024px] h-[72vh] sm:h-[72vh] w-full mx-auto rounded-3xl sm:rounded-xl px-16 py-24 sm:px-8 sm:py-8 flex items-center",
+          "max-h-[448px]  md:max-h-[350px] max-w-[1024px] h-[70vh] overflow-hidden sm:h-[72vh] w-full mx-auto rounded-[75px]  flex items-center sm:max-h-[1000px] sm:rounded-[55px]",
           variants[variant],
         )}
-        style={{ scale, y: offsetY, ...dotsBg }}
+        style={{ scale, y: offsetY, rotate }}
       >
-        <div className="flex gap-10 items-center sm:flex-col sm:items-start ">
-          <Image
-            className="flex-shrink-0 sm:flex-shrink h-[250px] sm:h-[200px] w-[250px] sm:w-[200px] md:m-auto"
-            alt=""
-            src={imageSrc}
-            width={250}
-            height={250}
-            quality={100}
-          />
+        <div
+          className={clsx(
+            "flex items-center sm:flex-col sm:items-start h-full",
+            {
+              "flex-row-reverse": idx % 2 === 0,
+            },
+          )}
+        >
+          <div className="flex-shrink-0 sm:flex-shrink h-full sm:align-self-center sm:h-auto sm:w-full [&>*]:w-full [&>*]:h-full ">
+            {imageSrc}
+          </div>
 
-          <div className="flex flex-col gap-4 sm:gap-2">
-            <h2 className="text-2xl sm:text-base text-content-primary-light font-bold tracking-tight">
+          <div className="flex flex-col gap-4 md:gap-2 p-[60px] md:p-8">
+            <h2 className="text-3xl md:text-xl text-content-primary-dark font-bold tracking-tight leading-tight">
               {title}
             </h2>
-            <p className="text-xl sm:text-sm text-content-secondary-light font-medium tracking-tight">
+            <p className="text-xl md:text-sm text-content-secondary-dark font-medium tracking-tight leading-snug">
               {subtitle}
             </p>
           </div>
@@ -104,7 +112,14 @@ function StackableCard({
 
 export function SwipesSection() {
   return (
-    <Section className="flex flex-col" data-theme="light">
+    <Section
+      className="flex flex-col z-10 py-24 overflow-clip"
+      data-theme="dark"
+    >
+      <h1 className="text-center font-extrabold text-3xl text-content-primary-dark translate-y-32 sm:translate-y-12 sm:text-2xl tracking-tight  sm:leading-[2.5rem] ">
+        Turn <span className="text-accent-brand">ideas</span> into fast and
+        reliable <span className="text-accent-purple">APIs</span>
+      </h1>
       {cards?.map((card, idx) => (
         <StackableCard {...card} idx={idx} key={idx} />
       ))}

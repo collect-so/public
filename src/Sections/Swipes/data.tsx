@@ -1,39 +1,27 @@
-import wallet from "~/images/wallet.png";
-import target from "~/images/target.png";
-import dashboard from "~/images/dashboard.png";
+import First from "~/images/svg/firstcard.svg";
+import Second from "~/images/svg/secondcard.svg";
+import Third from "~/images/svg/thirdcard.svg";
 
 export const cards = [
   {
-    title: (
-      <>
-        Reduce development <span className="text-accent-brand">costs</span>
-      </>
-    ),
-    imageSrc: wallet,
+    title: "Store complex data with ease",
+    imageSrc: <First />,
     subtitle:
-      "Software development can often result in budgetary challenges. Collect Platform offers a comprehensive suite of tools that can help you build complex, production-ready applications with significantly fewer resources.",
-    variant: "primary" as const,
+      "Collect API simplifies the storage process even for the most complex, linked and nested data",
+    variant: "red" as const,
   },
   {
-    title: (
-      <>
-        Deliver features <span className="text-accent-red">not bugs</span>
-      </>
-    ),
-    imageSrc: target,
+    title: "Scalable file storage for scalable needs",
+    imageSrc: <Second />,
     subtitle:
-      "Collect helps you to deliver features without the pain and frustration of dealing with unnecessary downtime and database migrations, allows you to create product features with confidence.",
-    variant: "primary" as const,
+      "Collect API seamlessly links Files with other Data, enabling you to build more complex applications",
+    variant: "purple" as const,
   },
   {
-    title: (
-      <>
-        Iterate blazingly <span className="text-accent-green">fast</span>
-      </>
-    ),
-    imageSrc: dashboard,
+    title: "Retrieve data matching your requirements",
+    imageSrc: <Third />,
     subtitle:
-      "Test your ideas, rapidly incorporating feedback and improve your product at blazingly fast speeds. With Collect, you can stay ahead of the competition and achieve your goals with speed and agility.",
-    variant: "primary" as const,
+      "Collect API allows to define your criteria and retrieve accurate information in new and innovative ways",
+    variant: "orange" as const,
   },
 ];

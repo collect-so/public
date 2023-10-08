@@ -63,32 +63,32 @@ export function Modal() {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-[#000] bg-opacity-75 transition-opacity" />
+          <div className="fixed inset-0 bg-[#000] bg-opacity-90 transition-opacity " />
         </Transition.Child>
 
-        <div className="fixed inset-4 z-10 overflow-y-auto">
+        <div className="fixed inset-4 z-10 overflow-y-auto ">
           <div className="flex min-h-full justify-center p-4 text-center items-center">
             <Transition.Child
               as={Fragment}
-              enter="ease-out duration-300"
+              enter="ease-out duration-300 "
               enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               enterTo="opacity-100 translate-y-0 sm:scale-100"
               leave="ease-in duration-200"
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative transform overflow-hidden rounded-lg  text-left shadow-xl transition-all ">
+              <Dialog.Panel className="relative transform overflow-hidden rounded-lg  text-left shadow-xl transition-all border-2 border-accent-green">
                 <form onSubmit={submit}>
-                  <div className="bg-background-light px-4 py-4 max-w-[600px]">
+                  <div className="bg-background-dark px-8 py-8 max-w-[600px] ">
                     <div className="flex">
                       <div className="text-left">
-                        <Dialog.Title className="text-xl font-semibold leading-6 text-content-primary-light">
+                        <Dialog.Title className="text-xl font-semibold leading-6 text-content-primary-dark">
                           <Logo className="mb-4" />
                           Join Waitlist
                         </Dialog.Title>
                         {!submitted ? (
                           <>
-                            <p className="text-sm text-content-secondary-light py-4">
+                            <p className="text-sm text-content-secondary-dark py-4">
                               Join our waitlist today and be the first to know
                               when our product becomes available!
                             </p>
@@ -97,7 +97,7 @@ export function Modal() {
                               <div>
                                 <label
                                   htmlFor="name"
-                                  className="block mb-2 text-sm font-medium text-content-secondary-light "
+                                  className="block mb-2 text-sm font-medium text-content-secondary-dark "
                                 >
                                   Name (optional)
                                 </label>
@@ -105,7 +105,7 @@ export function Modal() {
                                   type="text"
                                   id="name"
                                   name="name"
-                                  className="bg-background-light border border-content-primary-light text-content-secondary-light text-sm rounded-md focus:border-accent-blue block w-full p-2.5"
+                                  className="bg-background-dark border border-content-primary-dark text-content-secondary-dark text-sm rounded-md focus:border-accent-blue block w-full p-2.5"
                                   placeholder="John Connor"
                                   value={form.name}
                                   onChange={onFormChange}
@@ -115,7 +115,7 @@ export function Modal() {
                               <div>
                                 <label
                                   htmlFor="email"
-                                  className="block mb-2 text-sm font-medium text-content-secondary-light"
+                                  className="block mb-2 text-sm font-medium text-content-secondary-dark"
                                 >
                                   Email
                                 </label>
@@ -123,7 +123,7 @@ export function Modal() {
                                   type="email"
                                   id="email"
                                   name="email"
-                                  className="bg-background-light  border border-content-primary-light text-content-secondary-light text-sm rounded-md focus:border-accent-blue block w-full p-2.5"
+                                  className="bg-background-dark  border border-content-primary-dark text-content-secondary-dark text-sm rounded-md focus:border-accent-blue block w-full p-2.5"
                                   placeholder="skynet@example.com"
                                   value={form.email}
                                   onChange={onFormChange}
@@ -132,7 +132,7 @@ export function Modal() {
                                 />
                               </div>
                             </div>
-                            <p className="text-sm text-content-secondary-light py-4">
+                            <p className="text-sm text-content-secondary-dark py-4">
                               We value your privacy. Information you provide
                               will only be used for the purpose of notifying you
                               about updates regarding our product launch. We
@@ -142,7 +142,7 @@ export function Modal() {
                           </>
                         ) : (
                           <>
-                            <p className="text-sm text-content-secondary-light py-4">
+                            <p className="text-sm text-content-secondary-dark py-4">
                               Thank you for joining our waitlist! We appreciate
                               your interest and look forward to keeping you
                               updated on the latest developments. Your support
@@ -159,13 +159,13 @@ export function Modal() {
                       </p>
                     ) : null}
                   </div>
-                  <div className="bg-background-light px-4 pb-4 flex gap-4 place-content-end">
+                  <div className="bg-background-dark px-8 pb-8 flex gap-8 place-content-end">
                     <OutlineButton onClick={onClose} type="button">
                       Close
                     </OutlineButton>
                     {!submitted ? (
                       <Button
-                        className="w-full"
+                        className="w-full bg-"
                         type="submit"
                         disabled={submitting}
                       >

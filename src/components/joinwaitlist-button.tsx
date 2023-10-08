@@ -1,7 +1,7 @@
-import { useContext } from "react";
+import { ReactNode, useContext } from "react";
 import { ModalContext } from "~/components/Layout";
-import { Button } from "~/components/button";
-import { Bell } from "lucide-react";
+import { Button, OutlineButton } from "~/components/button";
+import { ArrowRight } from "lucide-react";
 
 const Icon = () => (
   <svg
@@ -28,12 +28,25 @@ const Icon = () => (
   </svg>
 );
 
-export const JoinWaitlistButton = ({ className }: { className?: string }) => {
+export const JoinWaitlistButton = ({
+  children,
+  className,
+  outline,
+}: {
+  className?: string;
+  outline?: boolean;
+  children?: ReactNode;
+}) => {
   const { open } = useContext(ModalContext);
 
+  const Component = outline ? OutlineButton : Button;
+
   return (
-    <Button onClick={open} className={className}>
-      Join Waitlist <Icon />
-    </Button>
+    <Component onClick={open} className={className}>
+      {children ?? "Join Waitlist"}
+      <div className="md:hidden">
+        <ArrowRight />
+      </div>
+    </Component>
   );
 };

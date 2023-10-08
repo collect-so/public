@@ -1,5 +1,5 @@
 import cx from "classnames";
-import { FC, PropsWithChildren } from "react";
+import { FC, forwardRef, PropsWithChildren } from "react";
 
 interface SectionProps {
   className?: string;
@@ -7,21 +7,23 @@ interface SectionProps {
   [key: string]: unknown;
 }
 
-export const Section: FC<PropsWithChildren<SectionProps>> = ({
-  className,
-  children,
-  ...props
-}) => {
-  return (
-    <section
-      className={cx(
-        "section",
-        { "bg-background-dark": props["data-theme"] === "dark" },
-        className,
-      )}
-      {...props}
-    >
-      {children}
-    </section>
-  );
-};
+export const Section = forwardRef<HTMLElement, PropsWithChildren<SectionProps>>(
+  ({ className, children, ...props }, ref) => {
+    return (
+      <section
+        ref={ref}
+        className={cx(
+          "section relative",
+          { "bg-background-dark": props["data-theme"] === "dark" },
+          { "bg-background-light": props["data-theme"] === "light" },
+          className,
+        )}
+        {...props}
+      >
+        {children}
+      </section>
+    );
+  },
+);
+
+Section.displayName = "Section";

@@ -1,5 +1,5 @@
-import { CSSProperties, FC, PropsWithoutRef } from "react";
-import { materialOceanic } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { CSSProperties, FC, PropsWithoutRef, forwardRef } from "react";
+import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import classNames from "classnames";
 import cx from "classnames";
@@ -11,35 +11,42 @@ const PreStyles: CSSProperties = {
   wordBreak: "normal",
   overflowWrap: "normal",
   color: "rgb(195, 206, 227)",
-  background: "rgb(38, 50, 56)",
+  background: "#1d1d1d",
   fontFamily: '"Roboto Mono", monospace',
   fontSize: "1em",
-  lineHeight: "1.5em",
-  tabSize: 4,
   hyphens: "none",
   overflow: "auto",
   position: "relative",
-  margin: "0",
-  padding: "1em",
 };
 
-export const CodeBlock: FC<
+const override = {
+  ...materialDark,
+  'code[class*="language-"]': {
+    ...materialDark['code[class*="language-"]'],
+    background: "inherit",
+  },
+};
+
+export const CodeBlock = forwardRef<
+  HTMLDivElement,
   PropsWithoutRef<{
     code: string;
     className?: string;
     preClassName?: string;
+    style?: CSSProperties;
   }>
-> = ({ code, className, preClassName }) => {
+>(({ code, className, preClassName, style }, ref) => {
   return (
-    <div className={classNames("max-w-[92vw]", className)}>
+    <div
+      className={classNames("max-w-[92vw]", className)}
+      ref={ref}
+      style={style}
+    >
       <SyntaxHighlighter
         language="javascript"
-        style={materialOceanic}
+        style={override}
         PreTag={({ children }) => (
-          <pre
-            className={cx(preClassName, "bg-background-dark p-2 rounded-lg")}
-            style={PreStyles}
-          >
+          <pre className={cx(preClassName, "p-4 rounded-lg")} style={PreStyles}>
             {children}
           </pre>
         )}
@@ -48,4 +55,6 @@ export const CodeBlock: FC<
       </SyntaxHighlighter>
     </div>
   );
-};
+});
+
+CodeBlock.displayName = "CodeBlock";
