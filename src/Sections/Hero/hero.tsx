@@ -42,7 +42,7 @@ Collect.find("books", {
 `;
 export const Hero = () => {
   return (
-    <FeatureContainer className={"min-h-[100vh] sm:min-h-[100vh]"}>
+    <FeatureContainer className={"min-h-[100vh] sm:min-h-[100vh] sm:pt-32"}>
       <div className={cx("z-10 relative flex flex-col gap-12")}>
         {/*<ColoredChip*/}
         {/*  color="purple"*/}
@@ -111,9 +111,19 @@ export const Hero = () => {
           {/*<span className="text-accent-green">App</span>*/}
         </h2>
 
-        <div className={"grid grid-cols-2 gap-8"}>
-          <CodeBlock code={code2} className={"justify-self-end"} />
-          <CodeBlock code={code3} className={"justify-self-start"} />
+        <div className={"grid grid-cols-2 gap-8 sm:grid-cols-1 sm:gap-4"}>
+          <CodeBlock
+            code={code2}
+            className={
+              "justify-self-end sm:justify-self-center sm:w-full sm:text-[14px]"
+            }
+          />
+          <CodeBlock
+            code={code3}
+            className={
+              "justify-self-start sm:justify-self-center sm:w-full sm:text-[14px]"
+            }
+          />
         </div>
 
         <p
