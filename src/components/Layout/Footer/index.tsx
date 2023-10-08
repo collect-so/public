@@ -12,10 +12,10 @@ export function Footer() {
             <div className="flex gap-10">
               <Logo
                 className="sm:m-auto text-content-primary-dark sm:w-[60px] sm:h-[60px]"
-                width={110}
-                height={110}
-                bgFill="black"
-                strokeColor="currentColor"
+                width={140}
+                height={140}
+                // bgFill="black"
+                // strokeColor="currentColor"
               />
               <div className="flex flex-col ">
                 <h2 className="text-[80px] leading-[0.7] font-special sm:text-xl text-left font-bold text-content-primary-dark tracking-tight">

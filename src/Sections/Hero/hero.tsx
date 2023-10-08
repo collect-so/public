@@ -104,7 +104,7 @@ export const Hero = () => {
         {/*</code>*/}
 
         <h2 className={cx("typography-4xl mb-0 font-special")}>
-          <span className="text-accent-yellow">Zero-code</span> backend
+          <span className="text-accent-yellow">Instant</span> backend
           <br />
           for your next <span className="text-accent-red">SaaS</span>
           {/*<span className="text-accent-blue">Bot</span> /{" "}*/}
