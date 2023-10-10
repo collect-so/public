@@ -8,7 +8,7 @@ import { getAbsoluteURL } from "~/components/utils";
 import { OutlineButton } from "~/components/button";
 import { CodeText } from "~/components/codetext";
 
-const Code = `const person = await CollectSDK.find({
+const Code = `const person = await Collect.find({
     Body: "Coupe",                          // EXACT MATCH
     Color: ["yellow", "orange", "!black"],  // AND
     HP: ">180, <365",                       // RANGE
@@ -66,13 +66,12 @@ export default function Home() {
                 ease, without worrying about the complexity of queries.
               </p>
               <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
-                For example, you can use the{" "}
-                <CodeText>CollectSDK.find()</CodeText> function to search for
-                data based on specific criteria. The function takes two
-                arguments: a search object and an options object. The search
-                object contains the criteria you want to search for, while the
-                options object allows you to specify additional options, such as
-                how the results should be sorted.
+                For example, you can use the <CodeText>Collect.find()</CodeText>{" "}
+                function to search for data based on specific criteria. The
+                function takes two arguments: a search object and an options
+                object. The search object contains the criteria you want to
+                search for, while the options object allows you to specify
+                additional options, such as how the results should be sorted.
               </p>
               <p className="text-base sm:text-sm text-content-secondary-light font-medium tracking-tight">
                 With the search object, you can search for data using a variety

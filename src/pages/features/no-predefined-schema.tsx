@@ -9,7 +9,7 @@ import { OutlineButton } from "~/components/button";
 
 const SwipeRepositoryCode = `
 // AI Generated
-const SwipeRepository = CollectSDK.register('Swipe', [
+const SwipeRepository = Collect.register('Swipe', [
   {
     name: "UserID",
     type: "string"

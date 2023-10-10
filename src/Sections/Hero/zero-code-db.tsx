@@ -2,14 +2,14 @@ import cx from "classnames";
 import { CodeBlock } from "~/components/codeblock";
 import { FeatureContainer } from "~/components/feature-container";
 
-const MagicFields = `const person = await CollectSDK.save("person", {
+const MagicFields = `const person = await Collect.save("person", {
   // Magic Field "name"
   name: "Bruce Wayne",
   // Magic Field "location"
   location: "40.7485, -73.9857"
 })
 
-const vehicle = await CollectSDK.save("vehicle", {
+const vehicle = await Collect.save("vehicle", {
   // Existing Magic Field "name"
   name: "Batmobile",
   // Existing Magic Field "location"
@@ -20,7 +20,7 @@ const vehicle = await CollectSDK.save("vehicle", {
 })
 `;
 
-const NoMigrations = `const person = await CollectSDK.find("person", {
+const NoMigrations = `const person = await Collect.find("person", {
   name: "Bruce Wayne" // Own properties criteria
 },
 {

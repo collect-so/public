@@ -6,16 +6,16 @@ import cx from "classnames";
 import { CodeBlock } from "~/components/codeblock";
 import { FeatureContainer } from "~/components/feature-container";
 
-const Entities = `const user = await CollectSDK.save("user", {
+const Entities = `const user = await Collect.save("user", {
   name: "Wolfgang Bogdanov"
 })
 
-const event = await CollectSDK.save("event", {
+const event = await Collect.save("event", {
   title: "Paul Kalkbrenner",
   date: "2023-10-11T22:30:00Z"
 })
 
-const ticket = await CollectSDK.save("ticket", {
+const ticket = await Collect.save("ticket", {
   ticketId: 1234567890,
   valid: true
 })
@@ -75,7 +75,7 @@ export const BlinkingRecords = () => {
     if (!paused && isInView) {
       interval.current = setInterval(() => {
         cycleGroup();
-      }, 1300);
+      }, 2500);
     }
     return () => clearInterval(interval.current);
   }, [cycleGroup, paused, isInView]);
@@ -83,7 +83,7 @@ export const BlinkingRecords = () => {
   useEffect(() => {
     const pausedTimer = setTimeout(() => {
       setPaused(false);
-    }, 1700);
+    }, 2500);
     return () => clearTimeout(pausedTimer);
   }, [paused]);
 

@@ -10,7 +10,7 @@ import { getAbsoluteURL } from "~/components/utils";
 import { CodeText } from "~/components/codetext";
 import { OutlineButton } from "~/components/button";
 
-const Code = `const order = await CollectSDK.save({
+const Code = `const order = await Collect.save({
   id: "2139823",
   date: "2022-01-12T12:00:00Z",
   products: [{

@@ -7,7 +7,7 @@ import Link from "next/link";
 import { getAbsoluteURL } from "~/components/utils";
 import { OutlineButton } from "~/components/button";
 
-const Code = `const person = await CollectSDK.update({
+const Code = `const person = await Collect.update({
     Name: "John Galt",
     Age: 42,
     Born: "1935-10-11T06:00:00Z",

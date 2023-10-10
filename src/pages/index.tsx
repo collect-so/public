@@ -6,6 +6,12 @@ import { getAbsoluteURL } from "~/components/utils";
 import { AIEnhancements } from "~/Sections/AIEnhancements";
 import { HowItWorksSection } from "~/Sections/HowItWorks";
 import { FAQSection } from "~/Sections/FAQ";
+import Link from "next/link";
+import { OutlineButton } from "~/components/button";
+import { Book } from "lucide-react";
+import { JoinWaitlistButton } from "~/components/joinwaitlist-button";
+import cx from "classnames";
+import { Section } from "~/components/section";
 
 export default function Home() {
   return (
@@ -38,6 +44,33 @@ export default function Home() {
       <Layout>
         <HeroSection />
         <HowItWorksSection />
+        <Section>
+          <div className={"flex gap-8 justify-center py-8"}>
+            <p
+              className={cx(
+                "typography-lg max-w-2xl text-content-secondary-dark",
+              )}
+            >
+              Learn more at documentation
+            </p>
+          </div>
+        </Section>
+        <div className={"flex gap-8 justify-center"}>
+          <Link href="https://docs.collect.so/">
+            <OutlineButton>
+              Docs
+              <Book />
+            </OutlineButton>
+          </Link>
+          {/*<JoinWaitlistButton />*/}
+
+          {/*<Button>*/}
+          {/*  Get Started*/}
+          {/*  <div className="md:hidden">*/}
+          {/*    <ArrowRight />*/}
+          {/*  </div>*/}
+          {/*</Button>*/}
+        </div>
         {/*<AIEnhancements />*/}
         {/*<SwipesSection />*/}
         {/*<DevsSection />*/}

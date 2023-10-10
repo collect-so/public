@@ -8,7 +8,7 @@ import { getAbsoluteURL } from "~/components/utils";
 import { CodeText } from "~/components/codetext";
 import { OutlineButton } from "~/components/button";
 
-const PersonCode = `const person = await CollectSDK.save({
+const PersonCode = `const person = await Collect.save({
   Name: "John Galt",               // Magic Field "Name"     [String]
   Age: 42,                         // Magic Field "Age"      [Number]
   Born: "1935-10-11T06:00:00Z",    // Magic Field "Born"     [DateTime]
@@ -17,7 +17,7 @@ const PersonCode = `const person = await CollectSDK.save({
 })
 `;
 
-const VehicleCode = `const vehicle = await CollectSDK.save({
+const VehicleCode = `const vehicle = await Collect.save({
   Name: "Packard",                 // Existing Magic Field "Name"
   Model: "400 2-Door Hardtop",
   Location: "30.1348,-95.1055",    // Existing Magic Field "Location"

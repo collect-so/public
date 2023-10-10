@@ -110,17 +110,21 @@ export const Hero = () => {
           {/*<span className="text-accent-green">App</span>*/}
         </h2>
 
-        <div className={"grid grid-cols-2 gap-8 sm:grid-cols-1 sm:gap-4"}>
+        <div
+          className={
+            "grid grid-cols-2 gap-8 sm:grid-cols-1 sm:gap-4 max-w-[70vw] m-auto sm:max-w-full"
+          }
+        >
           <CodeBlock
             code={code2}
             className={
-              "justify-self-end sm:justify-self-center sm:w-full sm:text-[14px]"
+              "justify-self-end sm:justify-self-center w-full sm:text-[14px]"
             }
           />
           <CodeBlock
             code={code3}
             className={
-              "justify-self-start sm:justify-self-center sm:w-full sm:text-[14px]"
+              "justify-self-start sm:justify-self-center w-full sm:text-[14px]"
             }
           />
         </div>

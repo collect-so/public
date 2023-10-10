@@ -15,7 +15,7 @@ export type TData = {
 };
 
 const MagicFieldsCode = `
-const person = await CollectSDK.save({
+const person = await Collect.save({
   Name: "John Galt",               // Magic Field "Name"     [String]
   Age: 42,                         // Magic Field "Age"      [Number]
   Born: "1935-10-11T06:00:00Z",    // Magic Field "Born"     [DateTime]
@@ -23,7 +23,7 @@ const person = await CollectSDK.save({
   Verified: false                  // Magic Field "Verified" [Boolean]
 })
 
-const vehicle = await CollectSDK.save({
+const vehicle = await Collect.save({
   Name: "Packard",                 // Existing Magic Field "Name"
   Model: "400 2-Door Hardtop",
   Location: "30.1348,-95.1055",    // Existing Magic Field "Location"
@@ -33,7 +33,7 @@ const vehicle = await CollectSDK.save({
 `;
 
 const NoMigrationsCode = `
-const person = await CollectSDK.update({
+const person = await Collect.update({
     Name: "John Galt",
     Age: 42,
     Born: "1935-10-11T06:00:00Z",
@@ -45,7 +45,7 @@ const person = await CollectSDK.update({
 
 const DataNestingCode = `
 // Creates 3 Records
-const order = await CollectSDK.save({ 
+const order = await Collect.save({ 
     id: "2139823", 
     date: "2022-01-12T12:00:00Z",
     products: [{ 
@@ -59,7 +59,7 @@ const order = await CollectSDK.save({
 `;
 
 const QueryFreeCode = `
-const person = await CollectSDK.find({
+const person = await Collect.find({
     Body: "Coupe",                          // EXACT MATCH
     Color: ["yellow", "orange", "!black"],  // AND
     HP: ">180, <365",                       // RANGE
@@ -73,7 +73,7 @@ const person = await CollectSDK.find({
 `;
 
 const NoSchemaCode = `
-const item = await CollectSDK.save({
+const item = await Collect.save({
     Name: "Carnival Monster Boots", 
     Color: {
       value: "green, gray, black, brown",
@@ -90,7 +90,7 @@ const item = await CollectSDK.save({
 
 const AutoEndpoints = `
 // Job you do
-const record = await CollectSDK.save('user', { 
+const record = await Collect.save('user', { 
     name: "John Galt", 
     email: "john.galt@example.com",
     password: "p@ssword"
@@ -101,7 +101,7 @@ const record = await CollectSDK.save('user', {
 const userEndpoint = "/api/v1/records/user"
 
 // 2. Recognition of record type "user":
-const user = await CollectSDK.get('user', { 
+const user = await Collect.get('user', { 
     email: "john.galt@example.com"
 })
 `;

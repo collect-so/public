@@ -8,14 +8,14 @@ import { getAbsoluteURL } from "~/components/utils";
 import { CodeText } from "~/components/codetext";
 import { OutlineButton } from "~/components/button";
 
-const CodeYouWrite = `const record = await CollectSDK.save('user', {
+const CodeYouWrite = `const record = await Collect.save('user', {
   name: "John Galt",
   email: "john.galt@example.com",
   password: "p@ssword"
 })
 `;
 
-const CodeYouAbleToUse = `const user = await CollectSDK.get('user', {
+const CodeYouAbleToUse = `const user = await Collect.get('user', {
   email: "john.galt@example.com"
 })
 `;

@@ -59,8 +59,8 @@ export function HowItWorksSection() {
               animate={waypoint0InView ? "visible" : "hidden"}
             >
               {renderChars("Push")}
-              {renderChars(" any data ", "font-bold text-accent-brand")}
-              {renderChars("to Collect API")}{" "}
+              {renderChars(" any data ", "font-bold text-accent-yellow")}
+              {renderChars("to Collect")}{" "}
             </motion.span>
             <motion.span
               variants={sentence}
@@ -69,7 +69,7 @@ export function HowItWorksSection() {
             >
               {renderChars("and get it")}{" "}
               {renderChars(
-                "automatically organized",
+                "automatically normalized",
                 "font-bold text-accent-red",
               )}
             </motion.span>{" "}
@@ -79,66 +79,81 @@ export function HowItWorksSection() {
               animate={waypoint2InView ? "visible" : "hidden"}
             >
               {renderChars("and ")}
-              {renderChars("accessible", "font-bold text-accent-purple")}
-              {renderChars(" with SDK.")}
+              {renderChars("accessible", "")}
+              {renderChars(" with SDK")}
             </motion.span>{" "}
             <motion.span
               variants={sentence}
               initial="hidden"
               animate={waypoint3InView ? "visible" : "hidden"}
             >
-              {renderChars(" Or throughout dynamically built Endpoints.")}
+              {renderChars(" or throughout instantly")}
+              {renderChars(" generated APIs", "font-bold text-accent-purple")}
             </motion.span>
           </h3>
         </div>
-        <div className="flex-1 gap-16 flex flex-col">
+        <div className="flex-1 gap-16 flex flex-col m-auto">
           <CodeBlock
             ref={waypoint0Ref}
-            code={`// Just push whatever you need to be saved:
-const booking = await CollectSDK.save(
-  // New Record Label:
+            code={`// Save whatever you need to be saved:
+const booking = await Collect.save(
+  // Record Label
   "booking", 
-  // New Record Data:
+  // Record data
   { 
     startDate: "2023-04-15T12:00:00Z",
     endDate: "2023-04-20T12:00:00Z",
     guestsCount: 4,
     info: {
       // Nested Record
-      // with Label “info”
-      // and Data:
-      message: "We will arrive slightly earlier. At 11AM."
+      // with Label “info” and Data:
+      message: "We will arrive slightly earlier."
     }
-  }
+  }  
 )`}
           />
 
           <CodeBlock
             ref={waypoint1Ref}
-            code={`// Link with existing Record:
-await booking.link("property", {
-  id: "ec5bbf01d821498391683bbf01",
+            code={`// Find existing Record:
+const hotel = await Collect.find("hotel", {
+  name: "The Grand Budapest"
+})
+
+// Link it with new one 
+// and give more sense to your data:
+await booking.link(hotel, { 
+    createdAt: new Date().toISOString() 
 })
 `}
           />
 
           <CodeBlock
             ref={waypoint2Ref}
-            code={`// Now you able to create, read,
-// update and delete those Data:
-await booking.update("booking", {
-  ...booking.data,
+            code={`// Create, read, update and delete these Records:
+await booking.update({
   // Add extra Data
   withPet: true,
+  extraBed: true
 })
 `}
           />
 
           <CodeBlock
             ref={waypoint3Ref}
-            code={`// Or achieve the same by using Endpoints:
-const bookingEndpoint = "/api/v1/label/booking"
-const propertyEndpoint = "/api/v1/label/property"
+            code={`// Or by instantly generated APIs:
+            
+// Records with label “booking“
+/api/v1/label/booking                
+
+// Records with label "hotel"
+/api/v1/label/hotel      
+
+// Records with “guestsCount“ prop equals to 4
+/api/v1/property/guestsCount/equals/4 
+
+// Records with “withPet“ prop equals to true
+/api/v1/property/withPet/equals/true
 `}
           />
         </div>

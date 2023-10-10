@@ -9,7 +9,7 @@ import { OutlineButton } from "~/components/button";
 
 export const UserRepositoryCode = `
 // AI Generated
-const UserRepository = CollectSDK.register('User', [
+const UserRepository = Collect.register('User', [
   {
     name: "Name",
     type: "string",
@@ -44,7 +44,7 @@ const UserRepository = CollectSDK.register('User', [
 
 export const SwipeRepositoryCode = `
 // AI Generated
-const SwipeRepository = CollectSDK.register('Swipe', [
+const SwipeRepository = Collect.register('Swipe', [
   {
     name: "UserID",
     type: "string"
@@ -74,7 +74,7 @@ const swipe = await SwipeRepository.save({
   DateSwiped: "2023-03-31T08:51:40Z"
 })
 
-await CollectSDK.link(
+await Collect.link(
   user,
   swipe, 
   { metadata: "some additional info" }

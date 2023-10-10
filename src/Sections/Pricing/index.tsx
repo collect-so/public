@@ -82,6 +82,13 @@ function PriceBlock({
             {
               "text-content-primary-dark": true,
             },
+            // {
+            //   "line-through decoration-accent-red":
+            //     !plan.isCustom &&
+            //     !plan.isFree &&
+            //     plan.annualPrice &&
+            //     plan.monthPrice,
+            // },
           )}
         >
           {plan.isCustom

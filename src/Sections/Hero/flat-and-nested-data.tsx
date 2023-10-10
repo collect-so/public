@@ -41,7 +41,7 @@ export const FlatAndNestedData = () => {
     if (!paused && isInView) {
       interval.current = setInterval(() => {
         cycleMode();
-      }, 1300);
+      }, 2500);
     }
     return () => clearInterval(interval.current);
   }, [cycleMode, isInView, paused]);
@@ -49,7 +49,7 @@ export const FlatAndNestedData = () => {
   useEffect(() => {
     const pausedTimer = setTimeout(() => {
       setPaused(false);
-    }, 1700);
+    }, 2500);
     return () => clearTimeout(pausedTimer);
   }, [paused]);
 
@@ -117,9 +117,9 @@ export const FlatAndNestedData = () => {
       default:
         if (isMobile) {
           return `
-          "firstAlbum thirdSong "
-          "thirdAlbum secondSong"
-          "second  secondAlbum"
+          "firstAlbum thirdSong third"
+          "thirdAlbum secondSong firstSong"
+          "second  secondAlbum first"
         `;
         }
         return `

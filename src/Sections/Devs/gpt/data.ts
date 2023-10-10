@@ -12,7 +12,7 @@ export const datingExamples = [
 
 const MovieRepositoryCode = `
 // Register collections for the movies app
-const MovieRepository = CollectSDK.register("movies", [
+const MovieRepository = Collect.register("movies", [
   {
     name: "Title",
     type: "string",
@@ -40,7 +40,7 @@ const MovieRepository = CollectSDK.register("movies", [
 `;
 
 const ReviewRepositoryCode = `
-const RatingRepository = CollectSDK.register("ratings", [
+const RatingRepository = Collect.register("ratings", [
   {
     name: "MovieID",
     type: "string",
@@ -87,10 +87,10 @@ const rating = await RatingRepository.save({
 });
 
 // Link the movie and rating
-await CollectSDK.link(movie, rating);
+await Collect.link(movie, rating);
 
 // Find all movies with a rating score greater than 8
-const highlyRatedMovies = await CollectSDK.find("movies", {
+const highlyRatedMovies = await Collect.find("movies", {
   related: {
     "ratings": {
       "Score": ">8"
@@ -108,7 +108,7 @@ export const moviesExamples = [
 const deliveryExamples = [
   {
     code: `// Define the DeliveryRepository with required fields
-const DeliveryRepository = CollectSDK.register('Delivery', [
+const DeliveryRepository = Collect.register('Delivery', [
   {
     name: "orderId",
     type: "string",
@@ -169,7 +169,7 @@ const deliveries = await DeliveryRepository.find({status: "Out for delivery"});`
   },
   {
     code: `// Automatically assign a driver to an order based on their availability and location
-const drivers = await CollectSDK.find('Driver', {
+const drivers = await Collect.find('Driver', {
   Location: "37.5162,-77.5133",
   Availability: true
 })
@@ -178,7 +178,7 @@ const drivers = await CollectSDK.find('Driver', {
 if (drivers.length > 0) {
   const [driver] = drivers
   const orderId = 123456 // Replace with actual order ID
-  await CollectSDK.update('Order', { orderId }, { DriverId: driver.id })
+  await Collect.update('Order', { orderId }, { DriverId: driver.id })
 } else {
   console.log('No drivers available')
 }
@@ -193,7 +193,7 @@ export const examples = {
   ["Music app"]: [
     {
       code: `// Define a schema for songs
-const SongRepository = CollectSDK.register('Song', [
+const SongRepository = Collect.register('Song', [
   {
     name: 'Title',
     type: 'string',
@@ -253,7 +253,7 @@ const rockSongs = await SongRepository.find({
     },
     {
       code: `// Register the Playlist model
-const Playlist = CollectSDK.register('Playlist', [
+const Playlist = Collect.register('Playlist', [
   {
     name: 'Name',
     type: 'string',
