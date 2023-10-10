@@ -2,6 +2,7 @@ import { Github, Linkedin, Twitter } from "lucide-react";
 import { Section } from "~/components/section";
 import Link from "next/link";
 import { Logo } from "~/components/logo";
+import { DiscordIcon } from "~/components/Layout/Footer/discord-icon";
 
 export function Footer() {
   return (
@@ -34,12 +35,12 @@ export function Footer() {
             >
               hello@collect.so
             </a>
-            <a
-              href="tel:+1(302)4809110"
-              className="text-xl leading-none font-medium text-content-primary-dark"
-            >
-              +1 (302) 480 9110
-            </a>
+            {/*<a*/}
+            {/*  href="tel:+1(302)4809110"*/}
+            {/*  className="text-xl leading-none font-medium text-content-primary-dark"*/}
+            {/*>*/}
+            {/*  +1 (302) 480 9110*/}
+            {/*</a>*/}
             <div className="flex justify-between">
               <Link
                 href="https://twitter.com/CollectAPI"
@@ -73,6 +74,14 @@ export function Footer() {
                   strokeWidth={1}
                   className="text-content-primary-dark w-12 h-12"
                 />
+              </Link>
+              <Link
+                href="https://discord.gg/zy7k6CJ7by"
+                target="__blank"
+                rel="noopener noreferrer"
+                aria-label="Discord"
+              >
+                <DiscordIcon className="text-content-primary-dark w-12 h-12" />
               </Link>
             </div>
           </div>

@@ -12,6 +12,7 @@ import { JoinWaitlistButton } from "~/components/joinwaitlist-button";
 import { useCycle } from "framer-motion";
 import { Switch } from "~/components/switch";
 import { Button, OutlineButton } from "~/components/button";
+import Link from "next/link";
 
 function PlanFeature({
   feature: { type, title, caption },
@@ -65,7 +66,7 @@ function PriceBlock({
   return (
     <div
       className={cx(
-        "flex flex-col justify-center px-4 text-center py-8 gap-[14px]",
+        "flex flex-col justify-center px-4 text-center py-8 gap-[14px] ",
       )}
     >
       <div className="flex flex-col gap-1 font-bold leading-snug  mb-4">
@@ -105,7 +106,9 @@ function PriceBlock({
         </span>
       </div>
       {/*<JoinWaitlistButton outline={plan.name !== "PRO"} />*/}
-      <ButtonComponent>{plan.buttonText}</ButtonComponent>
+      <Link href={plan.buttonLink}>
+        <ButtonComponent className="w-full">{plan.buttonText}</ButtonComponent>
+      </Link>
       {/*<span className="text-sm leading-snug font-bold">{plan.description}</span>*/}
     </div>
   );

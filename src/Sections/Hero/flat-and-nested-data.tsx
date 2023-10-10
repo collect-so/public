@@ -137,10 +137,9 @@ export const FlatAndNestedData = () => {
 
         <h2 className={cx("typography-3xl mb-4 font-special")}>Data nesting</h2>
         <p className="typography-lg max-w-2xl ">
-          Simply store any data the way you think about it. Each Record could be
-          a parent for the others whilst every level is still distinctively
-          accessible.
-          {/*Give more sense to your data with natively nested storage.*/}
+          Work with data the way you think about it. Each Record could be a
+          parent for the others whilst every level is still distinctively
+          accessible
         </p>
       </div>
       <div>

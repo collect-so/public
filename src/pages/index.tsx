@@ -44,33 +44,7 @@ export default function Home() {
       <Layout>
         <HeroSection />
         <HowItWorksSection />
-        <Section>
-          <div className={"flex gap-8 justify-center py-8"}>
-            <p
-              className={cx(
-                "typography-lg max-w-2xl text-content-secondary-dark",
-              )}
-            >
-              Learn more at documentation
-            </p>
-          </div>
-        </Section>
-        <div className={"flex gap-8 justify-center"}>
-          <Link href="https://docs.collect.so/">
-            <OutlineButton>
-              Docs
-              <Book />
-            </OutlineButton>
-          </Link>
-          {/*<JoinWaitlistButton />*/}
 
-          {/*<Button>*/}
-          {/*  Get Started*/}
-          {/*  <div className="md:hidden">*/}
-          {/*    <ArrowRight />*/}
-          {/*  </div>*/}
-          {/*</Button>*/}
-        </div>
         {/*<AIEnhancements />*/}
         {/*<SwipesSection />*/}
         {/*<DevsSection />*/}

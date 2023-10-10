@@ -18,8 +18,9 @@ export const FlexibleDataTypes = () => {
           Data types auto-detection
         </h2>
         <p className="typography-lg max-w-2xl ">
-          Ensure that anything you push to Collect is appropriately arranged and
-          securely stored.
+          Collect precisely detects incoming data types and stores it
+          appropriately to provide robust search options along with analytical
+          potential
         </p>
       </div>
       <div

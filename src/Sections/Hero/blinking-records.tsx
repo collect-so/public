@@ -101,7 +101,7 @@ export const BlinkingRecords = () => {
         </h2>
         <p className="typography-lg max-w-2xl ">
           Build complex scenarios in a matter of double-digit minutes. Retrieve
-          data the way you need it.
+          meaningful data the way you need it.
         </p>
       </div>
       <div

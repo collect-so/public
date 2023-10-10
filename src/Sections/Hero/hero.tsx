@@ -154,14 +154,16 @@ export const Hero = () => {
               <Book />
             </OutlineButton>
           </Link>
-          <JoinWaitlistButton />
+          {/*<JoinWaitlistButton />*/}
 
-          {/*<Button>*/}
-          {/*  Get Started*/}
-          {/*  <div className="md:hidden">*/}
-          {/*    <ArrowRight />*/}
-          {/*  </div>*/}
-          {/*</Button>*/}
+          <Link href="https://app.collect.so/signup">
+            <Button>
+              Get Started
+              <div className="md:hidden">
+                <ArrowRight />
+              </div>
+            </Button>
+          </Link>
         </div>
       </div>
     </FeatureContainer>

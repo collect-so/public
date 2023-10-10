@@ -12,7 +12,8 @@ import { useMediaMatcher } from "~/components/hooks/useMediaMatcher";
 import { Logo } from "~/components/Layout/header/components/logo";
 import Link from "next/link";
 import { JoinWaitlistButton } from "~/components/joinwaitlist-button";
-import { OutlineButton } from "~/components/button";
+import { Button, OutlineButton } from "~/components/button";
+import { ArrowRight } from "lucide-react";
 
 export const NavigationContext = createContext({
   intersectDarkContainers: true,
@@ -131,8 +132,18 @@ export const Header = () => {
           </motion.div>
         </div>
         <div className="flex items-center gap-8 sm:gap-4">
-          {/*<OutlineButton>Sign in</OutlineButton>*/}
-          <JoinWaitlistButton />
+          <Link href="https://app.collect.so/signin">
+            <OutlineButton>Sign in</OutlineButton>
+          </Link>
+          {/*<JoinWaitlistButton />*/}
+          <Link href="https://app.collect.so/signup">
+            <Button>
+              Get Started
+              <div className="md:hidden">
+                <ArrowRight />
+              </div>
+            </Button>
+          </Link>
           <motion.div
             initial={false}
             animate={isOpen ? "open" : "closed"}

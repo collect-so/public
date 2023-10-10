@@ -14,9 +14,11 @@ export const FileStorage = () => {
         <div className={cx("feature-tag")}>Feature</div>
         <h2 className={cx("typography-3xl mb-4 font-special")}>File storage</h2>
         <p className="typography-lg max-w-2xl ">
-          Create a structured file storage tailored to your requirements .
-          Benefit from easily accessible, dependable, and customizable storage
-          for binary data.
+          Binary data is welcomed! Store files as records in the database and
+          enhance file management like never before
+          {/*Create a structured file storage tailored to your requirements .*/}
+          {/*Benefit from easily accessible, dependable, and customizable storage*/}
+          {/*for binary data.*/}
         </p>
       </div>
       <div className="flex relative flex-wrap justify-center items-center z-10 content-center w-full gap-8 md:gap-4 sm:gap-2 max-w-4xl m-auto">

@@ -10,6 +10,9 @@ import { DynamicApis } from "~/Sections/Hero/dynamic-apis";
 import { ZeroCodeDb } from "~/Sections/Hero/zero-code-db";
 import { Hero } from "~/Sections/Hero/hero";
 import { DataProcessing } from "~/Sections/Hero/data-processing";
+import Image from "next/image";
+import dashboard0 from "~/Sections/Hero/img/dashboard0.png";
+import dashboard1 from "~/Sections/Hero/img/dashboard1.png";
 
 export function HeroSection() {
   const { ref, size } = useObservedSize<HTMLElement>();
