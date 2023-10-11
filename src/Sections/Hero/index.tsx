@@ -15,12 +15,14 @@ import dashboard0 from "~/Sections/Hero/img/dashboard0.png";
 import dashboard1 from "~/Sections/Hero/img/dashboard1.png";
 
 export function HeroSection() {
-  const { ref, size } = useObservedSize<HTMLElement>();
+  const { ref, size } = useObservedSize<HTMLElement>(100);
 
   return (
     <>
       <Section ref={ref} className={cx("overflow-hidden")} data-theme="dark">
-        {size ? <Background target={ref} targetHeight={size.height} /> : null}
+        {size && size.height ? (
+          <Background target={ref} sectionHeight={size.height} />
+        ) : null}
 
         <Hero />
         <div

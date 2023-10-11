@@ -10,7 +10,7 @@ import { Book } from "lucide-react";
 
 function useWaypoint() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { margin: "400px 0px 0px 0px" });
+  const isInView = useInView(ref, { margin: "400px 0px 0px 0px", once: true });
   return { ref, isInView } as const;
 }
 

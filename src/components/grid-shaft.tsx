@@ -9,8 +9,7 @@ export const GridShaft = forwardRef<
 >(({ color = "grey", className }, ref) => {
   return (
     <svg
-      width="100vw"
-      height="auto"
+      width="100%"
       viewBox="0 0 1279 4392"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -42,7 +42,7 @@ Collect.find("books", {
 `;
 export const Hero = () => {
   return (
-    <FeatureContainer className={"min-h-[100vh] sm:min-h-[100vh] sm:pt-32"}>
+    <FeatureContainer className={"min-h-[100vh] sm:min-h-[100vh] pt-32"}>
       <div className={cx("z-10 relative flex flex-col gap-12")}>
         {/*<ColoredChip*/}
         {/*  color="purple"*/}
@@ -159,9 +159,7 @@ export const Hero = () => {
           <Link href="https://app.collect.so/signup">
             <Button>
               Get Started
-              <div className="md:hidden">
-                <ArrowRight />
-              </div>
+              <ArrowRight />
             </Button>
           </Link>
         </div>

@@ -1,54 +1,43 @@
-import { FC, MutableRefObject, useRef } from "react";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { FC, MutableRefObject, useMemo, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import cx from "classnames";
 import { GridShaft } from "~/components/grid-shaft";
 
-const initialScale = 1.25;
-
 export const Background: FC<{
   target: MutableRefObject<HTMLElement>;
-  targetHeight: number;
-}> = ({ targetHeight: sectionHeight, target }) => {
+  sectionHeight: number;
+}> = ({ sectionHeight, target }) => {
   const { scrollYProgress } = useScroll({
     target,
     layoutEffect: true,
   });
-
   const ref = useRef<SVGSVGElement>(null);
+
+  // @KEK
   const gridHeight =
-    (ref.current?.getBoundingClientRect().height ?? 0) / initialScale;
-  const y = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [
-      0,
+    ref.current?.getBoundingClientRect().height ??
+    4392 / (1279 / window.innerWidth);
+
+  const endOfRange = useMemo(
+    () =>
       sectionHeight >= gridHeight
         ? sectionHeight - gridHeight
         : -(gridHeight - sectionHeight),
-    ],
+    [gridHeight, sectionHeight],
   );
-
-  const scale = useTransform(scrollYProgress, [0, 0.1], [1.3, 1]);
-
-  // const top = useSpring(y, {
-  //   stiffness: 40,
-  //   damping: 20,
-  // });
+  const y = useTransform(scrollYProgress, [0, 1], [0, endOfRange]);
 
   return (
     <motion.div
       style={{ top: y }}
       initial={{
-        scale: initialScale,
+        opacity: 0,
       }}
+      transition={{ type: "inertia", velocity: 50, power: 5 }}
       whileInView={{
-        scale: 1,
-        transition: {
-          type: "spring",
-          duration: 2,
-        },
+        opacity: 1,
       }}
-      className={cx("absolute z-0 ")}
+      className={cx("absolute z-0 w-full")}
     >
       <GridShaft color={"#1f1f1f"} ref={ref} />
     </motion.div>

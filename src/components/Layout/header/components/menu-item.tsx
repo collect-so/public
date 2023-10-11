@@ -13,7 +13,6 @@ export const MenuItem = ({ item }: { item: IMenuItem }) => {
     closeMenuItem,
     close,
     intersectDarkContainers,
-    isTablet,
   } = useContext(NavigationContext);
   const isCurrentMenuItemOpen = currentItem === item.name;
 
@@ -31,28 +30,11 @@ export const MenuItem = ({ item }: { item: IMenuItem }) => {
       }
     }
   };
-  const handleClick = () => {
-    if (item.children?.length && !isCurrentMenuItemOpen) {
-      openMenuItem(item.name);
-    }
-  };
-
-  const handleMouseEnter = () => {
-    if (!isTablet && item.children?.length) {
-      openMenuItem(item.name);
-    }
-  };
-  const handleMouseLeave = () => {
-    if (!isTablet && item.children?.length && isCurrentMenuItemOpen) {
-      closeMenuItem();
-    }
-  };
 
   return (
-    <NavItem onClick={handleItemClick} onMouseLeave={handleMouseLeave}>
+    <NavItem onClick={handleItemClick}>
       <a href={item.url}>
         <div
-          onMouseEnter={handleMouseEnter}
           className={cx("text-center w-full ", {
             "text-base-gray": isCurrentMenuItemOpen,
             "fill-base-gray": isCurrentMenuItemOpen,

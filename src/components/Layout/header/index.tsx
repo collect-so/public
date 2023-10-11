@@ -8,10 +8,8 @@ import { motion } from "framer-motion";
 import { MenuToggle } from "~/components/Layout/header/components/menu-toggle";
 import { MenuItem } from "~/components/Layout/header/components/menu-item";
 import cx from "classnames";
-import { useMediaMatcher } from "~/components/hooks/useMediaMatcher";
 import { Logo } from "~/components/Layout/header/components/logo";
 import Link from "next/link";
-import { JoinWaitlistButton } from "~/components/joinwaitlist-button";
 import { Button, OutlineButton } from "~/components/button";
 import { ArrowRight } from "lucide-react";
 
@@ -28,42 +26,7 @@ export const NavigationContext = createContext({
   openMenuItem: (key: string) => {},
 
   data: menuData,
-
-  isTablet: false,
 });
-
-const mobileNavigationAnimationVariants = (isTablet: boolean) =>
-  isTablet
-    ? {
-        open: {
-          transition: {
-            duration: 0.3,
-          },
-          display: "block",
-          opacity: 1,
-          height: "auto",
-          paddingBottom: "30px",
-        },
-        collapsed: {
-          display: "none",
-          transition: {
-            duration: 0.3,
-          },
-          opacity: 0,
-          height: 0,
-          paddingBottom: 0,
-        },
-      }
-    : {
-        collapsed: {
-          opacity: 1,
-          height: "auto",
-        },
-        open: {
-          opacity: 1,
-          height: "auto",
-        },
-      };
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -88,8 +51,6 @@ export const Header = () => {
     return () => document.removeEventListener("scroll", scrollCallback);
   }, []);
 
-  const isTablet = useMediaMatcher("(max-width: 1080px)");
-
   return (
     <NavigationContext.Provider
       value={{
@@ -102,7 +63,6 @@ export const Header = () => {
         openMenuItem: setCurrentItem,
         intersectDarkContainers,
         scrollStarted,
-        isTablet,
       }}
     >
       <Navbar className="bg-transparent">
@@ -110,29 +70,15 @@ export const Header = () => {
           <Link href="/">
             <Logo />
           </Link>
-          <motion.div
-            initial="collapsed"
-            animate={isOpen ? "open" : "collapsed"}
-            exit="collapsed"
-            variants={mobileNavigationAnimationVariants(isTablet)}
-            className={cx(
-              "md:top-[60px] md:left-0 md:w-full md:min-h-[calc(100vh_-_60px)]",
-              {
-                "bg-background-dark absolute": isOpen,
-                hidden: !isOpen && isTablet,
-                block: !isTablet,
-              },
-            )}
-          >
-            <div className="flex md:flex-col gap-8">
-              {menuData.map((item) => (
-                <MenuItem item={item} key={item.name} />
-              ))}
-            </div>
-          </motion.div>
+          <div className="flex md:flex-col gap-8 md:hidden">
+            {menuData.map((item) => (
+              <MenuItem item={item} key={item.name} />
+            ))}
+          </div>
         </div>
+
         <div className="flex items-center gap-8 sm:gap-4">
-          <Link href="https://app.collect.so/signin">
+          <Link href="https://app.collect.so/signin" className={"sm:hidden"}>
             <OutlineButton>Sign in</OutlineButton>
           </Link>
           {/*<JoinWaitlistButton />*/}
@@ -150,6 +96,43 @@ export const Header = () => {
             className="hidden md:block"
           >
             <MenuToggle />
+          </motion.div>
+          <motion.div
+            initial="collapsed"
+            animate={isOpen ? "open" : "collapsed"}
+            exit="collapsed"
+            variants={{
+              open: {
+                transition: {
+                  duration: 0.3,
+                },
+                display: "block",
+                opacity: 1,
+                height: "auto",
+                paddingBottom: "30px",
+              },
+              collapsed: {
+                display: "none",
+                transition: {
+                  duration: 0.3,
+                },
+                opacity: 0,
+                height: 0,
+                paddingBottom: 0,
+              },
+            }}
+            className={cx(
+              "md:top-[60px] md:left-0 md:w-full md:min-h-[calc(100vh_-_60px)]",
+              {
+                "bg-background-dark absolute hidden md:block": isOpen,
+              },
+            )}
+          >
+            <div className="flex md:flex-col gap-8">
+              {menuData.map((item) => (
+                <MenuItem item={item} key={item.name} />
+              ))}
+            </div>
           </motion.div>
         </div>
       </Navbar>

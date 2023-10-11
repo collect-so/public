@@ -2,7 +2,6 @@ import { ColoredChip, ColoredChipColor } from "~/components/colored-chip";
 import { useEffect, useRef, useState } from "react";
 import { useCycle, motion, useInView } from "framer-motion";
 import { randomIntFromRange } from "~/common";
-import { useMedia } from "react-use";
 import { Switch } from "~/components/switch";
 import cx from "classnames";
 import { FeatureContainer } from "~/components/feature-container";
@@ -34,8 +33,6 @@ export const FlatAndNestedData = () => {
   const isInView = useInView(ref);
   const [paused, setPaused] = useState(false);
   const interval = useRef<ReturnType<typeof setInterval>>();
-
-  const isMobile = useMedia("(max-width: 984px)", false);
 
   useEffect(() => {
     if (!paused && isInView) {
@@ -92,44 +89,6 @@ export const FlatAndNestedData = () => {
     }
   };
 
-  const getAreas = () => {
-    switch (mode) {
-      case "nested":
-        if (isMobile) {
-          return `
-            "first"
-            "firstAlbum"
-            "firstSong"
-            "second"
-            "secondAlbum"
-            "secondSong"
-            "third"
-            "thirdAlbum"
-            "thirdSong"
-          `;
-        }
-        return `
-          "first second third"
-          "firstAlbum secondAlbum thirdAlbum"
-          "firstSong  secondSong thirdSong"
-        `;
-
-      default:
-        if (isMobile) {
-          return `
-          "firstAlbum thirdSong third"
-          "thirdAlbum secondSong firstSong"
-          "second  secondAlbum first"
-        `;
-        }
-        return `
-          "first firstAlbum firstSong"
-          "second secondAlbum secondSong"
-          "third thirdAlbum thirdSong"
-        `;
-    }
-  };
-
   return (
     <FeatureContainer>
       <div className={cx("z-10")}>
@@ -173,15 +132,14 @@ export const FlatAndNestedData = () => {
             "md:gap-4",
             "sm:gap-2 sm:place-content-center sm:content-start ",
             {
-              "min-h-[570px] sm:min-h-[370px]": isMobile,
-              "min-h-[220px]": !isMobile,
+              "flat-nested-wrapper_nested": mode === "nested",
+              "flat-nested-wrapper_flat": mode === "flat",
             },
           )}
           style={{
             display: mode === "nested" ? "grid" : "grid",
             flexWrap: mode === "nested" ? "nowrap" : "wrap",
             justifyContent: "center",
-            gridTemplateAreas: getAreas(),
           }}
         >
           {items.current.map((item) => {

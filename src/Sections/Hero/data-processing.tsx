@@ -56,9 +56,7 @@ export const DataProcessing = () => {
           <Link href="https://app.collect.so/signup">
             <Button>
               Explore Dashboard
-              <div className="md:hidden">
-                <ArrowRight />
-              </div>
+              <ArrowRight />
             </Button>
           </Link>
         </div>

@@ -128,3 +128,41 @@ a {
 .feature-tag {
   @apply font-semibold font-special text-accent-purple text-base rounded-full border border-2 inline-flex border-accent-purple px-4 m-4;
 }
+
+.flat-nested-wrapper_nested {
+  @apply min-h-[220px];
+  grid-template-areas:  "first second third"
+          "firstAlbum secondAlbum thirdAlbum"
+          "firstSong  secondSong thirdSong";
+}
+
+.flat-nested-wrapper_flat {
+  @apply min-h-[220px];
+  grid-template-areas: "first firstAlbum firstSong"
+  "second secondAlbum secondSong"
+  "third thirdAlbum thirdSong";
+}
+
+@media (max-width: 984px) {
+  .flat-nested-wrapper_nested {
+    @apply min-h-[570px] sm:min-h-[370px];
+    grid-template-areas:  "first"
+            "firstAlbum"
+            "firstSong"
+            "second"
+            "secondAlbum"
+            "secondSong"
+            "third"
+            "thirdAlbum"
+            "thirdSong";
+  }
+
+  .flat-nested-wrapper_flat {
+    @apply min-h-[570px] sm:min-h-[370px];
+    grid-template-areas: "firstAlbum thirdSong third"
+          "thirdAlbum secondSong firstSong"
+          "second  secondAlbum first";
+  }
+}
+
+

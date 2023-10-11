@@ -16,7 +16,7 @@ export const AutoRotationWrapper: FC<
   }>
 > = ({ children, baseVelocity = 100 }) => {
   const baseRotate = useMotionValue(0);
-  const { scrollY } = useScroll();
+  const { scrollY } = useScroll({ layoutEffect: false });
   const scrollVelocity = useVelocity(scrollY);
   const smoothVelocity = useSpring(scrollVelocity, {
     damping: 50,
