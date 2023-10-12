@@ -100,7 +100,7 @@ export const plans: TSubscriptionPlan[] = [
         title: "3 Projects",
       },
       {
-        title: "3.000 Records",
+        title: "1.000 Records",
         caption: "Per Project",
       },
       // {
