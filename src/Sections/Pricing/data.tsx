@@ -202,7 +202,7 @@ export const plans: TSubscriptionPlan[] = [
     monthPrice: 0,
     period: "custom",
     buttonText: "Schedule a call",
-    buttonLink: "https://app.collect.so/signup",
+    buttonLink: "https://calendly.com/collect-so/collect-intro",
     featured: false,
     isCustom: true,
     general: [

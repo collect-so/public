@@ -18,11 +18,11 @@ export function Footer() {
                 // bgFill="black"
                 // strokeColor="currentColor"
               />
-              <div className="flex flex-col ">
-                <h2 className="text-[80px] leading-[0.7] font-special sm:text-xl text-left font-bold text-content-primary-dark tracking-tight">
+              <div className="flex flex-col gap-4 m-auto">
+                <h2 className="text-[80px] leading-[0.7] font-special md:text-xl md:leading-6 text-left font-bold text-content-primary-dark tracking-tight justify-self-end">
                   collect
                 </h2>
-                <p className="text-sm mt-auto sm:text-sm font-medium text-content-secondary-dark leading-snug tracking-tight">
+                <p className="text-sm sm:text-sm font-medium text-content-secondary-dark leading-snug tracking-tight justify-self-start">
                   © 2023, Collect Software Inc.
                 </p>
               </div>

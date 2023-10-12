@@ -1,85 +1,58 @@
-import { AnimatePresence, motion, useCycle } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Section } from "~/components/section";
-
-import Dawn from "~/images/svg/Dawn.svg";
-import SoftStar from "~/images/svg/Soft Star.svg";
-import Direction from "~/images/svg/Direction.svg";
-import Star from "~/images/svg/Star.svg";
-import Lightning from "~/images/svg/Lightning 2.svg";
-import Explosion from "~/images/svg/Explosion.svg";
 
 import { useState } from "react";
 import cx from "classnames";
-import { AutoRotationWrapper } from "~/components/autoroatation-wrapper";
-import { randomIntFromRange } from "~/common";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import Link from "next/link";
+import { OutlineButton } from "~/components/button";
 
-const imgMap = {
-  Dawn: Dawn,
-  SoftStar: SoftStar,
-  Direction: Direction,
-  Star: Star,
-  Lightning: Lightning,
-  Explosion: Explosion,
-};
-
-const faqData: Array<{
+type TFaqBlock = {
   question: string;
   answer: string;
-}> = [
+  link?: {
+    url: string;
+    text: string;
+  };
+};
+const faqData: Array<TFaqBlock> = [
   {
     question: "Is it like MongoDB?",
     answer:
-      "Collect utilizes a multi-tenant architecture, ensuring that each customer has a dedicated database for data isolation. This means that your data is kept separate from other users, providing enhanced privacy and security. In addition, Collect employs industry-standard encryption techniques to safeguard your data both during transit and when it is at rest. These security measures ensure that your information is protected according to established industry practices.",
+      "Collect can be likened to MongoDB for its capacity to store nested data (resembling MongoDB's \"documents\") and shares certain API features. \n\n However, Collect features goes far beyond and stands apart by eliminating the need for configurations, data modeling and deployments, as it effortlessly utilizes any (even complex and nested) data automatically and suggests its types.\n\n What's more, you can dive into working with Collect without the necessity of an SDK or specialized driver.",
+    link: {
+      url: "https://docs.collect.so/mongodb-comparison",
+      text: "Learn more at documentation",
+    },
   },
   {
     question: "How does Collect differ from Firebase or Supabase?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      'Collect aspires to deliver an exceptional developer experience, offering a seamless end-to-end backend solution with zero configuration required. Think of it as "Data to API in a snap". \n\n In contrast to Firebase and Supabase, which often demand hours of reading and setup, Collect simplifies the process, enabling you to get started with just a few clicks. Its intuitive API architecture maintains a consistent structure for all operations. \n\n Furthermore, Collect offers built-in features like the Dynamic API for pinpoint search capabilities and automated data normalization, complete with type suggestions. This eliminates the need for any manual data modeling, saving you valuable time and effort.',
   },
   {
     question: "How secure is Collect API?",
     answer:
-      "Collect utilizes a multi-tenant architecture, ensuring that each customer has a dedicated database for data isolation. This means that your data is kept separate from other users, providing enhanced privacy and security. In addition, Collect employs industry-standard encryption techniques to safeguard your data both during transit and when it is at rest. These security measures ensure that your information is protected according to established industry practices.",
+      "Collect utilizes a multi-tenant architecture, ensuring that each customer has a dedicated database for data isolation. This means that your data is kept separate from other users, providing enhanced privacy and security. In addition, Collect employs industry-standard encryption techniques to safeguard your data both during transit and when it is at rest.",
   },
   {
-    question: "Which platforms do you support?",
+    question: "Which platforms does Collect support?",
     answer:
-      "Collect is designed to be platform-agnostic, allowing it to be utilized on various platforms and with any programming language that supports network requests and the JSON format. This flexibility enables developers to integrate Collect seamlessly into their existing systems and leverage its capabilities regardless of the technology stack they are using. Whether you're working with web applications, mobile apps, or even IoT devices, Collect can be seamlessly incorporated into your project, making it highly adaptable and compatible with different development environments.",
+      "Collect is designed to be platform-agnostic, allowing it to be utilized on various platforms and with any programming language that supports network requests and the JSON format. This flexibility enables developers to integrate Collect seamlessly into their existing systems and leverage its capabilities regardless of the technology stack they are using. \n\n Whether you're working with web applications, mobile apps, or even IoT devices, Collect can be seamlessly incorporated into your project, making it highly adaptable and compatible with different development environments.",
   },
   {
-    question: "Can I host Collect on-premises?",
-    answer:
-      "We offer you the flexibility to host Collect on-premises by providing a range of options tailored to your specific needs. With our custom payment options, you can customize your payment processes to align with your business requirements. Additionally, we provide white-labeling capabilities, allowing you to brand Collect with your own company logo and design, providing a seamless and cohesive experience for your users. To ensure a smooth experience, we also offer dedicated support throughout your hosting journey. Our team of experts is available to assist you with any technical or operational questions, providing personalized assistance and guidance. Furthermore, we're excited to announce that we're currently working on developing the Community Edition of Collect. This edition will bring even more features and functionalities to our platform, catering to the diverse needs of our users. We encourage you to stay tuned for updates on the progress of the Community Edition as we continue to enhance Collect and deliver a comprehensive solution for your needs.",
-  },
-  {
-    question: "Is it suitable for building highly demanding applications?",
-    answer:
-      "Collect utilizes a multi-tenant architecture, ensuring that each customer has a dedicated database for data isolation. This means that your data is kept separate from other users, providing enhanced privacy and security. In addition, Collect employs industry-standard encryption techniques to safeguard your data both during transit and when it is at rest. These security measures ensure that your information is protected according to established industry practices.",
-  },
-  {
-    question: "How to deal with migrations?",
-    answer:
-      "Collect utilizes a multi-tenant architecture, ensuring that each customer has a dedicated database for data isolation. This means that your data is kept separate from other users, providing enhanced privacy and security. In addition, Collect employs industry-standard encryption techniques to safeguard your data both during transit and when it is at rest. These security measures ensure that your information is protected according to established industry practices.",
-  },
-  {
-    question: "How does Collect differ from Bubble, Tilda or Wix?",
-    answer:
-      "While Bubble, Tilda and Wix are popular platforms for website creation and app prototyping, they have certain limitations when it comes to the range of components and scenarios available for building. Collect, on the other hand, offers maximum flexibility in building APIs from your data with minimal constraints. We strongly believe that user interfaces (UIs) should not be generic and basic because every product possesses its unique genes and individuality. These characteristics cannot be fully expressed through a set of pre-built components. At Collect, our primary focus is to provide an exceptional API creation experience and streamlined data workflow. Instead of attempting to address multiple objectives simultaneously, we concentrate solely on empowering you to build robust APIs that perfectly align with your specific requirements.",
+    question: "Can Collect be hosted on-premises?",
+    answer: "Yes! Schedule a call with us to explore your requirements.",
+    link: {
+      url: "https://calendly.com/collect-so/collect-intro",
+      text: "Schedule a call",
+    },
   },
 ];
 
-const Accordion = ({
-  question,
-  answer,
-  img,
-}: {
-  question: string;
-  answer: string;
-  img?: keyof typeof imgMap;
-}) => {
+const Accordion = ({ question, answer, link }: TFaqBlock) => {
   const [isOpen, setIsOpen] = useState(false);
-  // const Img = imgMap[img];
+
   return (
     <>
       <motion.div
@@ -90,9 +63,6 @@ const Accordion = ({
       >
         <motion.div className="flex typography-xl items-center justify-between">
           {question}
-          {/*<AutoRotationWrapper baseVelocity={randomIntFromRange(-10, 10)}>*/}
-          {/*  <Img className="w-[60px] h-[60px] md:w-[40px] md:h-[40px]" />*/}
-          {/*</AutoRotationWrapper>*/}
           {isOpen ? <ChevronUp /> : <ChevronDown />}
         </motion.div>
       </motion.div>
@@ -110,7 +80,12 @@ const Accordion = ({
             }}
             transition={{ duration: 0.3, damping: 100 }}
           >
-            {answer}
+            <div style={{ whiteSpace: "pre-line" }}>{answer}</div>
+            {link ? (
+              <Link href={link.url} target="_blank">
+                <OutlineButton className="mt-4">{link.text}</OutlineButton>
+              </Link>
+            ) : null}
           </motion.div>
         )}
       </AnimatePresence>
@@ -119,13 +94,9 @@ const Accordion = ({
 };
 
 export function FAQSection() {
-  const [mode, cycleMode] = useCycle<"monthly" | "annually">(
-    "annually",
-    "monthly",
-  );
   return (
     <Section className="" data-theme="dark">
-      <div className="container text-center mb-16 py-[25vh]">
+      <div className="container text-center mb-16 pb-32">
         <h2 className="typography-3xl mb-16">Frequently Asked Questions</h2>
         <div className="px-5 max-w-4xl m-auto grid grid-cols-1 gap-5 text-left">
           {faqData.map((data) => (
