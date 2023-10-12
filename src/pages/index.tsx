@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Turn ideas into reliable APIs • Collect</title>
+        <title>Instant backend for any SaaS • Collect</title>
         <meta
           name="description"
           content="Collect Platform helps businesses build applications quickly and easily, regardless of the size or maturity of the team"
