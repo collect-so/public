@@ -62,7 +62,7 @@ Collect.find("books", {
 
 const code3 = `// 3. Use instant API
 
-/records/search
+/record/search
 
 /label/users
 /label/books
