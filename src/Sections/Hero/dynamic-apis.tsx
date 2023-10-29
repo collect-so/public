@@ -118,9 +118,9 @@ export const DynamicApis = () => {
             Dynamic APIs
           </h2>
           <p className="typography-lg max-w-2xl">
-            Labeling data within Collect unlocks its full API and search
-            capabilities. Furthermore, all properties are automatically assigned
-            to their respective APIs
+            Labeling data within unlocks its full API and search capabilities.
+            Furthermore, all properties and values are automatically assigned to
+            their respective APIs.
           </p>
         </div>
         <div className={cx("grid grid-cols-2 z-10 gap-16", "md:grid-cols-1")}>

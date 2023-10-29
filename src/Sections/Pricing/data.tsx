@@ -103,41 +103,39 @@ export const plans: TSubscriptionPlan[] = [
         title: "1.000 Records",
         caption: "Per Project",
       },
-      // {
-      //   title: "30 Magic Fields",
-      // },
       {
         title: "2 GB File Storage",
         caption: "Up to 5mb per file",
       },
-      // {
-      //   title: "Single-tenant architecture",
-      // },
-      // {
-      //   title: "Manual backups",
-      // },
       {
         title: "Community support",
       },
     ],
-    // features: [
-    //   sdks,
-    //   rest,
-    //   nesting,
-    //   files,
-    //   valueTypes,
-    //   onboarding,
-    //   {
-    //     title: "1 API token",
-    //   },
-    //   {
-    //     title: "3 developer seats",
-    //   },
-    //   // automations,
-    //   // dataImport,
-    //   // realtime,
-    //   // graphql,
-    // ],
+  },
+  {
+    name: "FLEX",
+    annualPrice: 1.99,
+    monthPrice: 3.99,
+    period: "Monthly",
+    buttonText: "Get Started",
+    buttonLink: "https://app.collect.so/signup",
+    featured: false,
+    general: [
+      {
+        title: "Unlimited projects",
+      },
+      {
+        title: "3.000 Records",
+        caption: "Next 1.000 Records for $0.19",
+      },
+      {
+        title: "10 GB File Storage",
+        caption: "Can use own S3",
+      },
+      {
+        title: "Community support",
+      },
+    ],
   },
   {
     name: "PRO",
@@ -155,46 +153,14 @@ export const plans: TSubscriptionPlan[] = [
         title: "100.000 Records",
         caption: "Next 1.000 Records for $0.19",
       },
-      // {
-      //   title: "100 Magic Fields",
-      //   caption: "Next 10 Magic Fields for $0.69",
-      // },
       {
-        title: "Connect own S3",
-        // caption: "Next 10 GB for $0.99",
+        title: "20 GB File Storage",
+        caption: "Can use own S3",
       },
-      // {
-      //   title: "Multi-tenant architecture",
-      // },
-      // {
-      //   title: "Biweekly backups",
-      // },
       {
         title: "Dedicated support",
       },
     ],
-
-    // features: [
-    //   sdks,
-    //   rest,
-    //   nesting,
-    //   files,
-    //   valueTypes,
-    //   onboarding,
-    //   {
-    //     title: "Unlimited API tokens",
-    //   },
-    //   {
-    //     title: "Unlimited developers seats",
-    //   },
-    //   automations,
-    //   dataImport,
-    //   realtime,
-    //   graphql,
-    //   webhooks,
-    //   regions,
-    //   gpt,
-    // ],
   },
   {
     name: "CUSTOM",
@@ -212,62 +178,12 @@ export const plans: TSubscriptionPlan[] = [
       {
         title: "Unlimited Records",
       },
-      // {
-      //   title: "Unlimited Magic Fields",
-      // },
-      // {
-      //   title: "Multi-tenant architecture",
-      // },
       {
         title: "On-premises deployment",
       },
-      // {
-      //   title: "Daily backups",
-      // },
       {
         title: "Priority support",
       },
-      // {
-      //   title: "White labeling",
-      // },
     ],
-    // features: [
-    //   sdks,
-    //   rest,
-    //   nesting,
-    //   files,
-    //   valueTypes,
-    //   onboarding,
-    //   {
-    //     title: "Unlimited API tokens",
-    //   },
-    //   {
-    //     title: "Unlimited developers seats",
-    //   },
-    //   automations,
-    //   dataImport,
-    //   realtime,
-    //   graphql,
-    //   webhooks,
-    //   regions,
-    //   gpt,
-    //   { title: "SSO" },
-    //   {
-    //     type: "coming",
-    //     title: "Granular access control",
-    //   },
-    //   {
-    //     type: "coming",
-    //     title: "Custom endpoints",
-    //   },
-    //   {
-    //     type: "coming",
-    //     title: "Cloud functions",
-    //   },
-    //   {
-    //     type: "coming",
-    //     title: "Media files optimizations",
-    //   },
-    // ],
   },
 ];

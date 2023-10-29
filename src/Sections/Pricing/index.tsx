@@ -127,8 +127,8 @@ function PricingCard({
     <div
       className={cx("flex flex-col rounded-2xl border-2", {
         "text-content-primary-dark bg-background-dark": true,
-        "mt-8 md:mt-0": idx !== 1,
-        "pt-8 md:pt-0": idx === 1,
+        "mt-8 md:mt-0": idx !== 2,
+        "pt-8 md:pt-0": idx === 2,
         "border-accent-yellow": plan.featured,
         "border-stroke-dark": !plan.featured,
       })}
@@ -181,7 +181,7 @@ export function PricingSection() {
           </p>
         </div>
 
-        <div className="px-5 max-w-7xl mx-auto grid grid-cols-3 sm:grid-cols-1 items-start justify-center gap-4">
+        <div className="max-w-[1500px] mx-auto grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1 items-start justify-center gap-4">
           {plans.map((plan, idx) => (
             <PricingCard plan={plan} key={plan.name} idx={idx} mode={mode} />
           ))}

@@ -13,12 +13,9 @@ export const FileStorage = () => {
       <div className={cx("z-10")}>
         <div className={cx("feature-tag")}>Feature</div>
         <h2 className={cx("typography-3xl mb-4 font-special")}>File storage</h2>
-        <p className="typography-lg max-w-2xl ">
-          Binary data is welcomed! Store files as records in the database and
-          enhance file management like never before
-          {/*Create a structured file storage tailored to your requirements .*/}
-          {/*Benefit from easily accessible, dependable, and customizable storage*/}
-          {/*for binary data.*/}
+        <p className="typography-lg max-w-3xl">
+          Binary data is welcomed! Store any files in Collect and benefit from
+          easily accessible, dependable, and customizable storage.
         </p>
       </div>
       <div className="flex relative flex-wrap justify-center items-center z-10 content-center w-full gap-8 md:gap-4 sm:gap-2 max-w-4xl m-auto">
