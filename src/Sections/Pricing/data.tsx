@@ -1,5 +1,3 @@
-import { bool } from "prop-types";
-
 export type TPresentFeature = {
   type?: "present";
   title: string;
@@ -26,66 +24,67 @@ export type TSubscriptionPlan = {
   isCustom?: boolean;
 };
 
-const sdks: TPresentFeature = {
-  title: "SDKs",
-};
-
-const rest: TPresentFeature = {
-  title: "REST API",
-};
-
-const nesting: TPresentFeature = {
-  title: "Data nesting",
-};
-
-const files: TPresentFeature = {
-  title: "File storage",
-};
-
-const valueTypes: TPresentFeature = {
-  title: "All value types",
-};
-
-const onboarding: TPresentFeature = {
-  title: "Technical onboarding",
-};
-
-const automations: TComingFeature = {
-  title: "Automations",
-  type: "coming",
-};
-
-const dataImport: TComingFeature = {
-  type: "coming",
-  title: "Data import",
-};
-
-const realtime: TComingFeature = {
-  type: "coming",
-  title: "Realtime",
-};
-
-const graphql: TComingFeature = {
-  type: "coming",
-  title: "GraphQL API",
-};
-
-const webhooks: TComingFeature = {
-  type: "coming",
-  title: "Webhooks",
-};
-
-const regions: TComingFeature = {
-  type: "coming",
-  title: "Regions",
-};
-
-const gpt: TComingFeature = {
-  type: "coming",
-  title: "ChatGPT integration",
-};
+// const sdks: TPresentFeature = {
+//   title: "SDKs",
+// };
+//
+// const rest: TPresentFeature = {
+//   title: "REST API",
+// };
+//
+// const nesting: TPresentFeature = {
+//   title: "Data nesting",
+// };
+//
+// const files: TPresentFeature = {
+//   title: "File storage",
+// };
+//
+// const valueTypes: TPresentFeature = {
+//   title: "All value types",
+// };
+//
+// const onboarding: TPresentFeature = {
+//   title: "Technical onboarding",
+// };
+//
+// const automations: TComingFeature = {
+//   title: "Automations",
+//   type: "coming",
+// };
+//
+// const dataImport: TComingFeature = {
+//   type: "coming",
+//   title: "Data import",
+// };
+//
+// const realtime: TComingFeature = {
+//   type: "coming",
+//   title: "Realtime",
+// };
+//
+// const graphql: TComingFeature = {
+//   type: "coming",
+//   title: "GraphQL API",
+// };
+//
+// const webhooks: TComingFeature = {
+//   type: "coming",
+//   title: "Webhooks",
+// };
+//
+// const regions: TComingFeature = {
+//   type: "coming",
+//   title: "Regions",
+// };
+//
+// const gpt: TComingFeature = {
+//   type: "coming",
+//   title: "ChatGPT integration",
+// };
 
 export const plans: TSubscriptionPlan[] = [
+  // 0.30
   {
     name: "starter",
     annualPrice: 0,
@@ -108,14 +107,18 @@ export const plans: TSubscriptionPlan[] = [
         caption: "Up to 5mb per file",
       },
       {
+        title: "1 member seat",
+      },
+      {
         title: "Community support",
       },
     ],
   },
+  // 0.20 .. 0.30
   {
     name: "FLEX",
-    annualPrice: 1.99,
-    monthPrice: 3.99,
+    annualPrice: 3,
+    monthPrice: 5,
     period: "Monthly",
     buttonText: "Get Started",
     buttonLink: "https://app.collect.so/signup",
@@ -133,6 +136,10 @@ export const plans: TSubscriptionPlan[] = [
         caption: "Can use own S3",
       },
       {
+        title: "3 member seats",
+        caption: "Next for $2 per seat",
+      },
+      {
         title: "Community support",
       },
     ],
@@ -140,7 +147,7 @@ export const plans: TSubscriptionPlan[] = [
   {
     name: "PRO",
     annualPrice: 11.99,
-    monthPrice: 19.99,
+    monthPrice: 17.99,
     period: "Monthly",
     buttonText: "Get Started",
     buttonLink: "https://app.collect.so/signup",
@@ -156,6 +163,10 @@ export const plans: TSubscriptionPlan[] = [
       {
         title: "20 GB File Storage",
         caption: "Can use own S3",
+      },
+      {
+        title: "5 member seats",
+        caption: "Next for $2 per seat",
       },
       {
         title: "Dedicated support",
@@ -180,6 +191,10 @@ export const plans: TSubscriptionPlan[] = [
       },
       {
         title: "On-premises deployment",
+        caption: "Lifetime updates on demand",
+      },
+      {
+        title: "Unlimited member seats",
       },
       {
         title: "Priority support",

@@ -95,7 +95,7 @@ export const FlatAndNestedData = () => {
         <div className={cx("feature-tag")}>Feature</div>
 
         <h2 className={cx("typography-3xl mb-4 font-special")}>Data nesting</h2>
-        <p className="typography-lg max-w-3xl">
+        <p className="typography-base max-w-3xl">
           Work with data the way you think about it. Each Record could be a
           parent for the others whilst every level is still distinctively
           accessible.

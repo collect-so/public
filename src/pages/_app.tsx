@@ -2,9 +2,10 @@ import "~/styles/globals.css";
 import type { AppProps } from "next/app";
 import Script from "next/script";
 
-import { kyivTypeSans, manrope } from "~/styles/fonts";
+import { jetBrainsMono, kyivTypeSans, manrope } from "~/styles/fonts";
 // import { CustomCursor } from "~/components/custom-cursor";
 import { useRef } from "react";
+import cx from "classnames";
 
 export default function App({ Component, pageProps }: AppProps) {
   const ref = useRef<HTMLElement>(null);
@@ -32,7 +33,11 @@ export default function App({ Component, pageProps }: AppProps) {
       `}
       </Script>
       <main
-        className={`${kyivTypeSans.variable} ${manrope.variable} font-sans`}
+        className={cx(
+          kyivTypeSans.variable,
+          jetBrainsMono.variable,
+          manrope.variable,
+        )}
         ref={ref}
       >
         <Component {...pageProps} />

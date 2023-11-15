@@ -66,6 +66,7 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-manrope)"],
         special: ["var(--font-kyiv-sans)"],
+        mono: ["var(--font-jet-brains-mono)"],
       },
       keyframes: {
         zoomOut: {

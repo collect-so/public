@@ -46,7 +46,7 @@ Collect.save({
 
 const code2 = `// 2. CRUD it
 
-Collect.find("users", {
+Collect.findOne("users", {
    id: 11
 }).update({
   city: "Madrid",
@@ -73,24 +73,43 @@ const code3 = `// 3. Use instant API
 /property/verified/equals/true
 
 // + 56 more endpoints 
-// for working with data
+// for data operations
 `;
 export const Hero = () => {
   return (
     <FeatureContainer className={"min-h-[100vh] sm:min-h-[100vh] pt-32"}>
-      <div className={cx("z-10 relative flex flex-col gap-12")}>
-        <h1 className={cx("typography-4xl mb-0 font-special")}>
-          <span>Collect</span> creates instant <br className="sm:hidden" />
-          <span className="text-accent-yellow">API</span> from{" "}
-          <span className="text-accent-red">any</span> data
+      <div className={cx("z-10 relative flex flex-col gap-12 md:gap-8")}>
+        <h1 className={cx("typography-4xl mb-0 font-special md:text-2xl")}>
+          Turn <span>any</span> <span className="text-accent-yellow">JSON</span>{" "}
+          or <span className="text-accent-purple">CSV</span>{" "}
+          <br className="sm:hidden" />
+          into ready-to-use <span className="text-accent-red">APIs</span>
         </h1>
+        {/*<p*/}
+        {/*  className={cx(*/}
+        {/*    "typography-base max-w-3xl text-content-secondary-dark font-mono",*/}
+        {/*  )}*/}
+        {/*>*/}
+        {/*  Turn anything into an API and skip setting things up. Focus on the*/}
+        {/*  data itself and what it can do, not how to CRUD it.*/}
+        {/*</p>*/}
+
         <p
           className={cx(
-            "typography-lg max-w-3xl text-content-secondary-dark font-mono",
+            "typography-base max-w-3xl text-content-secondary-dark font-mono",
           )}
         >
-          Turn anything into an API and skip setting things up. Focus on the
-          data itself and what it can do, not how to CRUD it.
+          <span className="text-content-primary-dark">Collect</span> automates{" "}
+          <span className="text-content-primary-dark">data normalization</span>,
+          provides{" "}
+          <span className="text-content-primary-dark">type suggestions</span>,
+          and instantly maps incoming{" "}
+          <span className="text-content-primary-dark">data to APIs</span>,
+          allowing everyone to{" "}
+          <span className="text-content-primary-dark">build apps</span> and
+          perform{" "}
+          <span className="text-content-primary-dark">data analysis</span>{" "}
+          without setting things up.
         </p>
 
         <div className={cx("grid grid-cols-3 z-10 gap-8", "md:grid-cols-1")}>

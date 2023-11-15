@@ -17,7 +17,7 @@ export const FlexibleDataTypes = () => {
         <h2 className={cx("typography-3xl mb-4 font-special")}>
           Data types auto-detection
         </h2>
-        <p className="typography-lg max-w-3xl">
+        <p className="typography-base max-w-3xl">
           Collect precisely detects incoming data types and stores it
           appropriately to provide robust search options along with analytical
           potential.

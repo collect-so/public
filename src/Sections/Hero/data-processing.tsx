@@ -25,7 +25,7 @@ export const DataProcessing = () => {
             <h2 className={cx("typography-2xl mb-4 font-special")}>
               Importing
             </h2>
-            <p className="typography-lg max-w-3xl">
+            <p className="typography-base max-w-3xl">
               Import your data with lightning speed. Up to 3000 records in less
               than 1 second.
             </p>
@@ -35,7 +35,7 @@ export const DataProcessing = () => {
             <h2 className={cx("typography-2xl mb-4 font-special")}>
               Bulk operations
             </h2>
-            <p className="typography-lg max-w-3xl">
+            <p className="typography-base max-w-3xl">
               Merge, cleanup and normalize your data without writing a single
               line of code with Dashboard.
             </p>
@@ -45,7 +45,7 @@ export const DataProcessing = () => {
             <h2 className={cx("typography-2xl mb-4 font-special")}>
               Exporting
             </h2>
-            <p className="typography-lg max-w-3xl">
+            <p className="typography-base max-w-3xl">
               Need your data elsewhere? You can export the entire dataset with a
               single click.
             </p>

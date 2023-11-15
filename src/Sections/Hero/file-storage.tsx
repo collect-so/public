@@ -13,7 +13,7 @@ export const FileStorage = () => {
       <div className={cx("z-10")}>
         <div className={cx("feature-tag")}>Feature</div>
         <h2 className={cx("typography-3xl mb-4 font-special")}>File storage</h2>
-        <p className="typography-lg max-w-3xl">
+        <p className="typography-base max-w-3xl">
           Binary data is welcomed! Store any files in Collect and benefit from
           easily accessible, dependable, and customizable storage.
         </p>

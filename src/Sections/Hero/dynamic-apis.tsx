@@ -117,8 +117,8 @@ export const DynamicApis = () => {
           <h2 className={cx("typography-3xl mb-4 font-special")}>
             Dynamic APIs
           </h2>
-          <p className="typography-lg max-w-2xl">
-            Labeling data within unlocks its full API and search capabilities.
+          <p className="typography-base max-w-2xl">
+            Labeling data unlocks its full API and search capabilities.
             Furthermore, all properties and values are automatically assigned to
             their respective APIs.
           </p>
@@ -140,7 +140,6 @@ export const DynamicApis = () => {
               </ColoredChip>
             ))}
           </div>
-
           <CodeBlock
             className="rounded-md md:m-auto sm:w-full"
             code={data[groups.current.indexOf(group)].code}

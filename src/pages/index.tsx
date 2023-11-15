@@ -21,10 +21,10 @@ export default function Home() {
         <meta charSet="utf-8" />
 
         {/* HTML Meta Tags */}
-        <title>Instant backend for any SaaS • Collect</title>
+        <title>Create API from any data • Collect</title>
         <meta
           name="description"
-          content="Turn any data into API instantly and focus on what matters"
+          content="Turn any JSON or CSV into ready-to-use APIs"
         />
 
         {/*Facebook Meta Tags */}
@@ -32,11 +32,11 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Instant backend for any SaaS • Collect"
+          content="Create API from any data • Collect"
         />
         <meta
           property="og:description"
-          content="Turn any data into API instantly and focus on what matters"
+          content="Turn any JSON or CSV into ready-to-use APIs"
         />
         <meta property="og:image" content={getAbsoluteURL("/images/og.png")} />
 
@@ -46,11 +46,11 @@ export default function Home() {
         <meta property="twitter:url" content={getAbsoluteURL()} />
         <meta
           name="twitter:title"
-          content="Instant backend for any SaaS • Collect"
+          content="Create API from any data • Collect"
         />
         <meta
           name="twitter:description"
-          content="Turn any data into API instantly and focus on what matters"
+          content="Turn any JSON or CSV into ready-to-use APIs"
         />
         <meta name="twitter:image" content={getAbsoluteURL("/images/og.png")} />
       </Head>

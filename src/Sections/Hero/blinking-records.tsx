@@ -99,7 +99,7 @@ export const BlinkingRecords = () => {
         <h2 className={cx("typography-3xl mb-4 font-special")}>
           Data linking and retrieval
         </h2>
-        <p className="typography-lg max-w-3xl">
+        <p className="typography-base max-w-3xl">
           Build complex scenarios in a matter of double-digit minutes. Retrieve
           meaningful data the way you need it.
         </p>

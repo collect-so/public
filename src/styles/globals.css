@@ -115,7 +115,7 @@ a {
 
 
 .typography-base {
-  @apply font-medium text-content-secondary-dark tracking-tight m-auto text-base;
+  @apply font-medium text-content-secondary-dark tracking-tight m-auto text-base font-mono md:text-sm;
 }
 
 .typography-lg {
