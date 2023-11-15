@@ -2,7 +2,7 @@ import {
   ResultUsageCode,
   SwipeRepositoryCode,
   UserRepositoryCode,
-} from "~/pages/features/collect-and-chatgpt";
+} from "~/_legacy/features/collect-and-chatgpt";
 
 export const datingExamples = [
   { code: UserRepositoryCode },

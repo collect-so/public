@@ -7,7 +7,7 @@ const nextConfig = {
     unoptimized: true,
   },
   output: "export",
-  distDir: "out",
+  distDir: "dist",
 
   exportPathMap: async (
     defaultPathMap,
