@@ -19,10 +19,10 @@ module.exports = {
       },
       padding: {
         DEFAULT: "1rem",
-        sm: "2rem",
-        lg: "3rem",
-        xl: "5rem",
-        "2xl": "6rem",
+        sm: "1rem",
+        lg: "1rem",
+        xl: "1rem",
+        "2xl": "1rem",
       },
     },
     fontSize: {
@@ -54,9 +54,9 @@ module.exports = {
         "accent-brand": "#fff",
         "accent-yellow": "#CBEE4C",
         "accent-orange": "#F2994A",
-        "accent-green": "#219653",
+        "accent-green": "#63ca82",
         "accent-red": "#FF6B6B",
-        "accent-pink": "#F0C3D2",
+        "accent-pink": "#f988ad",
         "accent-blue": "#56CCF2",
         "accent-purple": "#c792ea",
 

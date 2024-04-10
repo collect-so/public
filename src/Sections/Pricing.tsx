@@ -179,11 +179,11 @@ export function Pricing() {
             action={
               <Button
                 size="small"
-                variant="accent"
+                variant="primary"
                 as={Link}
                 href={socials.github}
               >
-                Start Building
+                Join Github
                 <ArrowUpRight />
               </Button>
             }

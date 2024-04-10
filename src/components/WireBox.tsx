@@ -9,15 +9,13 @@ export function WireBox({
 }) {
   return (
     <svg
-      width="1280"
-      height="598"
       viewBox="0 0 1280 598"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden
     >
-      <g clip-path="url(#clip0_553_6139)">
+      <g clipPath="url(#clip0_553_6139)">
         <path
           d="M0.416025 0.778308C58.7666 39.9475 106.026 128.253 106.25 198.531L0.416025 127.975V0.778308Z"
           fill={fillColor}
@@ -64,7 +62,7 @@ export function WireBox({
           stroke={wireColor}
         />
       </g>
-      <g clip-path="url(#clip1_553_6139)">
+      <g clipPath="url(#clip1_553_6139)">
         <path
           d="M320.416 213.557C378.767 174.925 426.026 200.218 426.25 270.197L320.416 340.753V213.557Z"
           fill={fillColor}
@@ -111,7 +109,7 @@ export function WireBox({
           stroke={wireColor}
         />
       </g>
-      <g clip-path="url(#clip2_553_6139)">
+      <g clipPath="url(#clip2_553_6139)">
         <path
           d="M640.416 0.778308C698.767 39.9475 746.026 128.253 746.25 198.531L640.416 127.975V0.778308Z"
           fill={fillColor}
@@ -158,7 +156,7 @@ export function WireBox({
           stroke={wireColor}
         />
       </g>
-      <g clip-path="url(#clip3_553_6139)">
+      <g clipPath="url(#clip3_553_6139)">
         <path
           d="M960.416 213.557C1018.77 174.925 1066.03 200.218 1066.25 270.197L960.416 340.753V213.557Z"
           fill={fillColor}

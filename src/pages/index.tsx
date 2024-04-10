@@ -3,7 +3,6 @@ import { Layout } from "~/components/Layout";
 import { Hero } from "~/sections/Hero";
 import { FeaturesCards } from "~/sections/FeaturesCards";
 import { WorkflowSection } from "~/sections/Workflow";
-// import { BenchmarksSection } from "~/sections/Benchmarks";
 import { CommunitySection } from "~/sections/Community";
 import { Pricing } from "~/sections/Pricing";
 
@@ -22,11 +21,6 @@ export default function Home() {
         <CommunitySection />
 
         <Pricing />
-
-        {/* <HowItWorksSection />
-
-        <PricingSection />
-        <FAQSection /> */}
       </div>
     </Layout>
   );
