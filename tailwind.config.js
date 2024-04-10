@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
-  important: true,
   theme: {
     screens: {
       xl: { max: "1920px" },
@@ -27,40 +26,14 @@ module.exports = {
       },
     },
     fontSize: {
+      xs: "12px",
       sm: "16px",
-      base: "20px",
+      base: "18px",
       lg: "24px",
       xl: "30px",
       "2xl": "40px",
       "3xl": "48px",
       "4xl": "64px",
-    },
-    colors: {
-      transparent: "transparent",
-
-      "content-primary-light": "#000",
-      "content-secondary-light": "#000",
-      "content-primary-dark": "#FFF",
-      "content-secondary-dark": "#b1b1b1",
-      "content-tertiary-dark": "#FFF",
-
-      "background-light": "#fff",
-      "background-dark": "#000",
-
-      "stroke-light": "#00000014",
-      "stroke-dark": "#DFDFDF0F",
-
-      "accent-brand": "#fff",
-      "accent-yellow": "#CBEE4C",
-      "accent-orange": "#F2994A",
-      "accent-green": "#219653",
-      "accent-red": "#FF6B6B",
-      "accent-pink": "#F0C3D2",
-      "accent-blue": "#56CCF2",
-      "accent-purple": "#9B51E0",
-
-      "base-white": "#FFF",
-      "base-black": "#000",
     },
     extend: {
       fontFamily: {
@@ -77,10 +50,94 @@ module.exports = {
           zoomOut: "zoomOut 1s ease-out",
         },
       },
+      colors: {
+        "accent-brand": "#fff",
+        "accent-yellow": "#CBEE4C",
+        "accent-orange": "#F2994A",
+        "accent-green": "#219653",
+        "accent-red": "#FF6B6B",
+        "accent-pink": "#F0C3D2",
+        "accent-blue": "#56CCF2",
+        "accent-purple": "#c792ea",
+
+        disabled: {
+          DEFAULT: "hsl(223.81, 0%, 17.92%)",
+          contrast: "hsl(223.81, 0%, 100%)",
+          hover: "hsl(223.81, 0%, 28.06%)",
+          focus: "hsl(223.81, 0%, 28.06%)",
+          ring: "hsla(223.81, 0%, 17.92%, 0.24)",
+        },
+        fill: {
+          DEFAULT: "hsl(223.81, 0%, 13.34%)",
+          contrast: "hsl(223.81, 0%, 100%)",
+          hover: "hsl(223.81, 0%, 23.1%)",
+          focus: "hsl(223.81, 0%, 23.1%)",
+          ring: "hsla(223.81, 0%, 13.34%, 0.24)",
+        },
+        fill2: {
+          DEFAULT: "hsl(223.81, 0%, 11.49%)",
+          contrast: "hsl(223.81, 0%, 100%)",
+          hover: "hsl(223.81, 0%, 21.09%)",
+          focus: "hsl(223.81, 0%, 21.09%)",
+          ring: "hsla(223.81, 0%, 11.49%, 0.24)",
+        },
+        fill3: {
+          DEFAULT: "hsl(223.81, 0%, 8.79%)",
+          contrast: "hsl(223.81, 0%, 100%)",
+          hover: "hsl(223.81, 0%, 18.12%)",
+          focus: "hsl(223.81, 0%, 18.12%)",
+          ring: "hsla(223.81, 0%, 8.79%, 0.24)",
+        },
+        content: {
+          DEFAULT: "hsl(223.81, 0%, 100%)",
+          contrast: "hsl(0, 0%, 0%)",
+          hover: "hsl(223.81, 0%, 86.98%)",
+          focus: "hsl(223.81, 0%, 86.98%)",
+          ring: "hsla(223.81, 0%, 100%, 0.24)",
+        },
+        content2: {
+          DEFAULT: "hsl(223.81, 0%, 74.32%)",
+          contrast: "hsl(0, 0%, 0%)",
+          hover: "hsl(223.81, 0%, 62.05%)",
+          focus: "hsl(223.81, 0%, 62.05%)",
+          ring: "hsla(223.81, 0%, 74.32%, 0.24)",
+        },
+        content3: {
+          DEFAULT: "hsl(223.81, 0%, 56.07%)",
+          contrast: "hsl(0, 0%, 0%)",
+          hover: "hsl(223.81, 0%, 44.47%)",
+          focus: "hsl(223.81, 0%, 44.47%)",
+          ring: "hsla(223.81, 0%, 56.07%, 0.24)",
+        },
+        stroke: {
+          DEFAULT: "hsla(223.81, 0%, 100%, 0.07)",
+          contrast: "hsl(0, 0%, 0%)",
+          hover: "hsla(223.81, 0%, 100%, 0.17)",
+          focus: "hsla(223.81, 0%, 100%, 0.17)",
+          ring: "hsla(223.81, 0%, 100%, 0.24)",
+        },
+        accent: {
+          DEFAULT: "hsl(72.96, 82.69%, 61.55%)",
+          contrast: "hsl(0, 0%, 0%)",
+          hover: "hsl(70.97, 79.68%, 44.68%)",
+          focus: "hsl(70.97, 79.68%, 44.68%)",
+          ring: "hsla(72.96, 82.69%, 61.55%, 0.24)",
+        },
+        primary: {
+          DEFAULT: "hsl(223.81, 0%, 100%)",
+          contrast: "hsl(0, 0%, 0%)",
+          hover: "hsl(223.81, 0%, 86.98%)",
+          focus: "hsl(223.81, 0%, 86.98%)",
+          ring: "hsla(223.81, 0%, 100%, 0.24)",
+        },
+        secondary: {
+          DEFAULT: "hsla(223.81, 0%, 100%, 0.1)",
+          contrast: "hsl(0, 0%, 0%)",
+          hover: "hsla(223.81, 0%, 100%, 0.2)",
+          focus: "hsla(223.81, 0%, 100%, 0.2)",
+          ring: "hsla(223.81, 0%, 100%, 0.24)",
+        },
+      },
     },
   },
-  plugins: [
-    // Or with a custom prefix:
-    require("@headlessui/tailwindcss")({ prefix: "ui" }),
-  ],
 };

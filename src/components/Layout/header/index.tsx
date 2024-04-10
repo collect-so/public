@@ -1,141 +1,139 @@
-import { createContext, useEffect, useState } from "react";
-
-import { Navbar } from "~/components/Layout/header/components/navbar";
-import { useIntersectionByQuery } from "~/components/hooks/useIntersectionByQuery";
-import { useResizeEffect } from "~/components/hooks/useResizeEffect";
-import { menuData } from "~/components/Layout/header/data";
-import { motion } from "framer-motion";
-import { MenuToggle } from "~/components/Layout/header/components/menu-toggle";
-import { MenuItem } from "~/components/Layout/header/components/menu-item";
-import cx from "classnames";
-import { Logo } from "~/components/Layout/header/components/logo";
+import {
+  useScroll,
+  motion,
+  useMotionValueEvent,
+  AnimatePresence,
+} from "framer-motion";
+import { link } from "fs";
+import { Github, X } from "lucide-react";
 import Link from "next/link";
-import { Button, OutlineButton } from "~/components/button";
-import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { Button, MainCta } from "~/components/Button";
+import { IconButton } from "~/components/IconButton";
+import { IconDiscord } from "~/components/Layout/IconDiscord";
+import { IconX } from "~/components/Layout/IconX";
+import { Logo } from "~/components/Logo";
+import { links, socials } from "~/config/urls";
 
-export const NavigationContext = createContext({
-  intersectDarkContainers: true,
-  scrollStarted: false,
+function Nav() {
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const { scrollYProgress } = useScroll();
 
-  isOpen: false,
-  close: () => {},
-  open: () => {},
-
-  currentItem: "",
-  closeMenuItem: () => {},
-  openMenuItem: (key: string) => {},
-
-  data: menuData,
-});
-
-export const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const close = () => setIsOpen(false);
-  const open = () => setIsOpen(true);
-
-  const [currentItem, setCurrentItem] = useState("");
-  const closeMenuItem = () => setCurrentItem("");
-
-  const intersectDarkContainers = useIntersectionByQuery("[data-theme=dark]");
-  const [scrollStarted, setScrollStarted] = useState(false);
-  const resetNav = () => {
-    close();
-    closeMenuItem();
-  };
-
-  useResizeEffect(resetNav);
-
-  const scrollCallback = () => setScrollStarted(window.scrollY > 70);
-  useEffect(() => {
-    document.addEventListener("scroll", scrollCallback);
-    return () => document.removeEventListener("scroll", scrollCallback);
-  }, []);
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (latest > 0.1) {
+      setHasScrolled(true);
+    } else {
+      setHasScrolled(false);
+    }
+  });
 
   return (
-    <NavigationContext.Provider
-      value={{
-        isOpen,
-        data: menuData,
-        close,
-        open,
-        currentItem,
-        closeMenuItem,
-        openMenuItem: setCurrentItem,
-        intersectDarkContainers,
-        scrollStarted,
-      }}
-    >
-      <Navbar className="bg-transparent">
-        <div className="flex items-center">
-          <Link href="/">
-            <Logo />
-          </Link>
-          <div className="flex md:flex-col gap-8 md:hidden">
-            {menuData.map((item) => (
-              <MenuItem item={item} key={item.name} />
-            ))}
-          </div>
-        </div>
+    <nav className="flex items-center">
+      <div className="flex items-center mr-3">
+        <Button variant="primaryText" as={Link} size="small" href={links.docs}>
+          Docs
+        </Button>
+        <Button
+          variant="primaryText"
+          as={Link}
+          size="small"
+          href={links.tutorials}
+        >
+          Tutorials
+        </Button>
+        <Button
+          variant="primaryText"
+          as={Link}
+          size="small"
+          href={socials.blog}
+        >
+          Blog
+        </Button>
+        <Button
+          variant="primaryText"
+          as={Link}
+          size="small"
+          href={links.pricing}
+        >
+          Pricing
+        </Button>
+      </div>
 
-        <div className="flex items-center gap-8 sm:gap-4">
-          <Link href="https://app.collect.so/signin" className={"sm:hidden"}>
-            <OutlineButton>Sign in</OutlineButton>
-          </Link>
-          {/*<JoinWaitlistButton />*/}
-          <Link href="https://app.collect.so/signup">
-            <Button>
-              Get Started
-              <div className="md:hidden">
-                <ArrowRight />
-              </div>
-            </Button>
-          </Link>
+      <AnimatePresence>
+        {hasScrolled && (
           <motion.div
-            initial={false}
-            animate={isOpen ? "open" : "closed"}
-            className="hidden md:block"
+            key={"nav-cta"}
+            initial={{ width: 0 }}
+            animate={{ width: "auto" }}
+            // exit={{ width: 0 }}
+            className="flex items-center overflow-hidden whitespace-nowrap min-w-0"
           >
-            <MenuToggle />
+            <MainCta variant="accent" size="small" />
           </motion.div>
+        )}
+
+        {!hasScrolled && (
           <motion.div
-            initial="collapsed"
-            animate={isOpen ? "open" : "collapsed"}
-            exit="collapsed"
-            variants={{
-              open: {
-                transition: {
-                  duration: 0.3,
-                },
-                display: "block",
-                opacity: 1,
-                height: "auto",
-                paddingBottom: "30px",
-              },
-              collapsed: {
-                display: "none",
-                transition: {
-                  duration: 0.3,
-                },
-                opacity: 0,
-                height: 0,
-                paddingBottom: 0,
-              },
-            }}
-            className={cx(
-              "md:top-[60px] md:left-0 md:w-full md:min-h-[calc(100vh_-_60px)]",
-              {
-                "bg-background-dark absolute hidden md:block": isOpen,
-              },
-            )}
+            key={"nav-socials"}
+            initial={{ width: 0 }}
+            animate={{ width: "auto" }}
+            // exit={{ width: 0 }}
+            className="flex items-center gap-3 overflow-hidden whitespace-nowrap min-w-0"
           >
-            <div className="flex md:flex-col gap-8">
-              {menuData.map((item) => (
-                <MenuItem item={item} key={item.name} />
-              ))}
-            </div>
+            <IconButton
+              variant="secondary"
+              size="small"
+              as={Link}
+              href={socials.discord}
+              target="_blank"
+              rel="noreferrer noopener"
+              title="Discord"
+            >
+              <IconDiscord />
+            </IconButton>
+            <IconButton
+              variant="secondary"
+              size="small"
+              as={Link}
+              href={socials.x}
+              target="_blank"
+              rel="noreferrer noopener"
+              title="X (Formerly Twitter)"
+            >
+              <IconX />
+            </IconButton>
+            <IconButton
+              variant="secondary"
+              size="small"
+              as={Link}
+              href={socials.github}
+              target="_blank"
+              rel="noreferrer noopener"
+              title="Github"
+            >
+              <Github />
+            </IconButton>
           </motion.div>
-        </div>
-      </Navbar>
-    </NavigationContext.Provider>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
+}
+
+export const Header = () => {
+  return (
+    <header
+      className={
+        "flex flex-row justify-between items-center fixed z-30 w-full top-0 bg-transparent h-[60px]"
+      }
+    >
+      <div className="container flex flex-row justify-between">
+        <Link href="/">
+          <Logo className="h-[54px] w-[54px]" />
+        </Link>
+
+        <Nav />
+      </div>
+    </header>
   );
 };

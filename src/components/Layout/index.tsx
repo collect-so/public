@@ -1,30 +1,21 @@
-import { createContext, PropsWithChildren, useState } from "react";
+import { PropsWithChildren } from "react";
 import { Footer } from "./Footer";
 import { Header } from "./header";
-import { Modal } from "~/components/modal";
+import { Meta } from "~/components/Meta";
 
-export const ModalContext = createContext({
-  open: () => {},
-  close: () => {},
-  isOpen: false,
-});
-
-export function Layout({ children }: PropsWithChildren<{}>) {
-  const [isOpen, setIsOpen] = useState(false);
-  const open = () => setIsOpen(true);
-  const close = () => setIsOpen(false);
+export function Layout({
+  children,
+  title,
+}: PropsWithChildren<{ title?: string }>) {
   return (
-    <ModalContext.Provider
-      value={{
-        isOpen,
-        open,
-        close,
-      }}
-    >
+    <>
+      <Meta title={title} />
+
       <Header />
-      {children}
-      <Modal />
+
+      <main>{children}</main>
+
       <Footer />
-    </ModalContext.Provider>
+    </>
   );
 }

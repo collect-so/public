@@ -1,53 +1,86 @@
-import { Section } from "~/components/section";
 import cx from "classnames";
-import { useObservedSize } from "~/components/hooks/useResizeObserver";
-import { Background } from "~/components/background";
-import { BlinkingRecords } from "~/Sections/Hero/blinking-records";
-import { FlatAndNestedData } from "~/Sections/Hero/flat-and-nested-data";
-import { FlexibleDataTypes } from "~/Sections/Hero/flexible-data-types";
-import { FileStorage } from "~/Sections/Hero/file-storage";
-import { DynamicApis } from "~/Sections/Hero/dynamic-apis";
-import { ZeroCodeDb } from "~/Sections/Hero/zero-code-db";
-import { Hero } from "~/Sections/Hero/hero";
-import { DataProcessing } from "~/Sections/Hero/data-processing";
-import Image from "next/image";
-import dashboard0 from "~/Sections/Hero/img/dashboard0.png";
-import dashboard1 from "~/Sections/Hero/img/dashboard1.png";
+import Link from "next/link";
+import { BookText } from "lucide-react";
+import { useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { motion } from "framer-motion";
 
-export function HeroSection() {
-  const { ref, size } = useObservedSize<HTMLElement>(100);
+import { Button, MainCta } from "~/components/Button";
+import { defaultDescription, defaultTitle } from "~/components/Meta";
+import { LetterTypingText } from "~/components/LetterTypingText";
+import { links } from "~/config/urls";
+
+/* Simplify, Scale, Succeed
+Create, your way
+Your Backend, setup in minutes
+ 10x Your Backend Development
+ Effortless Backend Brilliance
+ 10x Your Engineering 
+ Your Shortcut to Robust Backend Development */
+
+export const Hero = () => {
+  const spacerRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: spacerRef,
+    offset: ["start start", "end start"],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   return (
     <>
-      <Section ref={ref} className={cx("overflow-hidden")} data-theme="dark">
-        {size && size.height ? (
-          <Background target={ref} sectionHeight={size.height} />
-        ) : null}
+      <div className="h-[70dvh]" aria-hidden ref={spacerRef} />
 
-        <Hero />
-        <div
-          id="features"
-          className={
-            "container z-10 grid items-center content-center gap-16 text-center relative font-special"
-          }
-        >
-          <h2
-            className={cx(
-              "typography-4xl pb-32",
-              // "underline decoration-accent-red decoration-wavy decoration-[8px] underline-offset-[24px]",
-            )}
-          >
-            Features
-          </h2>
+      <motion.section
+        className={"h-[100dvh] grid place-content-center fixed z-0 inset-0"}
+        style={{ opacity }}
+      >
+        {/* <ShaftContainer> */}
+        <div className="flex flex-col gap-10 relative z-0">
+          <div className="flex flex-col gap-5">
+            {/* <h1
+              className={cx("typography-4xl !mb-0 font-special md:text-2xl ")}
+            >
+              {defaultTitle}
+            </h1> */}
+
+            <LetterTypingText
+              as="h1"
+              className={cx("typography-4xl !mb-0 font-special md:text-2xl ")}
+              animate
+            >
+              {defaultTitle}
+            </LetterTypingText>
+
+            <p className={cx("typography-base max-w-3xl text-content2")}>
+              {defaultDescription}
+            </p>
+
+            {/* <LetterTypingText
+              as="p"
+              className="typography-base max-w-3xl text-content2"
+              animate
+            >
+              {defaultDescription}
+            </LetterTypingText> */}
+          </div>
+
+          <div className="flex gap-4">
+            <Button
+              className="min-w-[170px]"
+              as={Link}
+              href={links.getStarted}
+              variant="secondary"
+            >
+              Read the Docs <BookText />
+            </Button>
+
+            <MainCta variant="accent" className="min-w-[170px]" />
+          </div>
         </div>
-        <FlexibleDataTypes />
-        {/*<ZeroCodeDb />*/}
-        <DynamicApis />
-        <FileStorage />
-        <FlatAndNestedData />
-        <BlinkingRecords />
-        <DataProcessing />
-      </Section>
+        {/* </ShaftContainer> */}
+      </motion.section>
     </>
   );
-}
+};
