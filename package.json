@@ -9,7 +9,6 @@
     "lint": "node_modules/.bin/next lint"
   },
   "dependencies": {
-    "@radix-ui/react-switch": "^1.0.3",
     "@radix-ui/react-tabs": "^1.0.4",
     "classnames": "2.3.2",
     "framer-motion": "10.12.16",

@@ -4,19 +4,12 @@ import {
   Code,
   Cpu,
   FileText,
-  GitBranch,
   Layers,
   Search,
   Zap,
 } from "lucide-react";
 import Link from "next/link";
-import {
-  CSSProperties,
-  FunctionComponent,
-  ReactNode,
-  useEffect,
-  useState,
-} from "react";
+import { CSSProperties, FunctionComponent, ReactNode } from "react";
 import { Section } from "~/components/Section";
 import { WireBox } from "~/components/WireBox";
 import { links } from "~/config/urls";
