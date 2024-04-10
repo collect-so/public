@@ -6,15 +6,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  output: "standalone",
-  distDir: "dist",
-
-  exportPathMap: async (
-    defaultPathMap,
-    { dev, dir, outDir, distDir, buildId },
-  ) => ({
-    "/": { page: "/" },
-  }),
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,

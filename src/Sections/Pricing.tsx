@@ -5,16 +5,12 @@ import {
   SectionSubtitle,
   SectionTitle,
 } from "~/components/Section";
-import { Switch } from "~/components/Switch";
-
-const ID = "cloud";
 
 import { ComponentPropsWithoutRef, FunctionComponent, ReactNode } from "react";
 import cx from "classnames";
-import { Button, variants } from "~/components/Button";
-import { ArrowUpRight, BookOpen, Check, Github } from "lucide-react";
-import { IconDiscord } from "~/components/Layout/IconDiscord";
-import { IconX } from "~/components/Layout/IconX";
+import { Button } from "~/components/Button";
+import { ArrowUpRight, Check, Github } from "lucide-react";
+
 import Link from "next/link";
 import { links, socials } from "~/config/urls";
 import { Tab, Tabs, TabsList } from "~/components/Tabs";
