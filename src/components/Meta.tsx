@@ -4,7 +4,7 @@ import { getAbsoluteURL } from "~/utils";
 export const defaultTitle = "Efficient Backend, In Minutes";
 
 export const defaultDescription =
-  "Open-source zero-configuration REST Backend with database and storage out of the box. Fully customizable and typesafe.";
+  "Zero-config REST Backend. Fully customizable and typesafe.";
 
 export const Meta = ({
   title = defaultTitle,

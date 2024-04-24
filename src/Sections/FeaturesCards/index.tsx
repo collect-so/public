@@ -35,60 +35,63 @@ const colorsBorder = {
 
 const feats = [
   {
-    icon: Cpu,
-    title: "Kept Simple, Stupid",
-    description:
-      "No AI, just streamlined logic that ensures our system remains steadfast and error-free. It’s the backbone of Collect, ensuring your backend is always up and running, no surprises.",
-    color: "orange",
-  },
-  {
     icon: Zap,
     title: "Easy Setup",
     description: (
       <>
-        Create your account, secure an API key, and hit the ground running. Just
-        a quick read through our{" "}
-        <CardLink href={links.getStarted}>Getting Started</CardLink> page (2
-        min) equips you with all you need. Further actions and integrations are
-        detailed within our comprehensive docs, guiding your seamless start.
+        Create an account, obtain an API Token, and hit the ground running. Just
+        a quick read through{" "}
+        <CardLink href={links.getStarted}>Getting Started</CardLink> guide (2
+        mins read) equips you with all you need.
       </>
     ),
 
     color: "purple",
   },
   {
+    icon: Cpu,
+    title: "Kept Simple and Efficient",
+    description: (
+      <>
+        Performance is Collect's top priority. Streamlined architecture ensures
+        API remains steadfast even in complex scenarios. Always up and running,
+        no surprises.
+      </>
+    ),
+    color: "orange",
+  },
+  {
     icon: Search,
-    title: "Advanced Search & Insights",
+    title: "Ultimate Searching Features",
     color: "blue",
     description: (
       <>
-        Effortlessly find records by properties like 'color: red' or 'size:
-        &gt;41'. Plus, easily create your own search or autocomplete by tapping
-        into /properties and /values endpoints, employing our robust filtering
-        system for dynamic, user-driven queries.
+        Navigating through large and complex dataset is always challenging.
+        Building feature-reach search engines with Collect is not a big deal
+        anymore. Even for truly complex scenarios.
       </>
     ),
   },
   {
     icon: Code,
     color: "pink",
-    title: "TypeScript SDK",
+    title: "Type Safe by Design",
     description:
-      "Enjoy auto-generated types that ensure your code is clean, efficient, and error-free.",
+      "Enjoy automated types inference and suggestions without actually writing any types and interfaces. That ensures your code is clean, efficient, and error-free.",
   },
   {
     icon: FileText,
     color: "green",
     title: "File Storage",
     description:
-      "Access, share, and manage files. And for those who prefer their own S3 solutions, integration is seamless.",
+      "Binary data is crucial. Collect allows store and manage files. It seamlessly integrated into data storage, enabling everyone build comprehensive solutions.",
   },
   {
     icon: Layers,
     color: "red",
     title: "Framework Agnostic",
     description:
-      "Collect seamlessly integrates with any development framework, enabling you to incorporate its powerful data management capabilities into your projects, regardless of the tech stack.",
+      "Collect could be easily integrated into any stack and any programming language with no hassle through robust and powerful REST API and SDK while keeping things simple.",
   },
 ] as const;
 

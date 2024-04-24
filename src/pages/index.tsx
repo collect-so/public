@@ -1,10 +1,9 @@
 import { Layout } from "~/components/Layout";
-
-import { Hero } from "~/sections/Hero";
-import { FeaturesCards } from "~/sections/FeaturesCards";
-import { WorkflowSection } from "~/sections/Workflow";
-import { CommunitySection } from "~/sections/Community";
-import { Pricing } from "~/sections/Pricing";
+import { FeaturesCards } from "~/Sections/FeaturesCards";
+import { Hero } from "~/Sections/Hero";
+import { WorkflowSection } from "~/Sections/Workflow";
+import { CommunitySection } from "~/Sections/Community";
+import { Pricing } from "~/Sections/Pricing";
 
 export default function Home() {
   return (

@@ -13,11 +13,130 @@ const examples = ["API", "SDK", "Dashboard"] as const;
 
 const chipVariants = {
   yellow: "border-accent-yellow text-accent-yellow",
+  green: "border-accent-green text-accent-green",
   blue: "border-accent-blue text-accent-blue",
   red: "border-accent-red text-accent-red",
   purple: "border-accent-purple text-accent-purple",
   orange: "border-accent-orange text-accent-orange",
 };
+
+const initializeCodeBlock = `// Simple as that
+const Collect = new CollectAPI("API_TOKEN")`;
+
+const definingModelCodeBlock = `// Optionally define Models 
+const UserModel = new CollectModel("USER", {
+  name: { type: 'string' },
+  email: { type: 'string', uniq: true },
+  age: { type: 'number', required: false },
+  createdAt: { 
+    type: 'datetime',
+    default: new Date().toISOString 
+  }
+})
+
+const UserRepo = Collect.registerModel(UserModel)`;
+
+const createCodeBlock = `// Create single Record
+const user = await UserRepo.create({
+  email: "paul.schmitz@mail.com",
+  name: "Pual Schmitz",
+  age: 47
+})`;
+
+const createManyCodeBlock = `// Create multiple Records at once
+const catalog = await Collect.records.createMany(
+  "CATEGORY", 
+  [
+    {
+      title: "Sports and Travel",
+      sidebarOrder: 5
+      
+      // Related Records
+      PRODUCT: [
+        {
+          name: "Portable Gas Stove"
+          price: 65
+        },
+        {
+          name: "Sleeping Bag XL"
+          price: 29
+        },
+      ]
+    }
+  ]
+)`;
+
+const basicSearchCodeBlock = `// Simple search 
+const customers = await CustomerRepo.find({
+  where: {
+    createdAt: {
+      $gte: { 
+        $year: 2021,
+        $month: 6
+      }
+    },
+    name: {
+      $startsWith: "P"
+    }
+  },
+  orderBy: { balance: "asc" }
+})`;
+
+const relatedSearchCodeBlock = `// Related search 
+const orders = await OrderRepo.find({
+  where: {
+    sum: { $gt: 641 },
+    PRODUCT: {
+      brand: "Apple",
+      CATEGORY: {
+        title: "Accessories"
+      }
+    }
+  }
+})`;
+
+const transactionalAndSafeCodeBlock = `// Start Transaction
+const tx = await Collect.tx.begin() 
+
+try {
+  const order = await OrderRepo.create(
+    {...},
+    tx  // <-- Transaction
+  )
+  
+  const merchant = await MerchantRepo.findOne(
+    {...},
+    tx // <-- Transaction
+  )
+  
+  const { balance } = merchant.data
+  await merchant.update(
+    {
+      balance: balance + order.data.sum,
+    }, 
+    tx // <-- Transaction
+  )
+  
+  // Commit Transaction
+  await tx.commit() 
+} catch (error) {
+  
+  // Rollback Transaction if error occurred
+  await tx.rollback() 
+}
+`;
+
+const deleteComplexCodeBlock = `// Delete Records based on complex criteria 
+await CommentsRepo.delete({
+  where: {
+    text: {
+      $in: [ "^*%&#", "@#*%&#", "$#@&&%" ]
+    },
+    USER: {
+      email: "rude.troll@mail.com"
+    }
+  }
+})`;
 
 const Chip = ({
   variant = "yellow",
@@ -89,10 +208,10 @@ const Option = ({
 
 const scenarios = [
   {
-    title: "Quick Data Entry and Bulk Imports",
+    title: "Whole API in a single line",
     description:
-      "Whether you're crafting individual records or importing millions, do it in milliseconds. Your data’s format doesn’t constrain you; Collect adapts to it, paving the way for immediate building.",
-    subtitle: <Chip variant="purple">Create</Chip>,
+      "Obtain an API Token in Dashboard and you're good to go. Optionally define Models to benefit from automated types inference. Collect is designed to process data of any shape.",
+    subtitle: <Chip variant="purple">Setup</Chip>,
     // cta: "Learn About Data Import",
     examples: {
       Dashboard: (
@@ -124,59 +243,102 @@ const scenarios = [
       ),
       SDK: (
         <div className="flex flex-col gap-3">
-          <CodeBlock
-            code={`const user = await Collect.save("user", {
-    name: "Wolfgang Bogdanov"
-  )`}
-          />
-          <CodeBlock
-            code={`const user = await Collect.save("user", {
-    name: "Wolfgang Bogdanov"
-  )`}
-          />
-          <CodeBlock
-            code={`const user = await Collect.save("user", {
-    name: "Wolfgang Bogdanov"
-  )`}
-          />
+          <CodeBlock code={initializeCodeBlock} />
+          <CodeBlock code={definingModelCodeBlock} />
         </div>
       ),
       API: <></>,
     },
   },
   {
-    title: "Tailored Data Fetching",
+    title: "Instant Records Creation",
     description:
-      "Seamlessly fetch a specific entry or filter through complex datasets—all within 50ms. Collect also supports queries for related and nested data, ensuring comprehensive access for your application's needs",
-    subtitle: <Chip variant="blue">Read</Chip>,
-    cta: "Explore Collect's Filtering System",
+      "Whether you're pushing single Record or importing thousands of them, do it in milliseconds. Your data’s shape doesn’t constrain you because Collect adapts to it on the fly.",
+    subtitle: <Chip variant="yellow">Create</Chip>,
+    // cta: "Learn About Data Import",
     examples: {
-      Dashboard: <></>,
-      SDK: <></>,
+      Dashboard: (
+        <div
+          className="relative w-full aspect-video"
+          // style={{ perspective: "100px" }}
+        >
+          <video
+            className="absolute inset-0 w-full aspect-video object-contain hover:opacity-50 cursor-pointer rounded-lg border-[5px] border-stroke-dark/10 bg-fill shadow-2xl"
+            // style={{ transform: "rotateY(-1deg)" }}
+            width="1920  "
+            height="1072"
+            preload="none"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source src="/videos/create.mov" type="video/mp4" />
+            <track
+              src="/path/to/captions.vtt"
+              kind="subtitles"
+              srcLang="en"
+              label="English"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      ),
+      SDK: (
+        <div className="flex flex-col gap-3">
+          <CodeBlock code={createCodeBlock} />
+          <CodeBlock code={createManyCodeBlock} />
+        </div>
+      ),
       API: <></>,
     },
   },
   {
-    title: "Update Records and Manage Transactions",
+    title: "Ultimately Powerful Search",
     description:
-      "Apply changes to multiple records at once using our SearchDto, or target individual records. For complex changes, our transaction feature safeguards your data’s consistency and reliability, making intricate updates straightforward.",
+      "Precisely fetch any piece of data regardless of its complexity. Thanks to graph architecture and algos behind. Build complex queries effortlessly using Related Search capabilities, $AND, $OR, $NOT, $XOR operators and others.",
+    subtitle: <Chip variant="green">Read</Chip>,
+    cta: "Explore Collect's Filtering System",
+    examples: {
+      Dashboard: <></>,
+      SDK: (
+        <div className="flex flex-col gap-3">
+          <CodeBlock code={basicSearchCodeBlock} />
+          <CodeBlock code={relatedSearchCodeBlock} />
+        </div>
+      ),
+      API: <></>,
+    },
+  },
+  {
+    title: "Designed to be transactional and safe",
+    description:
+      "Having CRUD is obvious. For complex changes, Collect's transaction feature safeguards data’s consistency and reliability, making intricate updates straightforward and predictable.",
     subtitle: <Chip variant="orange">Update</Chip>,
     cta: "Master Updates & Transactions",
     examples: {
       Dashboard: <></>,
-      SDK: <></>,
+      SDK: (
+        <div className="flex flex-col gap-3">
+          <CodeBlock code={transactionalAndSafeCodeBlock} />
+        </div>
+      ),
       API: <></>,
     },
   },
   {
-    title: "Safely Remove Data",
+    title: "Deleting is not that boring too",
     description:
-      "Collect offers a secure way to delete data, whether you're removing a single record or clearing multiple entries. Utilize our detailed criteria for targeted deletions, ensuring only the intended data is removed, while our transaction system provides an extra layer of safety for bulk operations.",
+      "As the most of others operations Deletion is also relying on the same API. It allows to wipe out data precisely based on specific criteria.",
     subtitle: <Chip variant="red">Delete</Chip>,
     cta: "Explore Safe Deletion Practices",
     examples: {
       Dashboard: <></>,
-      SDK: <></>,
+      SDK: (
+        <div className="flex flex-col gap-3">
+          <CodeBlock code={deleteComplexCodeBlock} />
+        </div>
+      ),
       API: <></>,
     },
   },
@@ -191,15 +353,10 @@ export function WorkflowSection() {
       <SectionHeader>
         <SectionTitle>Transform Your Workflow</SectionTitle>{" "}
         <SectionSubtitle>
-          Discover how Collect seamlessly integrates into your development
-          process, adapting to your needs through Dashboard, API, or SDK.
-          Whether you're creating data, managing projects, or integrating
-          complex systems, explore usage scenarios that highlight Collect's
-          versatility in action.
-          {/* 
-          (Every app starts with Create, Read, Update, Delete (CRUD). Collect
-          lets you define and modify your data entries with ease. Just add your
-          data, and start building from there.) */}
+          Collect is aiming development to become totally routine free. Whether
+          you're just started or already making something big, Collect
+          seamlessly integrates into existing development process, adapting to
+          its needs through Dashboard, APIs, and SDKs.
         </SectionSubtitle>
       </SectionHeader>
 
