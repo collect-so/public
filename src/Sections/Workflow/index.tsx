@@ -112,7 +112,7 @@ try {
   const { balance } = merchant.data
   await merchant.update(
     {
-      balance: balance + order.data.sum,
+      balance: balance + order.data.sum
     }, 
     tx // <-- Transaction
   )
