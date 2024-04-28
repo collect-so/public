@@ -223,9 +223,9 @@ const Option = ({
 
 const scenarios = [
   {
-    title: "Whole API in a single line",
+    title: "Whole API in a Single Line",
     description:
-      "Obtain an API Token in Dashboard and you're good to go. Optionally define Models to benefit from automated types inference. Collect is designed to process data of any shape.",
+      "Obtain an API Token through the Dashboard and you're good to go. Optionally, define Models to benefit from automated type inference. Collect is designed to process data of any shape.",
     subtitle: <Chip variant="purple">Setup</Chip>,
     // cta: "Learn About Data Import",
     examples: {
@@ -273,7 +273,7 @@ const scenarios = [
   {
     title: "Instant Records Creation",
     description:
-      "Whether you're pushing single Record or importing thousands of them, do it in milliseconds. Your data’s shape doesn’t constrain you because Collect adapts to it on the fly.",
+      "Whether you're pushing a single Record or importing thousands of them, do it in milliseconds. Your data’s shape doesn’t constrain you because Collect adapts to it on the fly.",
     subtitle: <Chip variant="yellow">Create</Chip>,
     // cta: "Learn About Data Import",
     examples: {
@@ -314,16 +314,16 @@ const scenarios = [
     },
   },
   {
-    title: "Search. Ultimately Powerful",
-    description: (
-      <>
-        Precisely fetch any piece of data regardless of its complexity. Thanks
-        to graph architecture and algos behind. Build complex queries
-        effortlessly using Related Search capabilities, <code>$AND</code>,{" "}
-        <code>$OR</code>,<code>$NOT</code>, <code>$XOR</code> operators and
-        others.
-      </>
-    ),
+      title: "Ultimately Powerful Search",
+      description: (
+          <>
+              Precisely fetch any piece of data regardless of its complexity. Thanks
+              to graph architecture and algos behind. Build complex queries
+              effortlessly using Related Search capabilities, <code>$AND</code>,{" "}
+              <code>$OR</code>,<code>$NOT</code>, <code>$XOR</code> operators and
+              others.
+          </>
+      ),
     subtitle: <Chip variant="green">Read</Chip>,
     cta: "Explore Collect's Filtering System",
     examples: {
@@ -338,9 +338,9 @@ const scenarios = [
     },
   },
   {
-    title: "Designed to be transactional and safe",
+    title: "Designed to be Transactional & Safe",
     description:
-      "Having CRUD is obvious. For complex changes, Collect's transaction feature safeguards data’s consistency and reliability, making intricate updates straightforward and predictable.",
+      "Having a CRUD is obvious. For complex changes, Collect's transaction feature safeguards data’s consistency and reliability, making intricate updates straightforward and predictable.",
     subtitle: <Chip variant="orange">Update</Chip>,
     cta: "Master Updates & Transactions",
     examples: {
@@ -354,9 +354,9 @@ const scenarios = [
     },
   },
   {
-    title: "Deleting is not that boring too",
+    title: "Deleting is Not That Boring Too",
     description:
-      "As the most of others operations Deletion is also relying on the same API. It allows to wipe out data precisely based on specific criteria.",
+      "Like most other operations, Deletion also relies on the same API. It allows data to be wiped out precisely based on specific criteria.",
     subtitle: <Chip variant="red">Delete</Chip>,
     cta: "Explore Safe Deletion Practices",
     examples: {
@@ -380,10 +380,10 @@ export function WorkflowSection() {
       <SectionHeader>
         <SectionTitle>Transform Your Workflow</SectionTitle>{" "}
         <SectionSubtitle>
-          Collect is aiming development to become totally routine free. Whether
-          you're just started or already making something big, Collect
-          seamlessly integrates into existing development process, adapting to
-          its needs through Dashboard, APIs, and SDKs.
+          Collect aims to make development completely routine-free. Whether
+          you've just started or are already working on something big, Collect
+          seamlessly integrates into your existing development process. It
+          adapts to your needs through the Dashboard, APIs, and SDKs.
         </SectionSubtitle>
       </SectionHeader>
 

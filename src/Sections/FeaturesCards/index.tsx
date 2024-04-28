@@ -66,8 +66,8 @@ const feats = [
     color: "blue",
     description: (
       <>
-        Navigating through large and complex dataset is always challenging.
-        Building feature-reach search engines with Collect is not a big deal
+        Navigating through large and complex datasets is always challenging.
+        Building feature-rich search engines with Collect is not a big deal
         anymore. Even for truly complex scenarios.
       </>
     ),
@@ -77,21 +77,21 @@ const feats = [
     color: "pink",
     title: "Type Safe by Design",
     description:
-      "Enjoy automated types inference and suggestions without actually writing any types and interfaces. That ensures your code is clean, efficient, and error-free.",
+      "Enjoy automated type inference and suggestions without writing any types or interfaces. This ensures your code remains clean, efficient, and error-free.",
   },
   {
     icon: FileText,
     color: "green",
     title: "File Storage",
     description:
-      "Binary data is crucial. Collect allows store and manage files. It seamlessly integrated into data storage, enabling everyone build comprehensive solutions.",
+      "Binary data is crucial. Collect allows you to store and manage files. It is seamlessly integrated into data storage, enabling everyone to build comprehensive solutions.",
   },
   {
     icon: Layers,
     color: "red",
     title: "Framework Agnostic",
     description:
-      "Collect could be easily integrated into any stack and any programming language with no hassle through robust and powerful REST API and SDK while keeping things simple.",
+      "Collect could be easily integrated into any stack and any programming language through robust and powerful REST API and SDK, while keeping things simple.",
   },
 ] as const;
 
