@@ -139,7 +139,7 @@ export function Pricing() {
               price={5}
               featured
               title="Pro"
-              description="Monthly per Project"
+              description="Monthly"
               action={
                 <Button
                   size="small"

@@ -23,11 +23,26 @@ const chipVariants = {
 const initializeCodeBlock = `// Simple as that
 const Collect = new CollectAPI("API_TOKEN")`;
 
+const initializeApiCodeBlock = `curl 'https://api.collect.so' \\
+  -H 'Content-Type: application/json' \\
+  -H 'Token: API_TOKEN' \\
+  -H ... \\
+`;
+
+const initializeApiFetchCodeBlock = `fetch("https://api.collect.so", {
+  "headers": {
+    "content-type": "application/json",
+    "token": "API_TOKEN",
+    ...
+  }
+});`;
+
 const definingModelCodeBlock = `// Optionally define Models 
 const UserModel = new CollectModel("USER", {
   name: { type: 'string' },
   email: { type: 'string', uniq: true },
   age: { type: 'number', required: false },
+  permissions: { type: 'string', multiple: true },
   createdAt: { 
     type: 'datetime',
     default: new Date().toISOString 
@@ -66,7 +81,7 @@ const catalog = await Collect.records.createMany(
   ]
 )`;
 
-const basicSearchCodeBlock = `// Simple search 
+const basicSearchCodeBlock = `// Basic search 
 const customers = await CustomerRepo.find({
   where: {
     createdAt: {
@@ -247,7 +262,12 @@ const scenarios = [
           <CodeBlock code={definingModelCodeBlock} />
         </div>
       ),
-      API: <></>,
+      API: (
+        <div className="flex flex-col gap-3">
+          <CodeBlock code={initializeApiCodeBlock} />
+          <CodeBlock code={initializeApiFetchCodeBlock} />
+        </div>
+      ),
     },
   },
   {
@@ -294,9 +314,16 @@ const scenarios = [
     },
   },
   {
-    title: "Ultimately Powerful Search",
-    description:
-      "Precisely fetch any piece of data regardless of its complexity. Thanks to graph architecture and algos behind. Build complex queries effortlessly using Related Search capabilities, $AND, $OR, $NOT, $XOR operators and others.",
+    title: "Search. Ultimately Powerful",
+    description: (
+      <>
+        Precisely fetch any piece of data regardless of its complexity. Thanks
+        to graph architecture and algos behind. Build complex queries
+        effortlessly using Related Search capabilities, <code>$AND</code>,{" "}
+        <code>$OR</code>,<code>$NOT</code>, <code>$XOR</code> operators and
+        others.
+      </>
+    ),
     subtitle: <Chip variant="green">Read</Chip>,
     cta: "Explore Collect's Filtering System",
     examples: {

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { getAbsoluteURL } from "~/utils";
 
-export const defaultTitle = "Efficient Backend, In Minutes";
+export const defaultTitle = "Instant Backend, In a Single Line";
 
 export const defaultDescription =
   "Zero-config REST Backend. Fully customizable and typesafe.";
