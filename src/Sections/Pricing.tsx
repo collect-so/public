@@ -52,7 +52,7 @@ function PricingCard({
   return (
     <article
       className={cx(
-        "flex flex-col items-center text-center bg-secondary rounded-xl first:rounded-l-3xl last:rounded-r-3xl [&:first-child>div]:rounded-l-[20px] [&:last-child>div]:rounded-r-[20px] shadow-lg p-1",
+        "flex flex-col items-center text-center bg-secondary rounded-xl first:rounded-l-3xl last:rounded-r-3xl [&:first-child>div]:rounded-l-[20px] [&:last-child>div]:rounded-r-[20px] shadow-lg p-1 sm:!rounded-xl",
         featured
           ? "bg-gradient-to-br from-accent-hover to-accent-orange"
           : "bg-secondary",
@@ -62,7 +62,7 @@ function PricingCard({
     >
       <div
         className={cx(
-          "flex h-full w-full flex-col items-center rounded-lg p-5",
+          "flex h-full w-full flex-col items-center rounded-lg p-5 sm:!rounded-lg",
           featured ? "bg-fill" : "bg-secondary",
         )}
       >

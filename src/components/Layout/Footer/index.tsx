@@ -13,7 +13,7 @@ export function Footer() {
       data-theme="dark"
       as="footer"
     >
-      <div className="container py-16">
+      <div className="container py-16 sm:py-0">
         <div className="grid grid-cols-2 sm:grid-cols-1 gap-4 items-start sm:text-center">
           <div className="justify-self-start sm:justify-self-center sm:order-2 sm:mt-5">
             <div className="flex gap-10">

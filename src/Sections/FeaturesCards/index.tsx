@@ -9,11 +9,12 @@ import {
   Zap,
 } from "lucide-react";
 import Link from "next/link";
-import { CSSProperties, FunctionComponent, ReactNode } from "react";
+import { FunctionComponent, ReactNode } from "react";
+import { Grid, GridItem } from "~/components/Grid";
+
 import { Section } from "~/components/Section";
 import { WireBox } from "~/components/WireBox";
 import { links } from "~/config/urls";
-import { useMediaQuery } from "~/hooks/useMediaQuery";
 
 const colors = {
   orange: "text-accent-orange",
@@ -100,40 +101,28 @@ const Feat = ({
   description,
   icon: Icon,
   color = "orange",
-  firstOfLastRow,
-  firstRow,
-  lastOfFirstRow,
-  lastRow,
-  firstOfMiddleRow,
-  lastOfMiddleRow,
+  idx,
 }: {
   title: ReactNode;
   description: ReactNode;
   icon: FunctionComponent<{ className?: string }>;
   color: keyof typeof colors;
-  firstOfLastRow?: boolean;
-  lastRow?: boolean;
-  firstRow?: boolean;
-  lastOfFirstRow?: boolean;
-  middleRow?: boolean;
-  firstOfMiddleRow?: boolean;
-  lastOfMiddleRow?: boolean;
+  idx: number;
 }) => {
   return (
-    <article
+    <GridItem
+      idx={idx}
+      lastOfFirstRow="!bg-gradient-to-bl !rounded-tr-3xl"
+      firstOfLastRow="!bg-gradient-to-tr !rounded-bl-3xl"
+      firstOfMiddleRow="bg-gradient-to-r"
+      lastOfMiddleRow="bg-gradient-to-l"
+      middleOfFirstRow="bg-gradient-to-b"
+      middleOfLastRow="bg-gradient-to-t"
       className={classNames(
-        "p-0.5 rounded-xl relative group grid to-stroke",
         colorsBorder[color],
+        "p-0.5 rounded-xl relative group grid to-stroke",
         "first:bg-gradient-to-br first:rounded-tl-3xl",
         "last:bg-gradient-to-tl last:rounded-br-3xl",
-        {
-          "bg-gradient-to-b": firstRow && !lastOfFirstRow,
-          "bg-gradient-to-bl rounded-tr-3xl": lastOfFirstRow,
-          "bg-gradient-to-t": lastRow && !firstOfLastRow,
-          "bg-gradient-to-tr rounded-bl-3xl": firstOfLastRow,
-          "bg-gradient-to-r": firstOfMiddleRow,
-          "bg-gradient-to-l": lastOfMiddleRow,
-        },
       )}
     >
       <div
@@ -171,7 +160,7 @@ const Feat = ({
           <p className="typography-base text-content2">{description}</p>
         </div>
       </div>
-    </article>
+    </GridItem>
   );
 };
 
@@ -187,33 +176,10 @@ function CardLink({ href, children }: { href: string; children: ReactNode }) {
 }
 
 export function FeaturesCards() {
-  const desktop = useMediaQuery("(min-width: 1200px)");
-  const tablet = useMediaQuery("(min-width: 768px)");
-
-  const totalItems = feats.length;
-  const columns = desktop ? 3 : tablet ? 2 : 1;
-  const rows = Math.ceil(totalItems / columns);
-  const firstOfLastRow = (rows - 1) * columns;
-
   return (
     <Section className="container">
-      <div
-        className={classNames(
-          "grid gap-7 grid-cols-[repeat(var(--columns),_minmax(0,_1fr))]",
-        )}
-        style={
-          {
-            "--columns": columns,
-          } as CSSProperties
-        }
-      >
+      <Grid className="gap-5" desktopCols={3} tabletCols={2} mobileCols={1}>
         {feats.map((feat, idx) => {
-          const firstRow = idx < columns - 1;
-          const lastRow = idx > firstOfLastRow;
-          const middleRow = !firstRow && !lastRow;
-          const firstOfRow = idx % columns === 0;
-          const lastOfRow = idx % columns === columns - 1;
-
           return (
             <Feat
               key={feat.title}
@@ -221,17 +187,11 @@ export function FeaturesCards() {
               title={feat.title}
               description={feat.description}
               color={feat.color}
-              firstOfLastRow={idx === firstOfLastRow}
-              lastOfFirstRow={idx === columns - 1}
-              firstRow={firstRow}
-              lastRow={lastRow}
-              middleRow={middleRow}
-              firstOfMiddleRow={middleRow && firstOfRow}
-              lastOfMiddleRow={middleRow && lastOfRow}
+              idx={idx}
             />
           );
         })}
-      </div>
+      </Grid>
     </Section>
   );
 }

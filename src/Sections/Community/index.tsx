@@ -12,6 +12,8 @@ import { IconDiscord } from "~/components/Layout/IconDiscord";
 import { IconX } from "~/components/Layout/IconX";
 import Link from "next/link";
 import { socials } from "~/config/urls";
+import { RoundedGridItem } from "~/components/RoundedGrid";
+import { Grid } from "~/components/Grid";
 
 function CommunityCard({
   title,
@@ -19,17 +21,20 @@ function CommunityCard({
   action,
   icon: Icon,
   className,
+  idx,
   ...props
 }: ComponentPropsWithoutRef<"div"> & {
   title: ReactNode;
   description: ReactNode;
   action: ReactNode;
   icon: FunctionComponent<{ className?: string }>;
+  idx: number;
 }) {
   return (
-    <div
+    <RoundedGridItem
+      idx={idx}
       className={cx(
-        "flex flex-col items-center text-center p-6 gap-3 bg-secondary rounded-lg first:rounded-l-3xl last:rounded-r-3xl",
+        "flex flex-col items-center text-center p-6 gap-3 bg-secondary ",
         className,
       )}
       {...props}
@@ -42,7 +47,7 @@ function CommunityCard({
       <p className="mb-3 text-content2">{description}</p>
 
       <div className="mt-auto grid w-full">{action}</div>
-    </div>
+    </RoundedGridItem>
   );
 }
 
@@ -58,8 +63,14 @@ export function CommunitySection() {
         </SectionSubtitle>
       </SectionHeader>
 
-      <div className="grid grid-cols-4 gap-3 md:grid-cols-2 sm:grid-cols-1">
+      <Grid
+        desktopCols={4}
+        tabletCols={2}
+        mobileCols={1}
+        className="grid gap-3"
+      >
         <CommunityCard
+          idx={0}
           title="Blog"
           description="Read the latest news and product updates from the Collect Blog."
           action={
@@ -76,6 +87,7 @@ export function CommunitySection() {
           icon={BookOpen}
         />
         <CommunityCard
+          idx={1}
           title="Discord"
           description="Join our Discord community to chat with other developers and the Collect team."
           action={
@@ -92,6 +104,7 @@ export function CommunitySection() {
           icon={IconDiscord}
         />
         <CommunityCard
+          idx={2}
           title="X (Twitter)"
           description="Stay up to date with the latest news from Collect."
           action={
@@ -103,6 +116,7 @@ export function CommunitySection() {
           icon={IconX}
         />
         <CommunityCard
+          idx={3}
           title="Github"
           description="Dive into our GitHub repository to contribute, explore issues, and suggest enhancements."
           action={
@@ -118,7 +132,7 @@ export function CommunitySection() {
           }
           icon={Github}
         />
-      </div>
+      </Grid>
     </Section>
   );
 }
