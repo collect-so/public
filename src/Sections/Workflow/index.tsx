@@ -180,8 +180,8 @@ function UsageScenario({
   example: ReactNode;
 }) {
   return (
-    <div className="min-h-[500px] py-10 grid grid-cols-2 content-start justify-items-center gap-10">
-      <div className="flex flex-col items-start col-span-1 pt-16 gap-3 justify-self-start">
+    <div className="min-h-[500px] py-10 grid grid-cols-2 content-start justify-items-center gap-10 sm:grid-cols-1">
+      <div className="flex flex-col items-start col-span-1 pt-16 gap-3 justify-self-start sm:pt-0">
         {subtitle}
 
         {typeof title === "string" ? (
@@ -208,7 +208,7 @@ const Option = ({
   return (
     <button
       className={cx(
-        "px-5 h-[44px] rounded-xl transition-colors",
+        "px-5 h-[44px] rounded-xl transition-colors sm:px-0 sm:text-[14px]",
         selected
           ? "bg-accent text-accent-contrast hover:bg-accent-hover font-semibold"
           : "text-content hover:bg-secondary font-medium",
@@ -314,16 +314,16 @@ const scenarios = [
     },
   },
   {
-      title: "Ultimately Powerful Search",
-      description: (
-          <>
-              Precisely fetch any piece of data regardless of its complexity. Thanks
-              to graph architecture and algos behind. Build complex queries
-              effortlessly using Related Search capabilities, <code>$AND</code>,{" "}
-              <code>$OR</code>,<code>$NOT</code>, <code>$XOR</code> operators and
-              others.
-          </>
-      ),
+    title: "Ultimately Powerful Search",
+    description: (
+      <>
+        Precisely fetch any piece of data regardless of its complexity. Thanks
+        to graph architecture and algos behind. Build complex queries
+        effortlessly using Related Search capabilities, <code>$AND</code>,{" "}
+        <code>$OR</code>,<code>$NOT</code>, <code>$XOR</code> operators and
+        others.
+      </>
+    ),
     subtitle: <Chip variant="green">Read</Chip>,
     cta: "Explore Collect's Filtering System",
     examples: {
@@ -400,8 +400,8 @@ export function WorkflowSection() {
           ))}
         </div>
 
-        <div className="bottom-0 sticky pb-6 grid grid-cols-2">
-          <div className="bg-fill/40 backdrop-blur-sm shadow-2xl border border-stroke-dark p-1 rounded-2xl w-full col-start-2 grid grid-cols-3">
+        <div className="bottom-0 sticky pb-6 grid grid-cols-2 sm:grid-cols-1">
+          <div className="bg-fill/40 backdrop-blur-sm shadow-2xl border border-stroke-dark p-1 rounded-2xl w-full col-start-2 grid grid-cols-3 sm:col-start-1 sm:px-0">
             {examples.map((example) => (
               <Option
                 key={example}

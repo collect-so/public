@@ -15,7 +15,7 @@ export const TabsList = forwardRef<
 >(({ className, ...props }, ref) => (
   <List
     className={cn(
-      "relative inline-flex gap-1 overflow-auto bg-fill2 rounded-lg px-2 py-2 sm:px-5",
+      "relative inline-flex gap-1 overflow-auto bg-fill2 rounded-lg px-2 py-2 sm:w-full",
       className,
     )}
     ref={ref}
@@ -37,7 +37,7 @@ const TabInner: TPolymorphicComponent<{ layoutId?: string }, "button"> =
       return (
         <Component
           className={cn(
-            "relative z-10 inline-flex h-9 shrink-0 items-center gap-3 whitespace-nowrap rounded-md px-3 text-sm font-medium  outline-none focus-visible:ring [&>svg]:h-[16px] [&>svg]:w-[16px] min-w-48 text-center justify-center",
+            "relative z-10 inline-flex h-9 shrink-0 items-center gap-3 whitespace-nowrap rounded-md px-3 text-sm font-medium  outline-none focus-visible:ring [&>svg]:h-[16px] [&>svg]:w-[16px] min-w-48 text-center justify-center sm:min-w-0 sm:flex-1",
             {
               "text-content2 transition hover:text-content": !active,
             },

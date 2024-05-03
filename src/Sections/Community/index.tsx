@@ -58,7 +58,7 @@ export function CommunitySection() {
         </SectionSubtitle>
       </SectionHeader>
 
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-4 gap-3 md:grid-cols-2 sm:grid-cols-1">
         <CommunityCard
           title="Blog"
           description="Read the latest news and product updates from the Collect Blog."

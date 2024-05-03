@@ -63,7 +63,7 @@ a {
 }
 
 .typography-2xl {
-  @apply relative text-2xl font-bold tracking-tight md:leading-[3rem] md:text-xl sm:leading-[2.5rem] sm:text-base;
+  @apply relative text-2xl font-bold tracking-tight md:leading-[3rem] md:text-xl sm:leading-[2.5rem];
 }
 
 .typography-xl {

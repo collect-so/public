@@ -30,21 +30,16 @@ export const Hero = () => {
 
   return (
     <>
-      <div className="h-[70dvh]" aria-hidden ref={spacerRef} />
+      <div className="h-[70dvh] sm:hidden" aria-hidden ref={spacerRef} />
 
       <motion.section
-        className={"h-[100dvh] grid place-content-center fixed z-0 inset-0"}
+        className={
+          "h-[100dvh] container grid place-content-center fixed z-0 inset-0 sm:place-content-start sm:pt-48 sm:static sm:h-auto sm:!opacity-100"
+        }
         style={{ opacity }}
       >
-        {/* <ShaftContainer> */}
-        <div className="flex flex-col gap-10 relative z-0">
+        <div className="flex flex-col gap-10 relative z-0 sm:h-auto">
           <div className="flex flex-col gap-5">
-            {/* <h1
-              className={cx("typography-4xl !mb-0 font-special md:text-2xl ")}
-            >
-              {defaultTitle}
-            </h1> */}
-
             <LetterTypingText
               as="h1"
               className={cx("typography-4xl !mb-0 font-special md:text-2xl ")}
@@ -56,17 +51,9 @@ export const Hero = () => {
             <p className={cx("typography-base max-w-3xl text-content2")}>
               {defaultDescription}
             </p>
-
-            {/* <LetterTypingText
-              as="p"
-              className="typography-base max-w-3xl text-content2"
-              animate
-            >
-              {defaultDescription}
-            </LetterTypingText> */}
           </div>
 
-          <div className="flex gap-4">
+          <div className="flex gap-4 sm:flex-col">
             <Button
               className="min-w-[170px]"
               as={Link}
@@ -79,7 +66,6 @@ export const Hero = () => {
             <MainCta variant="accent" className="min-w-[170px]" />
           </div>
         </div>
-        {/* </ShaftContainer> */}
       </motion.section>
     </>
   );
