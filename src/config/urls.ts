@@ -19,4 +19,5 @@ export const links = {
   pricing: "/pricing",
   app: "https://app.collect.so",
   appPricing: "https://app.collect.so/pricing",
+  introMeeting: "https://calendly.com/collect-so/collect-intro",
 };

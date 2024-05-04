@@ -9,7 +9,7 @@ import {
 import { ComponentPropsWithoutRef, FunctionComponent, ReactNode } from "react";
 import cx from "classnames";
 import { Button } from "~/components/Button";
-import { ArrowUpRight, Check, Github } from "lucide-react";
+import { ArrowUpRight, CalendarCheck, Check, Github } from "lucide-react";
 
 import Link from "next/link";
 import { links, socials } from "~/config/urls";
@@ -46,7 +46,7 @@ function PricingCard({
   title?: ReactNode;
   description: ReactNode;
   action: ReactNode;
-  price: number | "free";
+  price?: number | "free";
   featured?: boolean;
 }) {
   return (
@@ -69,8 +69,8 @@ function PricingCard({
         <h3 className="font-bold typography-sm h-5">{title}</h3>
 
         <span className="font-bold typography-2xl uppercase font-special">
-          {price !== "free" && "$"}
-          {price}
+          {price !== "free" && price !== undefined && "$"}
+          {price ?? "Custom"}
         </span>
 
         <p className="mb-3 text-content2">{description}</p>
@@ -94,14 +94,14 @@ export function Pricing() {
   return (
     <Section className="container">
       <SectionHeader>
-        <SectionTitle className="max-w-3xl">Pricings for everyone</SectionTitle>
+        <SectionTitle className="max-w-3xl">Pricing for everyone</SectionTitle>
 
-        <Tabs onValueChange={(v) => setVariant(v as Variants)} value={variant}>
-          <TabsList>
-            <Tab value={Variants.Cloud}>Cloud</Tab>
-            <Tab value={Variants.OnPremise}>On-Premise</Tab>
-          </TabsList>
-        </Tabs>
+        {/*<Tabs onValueChange={(v) => setVariant(v as Variants)} value={variant}>*/}
+        {/*  <TabsList>*/}
+        {/*    <Tab value={Variants.Cloud}>Cloud</Tab>*/}
+        {/*    <Tab value={Variants.OnPremise}>On-Premise</Tab>*/}
+        {/*  </TabsList>*/}
+        {/*</Tabs>*/}
 
         <SectionSubtitle>
           {variant === Variants.Cloud &&
@@ -130,8 +130,8 @@ export function Pricing() {
               }
             >
               <Feat title="3 projects" />
-              <Feat title="Unlimited API requests" />
               <Feat title="1000 Records" />
+              <Feat title="Unlimited API requests" />
               <Feat title="1Gb File Storage" />
               <Feat title="Community Support" />
             </PricingCard>
@@ -155,48 +155,69 @@ export function Pricing() {
               <Feat title="Unlimited Projects" />
               <Feat
                 title="100.000 Records"
-                subtitle="then 1$ per 10.000 Records"
+                subtitle="then $1 per 10.000 Records"
               />
-              <Feat
-                title="Every extra 100.000 records for 5$"
-                subtitle="Additional usage-based Records at $0.19 per 1000 Records"
-              />
+              <Feat title="Unlimited API requests" />
               <Feat title="10Gb File Storage" />
               <Feat title="Dedicated Support" />
+            </PricingCard>
+            <PricingCard
+              title="Business"
+              description="Contact sales"
+              action={
+                <Button
+                  size="small"
+                  variant="primary"
+                  as={Link}
+                  href={links.introMeeting}
+                >
+                  Set up a call
+                  <CalendarCheck />
+                </Button>
+              }
+            >
+              <Feat title="Unlimited Everything" />
+              <Feat title="Whitelabeling & Customizations" />
+              <Feat
+                title="On-premises deployment"
+                subtitle="Lifetime updates on demand"
+              />
+              <Feat title="Own S3 Storage" />
+              <Feat title="Priority support" />
             </PricingCard>
           </>
         )}
 
-        {variant === Variants.OnPremise && (
-          <PricingCard
-            price="free"
-            title="Self-Hosted"
-            description="Forever"
-            action={
-              <Button
-                size="small"
-                variant="primary"
-                as={Link}
-                href={socials.github}
-              >
-                Join Github
-                <ArrowUpRight />
-              </Button>
-            }
-          >
-            <Feat title="Unlimited Projects" />
-            <Feat
-              title="100.000 Records"
-              subtitle="then 1$ per 10.000 Records"
-            />
-            <Feat
-              title="Every extra 100.000 records for 5$"
-              subtitle="Additional usage-based Records at $0.19 per 1000 Records"
-            />
-            <Feat title="10Gb File Storage" />
-            <Feat title="Dedicated Support" />
-          </PricingCard>
-        )}
+        {/*{variant === Variants.OnPremise && (*/}
+        {/*  <PricingCard*/}
+        {/*    price="free"*/}
+        {/*    title="Self-Hosted"*/}
+        {/*    description="Forever"*/}
+        {/*    action={*/}
+        {/*      <Button*/}
+        {/*        size="small"*/}
+        {/*        variant="primary"*/}
+        {/*        as={Link}*/}
+        {/*        href={socials.github}*/}
+        {/*      >*/}
+        {/*        Join Github*/}
+        {/*        <ArrowUpRight />*/}
+        {/*      </Button>*/}
+        {/*    }*/}
+        {/*  >*/}
+        {/*    <Feat title="Unlimited Projects" />*/}
+        {/*    <Feat*/}
+        {/*      title="100.000 Records"*/}
+        {/*      subtitle="then $1 per 10.000 Records"*/}
+        {/*    />*/}
+        {/*    <Feat*/}
+        {/*      title="Every extra 100.000 records for $5"*/}
+        {/*      subtitle="Additional usage-based Records at $0.19 per 1000 Records"*/}
+        {/*    />*/}
+        {/*    <Feat title="10Gb File Storage" />*/}
+        {/*    <Feat title="Dedicated Support" />*/}
+        {/*  </PricingCard>*/}
+        {/*)}*/}
       </div>
     </Section>
   );

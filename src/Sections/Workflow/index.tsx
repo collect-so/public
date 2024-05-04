@@ -54,7 +54,7 @@ const UserRepo = Collect.registerModel(UserModel)`;
 const createCodeBlock = `// Create single Record
 const user = await UserRepo.create({
   email: "paul.schmitz@mail.com",
-  name: "Pual Schmitz",
+  name: "Paul Schmitz",
   age: 47
 })`;
 
