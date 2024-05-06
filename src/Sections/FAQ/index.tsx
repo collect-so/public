@@ -1,11 +1,11 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { Section } from "~/components/section";
+import { Section } from "~/components/Section";
 
 import { useState } from "react";
 import cx from "classnames";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import Link from "next/link";
-import { OutlineButton } from "~/components/button";
+import { Button } from "~/components/Button";
 
 type TFaqBlock = {
   question: string;
@@ -83,7 +83,9 @@ const Accordion = ({ question, answer, link }: TFaqBlock) => {
             <div style={{ whiteSpace: "pre-line" }}>{answer}</div>
             {link ? (
               <Link href={link.url} target="_blank">
-                <OutlineButton className="mt-4">{link.text}</OutlineButton>
+                <Button className="mt-4" variant="outline">
+                  {link.text}
+                </Button>
               </Link>
             ) : null}
           </motion.div>

@@ -8,11 +8,11 @@ export const kyivTypeSans = localFont({
       weight: "600",
       style: "bold",
     },
-    {
-      path: "./kyiv-sans/KyivTypeSans-Medium.woff2",
-      weight: "500",
-      style: "medium",
-    },
+    // {
+    //   path: "./kyiv-sans/KyivTypeSans-Medium.woff2",
+    //   weight: "500",
+    //   style: "medium",
+    // },
   ],
   variable: "--font-kyiv-sans",
 });
@@ -24,11 +24,11 @@ export const jetBrainsMono = localFont({
       weight: "400",
       style: "regular",
     },
-    {
-      path: "./jet-brains-mono/JetBrainsMono-Medium.woff2",
-      weight: "500",
-      style: "medium",
-    },
+    // {
+    //   path: "./jet-brains-mono/JetBrainsMono-Medium.woff2",
+    //   weight: "500",
+    //   style: "medium",
+    // },
   ],
   variable: "--font-jet-brains-mono",
 });
@@ -36,4 +36,5 @@ export const jetBrainsMono = localFont({
 export const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",
+  style: ["normal"],
 });
