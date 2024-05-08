@@ -57,7 +57,7 @@ export function SectionTitle({
   return (
     <LetterTypingText
       as="h2"
-      className={cx("typography-3xl mb-0 font-special md:text-2xl", className)}
+      className={cx("typography-3xl mb-0 md:text-2xl", className)}
       animateInView
       {...props}
     />

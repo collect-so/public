@@ -68,7 +68,7 @@ function PricingCard({
       >
         <h3 className="font-bold typography-sm h-5">{title}</h3>
 
-        <span className="font-bold typography-2xl uppercase font-special">
+        <span className="font-bold typography-2xl uppercase">
           {price !== "free" && price !== undefined && "$"}
           {price ?? "Custom"}
         </span>
@@ -131,7 +131,7 @@ export function Pricing() {
             >
               <Feat title="3 projects" />
               <Feat title="1000 Records" />
-              <Feat title="Unlimited API requests" />
+              <Feat title="Up to 10 API requests per second" />
               <Feat title="1Gb File Storage" />
               <Feat title="Community Support" />
             </PricingCard>

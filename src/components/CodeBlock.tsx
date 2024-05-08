@@ -41,8 +41,9 @@ export const CodeBlock = forwardRef<
     className?: string;
     preClassName?: string;
     style?: CSSProperties;
+    language?: string;
   }>
->(({ code, className, preClassName, style }, ref) => {
+>(({ code, className, preClassName, style, language = "javascript" }, ref) => {
   return (
     <div
       className={classNames("max-w-[92vw] sm:text-[14px]", className)}
@@ -50,7 +51,7 @@ export const CodeBlock = forwardRef<
       style={style}
     >
       <SyntaxHighlighter
-        language="javascript"
+        language={language}
         style={override}
         PreTag={({ children }) => (
           <pre className={cx(preClassName, "p-4 rounded-xl")} style={PreStyles}>

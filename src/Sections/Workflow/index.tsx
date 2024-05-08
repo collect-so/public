@@ -20,19 +20,21 @@ const chipVariants = {
   orange: "border-accent-orange text-accent-orange",
 };
 
-const initializeCodeBlock = `// Simple as that
-const Collect = new CollectAPI("API_TOKEN")`;
+//
 
-const initializeApiCodeBlock = `curl 'https://api.collect.so' \\
+const initializeCodeBlock = `// Simple as that
+const Collect = new CollectSDK("API_TOKEN")`;
+
+const initializeApiCodeBlock = `curl 'https://api.collect.so/api/v1/...' \\
   -H 'Content-Type: application/json' \\
-  -H 'Token: API_TOKEN' \\
-  -H ... \\
+  -H "Token: $API_TOKEN" \\
+  -d '...' \\
 `;
 
-const initializeApiFetchCodeBlock = `fetch("https://api.collect.so", {
+const initializeApiFetchCodeBlock = `fetch("https://api.collect.so/api/v1/...", {
   "headers": {
-    "content-type": "application/json",
-    "token": "API_TOKEN",
+    "Content-Type": "application/json",
+    "Token": "API_TOKEN",
     ...
   }
 });`;
@@ -50,6 +52,29 @@ const UserModel = new CollectModel("USER", {
 })
 
 const UserRepo = Collect.registerModel(UserModel)`;
+
+//
+const createApiCodeBlock = `curl 
+  -X POST 'https://api.collect.so/api/v1/records' \\
+  -H 'Content-Type: application/json' \\
+  -H "Token: $API_TOKEN" \\
+  -d '{
+    "label": "USER",
+    "properties": {
+      "email": {
+        "type": "string",
+        "value": "paul.schmitz@mail.com"
+      },
+      "name": {
+        "type": "string",
+        "value": "Paul Schmitz"
+      },
+      "age": {
+        "type": "number",
+        "value": 47
+      }
+    }
+  }'`;
 
 const createCodeBlock = `// Create single Record
 const user = await UserRepo.create({
@@ -81,6 +106,30 @@ const catalog = await Collect.records.createMany(
   ]
 )`;
 
+//
+
+const basicSearchApiCodeBlock = `curl 
+  -X POST 'https://api.collect.so/api/v1/records/search' \\
+  -H 'Content-Type: application/json' \\
+  -H "Token: $API_TOKEN" \\
+  -d '{
+    "labels": ["CUSTOMER"],
+    "where": {
+      "createdAt": {
+        "$gte": { 
+          "$year": 2021,
+          "$month": 6
+        }
+      },
+      "name": {
+        "$startsWith": "P"
+      }
+    },
+    "orderBy": { 
+      "balance": "asc" 
+    }
+  }'`;
+
 const basicSearchCodeBlock = `// Basic search 
 const customers = await CustomerRepo.find({
   where: {
@@ -109,6 +158,36 @@ const orders = await OrderRepo.find({
     }
   }
 })`;
+
+//
+
+const transactionalAndSafeApiCodeBlock = `#!/bin/bash
+
+# Obtain a Transaction
+response=$(
+  curl -X POST 'https://api.collect.so/api/v1/tx' \\
+  -H 'Content-Type: application/json' \\
+  -H "Token: $API_TOKEN" \\
+  -d '{}'
+)
+
+# Extract an id from Transaction response
+TX_ID=$(echo "$response" | jq -r '.id')
+
+# Attach Transaction id to further requests
+curl 'https://api.collect.so/api/v1/...' \\
+  -H 'Content-Type: application/json' \\
+  -H "Token: $API_TOKEN" \\
+  -H "X-Transaction-Id: $TX_ID" \\
+  -d '...'
+  
+# Commit Transaction
+curl
+  -X POST "https://api.collect.so/api/v1/tx/$TX_ID/commit" \\
+  -H 'Content-Type: application/json' \\
+  -H "Token: $API_TOKEN" \\
+  -d '{}'
+`;
 
 const transactionalAndSafeCodeBlock = `// Start Transaction
 const tx = await Collect.tx.begin() 
@@ -140,6 +219,24 @@ try {
   await tx.rollback() 
 }
 `;
+
+//
+
+const deleteComplexApiCodeBlock = `curl 
+  -X DELETE 'https://api.collect.so/api/v1/records' \\
+  -H 'Content-Type: application/json' \\
+  -H "Token: $API_TOKEN" \\
+  -d '{
+    "labels": ["COMMENT"],
+    "where": {
+      "text": {
+        "$in": [ "^*%&#", "@#*%&#", "$#@&&%" ]
+      },
+      "USER": {
+        "email": "rude.troll@mail.com"
+      }
+    }
+  }'`;
 
 const deleteComplexCodeBlock = `// Delete Records based on complex criteria 
 await CommentsRepo.delete({
@@ -264,7 +361,7 @@ const scenarios = [
       ),
       API: (
         <div className="flex flex-col gap-3">
-          <CodeBlock code={initializeApiCodeBlock} />
+          <CodeBlock language="bash" code={initializeApiCodeBlock} />
           <CodeBlock code={initializeApiFetchCodeBlock} />
         </div>
       ),
@@ -310,7 +407,11 @@ const scenarios = [
           <CodeBlock code={createManyCodeBlock} />
         </div>
       ),
-      API: <></>,
+      API: (
+        <div className="flex flex-col gap-3">
+          <CodeBlock language="bash" code={createApiCodeBlock} />
+        </div>
+      ),
     },
   },
   {
@@ -334,7 +435,11 @@ const scenarios = [
           <CodeBlock code={relatedSearchCodeBlock} />
         </div>
       ),
-      API: <></>,
+      API: (
+        <div className="flex flex-col gap-3">
+          <CodeBlock language="bash" code={basicSearchApiCodeBlock} />
+        </div>
+      ),
     },
   },
   {
@@ -350,13 +455,17 @@ const scenarios = [
           <CodeBlock code={transactionalAndSafeCodeBlock} />
         </div>
       ),
-      API: <></>,
+      API: (
+        <div className="flex flex-col gap-3">
+          <CodeBlock language="bash" code={transactionalAndSafeApiCodeBlock} />
+        </div>
+      ),
     },
   },
   {
-    title: "Deleting is Not That Boring Too",
+    title: "Deleting is Not That Boring, Too",
     description:
-      "Like most other operations, Deletion also relies on the same API. It allows data to be wiped out precisely based on specific criteria.",
+      "Like most other operations, deletion also relies on the same API. It allows data to be wiped out precisely based on specific criteria.",
     subtitle: <Chip variant="red">Delete</Chip>,
     cta: "Explore Safe Deletion Practices",
     examples: {
@@ -366,7 +475,11 @@ const scenarios = [
           <CodeBlock code={deleteComplexCodeBlock} />
         </div>
       ),
-      API: <></>,
+      API: (
+        <div className="flex flex-col gap-3">
+          <CodeBlock language="bash" code={deleteComplexApiCodeBlock} />
+        </div>
+      ),
     },
   },
 ];

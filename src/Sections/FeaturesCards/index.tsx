@@ -76,7 +76,7 @@ const feats = [
   {
     icon: Code,
     color: "pink",
-    title: "Type Safe by Design",
+    title: "Type-Safe by Design",
     description:
       "Enjoy automated type inference and suggestions without writing any types or interfaces. This ensures your code remains clean, efficient, and error-free.",
   },

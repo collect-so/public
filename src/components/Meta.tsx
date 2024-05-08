@@ -1,10 +1,10 @@
 import Head from "next/head";
 import { getAbsoluteURL } from "~/utils";
 
-export const defaultTitle = "Instant Backend, In a Single Line";
+export const defaultTitle = "Instant Backend In a Single Line";
 
 export const defaultDescription =
-  "Zero-config REST Backend. Fully customizable and typesafe.";
+  "Zero-config REST Backend. Fully customizable and Type-Safe.";
 
 export const Meta = ({
   title = defaultTitle,

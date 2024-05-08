@@ -9,14 +9,12 @@ import { Button, MainCta } from "~/components/Button";
 import { defaultDescription, defaultTitle } from "~/components/Meta";
 import { LetterTypingText } from "~/components/LetterTypingText";
 import { links } from "~/config/urls";
+import { CodeBlock } from "~/components/CodeBlock";
 
-/* Simplify, Scale, Succeed
-Create, your way
-Your Backend, setup in minutes
- 10x Your Backend Development
- Effortless Backend Brilliance
- 10x Your Engineering 
- Your Shortcut to Robust Backend Development */
+const code = `const Collect = new CollectSDK("API_TOKEN")
+// Or 
+Headers: { 'Token: API_TOKEN' }
+// Done ✅`;
 
 export const Hero = () => {
   const spacerRef = useRef(null);
@@ -32,41 +30,51 @@ export const Hero = () => {
     <>
       <div className="h-[70dvh] sm:hidden" aria-hidden ref={spacerRef} />
 
-      <motion.section
-        className={
-          "h-[100dvh] container grid place-content-center fixed z-0 inset-0 sm:place-content-start sm:pt-48 sm:static sm:h-auto sm:!opacity-100"
-        }
-        style={{ opacity }}
-      >
-        <div className="flex flex-col gap-10 relative z-0 sm:h-auto">
-          <div className="flex flex-col gap-5">
-            <LetterTypingText
-              as="h1"
-              className={cx("typography-4xl !mb-0 font-special md:text-2xl ")}
-              animate
-            >
-              {defaultTitle}
-            </LetterTypingText>
+      <div className="flex">
+        <motion.section
+          className={cx(
+            "h-[100dvh] container grid place-content-center fixed z-0 inset-0 grid-cols-2",
+            "sm:place-content-start sm:pt-48 sm:static sm:h-auto sm:!opacity-100 md:!grid-cols-1",
+          )}
+          style={{ opacity }}
+        >
+          <div className="flex flex-col gap-10 relative z-0 sm:h-auto m-auto">
+            <div className="flex flex-col gap-5">
+              <LetterTypingText
+                as="h1"
+                className={cx(
+                  "typography-4xl !mb-0 font-special md:text-2xl max-w-[34rem]",
+                )}
+                animate
+              >
+                {defaultTitle}
+              </LetterTypingText>
 
-            <p className={cx("typography-base max-w-3xl text-content2")}>
-              {defaultDescription}
-            </p>
+              <p className={cx("typography-base text-content2")}>
+                {defaultDescription}
+              </p>
+            </div>
+
+            <div className="flex gap-4 sm:flex-col">
+              <Button
+                className="min-w-[170px]"
+                as={Link}
+                href={links.getStarted}
+                variant="secondary"
+              >
+                Read the Docs <BookText />
+              </Button>
+
+              <MainCta variant="accent" className="min-w-[170px]" />
+            </div>
           </div>
-
-          <div className="flex gap-4 sm:flex-col">
-            <Button
-              className="min-w-[170px]"
-              as={Link}
-              href={links.getStarted}
-              variant="secondary"
-            >
-              Read the Docs <BookText />
-            </Button>
-
-            <MainCta variant="accent" className="min-w-[170px]" />
-          </div>
-        </div>
-      </motion.section>
+          <CodeBlock
+            code={code}
+            className="lg:w-fit lg:m-auto grid place-content-center md:!m-0 md:!mt-10 md:w-full"
+            preClassName="md:w-full"
+          />
+        </motion.section>
+      </div>
     </>
   );
 };
