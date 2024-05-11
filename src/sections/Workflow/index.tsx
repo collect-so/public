@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, useState } from "react";
+import { ComponentPropsWithoutRef, useRef, useState } from "react";
 import {
   Section,
   SectionHeader,
@@ -382,6 +382,8 @@ const scenarios = [
 ];
 
 export function WorkflowSection() {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
   const [currentExample, setCurrentExample] =
     useState<(typeof examples)[number]>("SDK");
 
@@ -397,7 +399,7 @@ export function WorkflowSection() {
         </SectionSubtitle>
       </SectionHeader>
 
-      <div className="relative">
+      <div className="relative" ref={wrapperRef}>
         <div className="divide-y divide-stroke-dark">
           {scenarios.map(({ title, description, subtitle, examples }) => (
             <UsageScenario
@@ -417,6 +419,9 @@ export function WorkflowSection() {
                 key={example}
                 onClick={() => {
                   setCurrentExample(example);
+                  wrapperRef.current?.scrollIntoView({
+                    behavior: "smooth",
+                  });
                 }}
                 selected={example === currentExample}
               >

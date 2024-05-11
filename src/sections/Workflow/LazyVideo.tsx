@@ -9,10 +9,7 @@ export const LazyVideo = forwardRef<
 >(({ className, src, ...props }, ref) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const inView = useInView(videoRef, {
-    once: true,
-    amount: 0.2,
-  });
+  const inView = useInView(videoRef);
 
   useEffect(() => {
     if (!videoRef.current) {
