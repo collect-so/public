@@ -3,9 +3,6 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   productionBrowserSourceMaps: true,
-  images: {
-    unoptimized: true,
-  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
@@ -14,6 +11,9 @@ const nextConfig = {
     });
 
     return config;
+  },
+  generateBuildId: async () => {
+    return process.env.AWS_COMMIT_ID;
   },
 };
 
