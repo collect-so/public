@@ -343,7 +343,7 @@ const scenarios = [
     examples: {
       Dashboard: (
         <div className="aspect-[16/10] w-full bg-fill2 rounded-2xl grid place-content-center text-content3 text-lg">
-          Soon
+          Coming Soon
         </div>
       ),
       SDK: (

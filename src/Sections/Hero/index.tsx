@@ -11,9 +11,7 @@ import { LetterTypingText } from "~/components/LetterTypingText";
 import { links } from "~/config/urls";
 import { CodeBlock } from "~/components/CodeBlock";
 
-const code = `const Collect = new CollectSDK("API_TOKEN")
-// Or 
-Headers: { 'Token: API_TOKEN' }
+const code = `const Collect = new CollectSDK("TOKEN")
 // Done ✅`;
 
 export const Hero = () => {
