@@ -8,8 +8,8 @@ import {
 import cx from "classnames";
 import { CodeBlock } from "~/components/CodeBlock";
 import { Chip } from "~/components/Chip";
-import { VideoBlock } from "~/sections/Workflow/VideoBlock";
-import { UsageScenario } from "~/sections/Workflow/UsageExample";
+import { VideoBlock } from "~/Sections/Workflow/VideoBlock";
+import { UsageScenario } from "~/Sections/Workflow/UsageExample";
 
 const examples = ["API", "SDK", "Dashboard"] as const;
 

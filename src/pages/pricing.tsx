@@ -1,5 +1,5 @@
 import { Layout } from "~/components/Layout";
-import { Pricing } from "~/sections/Pricing";
+import { Pricing } from "~/Sections/Pricing";
 
 export default function PricingPage() {
   return (
