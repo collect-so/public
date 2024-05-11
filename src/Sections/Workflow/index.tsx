@@ -10,6 +10,7 @@ import { CodeBlock } from "~/components/CodeBlock";
 import { Chip } from "~/components/Chip";
 import { VideoBlock } from "~/Sections/Workflow/VideoBlock";
 import { UsageScenario } from "~/Sections/Workflow/UsageExample";
+import { CodeWrapper } from "~/sections/Workflow/CodeWrapper";
 
 const examples = ["API", "SDK", "Dashboard"] as const;
 
@@ -272,16 +273,16 @@ const scenarios = [
     examples: {
       Dashboard: <VideoBlock src="/videos/setup.mp4" />,
       SDK: (
-        <div className="flex flex-col gap-3">
+        <CodeWrapper>
           <CodeBlock code={initializeCodeBlock} />
           <CodeBlock code={definingModelCodeBlock} />
-        </div>
+        </CodeWrapper>
       ),
       API: (
-        <div className="flex flex-col gap-3">
+        <CodeWrapper>
           <CodeBlock language="bash" code={initializeApiCodeBlock} />
           <CodeBlock code={initializeApiFetchCodeBlock} />
-        </div>
+        </CodeWrapper>
       ),
     },
   },
@@ -294,15 +295,15 @@ const scenarios = [
     examples: {
       Dashboard: <VideoBlock src="/videos/create.mp4" />,
       SDK: (
-        <div className="flex flex-col gap-3">
+        <CodeWrapper>
           <CodeBlock code={createCodeBlock} />
           <CodeBlock code={createManyCodeBlock} />
-        </div>
+        </CodeWrapper>
       ),
       API: (
-        <div className="flex flex-col gap-3">
+        <CodeWrapper>
           <CodeBlock language="bash" code={createApiCodeBlock} />
-        </div>
+        </CodeWrapper>
       ),
     },
   },
@@ -322,15 +323,15 @@ const scenarios = [
     examples: {
       Dashboard: <VideoBlock src="/videos/search.mp4" />,
       SDK: (
-        <div className="flex flex-col gap-3">
+        <CodeWrapper>
           <CodeBlock code={basicSearchCodeBlock} />
           <CodeBlock code={relatedSearchCodeBlock} />
-        </div>
+        </CodeWrapper>
       ),
       API: (
-        <div className="flex flex-col gap-3">
+        <CodeWrapper>
           <CodeBlock language="bash" code={basicSearchApiCodeBlock} />
-        </div>
+        </CodeWrapper>
       ),
     },
   },
@@ -347,14 +348,14 @@ const scenarios = [
         </div>
       ),
       SDK: (
-        <div className="flex flex-col gap-3">
+        <CodeWrapper>
           <CodeBlock code={transactionalAndSafeCodeBlock} />
-        </div>
+        </CodeWrapper>
       ),
       API: (
-        <div className="flex flex-col gap-3">
+        <CodeWrapper>
           <CodeBlock language="bash" code={transactionalAndSafeApiCodeBlock} />
-        </div>
+        </CodeWrapper>
       ),
     },
   },
@@ -367,14 +368,14 @@ const scenarios = [
     examples: {
       Dashboard: <VideoBlock src="/videos/delete.mp4" />,
       SDK: (
-        <div className="flex flex-col gap-3">
+        <CodeWrapper>
           <CodeBlock code={deleteComplexCodeBlock} />
-        </div>
+        </CodeWrapper>
       ),
       API: (
-        <div className="flex flex-col gap-3">
+        <CodeWrapper>
           <CodeBlock language="bash" code={deleteComplexApiCodeBlock} />
-        </div>
+        </CodeWrapper>
       ),
     },
   },
