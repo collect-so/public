@@ -8,8 +8,8 @@ import {
 import cx from "classnames";
 import { CodeBlock } from "~/components/CodeBlock";
 import { Chip } from "~/components/Chip";
-import { VideoBlock } from "~/Sections/Workflow/VideoBlock";
-import { UsageScenario } from "~/Sections/Workflow/UsageExample";
+import { VideoBlock } from "~/sections/Workflow/VideoBlock";
+import { UsageScenario } from "~/sections/Workflow/UsageExample";
 import { CodeWrapper } from "~/sections/Workflow/CodeWrapper";
 
 const examples = ["API", "SDK", "Dashboard"] as const;
@@ -343,9 +343,9 @@ const scenarios = [
     cta: "Master Updates & Transactions",
     examples: {
       Dashboard: (
-        <div className="aspect-[16/10] w-full bg-fill2 rounded-2xl grid place-content-center text-content3 text-lg">
+        <CodeWrapper className="aspect-[16/10] w-full bg-fill2 rounded-2xl grid place-content-center text-content3 text-lg">
           Soon
-        </div>
+        </CodeWrapper>
       ),
       SDK: (
         <CodeWrapper>
