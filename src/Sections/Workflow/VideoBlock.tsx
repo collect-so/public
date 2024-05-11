@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { RotateCcw } from "lucide-react";
 import { ComponentPropsWithoutRef, useRef, useState } from "react";
 import { IconButton } from "~/components/IconButton";
-import { LazyVideo } from "~/Sections/Workflow/LazyVideo";
+import { LazyVideo } from "~/sections/Workflow/LazyVideo";
 
 export function VideoBlock({
   className,

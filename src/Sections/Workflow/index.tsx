@@ -8,8 +8,9 @@ import {
 import cx from "classnames";
 import { CodeBlock } from "~/components/CodeBlock";
 import { Chip } from "~/components/Chip";
-import { VideoBlock } from "~/Sections/Workflow/VideoBlock";
-import { UsageScenario } from "~/Sections/Workflow/UsageExample";
+import { VideoBlock } from "~/sections/Workflow/VideoBlock";
+import { UsageScenario } from "~/sections/Workflow/UsageExample";
+import { CodeWrapper } from "~/sections/Workflow/CodeWrapper";
 
 const examples = ["API", "SDK", "Dashboard"] as const;
 
@@ -272,16 +273,16 @@ const scenarios = [
     examples: {
       Dashboard: <VideoBlock src="/videos/setup.mp4" />,
       SDK: (
-        <div className="flex flex-col gap-3">
+        <CodeWrapper>
           <CodeBlock code={initializeCodeBlock} />
           <CodeBlock code={definingModelCodeBlock} />
-        </div>
+        </CodeWrapper>
       ),
       API: (
-        <div className="flex flex-col gap-3">
+        <CodeWrapper>
           <CodeBlock language="bash" code={initializeApiCodeBlock} />
           <CodeBlock code={initializeApiFetchCodeBlock} />
-        </div>
+        </CodeWrapper>
       ),
     },
   },
@@ -294,15 +295,15 @@ const scenarios = [
     examples: {
       Dashboard: <VideoBlock src="/videos/create.mp4" />,
       SDK: (
-        <div className="flex flex-col gap-3">
+        <CodeWrapper>
           <CodeBlock code={createCodeBlock} />
           <CodeBlock code={createManyCodeBlock} />
-        </div>
+        </CodeWrapper>
       ),
       API: (
-        <div className="flex flex-col gap-3">
+        <CodeWrapper>
           <CodeBlock language="bash" code={createApiCodeBlock} />
-        </div>
+        </CodeWrapper>
       ),
     },
   },
@@ -322,15 +323,15 @@ const scenarios = [
     examples: {
       Dashboard: <VideoBlock src="/videos/search.mp4" />,
       SDK: (
-        <div className="flex flex-col gap-3">
+        <CodeWrapper>
           <CodeBlock code={basicSearchCodeBlock} />
           <CodeBlock code={relatedSearchCodeBlock} />
-        </div>
+        </CodeWrapper>
       ),
       API: (
-        <div className="flex flex-col gap-3">
+        <CodeWrapper>
           <CodeBlock language="bash" code={basicSearchApiCodeBlock} />
-        </div>
+        </CodeWrapper>
       ),
     },
   },
@@ -342,19 +343,19 @@ const scenarios = [
     cta: "Master Updates & Transactions",
     examples: {
       Dashboard: (
-        <div className="aspect-[16/10] w-full bg-fill2 rounded-2xl grid place-content-center text-content3 text-lg">
+        <CodeWrapper className="aspect-[16/10] w-full bg-fill2 rounded-2xl grid place-content-center text-content3 text-lg">
           Coming Soon
-        </div>
+        </CodeWrapper>
       ),
       SDK: (
-        <div className="flex flex-col gap-3">
+        <CodeWrapper>
           <CodeBlock code={transactionalAndSafeCodeBlock} />
-        </div>
+        </CodeWrapper>
       ),
       API: (
-        <div className="flex flex-col gap-3">
+        <CodeWrapper>
           <CodeBlock language="bash" code={transactionalAndSafeApiCodeBlock} />
-        </div>
+        </CodeWrapper>
       ),
     },
   },
@@ -367,14 +368,14 @@ const scenarios = [
     examples: {
       Dashboard: <VideoBlock src="/videos/delete.mp4" />,
       SDK: (
-        <div className="flex flex-col gap-3">
+        <CodeWrapper>
           <CodeBlock code={deleteComplexCodeBlock} />
-        </div>
+        </CodeWrapper>
       ),
       API: (
-        <div className="flex flex-col gap-3">
+        <CodeWrapper>
           <CodeBlock language="bash" code={deleteComplexApiCodeBlock} />
-        </div>
+        </CodeWrapper>
       ),
     },
   },
