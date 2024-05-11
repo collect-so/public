@@ -46,9 +46,14 @@ module.exports = {
           "0%": { transform: "scale(1.3)" },
           "100%": { transform: "scale(1)" },
         },
-        animation: {
-          zoomOut: "zoomOut 1s ease-out",
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
+      },
+      animation: {
+        zoomOut: "zoomOut 1s ease-out",
+        fadeIn: "fadeIn 0.3s ease-in",
       },
       colors: {
         "accent-brand": "#fff",

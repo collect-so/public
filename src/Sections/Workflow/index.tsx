@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ReactNode, useState } from "react";
+import { ComponentPropsWithoutRef, useState } from "react";
 import {
   Section,
   SectionHeader,
@@ -7,20 +7,11 @@ import {
 } from "~/components/Section";
 import cx from "classnames";
 import { CodeBlock } from "~/components/CodeBlock";
-import { LetterTypingText } from "~/components/LetterTypingText";
+import { Chip } from "~/components/Chip";
+import { VideoBlock } from "~/sections/Workflow/VideoBlock";
+import { UsageScenario } from "~/sections/Workflow/UsageExample";
 
 const examples = ["API", "SDK", "Dashboard"] as const;
-
-const chipVariants = {
-  yellow: "border-accent-yellow text-accent-yellow",
-  green: "border-accent-green text-accent-green",
-  blue: "border-accent-blue text-accent-blue",
-  red: "border-accent-red text-accent-red",
-  purple: "border-accent-purple text-accent-purple",
-  orange: "border-accent-orange text-accent-orange",
-};
-
-//
 
 const initializeCodeBlock = `// Simple as that
 const Collect = new CollectSDK("API_TOKEN")`;
@@ -250,53 +241,6 @@ await CommentsRepo.delete({
   }
 })`;
 
-const Chip = ({
-  variant = "yellow",
-  ...props
-}: ComponentPropsWithoutRef<"h4"> & {
-  variant: keyof typeof chipVariants;
-}) => (
-  <h4
-    className={cx(
-      "rounded-full border px-2 uppercase text-xs font-mono",
-      chipVariants[variant],
-    )}
-    {...props}
-  />
-);
-
-function UsageScenario({
-  title,
-  description,
-  subtitle,
-  example,
-}: {
-  title: ReactNode;
-  subtitle: ReactNode;
-  description: ReactNode;
-  example: ReactNode;
-}) {
-  return (
-    <div className="min-h-[500px] py-10 grid grid-cols-2 content-start justify-items-center gap-10 md:grid-cols-1">
-      <div className="flex flex-col items-start col-span-1 pt-16 gap-3 justify-self-start sm:pt-0">
-        {subtitle}
-
-        {typeof title === "string" ? (
-          <LetterTypingText as="h3" className="typography-xl" animateInView>
-            {title}
-          </LetterTypingText>
-        ) : (
-          <h3 className="typography-xl">{title}</h3>
-        )}
-
-        <p className="typography-base text-content2">{description}</p>
-      </div>
-
-      {example}
-    </div>
-  );
-}
-
 const Option = ({
   className,
   selected,
@@ -326,33 +270,7 @@ const scenarios = [
     subtitle: <Chip variant="purple">Setup</Chip>,
     // cta: "Learn About Data Import",
     examples: {
-      Dashboard: (
-        <div
-          className="relative w-full aspect-video"
-          // style={{ perspective: "100px" }}
-        >
-          <video
-            className="absolute inset-0 w-full aspect-video object-contain hover:opacity-50 cursor-pointer rounded-lg border-[5px] border-stroke-dark/10 bg-fill shadow-2xl"
-            // style={{ transform: "rotateY(-1deg)" }}
-            width="1920  "
-            height="1072"
-            preload="none"
-            autoPlay
-            loop
-            muted
-            playsInline
-          >
-            <source src="/videos/create.mov" type="video/mp4" />
-            <track
-              src="/path/to/captions.vtt"
-              kind="subtitles"
-              srcLang="en"
-              label="English"
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      ),
+      Dashboard: <VideoBlock src="/videos/setup.mp4" />,
       SDK: (
         <div className="flex flex-col gap-3">
           <CodeBlock code={initializeCodeBlock} />
@@ -374,33 +292,7 @@ const scenarios = [
     subtitle: <Chip variant="yellow">Create</Chip>,
     // cta: "Learn About Data Import",
     examples: {
-      Dashboard: (
-        <div
-          className="relative w-full aspect-video"
-          // style={{ perspective: "100px" }}
-        >
-          <video
-            className="absolute inset-0 w-full aspect-video object-contain hover:opacity-50 cursor-pointer rounded-lg border-[5px] border-stroke-dark/10 bg-fill shadow-2xl"
-            // style={{ transform: "rotateY(-1deg)" }}
-            width="1920  "
-            height="1072"
-            preload="none"
-            autoPlay
-            loop
-            muted
-            playsInline
-          >
-            <source src="/videos/create.mov" type="video/mp4" />
-            <track
-              src="/path/to/captions.vtt"
-              kind="subtitles"
-              srcLang="en"
-              label="English"
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      ),
+      Dashboard: <VideoBlock src="/videos/create.mp4" />,
       SDK: (
         <div className="flex flex-col gap-3">
           <CodeBlock code={createCodeBlock} />
@@ -428,7 +320,7 @@ const scenarios = [
     subtitle: <Chip variant="green">Read</Chip>,
     cta: "Explore Collect's Filtering System",
     examples: {
-      Dashboard: <></>,
+      Dashboard: <VideoBlock src="/videos/search.mp4" />,
       SDK: (
         <div className="flex flex-col gap-3">
           <CodeBlock code={basicSearchCodeBlock} />
@@ -449,7 +341,11 @@ const scenarios = [
     subtitle: <Chip variant="orange">Update</Chip>,
     cta: "Master Updates & Transactions",
     examples: {
-      Dashboard: <></>,
+      Dashboard: (
+        <div className="aspect-[16/10] w-full bg-fill2 rounded-2xl grid place-content-center text-content3 text-lg">
+          Soon
+        </div>
+      ),
       SDK: (
         <div className="flex flex-col gap-3">
           <CodeBlock code={transactionalAndSafeCodeBlock} />
@@ -469,7 +365,7 @@ const scenarios = [
     subtitle: <Chip variant="red">Delete</Chip>,
     cta: "Explore Safe Deletion Practices",
     examples: {
-      Dashboard: <></>,
+      Dashboard: <VideoBlock src="/videos/delete.mp4" />,
       SDK: (
         <div className="flex flex-col gap-3">
           <CodeBlock code={deleteComplexCodeBlock} />

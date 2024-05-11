@@ -5,7 +5,7 @@ import { variants, sizes as buttonSizes } from "~/components/Button";
 const sizes = {
   small: cx(buttonSizes.small, "!w-9 !p-0"),
   medium: cx(buttonSizes.medium, "!w-11 !p-0"),
-  large: cx(buttonSizes.large, "!h-11 !p-0"),
+  large: cx(buttonSizes.large, "!w-11 !p-0"),
 };
 
 type Props = {
