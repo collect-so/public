@@ -29,7 +29,10 @@ export const Meta = ({
       <meta property="og:type" content="website" />
       <meta property="og:title" content={titleWithSuffix} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={getAbsoluteURL("/images/og.png")} />
+      <meta
+        property="og:image"
+        content={getAbsoluteURL("/images/og.png?v=2")}
+      />
 
       {/* Twitter  Meta Tags */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -37,7 +40,10 @@ export const Meta = ({
       <meta property="twitter:url" content={getAbsoluteURL()} />
       <meta name="twitter:title" content={titleWithSuffix} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={getAbsoluteURL("/images/og.png")} />
+      <meta
+        name="twitter:image"
+        content={getAbsoluteURL("/images/og.png?v=2")}
+      />
     </Head>
   );
 };
