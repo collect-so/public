@@ -11,7 +11,7 @@ export const LazyVideo = forwardRef<
 
   const inView = useInView(videoRef, {
     once: true,
-    amount: 0.5,
+    amount: 0.2,
   });
 
   useEffect(() => {
