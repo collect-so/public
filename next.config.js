@@ -12,9 +12,6 @@ const nextConfig = {
 
     return config;
   },
-  generateBuildId: async () => {
-    return process.env.AWS_COMMIT_ID;
-  },
 };
 
 module.exports = nextConfig;
