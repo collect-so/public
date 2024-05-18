@@ -1,22 +1,26 @@
-import { ComponentPropsWithoutRef, PropsWithChildren } from "react";
-import { Footer } from "./Footer";
-import { Header } from "./header";
-import { Meta } from "~/components/Meta";
-import classNames from "classnames";
+import { ComponentPropsWithoutRef, PropsWithChildren } from "react"
+import { Footer } from "./Footer"
+import { Header } from "./header"
+import { Meta } from "~/components/Meta"
+import classNames from "classnames"
 
 export function Layout({
   description,
   title,
+  image,
   children,
   className,
 }: PropsWithChildren<
-  Pick<ComponentPropsWithoutRef<typeof Meta>, "title" | "description"> & {
-    className?: string;
+  Pick<
+    ComponentPropsWithoutRef<typeof Meta>,
+    "title" | "description" | "image"
+  > & {
+    className?: string
   }
 >) {
   return (
     <>
-      <Meta title={title} description={description} />
+      <Meta title={title} description={description} image={image} />
 
       <Header />
 
@@ -26,5 +30,5 @@ export function Layout({
 
       <Footer />
     </>
-  );
+  )
 }

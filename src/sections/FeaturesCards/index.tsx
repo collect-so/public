@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import classNames from "classnames"
 import {
   ArrowUpRight,
   Code,
@@ -7,14 +7,15 @@ import {
   Layers,
   Search,
   Zap,
-} from "lucide-react";
-import Link from "next/link";
-import { FunctionComponent, ReactNode } from "react";
-import { Grid, GridItem } from "~/components/Grid";
+} from "lucide-react"
+import NextLink from "next/link"
+import { FunctionComponent, ReactNode } from "react"
+import { Grid, GridItem } from "~/components/Grid"
+import { Link } from "~/components/Link"
 
-import { Section } from "~/components/Section";
-import { WireBox } from "~/components/WireBox";
-import { links } from "~/config/urls";
+import { Section } from "~/components/Section"
+import { WireBox } from "~/components/WireBox"
+import { links } from "~/config/urls"
 
 const colors = {
   orange: "text-accent-orange",
@@ -23,7 +24,7 @@ const colors = {
   pink: "text-accent-pink",
   blue: "text-accent-blue",
   purple: "text-accent-purple",
-};
+}
 
 const colorsBorder = {
   orange: "from-accent-orange/30",
@@ -32,7 +33,7 @@ const colorsBorder = {
   pink: "from-accent-pink/30",
   blue: "from-accent-blue/30",
   purple: "from-accent-purple/30",
-};
+}
 
 const feats = [
   {
@@ -42,8 +43,8 @@ const feats = [
       <>
         Create an account, obtain an API Token, and hit the ground running. Just
         a quick read through{" "}
-        <CardLink href={links.getStarted}>Getting Started</CardLink> guide (2
-        mins read) equips you with all you need.
+        <Link href={links.getStarted}>Getting Started</Link> guide (2 mins read)
+        equips you with all you need.
       </>
     ),
 
@@ -94,7 +95,7 @@ const feats = [
     description:
       "Collect could be easily integrated into any stack and any programming language through robust and powerful REST API and SDK, while keeping things simple.",
   },
-] as const;
+] as const
 
 const Feat = ({
   title,
@@ -103,11 +104,11 @@ const Feat = ({
   color = "orange",
   idx,
 }: {
-  title: ReactNode;
-  description: ReactNode;
-  icon: FunctionComponent<{ className?: string }>;
-  color: keyof typeof colors;
-  idx: number;
+  title: ReactNode
+  description: ReactNode
+  icon: FunctionComponent<{ className?: string }>
+  color: keyof typeof colors
+  idx: number
 }) => {
   return (
     <GridItem
@@ -147,32 +148,21 @@ const Feat = ({
 
           <h3 className="typography-lg font-semibold text-content">
             {title}
-            <Link href="">
+            <NextLink href="">
               <ArrowUpRight
                 className={classNames(
                   "transition translate-y-full opacity-0 group-hover:opacity-100 group-hover:translate-y-0 ml-1 mb-0.5",
                   colors[color],
                 )}
               />
-            </Link>
+            </NextLink>
           </h3>
 
           <p className="typography-base text-content2">{description}</p>
         </div>
       </div>
     </GridItem>
-  );
-};
-
-function CardLink({ href, children }: { href: string; children: ReactNode }) {
-  return (
-    <Link
-      className="transition italic underline text-content2 hover:text-accent underline-offset-4"
-      href={href}
-    >
-      {children}
-    </Link>
-  );
+  )
 }
 
 export function FeaturesCards() {
@@ -189,9 +179,9 @@ export function FeaturesCards() {
               color={feat.color}
               idx={idx}
             />
-          );
+          )
         })}
       </Grid>
     </Section>
-  );
+  )
 }
