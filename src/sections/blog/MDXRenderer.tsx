@@ -67,7 +67,7 @@ const P = ({ children, ...props }: ComponentPropsWithoutRef<"h2">) => {
 
   return (
     <p
-      className="container col-span-8 col-start-3 text-base text-content2"
+      className="container col-span-8 col-start-3 md:col-start-1 md:col-span-12 text-base text-content2"
       {...props}
     >
       {children}
@@ -83,7 +83,7 @@ const H2 = ({ children, ...props }: ComponentPropsWithoutRef<"h2">) => {
   const id = encodeURI(children)
 
   return (
-    <div className="container col-span-8 col-start-3 typography-2xl pt-10 pb-4 flex group">
+    <div className="container col-span-8 col-start-3 md:col-start-1 md:col-span-12 typography-2xl pt-10 pb-4 flex group">
       <LetterTypingText as="h2" id={id} animateInView {...props}>
         {children}
       </LetterTypingText>
@@ -100,7 +100,7 @@ const H2 = ({ children, ...props }: ComponentPropsWithoutRef<"h2">) => {
 const H3 = ({ children, ...props }: ComponentPropsWithoutRef<"h2">) => {
   return (
     <h3
-      className="container col-span-8 col-start-3 typography-xl pt-4 pb-1"
+      className="container col-span-8 col-start-3 md:col-start-1 md:col-span-12 typography-xl pt-4 pb-1"
       {...props}
     >
       {children}
@@ -131,7 +131,7 @@ const List = <As extends React.ElementType = "ul">({
   return (
     <Component
       className={classNames(
-        "container col-span-8 col-start-3 flex flex-col gap-1.5",
+        "container col-span-8 col-start-3 md:col-start-1 md:col-span-12 flex flex-col gap-1.5",
         {
           "[&>li]:list-decimal [&>li]:list-inside": true, // ordered,
         },
@@ -160,7 +160,7 @@ const Pre = ({ children }: ComponentPropsWithoutRef<"pre">) => {
       <CodeBlock
         language={language}
         code={code}
-        className="container col-span-8 col-start-3"
+        className="container col-span-8 col-start-3 md:col-start-1 md:col-span-12"
       />
     )
   }

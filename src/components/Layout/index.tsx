@@ -24,7 +24,7 @@ export function Layout({
 
       <Header />
 
-      <main className={classNames("min-h-screen pt-16", className)}>
+      <main className={classNames("min-h-screen pt-16 md:pt-0", className)}>
         {children}
       </main>
 
