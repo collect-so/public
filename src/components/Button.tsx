@@ -1,7 +1,7 @@
-import React, { ComponentPropsWithoutRef } from "react";
-import cx from "classnames";
-import Link from "next/link";
-import { ArrowUpRight, MoveRight } from "lucide-react";
+import React, { ComponentPropsWithoutRef } from "react"
+import cx from "classnames"
+import Link from "next/link"
+import { ArrowUpRight, MoveRight } from "lucide-react"
 
 export const variants = {
   accent:
@@ -14,7 +14,7 @@ export const variants = {
   primaryText: "hover:text-accent hover:bg-secondary-hover",
   accentText: "text-accent hover:text-accent-hover",
   custom: "",
-};
+}
 
 export const sizes = {
   small:
@@ -22,12 +22,12 @@ export const sizes = {
   medium:
     "h-11 [&>svg]:w-[20px] [&>svg]:h-[20px] gap-2 rounded-lg py-2.5 px-3.5 md:py-2 md:px-3 md:text-sm text-base font-bold",
   large: "h-11 [&>svg]:w-[20px] [&>svg]:h-[20px] rounded-lg",
-};
+}
 
 type Props = {
-  variant: keyof typeof variants;
-  size?: keyof typeof sizes;
-};
+  variant: keyof typeof variants
+  size?: keyof typeof sizes
+}
 
 export function Button<As extends React.ElementType = "button">({
   as,
@@ -36,7 +36,7 @@ export function Button<As extends React.ElementType = "button">({
   className,
   ...props
 }: TPolymorphicComponentProps<As, Props>) {
-  const Element = as ?? "button";
+  const Element = as ?? "button"
 
   return (
     <Element
@@ -48,7 +48,7 @@ export function Button<As extends React.ElementType = "button">({
       )}
       {...props}
     />
-  );
+  )
 }
 
 export const MainCta = (
@@ -59,5 +59,5 @@ export const MainCta = (
       Start Building
       <ArrowUpRight />
     </Button>
-  );
-};
+  )
+}

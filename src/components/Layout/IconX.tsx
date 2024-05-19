@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef } from "react";
+import { ComponentPropsWithoutRef } from "react"
 
 export function IconX({
   strokeWidth = "2",
@@ -20,5 +20,5 @@ export function IconX({
       <line x1="10.4" x2="2.24" y1="13.19" y2="22" />
       <line x1="20.76" x2="13.15" y1="2" y2="10.21" />
     </svg>
-  );
+  )
 }

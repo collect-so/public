@@ -3,7 +3,7 @@ import {
   SectionHeader,
   SectionSubtitle,
   SectionTitle,
-} from "~/components/Section";
+} from "~/components/Section"
 
 export function BenchmarksSection() {
   return (
@@ -20,5 +20,5 @@ export function BenchmarksSection() {
       </SectionHeader>
       TODO
     </Section>
-  );
+  )
 }

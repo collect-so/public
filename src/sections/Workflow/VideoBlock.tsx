@@ -1,8 +1,8 @@
-import classNames from "classnames";
-import { RotateCcw } from "lucide-react";
-import { ComponentPropsWithoutRef, useRef, useState } from "react";
-import { IconButton } from "~/components/IconButton";
-import { LazyVideo } from "~/sections/Workflow/LazyVideo";
+import classNames from "classnames"
+import { RotateCcw } from "lucide-react"
+import { ComponentPropsWithoutRef, useRef, useState } from "react"
+import { IconButton } from "~/components/IconButton"
+import { LazyVideo } from "~/sections/Workflow/LazyVideo"
 
 export function VideoBlock({
   className,
@@ -10,18 +10,18 @@ export function VideoBlock({
   ...props
 }: ComponentPropsWithoutRef<"div"> &
   Pick<ComponentPropsWithoutRef<typeof LazyVideo>, "src">) {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null)
 
-  const [ended, setEnded] = useState(false);
+  const [ended, setEnded] = useState(false)
 
   const replay = () => {
-    setEnded(false);
+    setEnded(false)
     if (!videoRef.current) {
-      return;
+      return
     }
-    videoRef.current.currentTime = 0;
-    videoRef.current.play();
-  };
+    videoRef.current.currentTime = 0
+    videoRef.current.play()
+  }
 
   const replayButton = (
     <IconButton
@@ -32,7 +32,7 @@ export function VideoBlock({
     >
       <RotateCcw />
     </IconButton>
-  );
+  )
 
   return (
     <div
@@ -59,5 +59,5 @@ export function VideoBlock({
         </div>
       )}
     </div>
-  );
+  )
 }

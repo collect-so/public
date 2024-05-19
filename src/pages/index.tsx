@@ -1,9 +1,9 @@
-import { Layout } from "~/components/Layout";
-import { FeaturesCards } from "~/sections/FeaturesCards";
-import { Hero } from "~/sections/Hero";
-import { WorkflowSection } from "~/sections/Workflow";
-import { CommunitySection } from "~/sections/Community";
-import { Pricing } from "~/sections/Pricing";
+import { Layout } from "~/components/Layout"
+import { FeaturesCards } from "~/sections/FeaturesCards"
+import { Hero } from "~/sections/Hero"
+import { WorkflowSection } from "~/sections/Workflow"
+import { CommunitySection } from "~/sections/Community"
+import { Pricing } from "~/sections/Pricing"
 
 export default function Home() {
   return (
@@ -22,5 +22,5 @@ export default function Home() {
         <Pricing />
       </div>
     </Layout>
-  );
+  )
 }

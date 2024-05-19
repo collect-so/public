@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import classNames from "classnames"
 import {
   CSSProperties,
   Children,
@@ -6,21 +6,21 @@ import {
   createContext,
   useContext,
   useMemo,
-} from "react";
-import { useMediaQuery } from "~/hooks/useMediaQuery";
+} from "react"
+import { useMediaQuery } from "~/hooks/useMediaQuery"
 
 // Context to manage grid styling and behavior
 const GridContext = createContext<{
-  columns: number;
-  rows: number;
-  totalItems: number;
+  columns: number
+  rows: number
+  totalItems: number
 }>({
   columns: 0,
   rows: 0,
   totalItems: 0,
-});
+})
 
-export const useGridContext = () => useContext(GridContext);
+export const useGridContext = () => useContext(GridContext)
 
 export function GridItem({
   idx,
@@ -36,27 +36,27 @@ export function GridItem({
   middleOfLastRow = "",
   ...props
 }: {
-  idx: number;
+  idx: number
   // firstRow?: string;
   // lastRow?: string;
   // middleRow?: string;
-  firstOfFirstRow?: string;
-  lastOfFirstRow?: string;
-  firstOfMiddleRow?: string;
-  lastOfMiddleRow?: string;
-  firstOfLastRow?: string;
-  lastOfLastRow?: string;
-  middleOfFirstRow?: string;
-  middleOfLastRow?: string;
+  firstOfFirstRow?: string
+  lastOfFirstRow?: string
+  firstOfMiddleRow?: string
+  lastOfMiddleRow?: string
+  firstOfLastRow?: string
+  lastOfLastRow?: string
+  middleOfFirstRow?: string
+  middleOfLastRow?: string
 } & ComponentPropsWithoutRef<"article">) {
-  const { rows, columns, totalItems } = useGridContext();
+  const { rows, columns, totalItems } = useGridContext()
 
-  const firstOfLastRow = (rows - 1) * columns;
-  const firstRow = idx < columns - 1;
-  const lastRow = idx > firstOfLastRow;
-  const middleRow = !firstRow && !lastRow;
-  const firstOfRow = idx % columns === 0;
-  const lastOfRow = idx % columns === columns - 1;
+  const firstOfLastRow = (rows - 1) * columns
+  const firstRow = idx < columns - 1
+  const lastRow = idx > firstOfLastRow
+  const middleRow = !firstRow && !lastRow
+  const firstOfRow = idx % columns === 0
+  const lastOfRow = idx % columns === columns - 1
 
   return (
     <article
@@ -76,7 +76,7 @@ export function GridItem({
       )}
       {...props}
     />
-  );
+  )
 }
 
 export function Grid({
@@ -87,16 +87,16 @@ export function Grid({
   children,
   ...props
 }: {
-  tabletCols: number;
-  mobileCols: number;
-  desktopCols: number;
+  tabletCols: number
+  mobileCols: number
+  desktopCols: number
 } & ComponentPropsWithoutRef<"div">) {
-  const desktop = useMediaQuery("(min-width: 1200px)");
-  const tablet = useMediaQuery("(min-width: 768px)");
+  const desktop = useMediaQuery("(min-width: 1200px)")
+  const tablet = useMediaQuery("(min-width: 768px)")
 
-  const totalItems = Children.count(children);
-  const columns = desktop ? desktopCols : tablet ? tabletCols : mobileCols;
-  const rows = Math.ceil(totalItems / columns);
+  const totalItems = Children.count(children)
+  const columns = desktop ? desktopCols : tablet ? tabletCols : mobileCols
+  const rows = Math.ceil(totalItems / columns)
 
   return (
     <GridContext.Provider
@@ -120,5 +120,5 @@ export function Grid({
         {children}
       </div>
     </GridContext.Provider>
-  );
+  )
 }

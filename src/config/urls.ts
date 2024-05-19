@@ -1,6 +1,6 @@
-const email = "hello@collect.so" as const;
+const email = "hello@collect.so" as const
 
-const emailUrl = `mailto:${email}` as const;
+const emailUrl = `mailto:${email}` as const
 
 export const socials = {
   discord: "https://discord.gg/zy7k6CJ7by",
@@ -10,7 +10,7 @@ export const socials = {
   x: "https://twitter.com/CollectAPI",
   linkedIn: "https://www.linkedin.com/company/collect-so/",
   blog: "/blog",
-} as const;
+} as const
 
 export const links = {
   docs: "https://docs.collect.so",
@@ -20,4 +20,4 @@ export const links = {
   app: "https://app.collect.so",
   appPricing: "https://app.collect.so/pricing",
   introMeeting: "https://calendly.com/collect-so/collect-intro",
-} as const;
+} as const

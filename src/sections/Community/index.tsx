@@ -1,19 +1,19 @@
-import { ComponentPropsWithoutRef, FunctionComponent, ReactNode } from "react";
+import { ComponentPropsWithoutRef, FunctionComponent, ReactNode } from "react"
 import {
   Section,
   SectionHeader,
   SectionSubtitle,
   SectionTitle,
-} from "~/components/Section";
-import cx from "classnames";
-import { Button } from "~/components/Button";
-import { ArrowUpRight, BookOpen, Github } from "lucide-react";
-import { IconDiscord } from "~/components/Layout/IconDiscord";
-import { IconX } from "~/components/Layout/IconX";
-import Link from "next/link";
-import { socials } from "~/config/urls";
-import { RoundedGridItem } from "~/components/RoundedGrid";
-import { Grid } from "~/components/Grid";
+} from "~/components/Section"
+import cx from "classnames"
+import { Button } from "~/components/Button"
+import { ArrowUpRight, BookOpen, Github } from "lucide-react"
+import { IconDiscord } from "~/components/Layout/IconDiscord"
+import { IconX } from "~/components/Layout/IconX"
+import Link from "next/link"
+import { socials } from "~/config/urls"
+import { RoundedGridItem } from "~/components/RoundedGrid"
+import { Grid } from "~/components/Grid"
 
 function CommunityCard({
   title,
@@ -24,11 +24,11 @@ function CommunityCard({
   idx,
   ...props
 }: ComponentPropsWithoutRef<"div"> & {
-  title: ReactNode;
-  description: ReactNode;
-  action: ReactNode;
-  icon: FunctionComponent<{ className?: string }>;
-  idx: number;
+  title: ReactNode
+  description: ReactNode
+  action: ReactNode
+  icon: FunctionComponent<{ className?: string }>
+  idx: number
 }) {
   return (
     <RoundedGridItem
@@ -48,7 +48,7 @@ function CommunityCard({
 
       <div className="mt-auto grid w-full">{action}</div>
     </RoundedGridItem>
-  );
+  )
 }
 
 export function CommunitySection() {
@@ -134,5 +134,5 @@ export function CommunitySection() {
         />
       </Grid>
     </Section>
-  );
+  )
 }

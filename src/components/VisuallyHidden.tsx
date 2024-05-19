@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react"
 
 export function VisuallyHidden({ children }: PropsWithChildren<{}>) {
   return (
@@ -18,5 +18,5 @@ export function VisuallyHidden({ children }: PropsWithChildren<{}>) {
     >
       {children}
     </span>
-  );
+  )
 }

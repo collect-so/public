@@ -1,5 +1,5 @@
-import localFont from "next/font/local";
-import { Manrope } from "next/font/google";
+import localFont from "next/font/local"
+import { Manrope } from "next/font/google"
 
 export const kyivTypeSans = localFont({
   src: [
@@ -15,7 +15,7 @@ export const kyivTypeSans = localFont({
     // },
   ],
   variable: "--font-kyiv-sans",
-});
+})
 
 export const jetBrainsMono = localFont({
   src: [
@@ -31,10 +31,10 @@ export const jetBrainsMono = localFont({
     // },
   ],
   variable: "--font-jet-brains-mono",
-});
+})
 
 export const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",
   style: ["normal"],
-});
+})

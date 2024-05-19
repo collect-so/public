@@ -1,28 +1,28 @@
-import cx from "classnames";
-import Link from "next/link";
-import { BookText } from "lucide-react";
-import { useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { motion } from "framer-motion";
+import cx from "classnames"
+import Link from "next/link"
+import { BookText } from "lucide-react"
+import { useScroll, useTransform } from "framer-motion"
+import { useRef } from "react"
+import { motion } from "framer-motion"
 
-import { Button, MainCta } from "~/components/Button";
-import { defaultDescription, defaultTitle } from "~/components/Meta";
-import { LetterTypingText } from "~/components/LetterTypingText";
-import { links } from "~/config/urls";
-import { CodeBlock } from "~/components/CodeBlock";
+import { Button, MainCta } from "~/components/Button"
+import { defaultDescription, defaultTitle } from "~/components/Meta"
+import { LetterTypingText } from "~/components/LetterTypingText"
+import { links } from "~/config/urls"
+import { CodeBlock } from "~/components/CodeBlock"
 
 const code = `const Collect = new CollectSDK("TOKEN")
-// Done ✅`;
+// Done ✅`
 
 export const Hero = () => {
-  const spacerRef = useRef(null);
+  const spacerRef = useRef(null)
 
   const { scrollYProgress } = useScroll({
     target: spacerRef,
     offset: ["start start", "end start"],
-  });
+  })
 
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
 
   return (
     <>
@@ -74,5 +74,5 @@ export const Hero = () => {
         </motion.section>
       </div>
     </>
-  );
-};
+  )
+}

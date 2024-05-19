@@ -1,25 +1,25 @@
-import { Portal } from "@radix-ui/react-portal";
-import classNames from "classnames";
+import { Portal } from "@radix-ui/react-portal"
+import classNames from "classnames"
 import {
   useScroll,
   motion,
   useMotionValueEvent,
   AnimatePresence,
-} from "framer-motion";
-import { ArrowUpRight, Github, Menu, X } from "lucide-react";
-import Link from "next/link";
+} from "framer-motion"
+import { ArrowUpRight, Github, Menu, X } from "lucide-react"
+import Link from "next/link"
 import {
   ComponentPropsWithoutRef,
   useCallback,
   useEffect,
   useState,
-} from "react";
-import { Button, MainCta } from "~/components/Button";
-import { IconButton } from "~/components/IconButton";
-import { IconDiscord } from "~/components/Layout/IconDiscord";
-import { IconX } from "~/components/Layout/IconX";
-import { Logo } from "~/components/Logo";
-import { links, socials } from "~/config/urls";
+} from "react"
+import { Button, MainCta } from "~/components/Button"
+import { IconButton } from "~/components/IconButton"
+import { IconDiscord } from "~/components/Layout/IconDiscord"
+import { IconX } from "~/components/Layout/IconX"
+import { Logo } from "~/components/Logo"
+import { links, socials } from "~/config/urls"
 
 export function MenuItem({
   className,
@@ -38,19 +38,19 @@ export function MenuItem({
 
       <ArrowUpRight />
     </Button>
-  );
+  )
 }
 
 function MobileMenu() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
 
   const handleScroll = useCallback(() => {
-    setOpen(false);
-  }, []);
+    setOpen(false)
+  }, [])
 
   useEffect(() => {
-    return window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
+    return window.removeEventListener("scroll", handleScroll)
+  }, [handleScroll])
 
   return (
     <>
@@ -60,11 +60,11 @@ function MobileMenu() {
         aria-label="Menu"
         onClick={() =>
           setOpen((current) => {
-            const next = !current;
+            const next = !current
             if (!next) {
-              window.addEventListener("scroll", handleScroll);
+              window.addEventListener("scroll", handleScroll)
             }
-            return next;
+            return next
           })
         }
       >
@@ -135,20 +135,20 @@ function MobileMenu() {
         )}
       </AnimatePresence>
     </>
-  );
+  )
 }
 
 function Nav() {
-  const [hasScrolled, setHasScrolled] = useState(false);
-  const { scrollYProgress } = useScroll();
+  const [hasScrolled, setHasScrolled] = useState(false)
+  const { scrollYProgress } = useScroll()
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     if (latest > 0.1) {
-      setHasScrolled(true);
+      setHasScrolled(true)
     } else {
-      setHasScrolled(false);
+      setHasScrolled(false)
     }
-  });
+  })
 
   return (
     <nav className="flex items-center">
@@ -242,7 +242,7 @@ function Nav() {
 
       <MobileMenu />
     </nav>
-  );
+  )
 }
 
 export const Header = () => {
@@ -260,5 +260,5 @@ export const Header = () => {
         <Nav />
       </div>
     </header>
-  );
-};
+  )
+}

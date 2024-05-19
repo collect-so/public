@@ -1,10 +1,10 @@
-import { Github, Linkedin } from "lucide-react";
-import { Section } from "~/components/Section";
-import Link from "next/link";
-import { socials } from "~/config/urls";
-import { IconX } from "~/components/Layout/IconX";
-import { IconDiscord } from "~/components/Layout/IconDiscord";
-import { Logo } from "~/components/Logo";
+import { Github, Linkedin } from "lucide-react"
+import { Section } from "~/components/Section"
+import Link from "next/link"
+import { socials } from "~/config/urls"
+import { IconX } from "~/components/Layout/IconX"
+import { IconDiscord } from "~/components/Layout/IconDiscord"
+import { Logo } from "~/components/Logo"
 
 export function Footer() {
   return (
@@ -83,5 +83,5 @@ export function Footer() {
         </div>
       </div>
     </Section>
-  );
+  )
 }

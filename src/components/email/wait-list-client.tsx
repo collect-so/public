@@ -1,7 +1,7 @@
-import React from "react";
-import { IWaitListData } from "./wait-list-self";
+import React from "react"
+import { IWaitListData } from "./wait-list-self"
 
-type IWaitListClientData = Pick<IWaitListData, "name">;
+type IWaitListClientData = Pick<IWaitListData, "name">
 
 export const WaitListClient = ({ name }: IWaitListClientData) => {
   return (
@@ -30,5 +30,5 @@ export const WaitListClient = ({ name }: IWaitListClientData) => {
         Collect Team
       </p>
     </div>
-  );
-};
+  )
+}

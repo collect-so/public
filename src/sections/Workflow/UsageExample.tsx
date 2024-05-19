@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import { LetterTypingText } from "~/components/LetterTypingText";
+import { ReactNode } from "react"
+import { LetterTypingText } from "~/components/LetterTypingText"
 
 export function UsageScenario({
   title,
@@ -7,10 +7,10 @@ export function UsageScenario({
   subtitle,
   example,
 }: {
-  title: ReactNode;
-  subtitle: ReactNode;
-  description: ReactNode;
-  example: ReactNode;
+  title: ReactNode
+  subtitle: ReactNode
+  description: ReactNode
+  example: ReactNode
 }) {
   return (
     <div className="grid grid-cols-2 content-start justify-items-center gap-10 py-16 md:grid-cols-1">
@@ -30,5 +30,5 @@ export function UsageScenario({
 
       {example}
     </div>
-  );
+  )
 }

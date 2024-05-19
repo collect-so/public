@@ -1,6 +1,6 @@
-import classNames from "classnames";
-import { ComponentPropsWithoutRef } from "react";
-import { GridItem } from "~/components/Grid";
+import classNames from "classnames"
+import { ComponentPropsWithoutRef } from "react"
+import { GridItem } from "~/components/Grid"
 
 export const RoundedGridItem = ({
   idx,
@@ -19,4 +19,4 @@ export const RoundedGridItem = ({
     firstOfLastRow={classNames("rounded-bl-3xl", firstOfLastRow)}
     {...props}
   />
-);
+)

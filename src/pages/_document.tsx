@@ -1,6 +1,6 @@
-import React from "react";
-import NextDocument, { Html, Head, Main, NextScript } from "next/document";
-import { metaThemeColor } from "~/config/theme";
+import React from "react"
+import NextDocument, { Html, Head, Main, NextScript } from "next/document"
+import { metaThemeColor } from "~/config/theme"
 
 export default class Document extends NextDocument {
   render() {
@@ -23,6 +23,6 @@ export default class Document extends NextDocument {
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }
