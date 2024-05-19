@@ -6,6 +6,7 @@ export type Post = {
     date: string
     image?: string
     tags?: string[]
+    noindex?: boolean
   }
   slug: string
 }

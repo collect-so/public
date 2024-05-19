@@ -9,6 +9,7 @@ import { Post } from "~/sections/blog/types"
 import { MDXRenderer } from "~/sections/blog/MDXRenderer"
 import { PostCard } from "~/sections/blog/PostCard"
 import classNames from "classnames"
+import Head from "next/head"
 
 type Props = {
   serializedPost: MDXRemoteSerializeResult
@@ -27,6 +28,12 @@ export default function PostPage({ serializedPost, data, morePosts }: Props) {
       description={data.description}
       image={data.image}
     >
+      {data?.noindex && (
+        <Head>
+          <meta name="robots" content="noindex, nofollow" />
+        </Head>
+      )}
+
       <MDXRenderer {...serializedPost} data={data} />
 
       {morePosts?.length > 0 && (

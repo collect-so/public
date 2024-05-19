@@ -10,26 +10,10 @@ const filePathToFileName = (path: string) =>
     .pop()
     ?.replace(/\.mdx?$/, "") ?? ""
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
-
-// POSTS_PATH is useful when you want to get the path to a specific file
-// const POSTS_PATH = fileURLToPath(import.meta.url)
-
-const POSTS_PATH = resolve(__dirname, "./posts")
-
-// path.join(process.cwd(), "posts")
-// path.resolve("../../posts")
-// path.join(process.cwd(), "posts")
-
-console.log({
-  __dirname,
-  __filename,
-  POSTS_PATH,
-  existsDirname: fs.existsSync(__dirname),
-  existsFileName: fs.existsSync(__filename),
-  existsPOsts: fs.existsSync(POSTS_PATH),
-})
+// const __filename = fileURLToPath(import.meta.url)
+// const __dirname = dirname(__filename)
+// const POSTS_PATH = resolve(__dirname, "./posts")
+const POSTS_PATH = resolve(process.cwd(), "src/posts")
 
 // postFilePaths is the list of all mdx files inside the POSTS_PATH directory
 const postFilePaths = fs
@@ -52,7 +36,6 @@ export const getPost = (slug: string): Post => {
 
   const fileName = filePathToFileName(filePath)
 
-  // Get file stats
   const fileStats = fs.statSync(filePath)
 
   return {
