@@ -10,7 +10,9 @@ const filePathToFileName = (path: string) =>
     ?.replace(/\.mdx?$/, "") ?? ""
 
 // POSTS_PATH is useful when you want to get the path to a specific file
-const POSTS_PATH = path.join(process.cwd(), "src/posts")
+const POSTS_PATH =
+  // path.resolve("../../posts")
+  path.join(process.cwd(), "./src/posts")
 
 // postFilePaths is the list of all mdx files inside the POSTS_PATH directory
 const postFilePaths = fs
