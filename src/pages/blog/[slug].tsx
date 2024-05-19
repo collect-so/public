@@ -10,6 +10,7 @@ import { MDXRenderer } from "~/sections/blog/MDXRenderer"
 import { PostCard } from "~/sections/blog/PostCard"
 import classNames from "classnames"
 import Head from "next/head"
+import { getAbsoluteURL } from "~/utils"
 
 type Props = {
   serializedPost: MDXRemoteSerializeResult
@@ -26,7 +27,7 @@ export default function PostPage({ serializedPost, data, morePosts }: Props) {
     <Layout
       title={data.title}
       description={data.description}
-      image={data.image}
+      image={getAbsoluteURL(data.image)}
     >
       {data?.noindex && (
         <Head>
