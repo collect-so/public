@@ -25,6 +25,8 @@ const POSTS_PATH = resolve(__dirname, "../../../posts")
 console.log({
   __dirname,
   __filename,
+  existsDirname: fs.existsSync(__dirname),
+  existsFileName: fs.existsSync(__filename),
 })
 
 // postFilePaths is the list of all mdx files inside the POSTS_PATH directory
