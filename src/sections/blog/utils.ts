@@ -1,7 +1,6 @@
 import fs from "fs"
 import matter from "gray-matter"
-import path, { dirname, resolve } from "path"
-import { fileURLToPath } from "url"
+import path from "path"
 import { Post } from "~/sections/blog/types"
 
 const filePathToFileName = (path: string) =>
@@ -10,12 +9,8 @@ const filePathToFileName = (path: string) =>
     .pop()
     ?.replace(/\.mdx?$/, "") ?? ""
 
-// const __filename = fileURLToPath(import.meta.url)
-// const __dirname = dirname(__filename)
-// const POSTS_PATH = resolve(__dirname, "./posts")
-const POSTS_PATH = resolve(process.cwd(), "src/posts")
+const POSTS_PATH = path.resolve(process.cwd(), "src/posts")
 
-// postFilePaths is the list of all mdx files inside the POSTS_PATH directory
 const postFilePaths = fs
   .readdirSync(POSTS_PATH)
   // Only include md(x) files

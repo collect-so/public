@@ -2,7 +2,6 @@ import classNames from "classnames"
 import { MDXRemote } from "next-mdx-remote"
 import Image from "next/image"
 import { ComponentPropsWithoutRef, ReactNode, isValidElement } from "react"
-import { Chip } from "~/components/Chip"
 import { CodeBlock } from "~/components/CodeBlock"
 import { LetterTypingText } from "~/components/LetterTypingText"
 import { Link } from "~/components/Link"
@@ -47,7 +46,7 @@ const PostHeader = ({
         <p className="typography-lg  py-6 text-center">{data.description}</p>
       )}
 
-      {data?.tags && (
+      {/* {data?.tags && (
         <div className="flex gap-2 overflow-auto">
           {data.tags.map((tag) => (
             <Chip variant="purple" key={tag}>
@@ -55,7 +54,7 @@ const PostHeader = ({
             </Chip>
           ))}
         </div>
-      )}
+      )} */}
     </section>
   )
 }
