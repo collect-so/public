@@ -1,27 +1,27 @@
-import { ComponentPropsWithoutRef, useRef, useState } from "react";
+import { ComponentPropsWithoutRef, useRef, useState } from "react"
 import {
   Section,
   SectionHeader,
   SectionSubtitle,
   SectionTitle,
-} from "~/components/Section";
-import cx from "classnames";
-import { CodeBlock } from "~/components/CodeBlock";
-import { Chip } from "~/components/Chip";
-import { VideoBlock } from "~/sections/Workflow/VideoBlock";
-import { UsageScenario } from "~/sections/Workflow/UsageExample";
-import { CodeWrapper } from "~/sections/Workflow/CodeWrapper";
+} from "~/components/Section"
+import cx from "classnames"
+import { CodeBlock } from "~/components/CodeBlock"
+import { Chip } from "~/components/Chip"
+import { VideoBlock } from "~/sections/Workflow/VideoBlock"
+import { UsageScenario } from "~/sections/Workflow/UsageExample"
+import { CodeWrapper } from "~/sections/Workflow/CodeWrapper"
 
-const examples = ["API", "SDK", "Dashboard"] as const;
+const examples = ["API", "SDK", "Dashboard"] as const
 
 const initializeCodeBlock = `// Simple as that
-const Collect = new CollectSDK("API_TOKEN")`;
+const Collect = new CollectSDK("API_TOKEN")`
 
 const initializeApiCodeBlock = `curl 'https://api.collect.so/api/v1/...' \\
   -H 'Content-Type: application/json' \\
   -H "Token: $API_TOKEN" \\
   -d '...' \\
-`;
+`
 
 const initializeApiFetchCodeBlock = `fetch("https://api.collect.so/api/v1/...", {
   "headers": {
@@ -29,7 +29,7 @@ const initializeApiFetchCodeBlock = `fetch("https://api.collect.so/api/v1/...", 
     "Token": "API_TOKEN",
     ...
   }
-});`;
+});`
 
 const definingModelCodeBlock = `// Optionally define Models 
 const UserModel = new CollectModel("USER", {
@@ -43,7 +43,7 @@ const UserModel = new CollectModel("USER", {
   }
 })
 
-const UserRepo = Collect.registerModel(UserModel)`;
+const UserRepo = Collect.registerModel(UserModel)`
 
 //
 const createApiCodeBlock = `curl 
@@ -66,14 +66,14 @@ const createApiCodeBlock = `curl
         "value": 47
       }
     }
-  }'`;
+  }'`
 
 const createCodeBlock = `// Create single Record
 const user = await UserRepo.create({
   email: "paul.schmitz@mail.com",
   name: "Paul Schmitz",
   age: 47
-})`;
+})`
 
 const createManyCodeBlock = `// Create multiple Records at once
 const catalog = await Collect.records.createMany(
@@ -96,7 +96,7 @@ const catalog = await Collect.records.createMany(
       ]
     }
   ]
-)`;
+)`
 
 //
 
@@ -120,7 +120,7 @@ const basicSearchApiCodeBlock = `curl
     "orderBy": { 
       "balance": "asc" 
     }
-  }'`;
+  }'`
 
 const basicSearchCodeBlock = `// Basic search 
 const customers = await CustomerRepo.find({
@@ -136,7 +136,7 @@ const customers = await CustomerRepo.find({
     }
   },
   orderBy: { balance: "asc" }
-})`;
+})`
 
 const relatedSearchCodeBlock = `// Related search 
 const orders = await OrderRepo.find({
@@ -149,7 +149,7 @@ const orders = await OrderRepo.find({
       }
     }
   }
-})`;
+})`
 
 //
 
@@ -179,7 +179,7 @@ curl
   -H 'Content-Type: application/json' \\
   -H "Token: $API_TOKEN" \\
   -d '{}'
-`;
+`
 
 const transactionalAndSafeCodeBlock = `// Start Transaction
 const tx = await Collect.tx.begin() 
@@ -210,7 +210,7 @@ try {
   // Rollback Transaction if error occurred
   await tx.rollback() 
 }
-`;
+`
 
 //
 
@@ -228,7 +228,7 @@ const deleteComplexApiCodeBlock = `curl
         "email": "rude.troll@mail.com"
       }
     }
-  }'`;
+  }'`
 
 const deleteComplexCodeBlock = `// Delete Records based on complex criteria 
 await CommentsRepo.delete({
@@ -240,7 +240,7 @@ await CommentsRepo.delete({
       email: "rude.troll@mail.com"
     }
   }
-})`;
+})`
 
 const Option = ({
   className,
@@ -258,8 +258,8 @@ const Option = ({
       )}
       {...props}
     />
-  );
-};
+  )
+}
 
 // Every app starts with Create, Read, Update, Delete (CRUD). Collect lets you define and modify your data entries with ease. Just add your data, and start building from there.
 
@@ -379,13 +379,13 @@ const scenarios = [
       ),
     },
   },
-];
+]
 
 export function WorkflowSection() {
-  const wrapperRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null)
 
   const [currentExample, setCurrentExample] =
-    useState<(typeof examples)[number]>("SDK");
+    useState<(typeof examples)[number]>("SDK")
 
   return (
     <Section className="container">
@@ -418,10 +418,10 @@ export function WorkflowSection() {
               <Option
                 key={example}
                 onClick={() => {
-                  setCurrentExample(example);
+                  setCurrentExample(example)
                   wrapperRef.current?.scrollIntoView({
                     behavior: "smooth",
-                  });
+                  })
                 }}
                 selected={example === currentExample}
               >
@@ -432,5 +432,5 @@ export function WorkflowSection() {
         </div>
       </div>
     </Section>
-  );
+  )
 }

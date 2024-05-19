@@ -1,19 +1,19 @@
-import { useState } from "react";
+import { useState } from "react"
 import {
   Section,
   SectionHeader,
   SectionSubtitle,
   SectionTitle,
-} from "~/components/Section";
+} from "~/components/Section"
 
-import { ComponentPropsWithoutRef, FunctionComponent, ReactNode } from "react";
-import cx from "classnames";
-import { Button } from "~/components/Button";
-import { ArrowUpRight, CalendarCheck, Check, Github } from "lucide-react";
+import { ComponentPropsWithoutRef, FunctionComponent, ReactNode } from "react"
+import cx from "classnames"
+import { Button } from "~/components/Button"
+import { ArrowUpRight, CalendarCheck, Check, Github } from "lucide-react"
 
-import Link from "next/link";
-import { links, socials } from "~/config/urls";
-import { Tab, Tabs, TabsList } from "~/components/Tabs";
+import Link from "next/link"
+import { links, socials } from "~/config/urls"
+import { Tab, Tabs, TabsList } from "~/components/Tabs"
 
 function Feat({ title, subtitle }: { title: ReactNode; subtitle?: ReactNode }) {
   return (
@@ -30,7 +30,7 @@ function Feat({ title, subtitle }: { title: ReactNode; subtitle?: ReactNode }) {
         <div className="pl-7 text-content2 text-sm text-start">{subtitle}</div>
       )}
     </li>
-  );
+  )
 }
 
 function PricingCard({
@@ -43,11 +43,11 @@ function PricingCard({
   featured,
   ...props
 }: ComponentPropsWithoutRef<"div"> & {
-  title?: ReactNode;
-  description: ReactNode;
-  action: ReactNode;
-  price?: number | "free";
-  featured?: boolean;
+  title?: ReactNode
+  description: ReactNode
+  action: ReactNode
+  price?: number | "free"
+  featured?: boolean
 }) {
   return (
     <article
@@ -80,7 +80,7 @@ function PricingCard({
         <ul className="flex flex-col w-full mt-5 divide-y">{children}</ul>
       </div>
     </article>
-  );
+  )
 }
 
 enum Variants {
@@ -89,7 +89,7 @@ enum Variants {
 }
 
 export function Pricing() {
-  const [variant, setVariant] = useState<Variants>(Variants.Cloud);
+  const [variant, setVariant] = useState<Variants>(Variants.Cloud)
 
   return (
     <Section className="container">
@@ -220,5 +220,5 @@ export function Pricing() {
         {/*)}*/}
       </div>
     </Section>
-  );
+  )
 }

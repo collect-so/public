@@ -3,9 +3,9 @@ export function WireBox({
   fillColor = "",
   className,
 }: {
-  wireColor?: string;
-  fillColor?: string;
-  className?: string;
+  wireColor?: string
+  fillColor?: string
+  className?: string
 }) {
   return (
     <svg
@@ -238,5 +238,5 @@ export function WireBox({
         </clipPath>
       </defs>
     </svg>
-  );
+  )
 }

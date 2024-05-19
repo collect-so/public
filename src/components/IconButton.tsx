@@ -1,17 +1,17 @@
-import React from "react";
-import cx from "classnames";
-import { variants, sizes as buttonSizes } from "~/components/Button";
+import React from "react"
+import cx from "classnames"
+import { variants, sizes as buttonSizes } from "~/components/Button"
 
 const sizes = {
   small: cx(buttonSizes.small, "!w-9 !p-0"),
   medium: cx(buttonSizes.medium, "!w-11 !p-0"),
   large: cx(buttonSizes.large, "!w-11 !p-0"),
-};
+}
 
 type Props = {
-  variant: keyof typeof variants;
-  size?: keyof typeof sizes;
-};
+  variant: keyof typeof variants
+  size?: keyof typeof sizes
+}
 
 export function IconButton<As extends React.ElementType = "button">({
   as,
@@ -20,7 +20,7 @@ export function IconButton<As extends React.ElementType = "button">({
   className,
   ...props
 }: TPolymorphicComponentProps<As> & Props) {
-  const Element = as ?? "button";
+  const Element = as ?? "button"
 
   return (
     <Element
@@ -32,5 +32,5 @@ export function IconButton<As extends React.ElementType = "button">({
       )}
       {...props}
     />
-  );
+  )
 }

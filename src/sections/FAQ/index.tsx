@@ -1,20 +1,20 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { Section } from "~/components/Section";
+import { AnimatePresence, motion } from "framer-motion"
+import { Section } from "~/components/Section"
 
-import { useState } from "react";
-import cx from "classnames";
-import { ChevronDown, ChevronUp } from "lucide-react";
-import Link from "next/link";
-import { Button } from "~/components/Button";
+import { useState } from "react"
+import cx from "classnames"
+import { ChevronDown, ChevronUp } from "lucide-react"
+import Link from "next/link"
+import { Button } from "~/components/Button"
 
 type TFaqBlock = {
-  question: string;
-  answer: string;
+  question: string
+  answer: string
   link?: {
-    url: string;
-    text: string;
-  };
-};
+    url: string
+    text: string
+  }
+}
 const faqData: Array<TFaqBlock> = [
   {
     question: "Is it like MongoDB?",
@@ -48,10 +48,10 @@ const faqData: Array<TFaqBlock> = [
       text: "Schedule a call",
     },
   },
-];
+]
 
 const Accordion = ({ question, answer, link }: TFaqBlock) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <>
@@ -92,8 +92,8 @@ const Accordion = ({ question, answer, link }: TFaqBlock) => {
         )}
       </AnimatePresence>
     </>
-  );
-};
+  )
+}
 
 export function FAQSection() {
   return (
@@ -107,5 +107,5 @@ export function FAQSection() {
         </div>
       </div>
     </Section>
-  );
+  )
 }

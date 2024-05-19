@@ -1,6 +1,6 @@
-import classNames from "classnames";
+import classNames from "classnames"
 
-import { ComponentPropsWithoutRef } from "react";
+import { ComponentPropsWithoutRef } from "react"
 
 export function CodeWrapper({
   className,
@@ -11,5 +11,5 @@ export function CodeWrapper({
       className={classNames("flex flex-col gap-3 w-full", className)}
       {...props}
     />
-  );
+  )
 }

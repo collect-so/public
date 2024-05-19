@@ -4,10 +4,10 @@ export const Logo = ({
   width = 64,
   height = 64,
 }: {
-  className?: string;
-  strokeColor?: string;
-  width?: number;
-  height?: number;
+  className?: string
+  strokeColor?: string
+  width?: number
+  height?: number
 }) => (
   <svg
     width={width}
@@ -23,4 +23,4 @@ export const Logo = ({
       fill={strokeColor}
     />
   </svg>
-);
+)

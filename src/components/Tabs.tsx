@@ -1,13 +1,13 @@
-import type { ComponentPropsWithoutRef, ElementRef } from "react";
+import type { ComponentPropsWithoutRef, ElementRef } from "react"
 
-import { Content, List, Trigger } from "@radix-ui/react-tabs";
-import { forwardRef } from "react";
+import { Content, List, Trigger } from "@radix-ui/react-tabs"
+import { forwardRef } from "react"
 
-import cn from "classnames";
+import cn from "classnames"
 
-export { Root as Tabs } from "@radix-ui/react-tabs";
+export { Root as Tabs } from "@radix-ui/react-tabs"
 
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
 
 export const TabsList = forwardRef<
   ElementRef<typeof List>,
@@ -21,8 +21,8 @@ export const TabsList = forwardRef<
     ref={ref}
     {...props}
   />
-));
-TabsList.displayName = List.displayName;
+))
+TabsList.displayName = List.displayName
 
 const TabInner: TPolymorphicComponent<{ layoutId?: string }, "button"> =
   forwardRef(
@@ -30,9 +30,9 @@ const TabInner: TPolymorphicComponent<{ layoutId?: string }, "button"> =
       { children, className, layoutId = "tabs", as = "button", ...props },
       ref,
     ) => {
-      const active = "data-state" in props && props["data-state"] === "active";
+      const active = "data-state" in props && props["data-state"] === "active"
 
-      const Component = as;
+      const Component = as
 
       return (
         <Component
@@ -54,10 +54,10 @@ const TabInner: TPolymorphicComponent<{ layoutId?: string }, "button"> =
           ) : null}
           {children}
         </Component>
-      );
+      )
     },
-  );
-TabInner.displayName = "TabInner";
+  )
+TabInner.displayName = "TabInner"
 
 export const Tab: TPolymorphicComponent<
   ComponentPropsWithoutRef<typeof Trigger> & { layoutId?: string },
@@ -67,9 +67,9 @@ export const Tab: TPolymorphicComponent<
     <Trigger asChild ref={ref} {...props}>
       <TabInner as={as}>{children}</TabInner>
     </Trigger>
-  );
-});
-Tab.displayName = Trigger.displayName;
+  )
+})
+Tab.displayName = Trigger.displayName
 
 export const TabsContent = forwardRef<
   ElementRef<typeof Content>,
@@ -83,5 +83,5 @@ export const TabsContent = forwardRef<
     ref={ref}
     {...props}
   />
-));
-TabsContent.displayName = Content.displayName;
+))
+TabsContent.displayName = Content.displayName

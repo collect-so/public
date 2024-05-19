@@ -1,5 +1,5 @@
-import { ComponentPropsWithoutRef } from "react";
-import cx from "classnames";
+import { ComponentPropsWithoutRef } from "react"
+import cx from "classnames"
 
 const chipVariants = {
   yellow: "border-accent-yellow text-accent-yellow",
@@ -8,13 +8,13 @@ const chipVariants = {
   red: "border-accent-red text-accent-red",
   purple: "border-accent-purple text-accent-purple",
   orange: "border-accent-orange text-accent-orange",
-};
+}
 
 export const Chip = ({
   variant = "yellow",
   ...props
 }: ComponentPropsWithoutRef<"h4"> & {
-  variant: keyof typeof chipVariants;
+  variant: keyof typeof chipVariants
 }) => (
   <h4
     className={cx(
@@ -23,4 +23,4 @@ export const Chip = ({
     )}
     {...props}
   />
-);
+)

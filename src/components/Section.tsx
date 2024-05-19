@@ -1,19 +1,19 @@
-import cx from "classnames";
+import cx from "classnames"
 import {
   ComponentPropsWithoutRef,
   ElementType,
   forwardRef,
   PropsWithChildren,
-} from "react";
+} from "react"
 
-import { motion } from "framer-motion";
-import { LetterTypingText } from "~/components/LetterTypingText";
+import { motion } from "framer-motion"
+import { LetterTypingText } from "~/components/LetterTypingText"
 
 interface SectionProps {
-  className?: string;
-  as?: ElementType<any>;
+  className?: string
+  as?: ElementType<any>
 
-  [key: string]: unknown;
+  [key: string]: unknown
 }
 
 export const Section = forwardRef<HTMLElement, PropsWithChildren<SectionProps>>(
@@ -37,17 +37,17 @@ export const Section = forwardRef<HTMLElement, PropsWithChildren<SectionProps>>(
           {children}
         </As>
       </motion.div>
-    );
+    )
   },
-);
+)
 
-Section.displayName = "Section";
+Section.displayName = "Section"
 
 export function SectionHeader({
   className,
   ...props
 }: ComponentPropsWithoutRef<"div">) {
-  return <div className={cx("flex flex-col gap-5", className)} {...props} />;
+  return <div className={cx("flex flex-col gap-5", className)} {...props} />
 }
 
 export function SectionTitle({
@@ -61,7 +61,7 @@ export function SectionTitle({
       animateInView
       {...props}
     />
-  );
+  )
 }
 
 export function SectionSubtitle({
@@ -70,5 +70,5 @@ export function SectionSubtitle({
 }: ComponentPropsWithoutRef<"div">) {
   return (
     <p className={cx("typography-base text-content2", className)} {...props} />
-  );
+  )
 }

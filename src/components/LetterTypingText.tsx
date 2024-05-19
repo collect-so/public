@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
 
 // function useWaypoint() {
 //   const ref = useRef<HTMLDivElement>(null);
@@ -14,7 +14,7 @@ const sentence = {
     // opacity: 1,
     transition: { delay: 0.05, staggerChildren: 0.008 },
   },
-};
+}
 
 const letter = {
   hidden: {
@@ -25,27 +25,27 @@ const letter = {
     opacity: 1,
     y: 0,
   },
-};
+}
 
 const renderChars = (str: string, className?: string) =>
   str.split("").map((ch, idx) => (
     <motion.span className={className} key={ch + idx} variants={letter}>
       {ch}
     </motion.span>
-  ));
+  ))
 
 export const LetterTypingText = <As extends React.ElementType = "span">({
   animate,
   children: text,
-  animateInView,
+  animateInView = true,
   as,
   ...props
 }: TPolymorphicComponentProps<As> & {
-  animate?: boolean;
-  animateInView?: boolean;
-  children: string;
+  animate?: boolean
+  animateInView?: boolean
+  children: string
 }) => {
-  const Element = as ?? "span";
+  const Element = as ?? "span"
 
   return (
     <Element {...props} aria-label={text}>
@@ -64,5 +64,5 @@ export const LetterTypingText = <As extends React.ElementType = "span">({
         {renderChars(text)}
       </motion.span>
     </Element>
-  );
-};
+  )
+}
