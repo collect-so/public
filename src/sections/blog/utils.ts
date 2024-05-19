@@ -1,6 +1,6 @@
 import fs from "fs"
 import matter from "gray-matter"
-import path, { dirname } from "path"
+import path, { dirname, resolve } from "path"
 import { Post } from "~/sections/blog/types"
 
 const filePathToFileName = (path: string) =>
@@ -10,15 +10,11 @@ const filePathToFileName = (path: string) =>
     ?.replace(/\.mdx?$/, "") ?? ""
 
 // POSTS_PATH is useful when you want to get the path to a specific file
-const POSTS_PATH = path.join(process.cwd(), "./src/posts")
+const POSTS_PATH = path.join(process.cwd(), "posts")
 // path.resolve("../../posts")
 // path.join(process.cwd(), "posts")
 
-console.log({
-  1: fs.existsSync(path.join(process.cwd(), "./src/posts")),
-  2: fs.existsSync(POSTS_PATH),
-  3: fs.existsSync(path.join(__dirname, "./src/posts")),
-})
+console.log(resolve(__dirname), resolve(process.cwd()))
 
 // postFilePaths is the list of all mdx files inside the POSTS_PATH directory
 const postFilePaths = fs
