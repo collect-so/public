@@ -173,7 +173,7 @@ const Hr = (props: ComponentPropsWithoutRef<"hr">) => {
   return <hr className="col-start-1 col-span-12 my-6 bg-stroke" {...props} />
 }
 
-const mdxComponents = (data: Post["data"]) =>
+const getPostComponents = (data: Post["data"]) =>
   ({
     // TestComponent: dynamic(() => import("../../components/TestComponent")),
     PostHeader: (
@@ -202,7 +202,7 @@ export function MDXRenderer({
 }: Omit<ComponentPropsWithoutRef<typeof MDXRemote>, "components"> & {
   data: Post["data"]
 }) {
-  const components = mdxComponents(data)
+  const components = getPostComponents(data)
 
   return (
     <section className="grid grid-cols-12 gap-4">
