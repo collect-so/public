@@ -17,7 +17,7 @@ const PostHeader = ({
   description?: string
 }) => {
   return (
-    <section className="grid place-items-center pt-32 pb-16 relative col-span-12 col-start-1">
+    <section className="grid place-items-center pt-32 pb-16 container relative col-span-12 col-start-1">
       {/* <div
     className="absolute top-0 left-0 h-full w-full pointer-events-none -z-10"
     aria-hidden
@@ -66,7 +66,10 @@ const P = ({ children, ...props }: ComponentPropsWithoutRef<"h2">) => {
   }
 
   return (
-    <p className="col-span-8 col-start-3 text-base text-content2" {...props}>
+    <p
+      className="container col-span-8 col-start-3 text-base text-content2"
+      {...props}
+    >
       {children}
     </p>
   )
@@ -80,7 +83,7 @@ const H2 = ({ children, ...props }: ComponentPropsWithoutRef<"h2">) => {
   const id = encodeURI(children)
 
   return (
-    <div className="col-span-8 col-start-3 typography-2xl pt-10 pb-4 flex group">
+    <div className="container col-span-8 col-start-3 typography-2xl pt-10 pb-4 flex group">
       <LetterTypingText as="h2" id={id} animateInView {...props}>
         {children}
       </LetterTypingText>
@@ -96,7 +99,10 @@ const H2 = ({ children, ...props }: ComponentPropsWithoutRef<"h2">) => {
 
 const H3 = ({ children, ...props }: ComponentPropsWithoutRef<"h2">) => {
   return (
-    <h3 className="col-span-8 col-start-3 typography-xl pt-4 pb-1" {...props}>
+    <h3
+      className="container col-span-8 col-start-3 typography-xl pt-4 pb-1"
+      {...props}
+    >
       {children}
     </h3>
   )
@@ -107,7 +113,7 @@ const Img = ({ alt = "", src }: ComponentPropsWithoutRef<"img">) => {
     return null
   }
   return (
-    <div className="block aspect-video relative col-span-12 w-full rounded-lg overflow-hidden">
+    <div className="block aspect-video container relative col-span-12 w-full rounded-lg overflow-hidden">
       <Image className="object-cover " fill alt={alt} src={src} />
     </div>
   )
@@ -124,9 +130,12 @@ const List = <As extends React.ElementType = "ul">({
 
   return (
     <Component
-      className={classNames("col-span-8 col-start-3 flex flex-col gap-1.5", {
-        "[&>li]:list-decimal [&>li]:list-inside": true, // ordered,
-      })}
+      className={classNames(
+        "container col-span-8 col-start-3 flex flex-col gap-1.5",
+        {
+          "[&>li]:list-decimal [&>li]:list-inside": true, // ordered,
+        },
+      )}
       {...props}
     >
       {children}
@@ -151,7 +160,7 @@ const Pre = ({ children }: ComponentPropsWithoutRef<"pre">) => {
       <CodeBlock
         language={language}
         code={code}
-        className="col-span-8 col-start-3"
+        className="container col-span-8 col-start-3"
       />
     )
   }
@@ -195,7 +204,7 @@ export function MDXRenderer({
   const components = getPostComponents(data)
 
   return (
-    <section className="grid grid-cols-12 gap-4 container">
+    <section className="grid grid-cols-12 gap-4">
       <MDXRemote {...props} components={components} />
     </section>
   )
