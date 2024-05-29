@@ -5,7 +5,7 @@ import { Layout } from "~/components/Layout"
 import { LetterTypingText } from "~/components/LetterTypingText"
 import { PostCard } from "~/sections/blog/PostCard"
 import { Post } from "~/sections/blog/types"
-import { getPosts } from "~/sections/blog/utils"
+import { getBlogPosts } from "~/sections/blog/utils"
 
 type Props = { posts: Array<Post> }
 
@@ -44,7 +44,7 @@ export default function Index({ posts }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = () => {
-  const posts = getPosts()
+  const posts = getBlogPosts()
 
   return { props: { posts } }
 }

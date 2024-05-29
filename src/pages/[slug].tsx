@@ -2,9 +2,10 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote"
 import { serialize } from "next-mdx-remote/serialize"
 
 import { Layout } from "~/components/Layout"
-import { GetStaticProps } from "next"
+import { GetStaticPaths, GetStaticProps } from "next"
 import { Post } from "~/sections/blog/types"
 import { MDXRenderer } from "~/sections/blog/MDXRenderer"
+import { getPost, getPosts } from "~/sections/blog/utils"
 
 type Props = {
   serializedPost: MDXRemoteSerializeResult
@@ -30,22 +31,33 @@ export default function PostPage({ serializedPost, data }: Props) {
 export const getStaticProps: GetStaticProps<Props, Params> = async ({
   params,
 }) => {
-  return {
-    notFound: true,
+  if (!params?.slug) {
+    return {
+      notFound: true,
+    }
   }
 
-  // const serializedPost = await serialize(post.content, {
-  //   // mdxOptions: {
-  //   //   remarkPlugins: [],
-  //   //   rehypePlugins: [],
-  //   // },
-  //   scope: post.data,
-  // })
+  const post = getPost(params.slug)
 
-  // return {
-  //   props: {
-  //     serializedPost,
-  //     data: post.data,
-  //   },
-  // }
+  const serializedPost = await serialize(post.content, {
+    scope: post.data,
+  })
+
+  return {
+    props: {
+      serializedPost,
+      data: post.data,
+    },
+  }
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = getPosts().map(({ slug }) => ({
+    params: { slug },
+  }))
+
+  return {
+    paths,
+    fallback: false,
+  }
 }

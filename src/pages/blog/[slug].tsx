@@ -4,7 +4,7 @@ import { serialize } from "next-mdx-remote/serialize"
 import { Layout } from "~/components/Layout"
 import { GetStaticPaths, GetStaticProps } from "next"
 import { LetterTypingText } from "~/components/LetterTypingText"
-import { getPost, getPosts } from "~/sections/blog/utils"
+import { getBlogPost, getBlogPosts } from "~/sections/blog/utils"
 import { Post } from "~/sections/blog/types"
 import { MDXRenderer } from "~/sections/blog/MDXRenderer"
 import { PostCard } from "~/sections/blog/PostCard"
@@ -70,7 +70,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
     }
   }
 
-  const post = getPost(params.slug)
+  const post = getBlogPost(params.slug)
 
   const serializedPost = await serialize(post.content, {
     // mdxOptions: {
@@ -80,7 +80,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
     scope: post.data,
   })
 
-  const morePosts = getPosts()
+  const morePosts = getBlogPosts()
     .filter((post) => post.slug !== params.slug)
     .slice(0, 3)
 
@@ -94,7 +94,9 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getPosts().map(({ slug }) => ({ params: { slug } }))
+  const paths = getBlogPosts().map(({ slug }) => ({
+    params: { slug },
+  }))
 
   return {
     paths,

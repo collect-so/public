@@ -1,6 +1,6 @@
 import fs from "fs"
 import matter from "gray-matter"
-import path from "path"
+import { resolve, join } from "path"
 import { Post } from "~/sections/blog/types"
 
 const filePathToFileName = (path: string) =>
@@ -9,12 +9,15 @@ const filePathToFileName = (path: string) =>
     .pop()
     ?.replace(/\.mdx?$/, "") ?? ""
 
-const POSTS_PATH = path.resolve(process.cwd(), "src/posts")
+const POSTS_PATH = resolve(process.cwd(), "src/posts")
 
-const postFilePaths = fs
-  .readdirSync(POSTS_PATH)
-  // Only include md(x) files
-  .filter((path) => /\.mdx?$/.test(path))
+const BLOG_POSTS_PATH = join(POSTS_PATH, "/blog")
+
+const getFilePaths = (path: string) =>
+  fs
+    .readdirSync(path)
+    // Only include md(x) files
+    .filter((path) => /\.mdx?$/.test(path))
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   year: "numeric",
@@ -22,8 +25,15 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
   day: "numeric",
 })
 
-export const getPost = (slug: string): Post => {
-  const filePath = path.join(POSTS_PATH, `${slug}.mdx`)
+export const getPost = (
+  slug: string,
+  {
+    path = POSTS_PATH,
+  }: {
+    path?: string
+  } = {},
+): Post => {
+  const filePath = join(path, `${slug}.mdx`)
 
   const source = fs.readFileSync(filePath)
 
@@ -40,11 +50,18 @@ export const getPost = (slug: string): Post => {
   }
 }
 
-export const getPosts = (): Post[] => {
-  return postFilePaths
-    .map((filePath) => getPost(filePathToFileName(filePath)))
+export const getPosts = ({
+  path = POSTS_PATH,
+}: { path?: string } = {}): Post[] => {
+  return getFilePaths(path)
+    .map((filePath) => getPost(filePathToFileName(filePath), { path }))
     .sort(
       (a, b) =>
         new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
     )
 }
+
+export const getBlogPosts = () => getPosts({ path: BLOG_POSTS_PATH })
+
+export const getBlogPost = (slug: string) =>
+  getPost(slug, { path: BLOG_POSTS_PATH })
