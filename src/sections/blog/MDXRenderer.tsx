@@ -11,10 +11,12 @@ const PostHeader = ({
   data,
   title,
   description,
+  showDate = true,
 }: {
   data: Post["data"]
   title: string
   description?: string
+  showDate: boolean
 }) => {
   return (
     <section className="grid place-items-center pt-32 pb-16 container relative col-span-12 col-start-1">
@@ -29,13 +31,13 @@ const PostHeader = ({
     <div className="absolute inset-0 h-full w-full to-90% bg-gradient-to-b from-transparent to-fill pointer-events-none" />
   </div> */}
 
-      {data.date && (
+      {data.date && showDate ? (
         <p className="typography-base text-content2 mb-2">{data.date}</p>
-      )}
+      ) : null}
 
       <LetterTypingText
         as="h1"
-        className="typography-4xl !mb-0 font-special md:text-2xl max-w-3xl
+        className="typography-4xl !mb-0 md:text-2xl max-w-3xl
     text-center"
         animate
       >
@@ -43,7 +45,7 @@ const PostHeader = ({
       </LetterTypingText>
 
       {description && (
-        <p className="typography-lg  py-6 text-center">{data.description}</p>
+        <p className="typography-lg  py-6 text-center">{description}</p>
       )}
 
       {/* {data?.tags && (

@@ -31,8 +31,8 @@ export const Hero = () => {
       <div className="flex">
         <motion.section
           className={cx(
-            "h-[100dvh] container grid place-content-center fixed z-0 inset-0 grid-cols-2",
-            "sm:place-content-start sm:pt-48 sm:static sm:h-auto sm:!opacity-100 md:!grid-cols-1",
+            "h-[100dvh] container grid pb-36 place-content-center fixed z-0 inset-0 grid-cols-2",
+            "sm:place-content-start sm:pt-32 sm:pb-12 sm:static sm:h-auto sm:!opacity-100 md:!grid-cols-1",
           )}
           style={{ opacity }}
         >
@@ -40,9 +40,7 @@ export const Hero = () => {
             <div className="flex flex-col gap-5">
               <LetterTypingText
                 as="h1"
-                className={cx(
-                  "typography-4xl !mb-0 font-special md:text-2xl max-w-[34rem]",
-                )}
+                className={cx("typography-4xl !mb-0 md:text-2xl max-w-[34rem]")}
                 animate
               >
                 {defaultTitle}
@@ -68,8 +66,8 @@ export const Hero = () => {
           </div>
           <CodeBlock
             code={code}
-            className="lg:w-fit lg:m-auto grid place-content-center md:!m-0 md:!mt-10 md:w-full"
-            preClassName="md:w-full"
+            className="lg:w-fit lg:m-auto grid place-content-center md:!m-0 md:!mt-10 md:w-full "
+            preClassName="md:w-full drop-shadow-[0px_0px_60px_rgba(63,129,255,0.3)]"
           />
         </motion.section>
       </div>

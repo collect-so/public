@@ -94,7 +94,7 @@ export function Pricing() {
   return (
     <Section className="container">
       <SectionHeader>
-        <SectionTitle className="max-w-3xl">Pricing for everyone</SectionTitle>
+        <SectionTitle className="max-w-3xl">Pricing</SectionTitle>
 
         {/*<Tabs onValueChange={(v) => setVariant(v as Variants)} value={variant}>*/}
         {/*  <TabsList>*/}
@@ -105,9 +105,9 @@ export function Pricing() {
 
         <SectionSubtitle>
           {variant === Variants.Cloud &&
-            "Choose Collect's cloud platform for a straightforward start to your projects. It's ready to use immediately, eliminating the need for initial configurations and ongoing infrastructure management. Suitable for developers of any skill level, this option allows you to concentrate fully on development, with scalability to match your project's growth. Discover our cloud pricing plans for a solution that simplifies your workflow from the outset."}
-          {variant === Variants.OnPremise &&
-            "Our on-premise solution caters to developers and teams requiring tailored data management setups. It provides the control necessary for custom configurations while still offering a quick setup process. If your project demands specific handling or integration within your existing infrastructure, explore our on-premise pricing to see how Collect can align with your unique requirements."}
+            "Start building for free with the power to scale."}
+          {/*{variant === Variants.OnPremise &&*/}
+          {/*  "Our on-premise solution caters to developers and teams requiring tailored data management setups. It provides the control necessary for custom configurations while still offering a quick setup process. If your project demands specific handling or integration within your existing infrastructure, explore our on-premise pricing to see how Collect can align with your unique requirements."}*/}
         </SectionSubtitle>
       </SectionHeader>
 
@@ -129,14 +129,14 @@ export function Pricing() {
                 </Button>
               }
             >
-              <Feat title="3 projects" />
+              <Feat title="2 projects" />
               <Feat title="1000 Records" />
-              <Feat title="Up to 10 API requests per second" />
-              <Feat title="1Gb File Storage" />
+              <Feat title="Unlimited API Requests" subtitle="Up to 10 RPS" />
+              <Feat title="1 GB File Storage" />
               <Feat title="Community Support" />
             </PricingCard>
             <PricingCard
-              price={5}
+              price={11}
               featured
               title="Pro"
               description="Monthly"
@@ -157,9 +157,12 @@ export function Pricing() {
                 title="100.000 Records"
                 subtitle="then $1 per 10.000 Records"
               />
-              <Feat title="Unlimited API requests" />
-              <Feat title="10Gb File Storage" />
-              <Feat title="Dedicated Support" />
+              <Feat title="Unlimited API Requests" subtitle="No RPS Limits" />
+              <Feat
+                title="10 GB File Storage & CDN"
+                subtitle="then $0.021 per GB"
+              />
+              <Feat title="Priority Support" />
             </PricingCard>
             <PricingCard
               title="Business"
@@ -179,11 +182,11 @@ export function Pricing() {
               <Feat title="Unlimited Everything" />
               <Feat title="Whitelabeling & Customizations" />
               <Feat
-                title="On-premises deployment"
-                subtitle="Lifetime updates on demand"
+                title="On-premises Deployment"
+                subtitle="Lifetime Updates on Demand"
               />
               <Feat title="Own S3 Storage" />
-              <Feat title="Priority support" />
+              <Feat title="Dedicated Support" />
             </PricingCard>
           </>
         )}

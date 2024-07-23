@@ -55,7 +55,7 @@ a {
 }
 
 .typography-4xl {
-  @apply mb-8 font-bold tracking-tight leading-none text-4xl md:leading-[3.5rem] md:text-3xl sm:text-2xl sm:leading-[3rem];
+  @apply mb-8 font-bold tracking-normal leading-none text-4xl md:leading-[3.5rem] md:text-3xl sm:text-2xl sm:leading-[3rem];
 }
 
 .typography-3xl {
