@@ -9,7 +9,7 @@ export const defaultDescription =
 export const Meta = ({
   title = defaultTitle,
   description = defaultDescription,
-  image = getAbsoluteURL("/images/og.png?v=2"),
+  image = getAbsoluteURL("/og.png?v=" + Math.random()),
 }: {
   title?: string
   image?: string

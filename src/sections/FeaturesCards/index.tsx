@@ -3,6 +3,7 @@ import {
   ArrowUpRight,
   Code,
   Cpu,
+  Database,
   FileText,
   Layers,
   Search,
@@ -82,11 +83,11 @@ const feats = [
       "Enjoy automated type inference and suggestions without writing any types or interfaces. This ensures your code remains clean, efficient, and error-free.",
   },
   {
-    icon: FileText,
+    icon: Database,
     color: "green",
-    title: "File Storage",
+    title: "Single Repository for All Your Data",
     description:
-      "Binary data is crucial. Collect allows you to store and manage files. It is seamlessly integrated into data storage, enabling everyone to build comprehensive solutions.",
+      "Organize and access all your data effortlessly with Collect. Our intuitive platform provides a centralized knowledge database, making data management and retrieval simple and efficient.",
   },
   {
     icon: Layers,

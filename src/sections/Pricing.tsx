@@ -132,7 +132,7 @@ export function Pricing() {
               <Feat title="2 projects" />
               <Feat title="1000 Records" />
               <Feat title="Unlimited API Requests" subtitle="Up to 10 RPS" />
-              <Feat title="1 GB File Storage" />
+              {/*<Feat title="1 GB File Storage" />*/}
               <Feat title="Community Support" />
             </PricingCard>
             <PricingCard
@@ -158,10 +158,10 @@ export function Pricing() {
                 subtitle="then $1 per 10.000 Records"
               />
               <Feat title="Unlimited API Requests" subtitle="No RPS Limits" />
-              <Feat
-                title="10 GB File Storage & CDN"
-                subtitle="then $0.021 per GB"
-              />
+              {/*<Feat*/}
+              {/*  title="10 GB File Storage & CDN"*/}
+              {/*  subtitle="then $0.021 per GB"*/}
+              {/*/>*/}
               <Feat title="Priority Support" />
             </PricingCard>
             <PricingCard
@@ -185,7 +185,7 @@ export function Pricing() {
                 title="On-premises Deployment"
                 subtitle="Lifetime Updates on Demand"
               />
-              <Feat title="Own S3 Storage" />
+              {/*<Feat title="Own S3 Storage" />*/}
               <Feat title="Dedicated Support" />
             </PricingCard>
           </>
