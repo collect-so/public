@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://collect.so
+
+# Sitemaps
+Sitemap: https://collect.so/sitemap.xml

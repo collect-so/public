@@ -6,6 +6,7 @@
     "dev": "next dev",
     "dev:watch": "next-remote-watch ./posts",
     "build": "next build && next export",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint"
   },
@@ -16,6 +17,7 @@
     "framer-motion": "10.12.16",
     "lucide-react": "0.363.0",
     "next": "13.2.3",
+    "next-sitemap": "^4.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-syntax-highlighter": "^15.5.0"
@@ -41,13 +43,13 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.5.3",
     "eslint-plugin-testing-library": "^3.9.2",
+    "gray-matter": "^4.0.2",
+    "next-mdx-remote": "^3.0.1",
+    "next-remote-watch": "1.0.0",
     "postcss": "8.4.31",
     "postcss-import": "15.0.0",
     "prettier": "^2.8.2",
     "tailwindcss": "3.4.1",
-    "typescript": "4.9.5",
-    "gray-matter": "^4.0.2",
-    "next-mdx-remote": "^3.0.1",
-    "next-remote-watch": "1.0.0"
+    "typescript": "4.9.5"
   }
 }
