@@ -7,8 +7,6 @@ import { jetBrainsMono, kyivTypeSans, manrope } from "~/styles/fonts"
 import { useRef } from "react"
 import cx from "classnames"
 
-const isProd = process.env.NODE_ENV === "production"
-
 export default function App({ Component, pageProps }: AppProps) {
   const ref = useRef<HTMLElement>(null)
 
@@ -45,13 +43,6 @@ export default function App({ Component, pageProps }: AppProps) {
       >
         <Component {...pageProps} />
       </main>
-      {isProd && (
-        <Script
-          defer
-          src="https://cloud.umami.is/script.js"
-          data-website-id="3cbd0988-2578-48fa-a572-8593d2e2b8cd"
-        />
-      )}
     </>
   )
 }
