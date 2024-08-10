@@ -1,4 +1,4 @@
-export const getAbsoluteURL = (path?: string) => {
+export const getAbsoluteURL = (path: string = "/") => {
   if (typeof window === "undefined") {
     return path
   }

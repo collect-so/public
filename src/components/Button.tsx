@@ -51,12 +51,14 @@ export function Button<As extends React.ElementType = "button">({
   )
 }
 
-export const MainCta = (
-  props: Props & ComponentPropsWithoutRef<typeof Button>,
-) => {
+export const MainCta = ({
+  children,
+  href = "https://app.collect.so",
+  ...props
+}: Props & ComponentPropsWithoutRef<typeof Button>) => {
   return (
-    <Button {...props} as={Link} href="https://app.collect.so">
-      Start Building
+    <Button {...props} as={Link} href={href}>
+      {children ?? "Start Building"}
       <ArrowUpRight />
     </Button>
   )

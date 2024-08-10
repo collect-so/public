@@ -17,7 +17,7 @@ export function PostCard({
       as={`/blog/${post.slug}`}
       href={`/blog/${post.slug}`}
       className={classNames(
-        "rounded-xl bg-secondary",
+        "rounded-xl bg-fill2",
         "relative block w-full group aspect-video rounded-md h-full overflow-hidden [&>div]:h-full",
         className,
       )}

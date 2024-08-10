@@ -29,11 +29,13 @@ export default function PostPage({ serializedPost, data, morePosts }: Props) {
       description={data.description}
       image={getAbsoluteURL(data.image)}
     >
-      {data?.noindex && (
-        <Head>
+      <Head>
+        {data?.noindex ? (
           <meta name="robots" content="noindex, nofollow" />
-        </Head>
-      )}
+        ) : (
+          <meta name="robots" content="index, follow" />
+        )}
+      </Head>
 
       <MDXRenderer {...serializedPost} data={data} />
 
@@ -46,7 +48,7 @@ export default function PostPage({ serializedPost, data, morePosts }: Props) {
             More Blog Posts
           </LetterTypingText>
 
-          <div className="col-start-3 col-span-9 container flex overflow-visible">
+          <div className="col-start-3 col-span-9 container flex gap-5 overflow-visible">
             {morePosts.map((post, idx) => (
               <PostCard
                 key={post.slug}

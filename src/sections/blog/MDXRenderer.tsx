@@ -3,9 +3,12 @@ import { MDXRemote } from "next-mdx-remote"
 import Image from "next/image"
 import { ComponentPropsWithoutRef, ReactNode, isValidElement } from "react"
 import { CodeBlock } from "~/components/CodeBlock"
+import { Faq } from "~/components/Faq"
 import { LetterTypingText } from "~/components/LetterTypingText"
 import { Link } from "~/components/Link"
 import { Post } from "~/sections/blog/types"
+import NextLink from "next/link"
+import { Button, MainCta } from "~/components/Button"
 
 const PostHeader = ({
   data,
@@ -174,6 +177,37 @@ const Hr = (props: ComponentPropsWithoutRef<"hr">) => {
   return <hr className="col-start-1 col-span-12 my-6 bg-stroke" {...props} />
 }
 
+const Blockquote = (props: ComponentPropsWithoutRef<"blockquote">) => {
+  return (
+    <blockquote
+      className="container col-span-8 col-start-3 md:col-start-1 md:col-span-12 bg-secondary [&>*]:text-inherit my-5 p-5 rounded-md"
+      {...props}
+    />
+  )
+}
+
+const CallToAction = ({
+  text,
+  buttonText,
+  description,
+}: {
+  text: string
+  description?: string
+  buttonText?: string
+}) => (
+  <div className="container col-span-8 col-start-3 md:col-start-1 md:col-span-12 bg-secondary my-16 rounded-lg items-center  gap-5 flex p-7 sm:p-5 sm:flex-col flex-row justify-between sm:items-stretch">
+    <div className="flex flex-col gap-2 max-w-xl">
+      <p className="typography-xl">{text}</p>
+
+      {description && <p className="typography-base">{description}</p>}
+    </div>
+
+    <MainCta variant="accent" className="shrink-0">
+      {buttonText}
+    </MainCta>
+  </div>
+)
+
 const getPostComponents = (data: Post["data"]) =>
   ({
     // TestComponent: dynamic(() => import("../../components/TestComponent")),
@@ -195,6 +229,14 @@ const getPostComponents = (data: Post["data"]) =>
     li: Li,
     a: Link,
     hr: Hr,
+    blockquote: Blockquote,
+    Faq: (props: ComponentPropsWithoutRef<typeof Faq>) => (
+      <Faq
+        {...props}
+        className="container col-span-8 col-start-3 md:col-start-1 md:col-span-12 mb-10"
+      />
+    ),
+    CallToAction: CallToAction,
   } as unknown as Record<string, ReactNode>)
 
 export function MDXRenderer({

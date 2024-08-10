@@ -1,4 +1,5 @@
 import Head from "next/head"
+import { useRouter } from "next/router"
 import { getAbsoluteURL } from "~/utils"
 
 export const defaultTitle = "Instant Backend In a Single Line"
@@ -17,6 +18,8 @@ export const Meta = ({
 }) => {
   const titleWithSuffix = `${title} • Collect`
 
+  const route = useRouter()
+
   return (
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -28,7 +31,7 @@ export const Meta = ({
       <meta name="description" content={description} />
 
       {/*Facebook Meta Tags */}
-      <meta property="og:url" content={getAbsoluteURL()} />
+      <meta property="og:url" content={getAbsoluteURL(route.asPath)} />
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
@@ -37,10 +40,12 @@ export const Meta = ({
       {/* Twitter  Meta Tags */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta property="twitter:domain" content="collect.so" />
-      <meta property="twitter:url" content={getAbsoluteURL()} />
+      <meta property="twitter:url" content={getAbsoluteURL(route.asPath)} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
+
+      <link rel="canonical" href={getAbsoluteURL(route.asPath)} />
     </Head>
   )
 }
