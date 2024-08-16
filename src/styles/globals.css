@@ -67,7 +67,7 @@ a {
 }
 
 .typography-xl {
-  @apply relative text-xl font-bold tracking-tight md:text-base sm:leading-[2.5rem];
+  @apply relative text-xl font-bold tracking-tight md:text-base;
 }
 
 .typography-lg {

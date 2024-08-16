@@ -40,22 +40,26 @@ export default function PostPage({ serializedPost, data, morePosts }: Props) {
       <MDXRenderer {...serializedPost} data={data} />
 
       {morePosts?.length > 0 && (
-        <section className="overflow-hidden grid grid-cols-12 mt-16 gap-16">
+        <section className="overflow-hidden grid grid-cols-12 mt-16 gap-16 md:grid-cols-1">
           <LetterTypingText
             as="h2"
-            className="col-start-3 col-span-9 container typography-3xl"
+            className="container typography-3xl col-start-3 col-span-9 md:col-start-1 md:col-span-1"
           >
             More Blog Posts
           </LetterTypingText>
 
-          <div className="col-start-3 col-span-9 container flex gap-5 overflow-visible">
-            {morePosts.map((post, idx) => (
-              <PostCard
-                key={post.slug}
-                post={post}
-                className={classNames("!h-[520px] !w-auto !aspect-[9/16]")}
-              />
-            ))}
+          <div className=" gap-5 col-start-3 col-span-9 md:col-start-1 md:col-span-1">
+            <div className="flex overflow-auto gap-5 w-full container">
+              {morePosts.map((post, idx) => (
+                <PostCard
+                  key={post.slug}
+                  post={post}
+                  className={classNames(
+                    "!h-[520px] !w-auto !aspect-[9/16] shrink-0",
+                  )}
+                />
+              ))}
+            </div>
           </div>
         </section>
       )}

@@ -195,7 +195,7 @@ const CallToAction = ({
   description?: string
   buttonText?: string
 }) => (
-  <div className="container col-span-8 col-start-3 md:col-start-1 md:col-span-12 bg-secondary my-16 rounded-lg items-center  gap-5 flex p-7 sm:p-5 sm:flex-col flex-row justify-between sm:items-stretch">
+  <div className="container col-span-8 col-start-3 md:col-start-1 md:col-span-12 bg-secondary my-16 rounded-lg items-center  gap-5 flex p-7 sm:p-5 sm:flex-col flex-row justify-between sm:items-stretch xs:rounded-none">
     <div className="flex flex-col gap-2 max-w-xl">
       <p className="typography-xl">{text}</p>
 
