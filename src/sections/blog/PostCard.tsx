@@ -28,12 +28,12 @@ export function PostCard({
         </div>
       )}
 
-      <div className="w-full h-full flex flex-col relative justify-end z-10 p-6 bg-fill/5">
+      <div className="w-full h-full flex flex-col relative justify-end z-10 p-6 bg-fill/5 ">
         <p className="mb-auto">{post.data.date}</p>
 
         <LetterTypingText
           as="h2"
-          className="text-xl leading-none font-special font-bold max-w-sm"
+          className="text-xl leading-none font-special font-bold max-w-sm drop-shadow-lg"
         >
           {post.data.title as string}
         </LetterTypingText>

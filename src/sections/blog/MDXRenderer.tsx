@@ -7,8 +7,8 @@ import { Faq } from "~/components/Faq"
 import { LetterTypingText } from "~/components/LetterTypingText"
 import { Link } from "~/components/Link"
 import { Post } from "~/sections/blog/types"
-import NextLink from "next/link"
-import { Button, MainCta } from "~/components/Button"
+import { MainCta } from "~/components/Button"
+import { WireBox } from "~/components/WireBox"
 
 const PostHeader = ({
   data,
@@ -21,18 +21,31 @@ const PostHeader = ({
   description?: string
   showDate: boolean
 }) => {
+  const colors = [
+    "text-accent-brand",
+    "text-accent-yellow",
+    "text-accent-orange",
+    "text-accent-green",
+    "text-accent-red",
+    "text-accent-pink",
+    "text-accent-blue",
+    "text-accent-purple",
+  ]
+
+  const randomColor = colors[Math.floor(Math.random() * colors.length)]
+
   return (
     <section className="grid place-items-center pt-32 pb-16 container relative col-span-12 col-start-1">
-      {/* <div
-    className="absolute top-0 left-0 h-full w-full pointer-events-none -z-10"
-    aria-hidden
-  >
-    <WireBox
-      className="w-full h-full left-0 top-0 text-accent-green"
-      wireColor="currentColor"
-    />
-    <div className="absolute inset-0 h-full w-full to-90% bg-gradient-to-b from-transparent to-fill pointer-events-none" />
-  </div> */}
+      <div
+        className="absolute top-0 left-0 h-full w-full pointer-events-none -z-10"
+        aria-hidden
+      >
+        <WireBox
+          className={classNames("w-full h-full left-0 top-0 ", randomColor)}
+          wireColor="currentColor"
+        />
+        <div className="absolute inset-0 h-full w-full to-90% bg-gradient-to-b from-transparent to-fill pointer-events-none" />
+      </div>
 
       {data.date && showDate ? (
         <p className="typography-base text-content2 mb-2">{data.date}</p>
@@ -48,7 +61,9 @@ const PostHeader = ({
       </LetterTypingText>
 
       {description && (
-        <p className="typography-lg  py-6 text-center">{description}</p>
+        <p className="typography-lg  py-6 text-center max-w-5xl">
+          {description}
+        </p>
       )}
 
       {/* {data?.tags && (
@@ -202,7 +217,7 @@ const CallToAction = ({
       {description && <p className="typography-base">{description}</p>}
     </div>
 
-    <MainCta variant="accent" className="shrink-0">
+    <MainCta variant="accent" className={"shrink-0"}>
       {buttonText}
     </MainCta>
   </div>
