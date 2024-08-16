@@ -33,7 +33,7 @@ export default function Index({ posts }: Props) {
                 "row-start-1 row-span-2 col-span-8 md:col-span-12": idx === 0,
                 "row-span-1 col-span-4 md:col-span-6 sm:col-span-12":
                   idx === 1 || idx === 2,
-                "col-span-6 md:col-span-6 sm:col-span-12": idx > 2,
+                "col-span-4 md:col-span-6 sm:col-span-12": idx > 2,
               })}
             />
           ))}
