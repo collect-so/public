@@ -14,7 +14,7 @@ export function Footer() {
       as="footer"
     >
       <div className="container py-16 sm:py-0">
-        <div className="grid grid-cols-3 sm:grid-cols-1 gap-4 items-start sm:text-center">
+        <div className="grid grid-cols-2 sm:grid-cols-1 gap-4 items-start sm:text-center">
           <div className="justify-self-start sm:justify-self-center sm:order-2 sm:mt-5">
             <div className="flex gap-10">
               <Logo
@@ -31,34 +31,6 @@ export function Footer() {
                 </p>
               </div>
             </div>
-          </div>
-
-          <div className="justify-self-end text-right items-end grid gap-y-4">
-            <p className="text-lg font-bold">Legal</p>
-            <Link
-              href="/privacy-policy"
-              target="__blank"
-              rel="noopener noreferrer"
-              aria-label="Privacy Policy"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms-of-service"
-              target="__blank"
-              rel="noopener noreferrer"
-              aria-label="Terms of Service"
-            >
-              Terms of Service
-            </Link>
-            <Link
-              href="/cookie-policy"
-              target="__blank"
-              rel="noopener noreferrer"
-              aria-label="Terms of Service"
-            >
-              Cookie Policy
-            </Link>
           </div>
 
           <div className="justify-self-end text-center items-end grid sm:justify-self-center gap-8">
@@ -106,6 +78,34 @@ export function Footer() {
                 aria-label="Discord"
               >
                 <IconDiscord className="text-content w-12 h-12" />
+              </Link>
+            </div>
+
+            <div className="justify-self-end text-right items-end grid gap-y-4 md:justify-self-center md:text-center md:mb-4">
+              <p className="text-lg font-bold">Legal</p>
+              <Link
+                href="/privacy-policy"
+                target="__blank"
+                rel="noopener noreferrer"
+                aria-label="Privacy Policy"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/terms-of-service"
+                target="__blank"
+                rel="noopener noreferrer"
+                aria-label="Terms of Service"
+              >
+                Terms of Service
+              </Link>
+              <Link
+                href="/cookie-policy"
+                target="__blank"
+                rel="noopener noreferrer"
+                aria-label="Terms of Service"
+              >
+                Cookie Policy
               </Link>
             </div>
           </div>

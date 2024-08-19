@@ -6,14 +6,13 @@ import {
   SectionTitle,
 } from "~/components/Section"
 
-import { ComponentPropsWithoutRef, FunctionComponent, ReactNode } from "react"
+import { ComponentPropsWithoutRef, ReactNode } from "react"
 import cx from "classnames"
 import { Button } from "~/components/Button"
-import { ArrowUpRight, CalendarCheck, Check, Github } from "lucide-react"
+import { ArrowUpRight, Check, LucideMail, MessageCircle } from "lucide-react"
 
 import Link from "next/link"
-import { links, socials } from "~/config/urls"
-import { Tab, Tabs, TabsList } from "~/components/Tabs"
+import { links } from "~/config/urls"
 
 function Feat({ title, subtitle }: { title: ReactNode; subtitle?: ReactNode }) {
   return (
@@ -93,21 +92,12 @@ export function Pricing() {
 
   return (
     <Section className="container">
-      <SectionHeader>
-        <SectionTitle className="max-w-3xl">Pricing</SectionTitle>
-
-        {/*<Tabs onValueChange={(v) => setVariant(v as Variants)} value={variant}>*/}
-        {/*  <TabsList>*/}
-        {/*    <Tab value={Variants.Cloud}>Cloud</Tab>*/}
-        {/*    <Tab value={Variants.OnPremise}>On-Premise</Tab>*/}
-        {/*  </TabsList>*/}
-        {/*</Tabs>*/}
+      <SectionHeader className="text-center">
+        <SectionTitle className="m-auto max-w-3xl">Pricing</SectionTitle>
 
         <SectionSubtitle>
           {variant === Variants.Cloud &&
             "Start building for free with the power to scale."}
-          {/*{variant === Variants.OnPremise &&*/}
-          {/*  "Our on-premise solution caters to developers and teams requiring tailored data management setups. It provides the control necessary for custom configurations while still offering a quick setup process. If your project demands specific handling or integration within your existing infrastructure, explore our on-premise pricing to see how Collect can align with your unique requirements."}*/}
         </SectionSubtitle>
       </SectionHeader>
 
@@ -122,7 +112,8 @@ export function Pricing() {
                   size="small"
                   variant="secondary"
                   as={Link}
-                  href={links.appPricing}
+                  href={links.app}
+                  target="_blank"
                 >
                   Start Building
                   <ArrowUpRight />
@@ -132,7 +123,6 @@ export function Pricing() {
               <Feat title="2 projects" />
               <Feat title="1000 Records" />
               <Feat title="Unlimited API Requests" subtitle="Up to 10 RPS" />
-              {/*<Feat title="1 GB File Storage" />*/}
               <Feat title="Community Support" />
             </PricingCard>
             <PricingCard
@@ -145,7 +135,7 @@ export function Pricing() {
                   size="small"
                   variant="accent"
                   as={Link}
-                  href={links.appPricing}
+                  href={links.app}
                 >
                   Start Building
                   <ArrowUpRight />
@@ -158,10 +148,6 @@ export function Pricing() {
                 subtitle="then $1 per 10.000 Records"
               />
               <Feat title="Unlimited API Requests" subtitle="No RPS Limits" />
-              {/*<Feat*/}
-              {/*  title="10 GB File Storage & CDN"*/}
-              {/*  subtitle="then $0.021 per GB"*/}
-              {/*/>*/}
               <Feat title="Priority Support" />
             </PricingCard>
             <PricingCard
@@ -172,55 +158,23 @@ export function Pricing() {
                   size="small"
                   variant="primary"
                   as={Link}
-                  href={links.introMeeting}
+                  href={links.contactUs}
                 >
-                  Set up a call
-                  <CalendarCheck />
+                  Contact Us
+                  <LucideMail />
                 </Button>
               }
             >
               <Feat title="Unlimited Everything" />
-              <Feat title="Whitelabeling & Customizations" />
+              <Feat title="White Labeling & Customizations" />
               <Feat
                 title="On-premises Deployment"
                 subtitle="Lifetime Updates on Demand"
               />
-              {/*<Feat title="Own S3 Storage" />*/}
               <Feat title="Dedicated Support" />
             </PricingCard>
           </>
         )}
-
-        {/*{variant === Variants.OnPremise && (*/}
-        {/*  <PricingCard*/}
-        {/*    price="free"*/}
-        {/*    title="Self-Hosted"*/}
-        {/*    description="Forever"*/}
-        {/*    action={*/}
-        {/*      <Button*/}
-        {/*        size="small"*/}
-        {/*        variant="primary"*/}
-        {/*        as={Link}*/}
-        {/*        href={socials.github}*/}
-        {/*      >*/}
-        {/*        Join Github*/}
-        {/*        <ArrowUpRight />*/}
-        {/*      </Button>*/}
-        {/*    }*/}
-        {/*  >*/}
-        {/*    <Feat title="Unlimited Projects" />*/}
-        {/*    <Feat*/}
-        {/*      title="100.000 Records"*/}
-        {/*      subtitle="then $1 per 10.000 Records"*/}
-        {/*    />*/}
-        {/*    <Feat*/}
-        {/*      title="Every extra 100.000 records for $5"*/}
-        {/*      subtitle="Additional usage-based Records at $0.19 per 1000 Records"*/}
-        {/*    />*/}
-        {/*    <Feat title="10Gb File Storage" />*/}
-        {/*    <Feat title="Dedicated Support" />*/}
-        {/*  </PricingCard>*/}
-        {/*)}*/}
       </div>
     </Section>
   )

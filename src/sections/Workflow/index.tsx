@@ -105,34 +105,20 @@ const basicSearchApiCodeBlock = `curl
   -H 'Content-Type: application/json' \\
   -H "Token: $API_TOKEN" \\
   -d '{
-    "labels": ["CUSTOMER"],
+    "labels": ["USER"],
     "where": {
-      "createdAt": {
-        "$gte": { 
-          "$year": 2021,
-          "$month": 6
-        }
-      },
       "name": {
-        "$startsWith": "P"
+        "$startsWith": "Paul"
       }
     },
-    "orderBy": { 
-      "balance": "asc" 
-    }
+    "orderBy": { "balance": "asc" }
   }'`
 
 const basicSearchCodeBlock = `// Basic search 
-const customers = await CustomerRepo.find({
+const users = await UserRepo.find({
   where: {
-    createdAt: {
-      $gte: { 
-        $year: 2021,
-        $month: 6
-      }
-    },
     name: {
-      $startsWith: "P"
+      $startsWith: "Paul"
     }
   },
   orderBy: { balance: "asc" }
@@ -198,16 +184,17 @@ try {
   const { balance } = merchant.data
   await merchant.update(
     {
-      balance: balance + order.data.sum
+      balance: balance + order.data.total
     }, 
     tx // <-- Transaction
   )
   
-  // Commit Transaction
+  // Commit Transaction ✅
   await tx.commit() 
+  
 } catch (error) {
   
-  // Rollback Transaction if error occurred
+  // Rollback Transaction if error occurred ❌
   await tx.rollback() 
 }
 `
@@ -313,9 +300,12 @@ const scenarios = [
       <>
         Precisely fetch any piece of data regardless of its complexity. Thanks
         to graph architecture and algos behind. Build complex queries
-        effortlessly using Related Search capabilities, <code>$AND</code>,{" "}
-        <code>$OR</code>,<code>$NOT</code>, <code>$XOR</code> operators and
-        others.
+        effortlessly using Related Search capabilities,
+        <code className="text-content">$and</code>,{" "}
+        <code className="text-content">$or</code>,{" "}
+        <code className="text-content">$xor</code>,{" "}
+        <code className="text-content">$nor</code>,{" "}
+        <code className="text-content">$not</code>, operators and others.
       </>
     ),
     subtitle: <Chip variant="green">Read</Chip>,
@@ -336,9 +326,9 @@ const scenarios = [
     },
   },
   {
-    title: "Designed to be Transactional & Safe",
+    title: "Transactional & Safe",
     description:
-      "Having a CRUD is obvious. For complex changes, Collect's transaction feature safeguards data’s consistency and reliability, making intricate updates straightforward and predictable.",
+      "For complex scenarios, Collect's transaction feature safeguards data’s consistency and reliability, making intricate updates straightforward and predictable.",
     subtitle: <Chip variant="orange">Update</Chip>,
     cta: "Master Updates & Transactions",
     examples: {
@@ -389,17 +379,16 @@ export function WorkflowSection() {
 
   return (
     <Section className="container">
-      <SectionHeader>
-        <SectionTitle>Transform Your Workflow</SectionTitle>{" "}
-        <SectionSubtitle>
-          Collect aims to make development completely routine-free. Whether
-          you've just started or are already working on something big, Collect
-          seamlessly integrates into your existing development process. It
-          adapts to your needs through the Dashboard, APIs, and SDKs.
+      <SectionHeader className="text-center">
+        <SectionTitle>Development. Routine-Free.</SectionTitle>{" "}
+        <SectionSubtitle className="m-auto max-w-4xl">
+          Whether you've just started or are already working on something big,
+          Collect seamlessly integrates into your existing development process.
+          It adapts to your needs through the Dashboard, APIs, and SDKs.
         </SectionSubtitle>
       </SectionHeader>
 
-      <div className="relative" ref={wrapperRef}>
+      <div className="m-auto relative max-w-6xl" ref={wrapperRef}>
         <div className="divide-y divide-stroke-dark">
           {scenarios.map(({ title, description, subtitle, examples }) => (
             <UsageScenario

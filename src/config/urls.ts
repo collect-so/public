@@ -14,10 +14,10 @@ export const socials = {
 
 export const links = {
   docs: "https://docs.collect.so",
-  getStarted: "https://docs.collect.so/category/getting-started",
+  getStarted: "https://docs.collect.so/category/quick-start",
   tutorials: "https://docs.collect.so",
   pricing: "/pricing",
   app: "https://app.collect.so",
   appPricing: "https://app.collect.so/pricing",
-  introMeeting: "https://calendly.com/collect-so/collect-intro",
+  contactUs: "mailto:hello@collect.so",
 } as const

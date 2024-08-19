@@ -87,7 +87,7 @@ const feats = [
     color: "green",
     title: "Single Repository for All Your Data",
     description:
-      "Organize and access all your data effortlessly with Collect. Our intuitive platform provides a centralized knowledge database, making data management and retrieval simple and efficient.",
+      "Organize and access all your data effortlessly with Collect. Intuitive platform provides a centralized knowledge database, making data management and retrieval simple and efficient.",
   },
   {
     icon: Layers,

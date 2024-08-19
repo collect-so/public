@@ -54,8 +54,8 @@ function CommunityCard({
 export function CommunitySection() {
   return (
     <Section className="container">
-      <SectionHeader>
-        <SectionTitle>Join the Collect Community</SectionTitle>
+      <SectionHeader className="text-center m-auto max-w-4xl">
+        <SectionTitle>Join the Community</SectionTitle>
         <SectionSubtitle>
           New functionalities in Collect are inspired by the real-world needs of
           our users. Have a suggestion? Let us know. Your input could spark our

@@ -6,7 +6,7 @@ import { useRef } from "react"
 import { motion } from "framer-motion"
 
 import { Button, MainCta } from "~/components/Button"
-import { defaultDescription, defaultTitle } from "~/components/Meta"
+import { defaultTitle } from "~/components/Meta"
 import { LetterTypingText } from "~/components/LetterTypingText"
 import { links } from "~/config/urls"
 import { CodeBlock } from "~/components/CodeBlock"
@@ -40,14 +40,20 @@ export const Hero = () => {
             <div className="flex flex-col gap-5">
               <LetterTypingText
                 as="h1"
-                className={cx("typography-4xl !mb-0 md:text-2xl max-w-[34rem]")}
+                className={cx(
+                  "typography-4xl !tracking-tight !font-black !mb-0 md:text-2xl max-w-[34rem]",
+                )}
                 animate
               >
                 {defaultTitle}
               </LetterTypingText>
 
-              <p className={cx("typography-base text-content2")}>
-                {defaultDescription}
+              <p className={cx("typography-lg text-content2 !tracking-normal")}>
+                For building modern <span className="text-accent">SaaS</span>{" "}
+                and{" "}
+                <span className="text-accent-purple">Data-intensive Apps</span>{" "}
+                <br /> with{" "}
+                <span className="text-content">radically smaller teams</span>
               </p>
             </div>
 
