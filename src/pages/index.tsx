@@ -4,6 +4,7 @@ import { Hero } from "~/sections/Hero"
 import { WorkflowSection } from "~/sections/Workflow"
 import { CommunitySection } from "~/sections/Community"
 import { Pricing } from "~/sections/Pricing"
+import {CodingSample} from "~/sections/CodingSample";
 
 export default function Home() {
   return (
@@ -16,7 +17,7 @@ export default function Home() {
         <WorkflowSection />
 
         {/* <BenchmarksSection /> */}
-
+        <CodingSample />
         <CommunitySection />
 
         <Pricing />
