@@ -5,12 +5,12 @@ import { getAbsoluteURL } from "~/utils"
 export const defaultTitle = "Instant Backend In a Single Line"
 
 export const defaultDescription =
-  "Zero-config REST Backend. Fully customizable and Type-Safe."
+  "Build modern SaaS and data-intensive apps with radically smaller teams."
 
 export const Meta = ({
   title = defaultTitle,
   description = defaultDescription,
-  image = getAbsoluteURL("/og.png?v=" + Math.random()),
+  image = getAbsoluteURL("/opengraph-image.png"),
 }: {
   title?: string
   image?: string
