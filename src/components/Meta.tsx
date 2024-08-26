@@ -1,6 +1,6 @@
 import Head from "next/head"
 import { useRouter } from "next/router"
-// import { getAbsoluteURL } from "~/utils"
+import { getAbsoluteURL } from "~/utils"
 
 export const defaultTitle = "Instant Backend In a Single Line"
 
@@ -10,7 +10,7 @@ export const defaultDescription =
 export const Meta = ({
   title = defaultTitle,
   description = defaultDescription,
-  image = "/opengraph-image.png?v=" + Math.random(),
+  image = getAbsoluteURL("/opengraph-image.png?v=" + Math.random()),
 }: {
   title?: string
   image?: string
