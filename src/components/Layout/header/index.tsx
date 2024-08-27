@@ -86,10 +86,10 @@ function MobileMenu() {
               className="fixed z-20 top-0 bg-fill/90 w-full pt-16 pb-4 rounded-b-2xl shadow-lg backdrop-blur-sm"
             >
               <div className="container divide-y">
-                <MenuItem href={links.docs}>Docs</MenuItem>
-                <MenuItem href={links.tutorials}>Tutorials</MenuItem>
-                <MenuItem href={socials.blog}>Blog</MenuItem>
                 <MenuItem href={links.pricing}>Pricing</MenuItem>
+                <MenuItem href={socials.blog}>Blog</MenuItem>
+                <MenuItem href={links.docs}>Docs</MenuItem>
+                {/*<MenuItem href={links.tutorials}>Tutorials</MenuItem>*/}
               </div>
 
               <div className="h-0.5 bg-stroke my-4" />
@@ -153,25 +153,6 @@ function Nav() {
   return (
     <nav className="flex items-center">
       <div className="flex items-center mr-3 sm:hidden">
-        <Button variant="primaryText" as={Link} size="small" href={links.docs}>
-          Docs
-        </Button>
-        <Button
-          variant="primaryText"
-          as={Link}
-          size="small"
-          href={links.tutorials}
-        >
-          Tutorials
-        </Button>
-        <Button
-          variant="primaryText"
-          as={Link}
-          size="small"
-          href={socials.blog}
-        >
-          Blog
-        </Button>
         <Button
           variant="primaryText"
           as={Link}
@@ -179,6 +160,25 @@ function Nav() {
           href={links.pricing}
         >
           Pricing
+        </Button>
+        <Button variant="primaryText" as={Link} size="small" href={links.docs}>
+          Docs
+        </Button>
+        {/*<Button*/}
+        {/*  variant="primaryText"*/}
+        {/*  as={Link}*/}
+        {/*  size="small"*/}
+        {/*  href={links.tutorials}*/}
+        {/*>*/}
+        {/*  Tutorials*/}
+        {/*</Button>*/}
+        <Button
+          variant="primaryText"
+          as={Link}
+          size="small"
+          href={socials.blog}
+        >
+          Blog
         </Button>
       </div>
 

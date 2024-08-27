@@ -2,10 +2,10 @@ import Head from "next/head"
 import { useRouter } from "next/router"
 import { getAbsoluteURL } from "~/utils"
 
-export const defaultTitle = "Instant Backend In a Single Line"
+export const defaultTitle = "Zero-Config Backend for Your Next App"
 
 export const defaultDescription =
-  "Build modern SaaS and data-intensive apps with radically smaller teams."
+  "Next-generation database and instant APIs for tomorrow's software"
 
 export const Meta = ({
   title = defaultTitle,

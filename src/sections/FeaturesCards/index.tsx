@@ -1,6 +1,7 @@
 import classNames from "classnames"
 import {
   ArrowUpRight,
+  CheckIcon,
   Code,
   Cpu,
   Database,
@@ -17,6 +18,7 @@ import { Link } from "~/components/Link"
 import { Section } from "~/components/Section"
 import { WireBox } from "~/components/WireBox"
 import { links } from "~/config/urls"
+import cx from "classnames"
 
 const colors = {
   orange: "text-accent-orange",
@@ -37,23 +39,40 @@ const colorsBorder = {
 }
 
 const feats = [
+  // {
+  //   icon: Zap,
+  //   title: "Easy Setup",
+  //   className: cx("row-span-2 col-span-1"),
+  //   description: (
+  //     <>
+  //       Create an account, obtain an API Token, and hit the ground running. Just
+  //       a quick read through{" "}
+  //       <Link href={links.getStarted}>Getting Started</Link> guide (2 mins read)
+  //       equips you with all you need.
+  //     </>
+  //   ),
+  //
+  //   color: "purple",
+  // },
   {
-    icon: Zap,
-    title: "Easy Setup",
-    description: (
-      <>
-        Create an account, obtain an API Token, and hit the ground running. Just
-        a quick read through{" "}
-        <Link href={links.getStarted}>Getting Started</Link> guide (2 mins read)
-        equips you with all you need.
-      </>
-    ),
-
-    color: "purple",
+    icon: Database,
+    title: "Next Generation Database",
+    className: cx("row-span-2 col-span-1"),
+    description:
+      "Every project comes with our next-generation database, allowing you to handle deeply nested, complex data without sacrificing performance or reliability.",
+    color: "green",
+    points: [
+      "ACID Compliant Reliability",
+      "No Query Language Required",
+      "Lightning-Fast 2ms Writes",
+      "Zero Data Modeling Hassles",
+      "Instantly Normalize Any JSON/CSV",
+    ],
   },
   {
-    icon: Cpu,
+    icon: Zap,
     title: "Kept Simple and Efficient",
+    className: cx("row-span-1 col-span-1"),
     description: (
       <>
         Performance is Collect's top priority. Streamlined architecture ensures
@@ -62,39 +81,41 @@ const feats = [
       </>
     ),
     color: "orange",
+    points: [],
   },
   {
     icon: Search,
     title: "Ultimate Searching Features",
+    className: cx("row-span-1"),
     color: "blue",
-    description: (
-      <>
-        Navigating through large and complex datasets is always challenging.
-        Building feature-rich search engines with Collect is not a big deal
-        anymore. Even for truly complex scenarios.
-      </>
-    ),
+    description:
+      "Effortlessly navigate through large and complex datasets with Collect. Collect simplifies the creation of feature-rich search engines, handling even the most complex scenarios with ease.",
+    // description: (
+    //   <>
+    //     Navigating through large and complex datasets is always challenging.
+    //     Building feature-rich search engines with Collect is not a big deal
+    //     anymore. Even for truly complex scenarios.
+    //   </>
+    // ),
+    points: [],
   },
   {
     icon: Code,
     color: "pink",
     title: "Type-Safe by Design",
+    className: cx("row-span-1 "),
     description:
       "Enjoy automated type inference and suggestions without writing any types or interfaces. This ensures your code remains clean, efficient, and error-free.",
-  },
-  {
-    icon: Database,
-    color: "green",
-    title: "Single Repository for All Your Data",
-    description:
-      "Organize and access all your data effortlessly with Collect. Intuitive platform provides a centralized knowledge database, making data management and retrieval simple and efficient.",
+    points: [],
   },
   {
     icon: Layers,
     color: "red",
     title: "Framework Agnostic",
+    className: cx("row-span-1 col-span-1"),
     description:
-      "Collect could be easily integrated into any stack and any programming language through robust and powerful REST API and SDK, while keeping things simple.",
+      "Collect seamlessly integrates with any tech stack or programming language through its robust REST API and SDK, maintaining simplicity while offering powerful functionality.",
+    points: [],
   },
 ] as const
 
@@ -103,33 +124,38 @@ const Feat = ({
   description,
   icon: Icon,
   color = "orange",
+  className,
   idx,
+  points,
 }: {
   title: ReactNode
   description: ReactNode
   icon: FunctionComponent<{ className?: string }>
   color: keyof typeof colors
+  className: string
+  points: ReadonlyArray<string>
   idx: number
 }) => {
   return (
     <GridItem
       idx={idx}
-      lastOfFirstRow="!bg-gradient-to-bl !rounded-tr-3xl"
-      firstOfLastRow="!bg-gradient-to-tr !rounded-bl-3xl"
+      lastOfFirstRow="!bg-gradient-to-bl"
+      firstOfLastRow="!bg-gradient-to-tr"
       firstOfMiddleRow="bg-gradient-to-r"
       lastOfMiddleRow="bg-gradient-to-l"
       middleOfFirstRow="bg-gradient-to-b"
       middleOfLastRow="bg-gradient-to-t"
       className={classNames(
         colorsBorder[color],
+        className,
         "p-0.5 rounded-xl relative group grid to-stroke",
-        "first:bg-gradient-to-br first:rounded-tl-3xl",
-        "last:bg-gradient-to-tl last:rounded-br-3xl",
+        "first:bg-gradient-to-br",
+        "last:bg-gradient-to-tl",
       )}
     >
       <div
         className={classNames(
-          "p-7 bg-fill rounded-3xl relative overflow-hidden",
+          "p-7 bg-fill rounded-3xl relative overflow-hidden flex",
           "rounded-[inherit]",
         )}
       >
@@ -144,7 +170,7 @@ const Feat = ({
           <div className="absolute inset-0 h-full w-full to-60% bg-gradient-to-b from-transparent to-fill pointer-events-none" />
         </div>
 
-        <div className="relative z-10 flex flex-col gap-4">
+        <div className="self-center relative z-10 flex flex-col gap-4 ">
           <Icon className={classNames("w-12 h-12", colors[color])} />
 
           <h3 className="typography-lg font-semibold text-content">
@@ -160,6 +186,16 @@ const Feat = ({
           </h3>
 
           <p className="typography-base text-content2">{description}</p>
+          {points.length ? (
+            <div className="flex flex-col mt-8 gap-2">
+              {points?.map((p) => (
+                <div className="flex items-center" key={p}>
+                  <CheckIcon size={16} className="text-green-500" />
+                  <span className="text-base">{p}</span>
+                </div>
+              ))}
+            </div>
+          ) : null}
         </div>
       </div>
     </GridItem>
@@ -169,15 +205,22 @@ const Feat = ({
 export function FeaturesCards() {
   return (
     <Section className="container">
-      <Grid className="gap-5" desktopCols={3} tabletCols={2} mobileCols={1}>
+      <Grid
+        className="grid-rows-2  gap-5"
+        desktopCols={3}
+        tabletCols={2}
+        mobileCols={1}
+      >
         {feats.map((feat, idx) => {
           return (
             <Feat
               key={feat.title}
               icon={feat.icon}
+              className={feat.className}
               title={feat.title}
               description={feat.description}
               color={feat.color}
+              points={feat.points}
               idx={idx}
             />
           )
