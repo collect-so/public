@@ -52,7 +52,7 @@ export const Hero = () => {
       <div className="flex">
         <motion.section
           className={cx(
-            "h-dvh items-center container pb-36 place-content-center fixed z-0 inset-0 ",
+            "h-dvh grid items-center container pb-36 place-content-center fixed z-0 inset-0",
             "sm:place-content-start sm:pt-32 sm:pb-12 sm:static sm:h-auto sm:!opacity-100 md:!grid-cols-1",
           )}
           style={{ opacity }}
@@ -65,13 +65,17 @@ export const Hero = () => {
               )}
             >
               Build{" "}
-              <span className="font-special relative text-[72px] md:text-[48px]">
-                better
-              </span>{" "}
+              <i>
+                <span className="font-special relative text-[72px] md:text-[48px]">
+                  better
+                </span>
+              </i>{" "}
               software{" "}
-              <span className="font-special text-[72px] md:text-[48px] relative">
-                faster
-              </span>
+              <i>
+                <span className="font-special text-[72px] md:text-[48px] relative">
+                  faster
+                </span>
+              </i>
             </h1>
             <p
               className={cx(
