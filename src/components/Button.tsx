@@ -54,11 +54,12 @@ export function Button<As extends React.ElementType = "button">({
 export const MainCta = ({
   children,
   href = "https://app.collect.so",
+  text = "Start for Free",
   ...props
 }: Props & ComponentPropsWithoutRef<typeof Button>) => {
   return (
     <Button {...props} as={Link} href={href}>
-      {children ?? "Start Building"}
+      {children ?? text}
       <ArrowUpRight />
     </Button>
   )

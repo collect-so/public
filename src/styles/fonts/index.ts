@@ -1,5 +1,5 @@
 import localFont from "next/font/local"
-import { Manrope } from "next/font/google"
+import { Manrope, DM_Serif_Display } from "next/font/google"
 
 export const kyivTypeSans = localFont({
   src: [
@@ -15,6 +15,13 @@ export const kyivTypeSans = localFont({
     // },
   ],
   variable: "--font-kyiv-sans",
+})
+
+export const dmSerifDisplay = DM_Serif_Display({
+  subsets: ["latin"],
+  variable: "--font-dm-serif-display",
+  style: ["italic"],
+  weight: "400",
 })
 
 export const jetBrainsMono = localFont({

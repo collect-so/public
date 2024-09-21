@@ -38,7 +38,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["var(--font-manrope)"],
-        special: ["var(--font-kyiv-sans)"],
+        special: ["var(--font-dm-serif-display)"],
         mono: ["var(--font-jet-brains-mono)"],
       },
       keyframes: {

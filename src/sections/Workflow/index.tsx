@@ -12,7 +12,7 @@ import { VideoBlock } from "~/sections/Workflow/VideoBlock"
 import { UsageScenario } from "~/sections/Workflow/UsageExample"
 import { CodeWrapper } from "~/sections/Workflow/CodeWrapper"
 
-const examples = ["API", "SDK", "Dashboard"] as const
+const examples = ["REST", "SDK", "Dashboard"] as const
 
 const initializeCodeBlock = `// Simple as that
 const Collect = new CollectSDK("API_TOKEN")`
@@ -32,18 +32,20 @@ const initializeApiFetchCodeBlock = `fetch("https://api.collect.so/api/v1/...", 
 });`
 
 const definingModelCodeBlock = `// Optionally define Models 
-const UserModel = new CollectModel("USER", {
-  name: { type: 'string' },
-  email: { type: 'string', uniq: true },
-  age: { type: 'number', required: false },
-  permissions: { type: 'string', multiple: true },
-  createdAt: { 
-    type: 'datetime',
-    default: new Date().toISOString 
-  }
-})
-
-const UserRepo = Collect.registerModel(UserModel)`
+const UserModel = new CollectModel(
+  "USER",
+  {
+    name: { type: 'string' },
+    email: { type: 'string', uniq: true },
+    age: { type: 'number', required: false },
+    permissions: { type: 'string', multiple: true },
+    createdAt: { 
+      type: 'datetime',
+      default: new Date().toISOString 
+    }
+  }, 
+  Collect
+)`
 
 //
 const createApiCodeBlock = `curl 
@@ -52,19 +54,10 @@ const createApiCodeBlock = `curl
   -H "Token: $API_TOKEN" \\
   -d '{
     "label": "USER",
-    "properties": {
-      "email": {
-        "type": "string",
-        "value": "paul.schmitz@mail.com"
-      },
-      "name": {
-        "type": "string",
-        "value": "Paul Schmitz"
-      },
-      "age": {
-        "type": "number",
-        "value": 47
-      }
+    "payload": {
+      "email": "paul.schmitz@mail.com",
+      "name": "Paul Schmitz",
+      "age":  47
     }
   }'`
 
@@ -107,9 +100,7 @@ const basicSearchApiCodeBlock = `curl
   -d '{
     "labels": ["USER"],
     "where": {
-      "name": {
-        "$startsWith": "Paul"
-      }
+      "name": { "$startsWith": "Paul" }
     },
     "orderBy": { "balance": "asc" }
   }'`
@@ -117,9 +108,7 @@ const basicSearchApiCodeBlock = `curl
 const basicSearchCodeBlock = `// Basic search 
 const users = await UserRepo.find({
   where: {
-    name: {
-      $startsWith: "Paul"
-    }
+    name: { $startsWith: "Paul" }
   },
   orderBy: { balance: "asc" }
 })`
@@ -265,10 +254,9 @@ const scenarios = [
           <CodeBlock code={definingModelCodeBlock} />
         </CodeWrapper>
       ),
-      API: (
-        <CodeWrapper>
+      REST: (
+        <CodeWrapper className="m-auto">
           <CodeBlock language="bash" code={initializeApiCodeBlock} />
-          <CodeBlock code={initializeApiFetchCodeBlock} />
         </CodeWrapper>
       ),
     },
@@ -287,7 +275,7 @@ const scenarios = [
           <CodeBlock code={createManyCodeBlock} />
         </CodeWrapper>
       ),
-      API: (
+      REST: (
         <CodeWrapper>
           <CodeBlock language="bash" code={createApiCodeBlock} />
         </CodeWrapper>
@@ -318,7 +306,7 @@ const scenarios = [
           <CodeBlock code={relatedSearchCodeBlock} />
         </CodeWrapper>
       ),
-      API: (
+      REST: (
         <CodeWrapper>
           <CodeBlock language="bash" code={basicSearchApiCodeBlock} />
         </CodeWrapper>
@@ -342,7 +330,7 @@ const scenarios = [
           <CodeBlock code={transactionalAndSafeCodeBlock} />
         </CodeWrapper>
       ),
-      API: (
+      REST: (
         <CodeWrapper>
           <CodeBlock language="bash" code={transactionalAndSafeApiCodeBlock} />
         </CodeWrapper>
@@ -362,7 +350,7 @@ const scenarios = [
           <CodeBlock code={deleteComplexCodeBlock} />
         </CodeWrapper>
       ),
-      API: (
+      REST: (
         <CodeWrapper>
           <CodeBlock language="bash" code={deleteComplexApiCodeBlock} />
         </CodeWrapper>
@@ -375,12 +363,17 @@ export function WorkflowSection() {
   const wrapperRef = useRef<HTMLDivElement>(null)
 
   const [currentExample, setCurrentExample] =
-    useState<(typeof examples)[number]>("SDK")
+    useState<(typeof examples)[number]>("REST")
 
   return (
     <Section className="container">
       <SectionHeader className="text-center">
-        <SectionTitle>Development. Routine-Free.</SectionTitle>{" "}
+        <h3 className={cx("typography-3xl mb-0 md:text-2xl")}>
+          Integrates with{" "}
+          <span className="font-special text-[56px] md:text-[48px]">
+            anything
+          </span>
+        </h3>
         <SectionSubtitle className="m-auto max-w-4xl">
           Whether you've just started or are already working on something big,
           Collect seamlessly integrates into your existing development process.

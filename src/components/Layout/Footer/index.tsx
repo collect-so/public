@@ -8,11 +8,7 @@ import { Logo } from "~/components/Logo"
 
 export function Footer() {
   return (
-    <Section
-      className="min-h-[30vh] grid relative z-10"
-      data-theme="dark"
-      as="footer"
-    >
+    <footer className="min-h-[30vh] grid relative z-10">
       <div className="container py-16 sm:py-0">
         <div className="grid grid-cols-2 sm:grid-cols-1 gap-4 items-start sm:text-center">
           <div className="justify-self-start sm:justify-self-center sm:order-2 sm:mt-5">
@@ -23,7 +19,7 @@ export function Footer() {
                 height={140}
               />
               <div className="flex flex-col gap-4 m-auto">
-                <h2 className="text-[80px] leading-[0.7] font-special md:text-xl md:leading-6 text-left font-bold text-content tracking-tight justify-self-end">
+                <h2 className="text-[80px] leading-[0.7] md:text-xl md:leading-6 text-left font-bold text-content tracking-tight justify-self-end">
                   collect
                 </h2>
                 <p className="text-sm sm:text-sm font-medium text-content2 leading-snug tracking-tight justify-self-start">
@@ -111,6 +107,6 @@ export function Footer() {
           </div>
         </div>
       </div>
-    </Section>
+    </footer>
   )
 }

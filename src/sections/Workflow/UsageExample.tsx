@@ -14,7 +14,7 @@ export function UsageScenario({
 }) {
   return (
     <div className="grid grid-cols-2 content-start justify-items-center gap-10 py-16 md:grid-cols-1">
-      <div className="flex pt-16 flex-col items-start col-span-1  gap-3 justify-self-start sm:pt-0">
+      <div className="flex first:pt-0 pt-16 flex-col items-start col-span-1 gap-3 justify-self-start sm:pt-0">
         {subtitle}
 
         {typeof title === "string" ? (

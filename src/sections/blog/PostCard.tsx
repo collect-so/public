@@ -33,7 +33,7 @@ export function PostCard({
 
         <LetterTypingText
           as="h2"
-          className="text-xl leading-none font-special font-bold max-w-sm drop-shadow-lg"
+          className="text-xl leading-none font-bold max-w-sm drop-shadow-lg"
         >
           {post.data.title as string}
         </LetterTypingText>

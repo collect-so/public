@@ -1,18 +1,39 @@
 import cx from "classnames"
 import Link from "next/link"
-import { BookText } from "lucide-react"
+import {
+  ArrowDownIcon,
+  ArrowRightIcon,
+  BookText,
+  DatabaseIcon,
+} from "lucide-react"
 import { useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
 import { motion } from "framer-motion"
 
 import { Button, MainCta } from "~/components/Button"
-import { defaultDescription, defaultTitle } from "~/components/Meta"
-import { LetterTypingText } from "~/components/LetterTypingText"
+import { defaultDescription } from "~/components/Meta"
 import { links } from "~/config/urls"
 import { CodeBlock } from "~/components/CodeBlock"
 
-const code = `const Collect = new CollectSDK("TOKEN")
-// Done ✅`
+const code = `const db = new Collect("API_TOKEN")
+
+// Any JSON is ok
+await db.records.createMany("member", {
+  email: "john.galt@example.com",
+  verified: true,
+  plan: {
+    name: "pro",
+    credits: 100,
+    validTill: "2024-09-20T09:05:54"     
+  }
+})`
+
+const code1 = `email: "string"
+verified: "boolean"`
+
+const code2 = `name: "string"
+credits: "number"
+validTill: "datetime"`
 
 export const Hero = () => {
   const spacerRef = useRef(null)
@@ -31,50 +52,112 @@ export const Hero = () => {
       <div className="flex">
         <motion.section
           className={cx(
-            "h-[100dvh] container grid pb-36 place-content-center fixed z-0 inset-0 grid-cols-5",
+            "h-dvh items-center container pb-36 place-content-center fixed z-0 inset-0 ",
             "sm:place-content-start sm:pt-32 sm:pb-12 sm:static sm:h-auto sm:!opacity-100 md:!grid-cols-1",
           )}
           style={{ opacity }}
         >
-          <div className="col-span-3 flex flex-col gap-10 relative z-0 sm:h-auto m-auto">
-            <div className="flex flex-col gap-5 ">
-              <LetterTypingText
-                as="h1"
-                className={cx(
-                  "typography-4xl !tracking-tight !font-black !mb-0 md:text-2xl max-w-[48rem]",
-                )}
-                animate
-              >
-                {defaultTitle}
-              </LetterTypingText>
+          <div className="z-0 text-center w-full items-center mb-16">
+            <h1
+              role="heading"
+              className={cx(
+                "typography-4xl !tracking-tight !font-bold md:text-2xl mb-4",
+              )}
+            >
+              Build{" "}
+              <span className="font-special relative text-[72px] md:text-[48px]">
+                better
+              </span>{" "}
+              software{" "}
+              <span className="font-special text-[72px] md:text-[48px] relative">
+                faster
+              </span>
+            </h1>
+            <p
+              className={cx(
+                "text-xl !font-medium text-content2 !tracking-normal",
+              )}
+            >
+              {defaultDescription}
+            </p>
+          </div>
+          <div
+            className={cx(
+              "flex items-center justify-center w-full mb-16 md:flex-col",
+            )}
+          >
+            <CodeBlock
+              code={code}
+              className="lg:w-fit grid place-content-center md:!m-0 md:!mt-10 md:w-full"
+              preClassName="md:w-full border-2 border-content3"
+            />
+            <div className="flex flex-col gap-28 text-content3 p-8 md:flex-row">
+              <ArrowRightIcon className="md:hidden" />
+              <ArrowRightIcon className="md:hidden" />
+              <ArrowRightIcon className="md:hidden" />
 
-              <p
-                className={cx(
-                  "typography-lg text-content2 !tracking-normal max-w-[32rem]",
-                )}
-              >
-                {defaultDescription}
-              </p>
+              <ArrowDownIcon className="hidden md:block" />
+              <ArrowDownIcon className="hidden md:block" />
+              <ArrowDownIcon className="hidden md:block" />
             </div>
-
-            <div className=" flex gap-4 sm:flex-col">
-              <MainCta variant="accent" className="min-w-[170px]" />
-
-              <Button
-                className="min-w-[170px]"
-                as={Link}
-                href={links.getStarted}
-                variant="secondary"
+            <div className="flex flex-col items-center">
+              <div
+                className={"bg-[#131313] rounded-xl p-4 border-2 border-accent"}
               >
-                Documentation <BookText />
-              </Button>
+                <div className="bg-[#E8FFB9] text-[#131313] px-4 py-2 font-semibold rounded w-min flex items-center gap-2 mb-4">
+                  <DatabaseIcon /> <span>member</span>
+                </div>
+                <CodeBlock
+                  code={code1}
+                  className="lg:w-fit lg:m-auto md:!m-0 md:!mt-10 md:w-full"
+                  preClassName="md:w-full !p-0"
+                />
+              </div>
+              <svg
+                width="12"
+                height="60"
+                viewBox="0 0 12 60"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="text-accent scale-[1.3]"
+              >
+                <path
+                  d="M6 0.226497L0.226497 6L6 11.7735L11.7735 6L6 0.226497ZM6 59.7735L11.7735 54L6 48.2265L0.226495 54L6 59.7735ZM5 6L5 54L7 54L7 6L5 6Z"
+                  fill="currentColor"
+                />
+              </svg>
+
+              <div
+                className={"bg-[#131313] rounded-xl p-4 border-2 border-accent"}
+              >
+                <div className="bg-[#F7E1FF] text-[#131313] px-4 py-2 font-semibold rounded flex w-min items-center gap-2 mb-4">
+                  <DatabaseIcon /> <span>plan</span>
+                </div>
+                <CodeBlock
+                  code={code2}
+                  className="lg:w-fit lg:m-auto md:!m-0 md:!mt-10 md:w-full"
+                  preClassName="md:w-full !p-0"
+                />
+              </div>
             </div>
           </div>
-          <CodeBlock
-            code={code}
-            className="col-span-2 lg:w-fit lg:m-auto grid place-content-center md:!m-0 md:!mt-10 md:w-full "
-            preClassName="md:w-full drop-shadow-[0px_0px_60px_rgba(63,129,255,0.3)]"
-          />
+
+          <div className="justify-center flex gap-4 sm:flex-col">
+            <MainCta
+              variant="accent"
+              className="min-w-[170px]"
+              text="Create Project"
+            />
+
+            <Button
+              className="min-w-[170px]"
+              as={Link}
+              href={links.getStarted}
+              variant="secondary"
+            >
+              Documentation <BookText />
+            </Button>
+          </div>
         </motion.section>
       </div>
     </>

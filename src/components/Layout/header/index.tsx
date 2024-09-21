@@ -183,25 +183,13 @@ function Nav() {
       </div>
 
       <AnimatePresence>
-        {hasScrolled && (
-          <motion.div
-            key={"nav-cta"}
-            initial={{ width: 0 }}
-            animate={{ width: "auto" }}
-            // exit={{ width: 0 }}
-            className="flex items-center overflow-hidden whitespace-nowrap min-w-0"
-          >
-            <MainCta variant="accent" size="small" />
-          </motion.div>
-        )}
-
         {!hasScrolled && (
           <motion.div
             key={"nav-socials"}
             initial={{ width: 0 }}
             animate={{ width: "auto" }}
-            // exit={{ width: 0 }}
-            className="flex items-center gap-3 overflow-hidden whitespace-nowrap min-w-0 sm:!hidden"
+            exit={{ width: 0 }}
+            className="flex items-center gap-4 overflow-hidden whitespace-nowrap min-w-0 sm:!hidden"
           >
             <IconButton
               variant="secondary"
@@ -239,6 +227,7 @@ function Nav() {
           </motion.div>
         )}
       </AnimatePresence>
+      <MainCta variant="accent" size="small" className="ml-4" />
 
       <MobileMenu />
     </nav>
@@ -249,12 +238,12 @@ export const Header = () => {
   return (
     <header
       className={
-        "flex flex-row justify-between items-center fixed z-30 w-full top-0 bg-transparent h-[60px]"
+        "flex flex-row justify-between items-center fixed z-30 w-full top-0 bg-transparent h-[100px]"
       }
     >
       <div className="container flex flex-row justify-between">
         <Link href="/">
-          <Logo className="h-[54px] w-[54px]" />
+          <Logo className="h-[80px] w-[80px]" />
         </Link>
 
         <Nav />

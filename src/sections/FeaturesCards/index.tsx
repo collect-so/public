@@ -85,7 +85,7 @@ const feats = [
   },
   {
     icon: Search,
-    title: "Ultimate Searching Features",
+    title: "Ultimate Querying",
     className: cx("row-span-1"),
     color: "blue",
     description:
