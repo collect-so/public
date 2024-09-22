@@ -113,7 +113,7 @@ export const Hero = () => {
                 </div>
                 <CodeBlock
                   code={code1}
-                  className="lg:w-fit lg:m-auto md:!m-0 md:!mt-10 md:w-full"
+                  className="lg:w-fit lg:m-auto md:!m-0 md:w-full"
                   preClassName="md:w-full !p-0"
                 />
               </div>
@@ -139,7 +139,7 @@ export const Hero = () => {
                 </div>
                 <CodeBlock
                   code={code2}
-                  className="lg:w-fit lg:m-auto md:!m-0 md:!mt-10 md:w-full"
+                  className="lg:w-fit lg:m-auto md:!m-0 md:w-full"
                   preClassName="md:w-full !p-0"
                 />
               </div>
