@@ -7,7 +7,7 @@ export const Dashboard = () => {
     <Section className="container max-w-6xl">
       <SectionHeader className="text-center">
         <h3 className={cx("typography-3xl mb-0 md:text-2xl")}>
-          Powerful{" "}
+          Fully-Featured{" "}
           <i>
             <span className="font-special text-[56px] md:text-[48px]">
               Dashboard
