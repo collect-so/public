@@ -3,7 +3,7 @@ const email = "hello@collect.so" as const
 const emailUrl = `mailto:${email}` as const
 
 export const socials = {
-  discord: "https://discord.gg/zy7k6CJ7by",
+  discord: "https://discord.gg/bdjTEybp",
   github: "https://github.com/collect-so",
   email,
   emailUrl,
