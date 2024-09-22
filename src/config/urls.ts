@@ -14,7 +14,7 @@ export const socials = {
 
 export const links = {
   docs: "https://docs.collect.so",
-  getStarted: "https://docs.collect.so/category/quick-start",
+  getStarted: "https://docs.collect.so/quick-start/installation",
   tutorials: "https://docs.collect.so",
   pricing: "/pricing",
   app: "https://app.collect.so",

@@ -39,83 +39,31 @@ const colorsBorder = {
 }
 
 const feats = [
-  // {
-  //   icon: Zap,
-  //   title: "Easy Setup",
-  //   className: cx("row-span-2 col-span-1"),
-  //   description: (
-  //     <>
-  //       Create an account, obtain an API Token, and hit the ground running. Just
-  //       a quick read through{" "}
-  //       <Link href={links.getStarted}>Getting Started</Link> guide (2 mins read)
-  //       equips you with all you need.
-  //     </>
-  //   ),
-  //
-  //   color: "purple",
-  // },
   {
     icon: Database,
     title: "Next Generation Database",
-    className: cx("row-span-2 col-span-1"),
-    description:
-      "Every project comes with our next-generation database, allowing you to handle deeply nested, complex data without sacrificing performance or reliability.",
-    color: "green",
-    points: [
-      "ACID Compliant Reliability",
-      "No Query Language Required",
-      "Lightning-Fast 2ms Writes",
-      "Zero Data Modeling Hassles",
-      "Instantly Normalize Any JSON/CSV",
-    ],
-  },
-  {
-    icon: Zap,
-    title: "Kept Simple and Efficient",
     className: cx("row-span-1 col-span-1"),
-    description: (
-      <>
-        Performance is Collect's top priority. Streamlined architecture ensures
-        API remains steadfast even in complex scenarios. Always up and running,
-        no surprises.
-      </>
-    ),
-    color: "orange",
-    points: [],
+    description:
+      "Collect is a graph-based Firebase alternative, built for modern apps of any scale. ACID compliant and can handle billions of nodes and relationships.",
+    color: "green",
   },
+
   {
     icon: Search,
     title: "Ultimate Querying",
     className: cx("row-span-1"),
     color: "blue",
     description:
-      "Effortlessly navigate through large and complex datasets with Collect. Collect simplifies the creation of feature-rich search engines, handling even the most complex scenarios with ease.",
-    // description: (
-    //   <>
-    //     Navigating through large and complex datasets is always challenging.
-    //     Building feature-rich search engines with Collect is not a big deal
-    //     anymore. Even for truly complex scenarios.
-    //   </>
-    // ),
-    points: [],
+      "Handle complex datasets effortlessly and fast, without needing a query language—just use simple declarative descriptions.",
   },
-  {
-    icon: Code,
-    color: "pink",
-    title: "Type-Safe by Design",
-    className: cx("row-span-1 "),
-    description:
-      "Enjoy automated type inference and suggestions without writing any types or interfaces. This ensures your code remains clean, efficient, and error-free.",
-    points: [],
-  },
+
   {
     icon: Layers,
     color: "red",
     title: "Framework Agnostic",
     className: cx("row-span-1 col-span-1"),
     description:
-      "Collect seamlessly integrates with any tech stack or programming language through its robust REST API and SDK, maintaining simplicity while offering powerful functionality.",
-    points: [],
+      "Collect integrates easily with any tech stack or language using its REST API and SDK, offering simple yet powerful functionality.",
   },
 ] as const
 
@@ -126,14 +74,12 @@ const Feat = ({
   color = "orange",
   className,
   idx,
-  points,
 }: {
   title: ReactNode
   description: ReactNode
   icon: FunctionComponent<{ className?: string }>
   color: keyof typeof colors
   className: string
-  points: ReadonlyArray<string>
   idx: number
 }) => {
   return (
@@ -186,16 +132,6 @@ const Feat = ({
           </h3>
 
           <p className="typography-base text-content2">{description}</p>
-          {points.length ? (
-            <div className="flex flex-col mt-8 gap-2">
-              {points?.map((p) => (
-                <div className="flex items-center" key={p}>
-                  <CheckIcon size={16} className="text-green-500" />
-                  <span className="text-base">{p}</span>
-                </div>
-              ))}
-            </div>
-          ) : null}
         </div>
       </div>
     </GridItem>
@@ -206,7 +142,7 @@ export function FeaturesCards() {
   return (
     <Section className="container">
       <Grid
-        className="grid-rows-2  gap-5"
+        className="grid-rows-1 gap-5"
         desktopCols={3}
         tabletCols={2}
         mobileCols={1}
@@ -220,7 +156,6 @@ export function FeaturesCards() {
               title={feat.title}
               description={feat.description}
               color={feat.color}
-              points={feat.points}
               idx={idx}
             />
           )

@@ -79,7 +79,7 @@ export const Hero = () => {
             </h1>
             <p
               className={cx(
-                "text-xl !font-medium text-content2 !tracking-normal",
+                "text-xl !font-medium text-content2 !tracking-normal md:text-lg",
               )}
             >
               {defaultDescription}
