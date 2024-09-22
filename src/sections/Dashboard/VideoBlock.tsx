@@ -2,7 +2,7 @@ import classNames from "classnames"
 import { RotateCcw } from "lucide-react"
 import { ComponentPropsWithoutRef, useRef, useState } from "react"
 import { IconButton } from "~/components/IconButton"
-import { LazyVideo } from "~/sections/Workflow/LazyVideo"
+import { LazyVideo } from "~/sections/Dashboard/LazyVideo"
 
 export function VideoBlock({
   className,
@@ -23,16 +23,16 @@ export function VideoBlock({
     videoRef.current.play()
   }
 
-  const replayButton = (
-    <IconButton
-      size="large"
-      variant="secondary"
-      onClick={replay}
-      aria-label="Replay"
-    >
-      <RotateCcw />
-    </IconButton>
-  )
+  // const replayButton = (
+  //   <IconButton
+  //     size="large"
+  //     variant="secondary"
+  //     onClick={replay}
+  //     aria-label="Replay"
+  //   >
+  //     <RotateCcw />
+  //   </IconButton>
+  // )
 
   return (
     <div
@@ -45,19 +45,19 @@ export function VideoBlock({
       <LazyVideo
         className="animate-fadeIn"
         src={src}
-        onEnded={() => setEnded(true)}
+        onEnded={() => replay()}
         ref={videoRef}
       />
 
-      {ended ? (
-        <div className="absolute inset-0 bg-fill2/70 grid place-items-center transition animate-fadeIn">
-          {replayButton}
-        </div>
-      ) : (
-        <div className="absolute bottom-5 right-5 bg-fill2/70">
-          {replayButton}
-        </div>
-      )}
+      {/*{ended ? (*/}
+      {/*  <div className="absolute inset-0 bg-fill2/70 grid place-items-center transition animate-fadeIn">*/}
+      {/*    {replayButton}*/}
+      {/*  </div>*/}
+      {/*) : (*/}
+      {/*  <div className="absolute bottom-5 right-5 bg-fill2/70">*/}
+      {/*    {replayButton}*/}
+      {/*  </div>*/}
+      {/*)}*/}
     </div>
   )
 }

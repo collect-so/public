@@ -35,6 +35,10 @@ export default class Document extends NextDocument {
             href="https://fonts.gstatic.com"
             crossOrigin=""
           />
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+          />
         </Head>
         <body>
           <Main />

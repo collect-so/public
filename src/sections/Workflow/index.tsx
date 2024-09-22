@@ -1,222 +1,66 @@
-import { ComponentPropsWithoutRef, useRef, useState } from "react"
-import {
-  Section,
-  SectionHeader,
-  SectionSubtitle,
-  SectionTitle,
-} from "~/components/Section"
+import { ComponentPropsWithoutRef, ReactNode, useRef, useState } from "react"
+import { Section, SectionHeader, SectionSubtitle } from "~/components/Section"
 import cx from "classnames"
 import { CodeBlock } from "~/components/CodeBlock"
 import { Chip } from "~/components/Chip"
-import { VideoBlock } from "~/sections/Workflow/VideoBlock"
 import { UsageScenario } from "~/sections/Workflow/UsageExample"
 import { CodeWrapper } from "~/sections/Workflow/CodeWrapper"
+import {
+  curl_3,
+  ts_3,
+  curl_2,
+  ts_2,
+  ts_2_1,
+  curl_1,
+  go_1,
+  java_1,
+  php_1,
+  python_1,
+  ts_3_1,
+  ruby_1,
+  rust_1,
+  swift_1,
+  ts_1,
+  ts_1_1,
+  rust_2,
+  ruby_2,
+  python_2,
+  php_2,
+  swift_2,
+  java_2,
+  go_2,
+  go_3,
+  ruby_3,
+  python_3,
+  php_3,
+  java_3,
+  swift_3,
+  rust_3,
+} from "~/sections/Workflow/codeSamples"
 
-const examples = ["REST", "SDK", "Dashboard"] as const
+const examples = [
+  "Curl",
+  "TS",
+  "Python",
+  "Java",
+  "Ruby",
+  "Go",
+  "Swift",
+  "Rust",
+  "PHP",
+] as const
 
-const initializeCodeBlock = `// Simple as that
-const Collect = new CollectSDK("API_TOKEN")`
-
-const initializeApiCodeBlock = `curl 'https://api.collect.so/api/v1/...' \\
-  -H 'Content-Type: application/json' \\
-  -H "Token: $API_TOKEN" \\
-  -d '...' \\
-`
-
-const initializeApiFetchCodeBlock = `fetch("https://api.collect.so/api/v1/...", {
-  "headers": {
-    "Content-Type": "application/json",
-    "Token": "API_TOKEN",
-    ...
-  }
-});`
-
-const definingModelCodeBlock = `// Optionally define Models 
-const UserModel = new CollectModel(
-  "USER",
-  {
-    name: { type: 'string' },
-    email: { type: 'string', uniq: true },
-    age: { type: 'number', required: false },
-    permissions: { type: 'string', multiple: true },
-    createdAt: { 
-      type: 'datetime',
-      default: new Date().toISOString 
-    }
-  }, 
-  Collect
-)`
-
-//
-const createApiCodeBlock = `curl 
-  -X POST 'https://api.collect.so/api/v1/records' \\
-  -H 'Content-Type: application/json' \\
-  -H "Token: $API_TOKEN" \\
-  -d '{
-    "label": "USER",
-    "payload": {
-      "email": "paul.schmitz@mail.com",
-      "name": "Paul Schmitz",
-      "age":  47
-    }
-  }'`
-
-const createCodeBlock = `// Create single Record
-const user = await UserRepo.create({
-  email: "paul.schmitz@mail.com",
-  name: "Paul Schmitz",
-  age: 47
-})`
-
-const createManyCodeBlock = `// Create multiple Records at once
-const catalog = await Collect.records.createMany(
-  "CATEGORY", 
-  [
-    {
-      title: "Sports and Travel",
-      sidebarOrder: 5
-      
-      // Related Records
-      PRODUCT: [
-        {
-          name: "Portable Gas Stove"
-          price: 65
-        },
-        {
-          name: "Sleeping Bag XL"
-          price: 29
-        },
-      ]
-    }
-  ]
-)`
-
-//
-
-const basicSearchApiCodeBlock = `curl 
-  -X POST 'https://api.collect.so/api/v1/records/search' \\
-  -H 'Content-Type: application/json' \\
-  -H "Token: $API_TOKEN" \\
-  -d '{
-    "labels": ["USER"],
-    "where": {
-      "name": { "$startsWith": "Paul" }
-    },
-    "orderBy": { "balance": "asc" }
-  }'`
-
-const basicSearchCodeBlock = `// Basic search 
-const users = await UserRepo.find({
-  where: {
-    name: { $startsWith: "Paul" }
-  },
-  orderBy: { balance: "asc" }
-})`
-
-const relatedSearchCodeBlock = `// Related search 
-const orders = await OrderRepo.find({
-  where: {
-    sum: { $gt: 641 },
-    PRODUCT: {
-      brand: "Apple",
-      CATEGORY: {
-        title: "Accessories"
-      }
-    }
-  }
-})`
-
-//
-
-const transactionalAndSafeApiCodeBlock = `#!/bin/bash
-
-# Obtain a Transaction
-response=$(
-  curl -X POST 'https://api.collect.so/api/v1/tx' \\
-  -H 'Content-Type: application/json' \\
-  -H "Token: $API_TOKEN" \\
-  -d '{}'
-)
-
-# Extract an id from Transaction response
-TX_ID=$(echo "$response" | jq -r '.id')
-
-# Attach Transaction id to further requests
-curl 'https://api.collect.so/api/v1/...' \\
-  -H 'Content-Type: application/json' \\
-  -H "Token: $API_TOKEN" \\
-  -H "X-Transaction-Id: $TX_ID" \\
-  -d '...'
-  
-# Commit Transaction
-curl
-  -X POST "https://api.collect.so/api/v1/tx/$TX_ID/commit" \\
-  -H 'Content-Type: application/json' \\
-  -H "Token: $API_TOKEN" \\
-  -d '{}'
-`
-
-const transactionalAndSafeCodeBlock = `// Start Transaction
-const tx = await Collect.tx.begin() 
-
-try {
-  const order = await OrderRepo.create(
-    {...},
-    tx  // <-- Transaction
-  )
-  
-  const merchant = await MerchantRepo.findOne(
-    {...},
-    tx // <-- Transaction
-  )
-  
-  const { balance } = merchant.data
-  await merchant.update(
-    {
-      balance: balance + order.data.total
-    }, 
-    tx // <-- Transaction
-  )
-  
-  // Commit Transaction ✅
-  await tx.commit() 
-  
-} catch (error) {
-  
-  // Rollback Transaction if error occurred ❌
-  await tx.rollback() 
+const icons: Record<(typeof examples)[number], () => ReactNode> = {
+  Curl: () => <i className="devicon-bash-plain" />,
+  TS: () => <i className="devicon-typescript-plain" />,
+  Python: () => <i className="devicon-python-plain" />,
+  Java: () => <i className="devicon-java-plain" />,
+  Ruby: () => <i className="devicon-ruby-plain" />,
+  Go: () => <i className="devicon-go-original-wordmark" />,
+  Swift: () => <i className="devicon-swift-plain" />,
+  Rust: () => <i className="devicon-rust-original" />,
+  PHP: () => <i className="devicon-php-plain" />,
 }
-`
-
-//
-
-const deleteComplexApiCodeBlock = `curl 
-  -X DELETE 'https://api.collect.so/api/v1/records' \\
-  -H 'Content-Type: application/json' \\
-  -H "Token: $API_TOKEN" \\
-  -d '{
-    "labels": ["COMMENT"],
-    "where": {
-      "text": {
-        "$in": [ "^*%&#", "@#*%&#", "$#@&&%" ]
-      },
-      "USER": {
-        "email": "rude.troll@mail.com"
-      }
-    }
-  }'`
-
-const deleteComplexCodeBlock = `// Delete Records based on complex criteria 
-await CommentsRepo.delete({
-  where: {
-    text: {
-      $in: [ "^*%&#", "@#*%&#", "$#@&&%" ]
-    },
-    USER: {
-      email: "rude.troll@mail.com"
-    }
-  }
-})`
 
 const Option = ({
   className,
@@ -226,7 +70,7 @@ const Option = ({
   return (
     <button
       className={cx(
-        "px-5 h-[44px] rounded-xl transition-colors sm:px-0 sm:text-[14px]",
+        "flex p-2  gap-2 items-center rounded-xl transition-colors text-xl sm:text-lg",
         selected
           ? "bg-accent text-accent-contrast hover:bg-accent-hover font-semibold"
           : "text-content hover:bg-secondary font-medium",
@@ -239,24 +83,63 @@ const Option = ({
 
 // Every app starts with Create, Read, Update, Delete (CRUD). Collect lets you define and modify your data entries with ease. Just add your data, and start building from there.
 
-const scenarios = [
+const scenarios: {
+  title: string
+  description: string | ReactNode
+  subtitle: string | ReactNode
+  cta?: string | ReactNode
+  examples: Record<(typeof examples)[number], ReactNode>
+}[] = [
   {
-    title: "Whole API in a Single Line",
+    title: "Simple Setup",
     description:
-      "Obtain an API Token through the Dashboard and you're good to go. Optionally, define Models to benefit from automated type inference. Collect is designed to process data of any shape.",
+      "Get your API token from the dashboard, and you're all set! Collect is designed to process data of any shape.",
     subtitle: <Chip variant="purple">Setup</Chip>,
-    // cta: "Learn About Data Import",
     examples: {
-      Dashboard: <VideoBlock src="/videos/setup.mp4" />,
-      SDK: (
+      TS: (
         <CodeWrapper>
-          <CodeBlock code={initializeCodeBlock} />
-          <CodeBlock code={definingModelCodeBlock} />
+          <CodeBlock code={ts_1} />
+          <CodeBlock code={ts_1_1} />
         </CodeWrapper>
       ),
-      REST: (
+      Curl: (
         <CodeWrapper className="m-auto">
-          <CodeBlock language="bash" code={initializeApiCodeBlock} />
+          <CodeBlock language="bash" code={curl_1} />
+        </CodeWrapper>
+      ),
+      Go: (
+        <CodeWrapper className="m-auto">
+          <CodeBlock language="go" code={go_1} />
+        </CodeWrapper>
+      ),
+      Rust: (
+        <CodeWrapper className="m-auto">
+          <CodeBlock language="rust" code={rust_1} />
+        </CodeWrapper>
+      ),
+      Ruby: (
+        <CodeWrapper className="m-auto">
+          <CodeBlock language="ruby" code={ruby_1} />
+        </CodeWrapper>
+      ),
+      Python: (
+        <CodeWrapper className="m-auto">
+          <CodeBlock language="python" code={python_1} />
+        </CodeWrapper>
+      ),
+      PHP: (
+        <CodeWrapper className="m-auto">
+          <CodeBlock language="php" code={php_1} />
+        </CodeWrapper>
+      ),
+      Swift: (
+        <CodeWrapper className="m-auto">
+          <CodeBlock language="swift" code={swift_1} />
+        </CodeWrapper>
+      ),
+      Java: (
+        <CodeWrapper className="m-auto">
+          <CodeBlock language="java" code={java_1} />
         </CodeWrapper>
       ),
     },
@@ -266,24 +149,57 @@ const scenarios = [
     description:
       "Whether you're pushing a single Record or importing thousands of them, do it in milliseconds. Your data’s shape doesn’t constrain you because Collect adapts to it on the fly.",
     subtitle: <Chip variant="yellow">Create</Chip>,
-    // cta: "Learn About Data Import",
     examples: {
-      Dashboard: <VideoBlock src="/videos/create.mp4" />,
-      SDK: (
+      TS: (
         <CodeWrapper>
-          <CodeBlock code={createCodeBlock} />
-          <CodeBlock code={createManyCodeBlock} />
+          <CodeBlock code={ts_2} />
+          <CodeBlock code={ts_2_1} />
         </CodeWrapper>
       ),
-      REST: (
+      Curl: (
         <CodeWrapper>
-          <CodeBlock language="bash" code={createApiCodeBlock} />
+          <CodeBlock language="bash" code={curl_2} />
+        </CodeWrapper>
+      ),
+      Go: (
+        <CodeWrapper className="m-auto">
+          <CodeBlock language="go" code={go_2} />
+        </CodeWrapper>
+      ),
+      Rust: (
+        <CodeWrapper className="m-auto">
+          <CodeBlock language="rust" code={rust_2} />
+        </CodeWrapper>
+      ),
+      Ruby: (
+        <CodeWrapper className="m-auto">
+          <CodeBlock language="ruby" code={ruby_2} />
+        </CodeWrapper>
+      ),
+      Python: (
+        <CodeWrapper className="m-auto">
+          <CodeBlock language="python" code={python_2} />
+        </CodeWrapper>
+      ),
+      PHP: (
+        <CodeWrapper className="m-auto">
+          <CodeBlock language="php" code={php_2} />
+        </CodeWrapper>
+      ),
+      Swift: (
+        <CodeWrapper className="m-auto">
+          <CodeBlock language="swift" code={swift_2} />
+        </CodeWrapper>
+      ),
+      Java: (
+        <CodeWrapper className="m-auto">
+          <CodeBlock language="java" code={java_2} />
         </CodeWrapper>
       ),
     },
   },
   {
-    title: "Ultimately Powerful Search",
+    title: "Powerful Querying",
     description: (
       <>
         Precisely fetch any piece of data regardless of its complexity. Thanks
@@ -297,62 +213,51 @@ const scenarios = [
       </>
     ),
     subtitle: <Chip variant="green">Read</Chip>,
-    cta: "Explore Collect's Filtering System",
     examples: {
-      Dashboard: <VideoBlock src="/videos/search.mp4" />,
-      SDK: (
+      TS: (
         <CodeWrapper>
-          <CodeBlock code={basicSearchCodeBlock} />
-          <CodeBlock code={relatedSearchCodeBlock} />
+          <CodeBlock code={ts_3} />
+          <CodeBlock code={ts_3_1} />
         </CodeWrapper>
       ),
-      REST: (
+      Curl: (
         <CodeWrapper>
-          <CodeBlock language="bash" code={basicSearchApiCodeBlock} />
+          <CodeBlock language="bash" code={curl_3} />
         </CodeWrapper>
       ),
-    },
-  },
-  {
-    title: "Transactional & Safe",
-    description:
-      "For complex scenarios, Collect's transaction feature safeguards data’s consistency and reliability, making intricate updates straightforward and predictable.",
-    subtitle: <Chip variant="orange">Update</Chip>,
-    cta: "Master Updates & Transactions",
-    examples: {
-      Dashboard: (
-        <CodeWrapper className="aspect-[16/10] w-full bg-fill2 rounded-2xl grid place-content-center text-content3 text-lg">
-          Coming Soon
+      Go: (
+        <CodeWrapper className="m-auto">
+          <CodeBlock language="go" code={go_3} />
         </CodeWrapper>
       ),
-      SDK: (
-        <CodeWrapper>
-          <CodeBlock code={transactionalAndSafeCodeBlock} />
+      Rust: (
+        <CodeWrapper className="m-auto">
+          <CodeBlock language="rust" code={rust_3} />
         </CodeWrapper>
       ),
-      REST: (
-        <CodeWrapper>
-          <CodeBlock language="bash" code={transactionalAndSafeApiCodeBlock} />
+      Ruby: (
+        <CodeWrapper className="m-auto">
+          <CodeBlock language="ruby" code={ruby_3} />
         </CodeWrapper>
       ),
-    },
-  },
-  {
-    title: "Deleting is Not That Boring, Too",
-    description:
-      "Like most other operations, deletion also relies on the same API. It allows data to be wiped out precisely based on specific criteria.",
-    subtitle: <Chip variant="red">Delete</Chip>,
-    cta: "Explore Safe Deletion Practices",
-    examples: {
-      Dashboard: <VideoBlock src="/videos/delete.mp4" />,
-      SDK: (
-        <CodeWrapper>
-          <CodeBlock code={deleteComplexCodeBlock} />
+      Python: (
+        <CodeWrapper className="m-auto">
+          <CodeBlock language="python" code={python_3} />
         </CodeWrapper>
       ),
-      REST: (
-        <CodeWrapper>
-          <CodeBlock language="bash" code={deleteComplexApiCodeBlock} />
+      PHP: (
+        <CodeWrapper className="m-auto">
+          <CodeBlock language="php" code={php_3} />
+        </CodeWrapper>
+      ),
+      Swift: (
+        <CodeWrapper className="m-auto">
+          <CodeBlock language="swift" code={swift_3} />
+        </CodeWrapper>
+      ),
+      Java: (
+        <CodeWrapper className="m-auto">
+          <CodeBlock language="java" code={java_3} />
         </CodeWrapper>
       ),
     },
@@ -363,16 +268,18 @@ export function WorkflowSection() {
   const wrapperRef = useRef<HTMLDivElement>(null)
 
   const [currentExample, setCurrentExample] =
-    useState<(typeof examples)[number]>("REST")
+    useState<(typeof examples)[number]>("TS")
 
   return (
     <Section className="container">
       <SectionHeader className="text-center">
         <h3 className={cx("typography-3xl mb-0 md:text-2xl")}>
-          Integrates with{" "}
-          <span className="font-special text-[56px] md:text-[48px]">
-            anything
-          </span>
+          Integrates With{" "}
+          <i>
+            <span className="font-special text-[56px] md:text-[48px]">
+              Anything
+            </span>
+          </i>
         </h3>
         <SectionSubtitle className="m-auto max-w-4xl">
           Whether you've just started or are already working on something big,
@@ -393,24 +300,20 @@ export function WorkflowSection() {
             />
           ))}
         </div>
-
-        <div className="bottom-0 sticky pb-6 grid grid-cols-2 md:grid-cols-1">
-          <div className="bg-fill/40 backdrop-blur-sm shadow-2xl border border-stroke-dark p-1 rounded-2xl w-full col-start-2 grid grid-cols-3 md:col-start-1 sm:px-0">
-            {examples.map((example) => (
-              <Option
-                key={example}
-                onClick={() => {
-                  setCurrentExample(example)
-                  wrapperRef.current?.scrollIntoView({
-                    behavior: "smooth",
-                  })
-                }}
-                selected={example === currentExample}
-              >
-                {example}
-              </Option>
-            ))}
-          </div>
+      </div>
+      <div className="bottom-0 sticky pb-6 grid max-w-6xl m-auto md:max-w-fit md:w-fit ">
+        <div className="bg-fill/40 backdrop-blur-sm shadow-2xl border border-stroke-dark p-1 rounded-2xl w-full  flex md:col-start-1 sm:px-0">
+          {examples.map((example) => (
+            <Option
+              key={example}
+              onClick={() => {
+                setCurrentExample(example)
+              }}
+              selected={example === currentExample}
+            >
+              {icons[example]()}
+            </Option>
+          ))}
         </div>
       </div>
     </Section>

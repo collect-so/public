@@ -47,17 +47,17 @@ export const Hero = () => {
 
   return (
     <>
-      <div className="h-[70dvh] sm:hidden" aria-hidden ref={spacerRef} />
+      <div className="h-[90dvh] sm:hidden" aria-hidden ref={spacerRef} />
 
       <div className="flex">
         <motion.section
           className={cx(
-            "h-dvh grid items-center container pb-36 place-content-center fixed z-0 inset-0",
+            "h-dvh grid items-center container place-content-center fixed z-0 inset-0",
             "sm:place-content-start sm:pt-32 sm:pb-12 sm:static sm:h-auto sm:!opacity-100 md:!grid-cols-1",
           )}
           style={{ opacity }}
         >
-          <div className="z-0 text-center w-full items-center mb-16">
+          <div className="z-0 text-center w-full items-center mb-8">
             <h1
               role="heading"
               className={cx(
@@ -87,7 +87,7 @@ export const Hero = () => {
           </div>
           <div
             className={cx(
-              "flex items-center justify-center w-full mb-16 md:flex-col",
+              "flex items-center justify-center w-full md:flex-col mb-8",
             )}
           >
             <CodeBlock
@@ -95,7 +95,7 @@ export const Hero = () => {
               className="lg:w-fit grid place-content-center md:!m-0 md:!mt-10 md:w-full"
               preClassName="md:w-full border-2 border-content3"
             />
-            <div className="flex flex-col gap-28 text-content3 p-8 md:flex-row">
+            <div className="flex flex-col gap-28 text-content3 p-8 md:flex-row md:p-4">
               <ArrowRightIcon className="md:hidden" />
               <ArrowRightIcon className="md:hidden" />
               <ArrowRightIcon className="md:hidden" />
@@ -104,7 +104,7 @@ export const Hero = () => {
               <ArrowDownIcon className="hidden md:block" />
               <ArrowDownIcon className="hidden md:block" />
             </div>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center md:flex-row md:gap-6 sm:flex-col sm:gap-0">
               <div
                 className={"bg-[#131313] rounded-xl p-4 border-2 border-accent"}
               >
@@ -123,7 +123,7 @@ export const Hero = () => {
                 viewBox="0 0 12 60"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="text-accent scale-[1.3]"
+                className="text-accent scale-[1.3] md:rotate-90 sm:rotate-0"
               >
                 <path
                   d="M6 0.226497L0.226497 6L6 11.7735L11.7735 6L6 0.226497ZM6 59.7735L11.7735 54L6 48.2265L0.226495 54L6 59.7735ZM5 6L5 54L7 54L7 6L5 6Z"

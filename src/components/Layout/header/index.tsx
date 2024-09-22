@@ -83,7 +83,7 @@ function MobileMenu() {
                 duration: 0.15,
                 easing: "easeOut",
               }}
-              className="fixed z-20 top-0 bg-fill/90 w-full pt-16 pb-4 rounded-b-2xl shadow-lg backdrop-blur-sm"
+              className="fixed z-20 top-0 bg-fill/90 w-full pt-24 pb-4 rounded-b-2xl shadow-lg backdrop-blur-sm"
             >
               <div className="container divide-y">
                 <MenuItem href={links.pricing}>Pricing</MenuItem>

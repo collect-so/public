@@ -55,7 +55,14 @@ export function CommunitySection() {
   return (
     <Section className="container">
       <SectionHeader className="text-center m-auto max-w-4xl">
-        <SectionTitle>Join the Community</SectionTitle>
+        <h3 className={cx("typography-3xl mb-0 md:text-2xl")}>
+          Join the{" "}
+          <i>
+            <span className="font-special text-[56px] md:text-[48px]">
+              Community
+            </span>
+          </i>
+        </h3>
         <SectionSubtitle>
           New functionalities in Collect are inspired by the real-world needs of
           our users. Have a suggestion? Let us know. Your input could spark our
