@@ -75,6 +75,11 @@ function PricingCard({
         <p className="mb-3 text-content2">{description}</p>
 
         <div className="grid w-full">{action}</div>
+        {price !== "free" && price !== undefined ? (
+          <p className="text-content3 mt-1 text-sm">No credit card required</p>
+        ) : (
+          <p className="mt-1 text-xs text-transparent select-none">-</p>
+        )}
 
         <ul className="flex flex-col w-full mt-5 divide-y">{children}</ul>
       </div>
@@ -120,8 +125,8 @@ export function Pricing() {
                 </Button>
               }
             >
-              <Feat title="2 projects" />
-              <Feat title="1000 Records" />
+              <Feat title="2 Projects" />
+              <Feat title="1 000 Records" />
               <Feat title="Unlimited API Requests" subtitle="Up to 10 RPS" />
               <Feat title="Community Support" />
             </PricingCard>
@@ -137,17 +142,18 @@ export function Pricing() {
                   as={Link}
                   href={links.app}
                 >
-                  Start Building
+                  Start for Free
                   <ArrowUpRight />
                 </Button>
               }
             >
               <Feat title="Unlimited Projects" />
               <Feat
-                title="100.000 Records"
-                subtitle="then $1 per 10.000 Records"
+                title="100 000 Records"
+                // subtitle="then $1 per 10 000 Records"
+                subtitle="No upper limits or charges in technical preview"
               />
-              <Feat title="Unlimited API Requests" subtitle="No RPS Limits" />
+              <Feat title="Unlimited API Requests" subtitle="No RPS limits" />
               <Feat title="Priority Support" />
             </PricingCard>
             <PricingCard
@@ -168,8 +174,8 @@ export function Pricing() {
               <Feat title="Unlimited Everything" />
               <Feat title="White Labeling & Customizations" />
               <Feat
-                title="On-premises Deployment"
-                subtitle="Lifetime Updates on Demand"
+                title="On-Premises Deployment"
+                subtitle="Lifetime updates on demand"
               />
               <Feat title="Dedicated Support" />
             </PricingCard>
