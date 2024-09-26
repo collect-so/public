@@ -41,11 +41,12 @@ export const getPost = (
 
   const fileName = filePathToFileName(filePath)
 
-  const fileStats = fs.statSync(filePath)
-
   return {
     content,
-    data: { ...data, date: dateFormatter.format(fileStats.birthtime) },
+    data: {
+      ...data,
+      date: data.date ? dateFormatter.format(new Date(data.date)) : "",
+    },
     slug: fileName,
   }
 }
